@@ -17,6 +17,7 @@
         .auto-style3 {
             text-align: center;
             font-size: x-large;
+            height: 30px;
         }
         .auto-style4 {
             text-align: center;
@@ -39,12 +40,23 @@
                 </tr>
                 <tr>
                     <td class="auto-style4">
-                        <asp:HyperLink ID="hlTurnosyPacientes" runat="server">Turnos y Pacientes</asp:HyperLink>
+                        <asp:Label ID="lblTurnos" runat="server" Text="Turnos"></asp:Label>
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style2">
-                        <asp:HyperLink ID="hlCambiarContraseña" runat="server">Cambiar Contraseña</asp:HyperLink>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:GridView ID="grvTurnos" runat="server" AutoGenerateColumns="False" Width="632px">
+                            <Columns>
+                                <asp:TemplateField HeaderText="Turno"></asp:TemplateField>
+                                <asp:TemplateField HeaderText="Paciente"></asp:TemplateField>
+                                <asp:TemplateField HeaderText="Presentismo">
+                                    <ItemTemplate>
+                                        <asp:CheckBox ID="ChkBoxPresente" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="Presente" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
                     </td>
                 </tr>
             </table>

@@ -29,7 +29,9 @@
         <div>
             <table class="auto-style3">
                 <tr>
-                    <td class="auto-style2">&nbsp;</td>
+                    <td class="auto-style2">
+                        <asp:Label ID="lblUsuario" runat="server"></asp:Label>
+                    </td>
                     <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Menú Administrador</strong></td>
                     <td>&nbsp;</td>
                 </tr>

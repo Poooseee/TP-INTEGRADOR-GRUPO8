@@ -33,22 +33,22 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label lblUsuario;
 
         /// <summary>
-        /// Control hlTurnosyPacientes.
+        /// Control lblTurnos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlTurnosyPacientes;
+        protected global::System.Web.UI.WebControls.Label lblTurnos;
 
         /// <summary>
-        /// Control hlCambiarContraseña.
+        /// Control grvTurnos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlCambiarContraseña;
+        protected global::System.Web.UI.WebControls.GridView grvTurnos;
 
         /// <summary>
         /// Control hlCerrarSesion.
