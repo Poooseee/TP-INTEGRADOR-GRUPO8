@@ -70,6 +70,7 @@
     <Content Include="asignacionTurnos.aspx" />
     <Content Include="login.aspx" />
     <Content Include="Web.config" />
+    <Content Include="menuAdministrador.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="asignacionTurnos.aspx.cs">
@@ -87,6 +88,13 @@
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="menuAdministrador.aspx.cs">
+      <DependentUpon>menuAdministrador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="menuAdministrador.aspx.designer.cs">
+      <DependentUpon>menuAdministrador.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
