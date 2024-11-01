@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Administrador\ABML Paciente\AltaPaciente.aspx" />
+    <Content Include="Administrador\ABML Paciente\ModificarPacientes.aspx" />
     <Content Include="Administrador\ABML Paciente\SubMenuPaciente.aspx" />
     <Content Include="Administrador\asignacionTurnos.aspx" />
     <Content Include="login.aspx" />
@@ -82,6 +83,13 @@
     </Compile>
     <Compile Include="Administrador\ABML Paciente\AltaPaciente.aspx.designer.cs">
       <DependentUpon>AltaPaciente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\ABML Paciente\ModificarPacientes.aspx.cs">
+      <DependentUpon>ModificarPacientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\ABML Paciente\ModificarPacientes.aspx.designer.cs">
+      <DependentUpon>ModificarPacientes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administrador\ABML Paciente\SubMenuPaciente.aspx.cs">
       <DependentUpon>SubMenuPaciente.aspx</DependentUpon>
