@@ -6,14 +6,26 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            margin-left: 254px;
+        }
+        .auto-style2 {
+            font-size: x-large;
+        }
+        .auto-style3 {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <p>
-        <br />
+    <p class="auto-style3">
+        <strong><span class="auto-style2">Modificar Paciente</span><br class="auto-style2" />
+        </strong>
     </p>
     <form id="form1" runat="server">
         <div>
-            <asp:GridView ID="grdPacientes" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True" OnRowEditing="GridView1_RowEditing">
+            <asp:GridView ID="grdPacientes" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True" CssClass="auto-style1" OnRowEditing="GridView1_RowEditing">
                 <Columns>
                     <asp:TemplateField HeaderText="Nombre">
                         <EditItemTemplate>
