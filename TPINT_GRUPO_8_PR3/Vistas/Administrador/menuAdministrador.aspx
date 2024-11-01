@@ -31,6 +31,7 @@
                 <tr>
                     <td class="auto-style2">
                         <asp:Label ID="lblUsuario" runat="server"></asp:Label>
+                    &nbsp;<asp:Label ID="Label1" runat="server" Text="~ Administrador"></asp:Label>
                     </td>
                     <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Menú Administrador</strong></td>
                     <td>&nbsp;</td>

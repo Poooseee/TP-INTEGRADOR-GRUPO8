@@ -31,7 +31,6 @@
 <body>
     <form id="form1" runat="server">
         <div class="auto-style2">
-&nbsp;&nbsp;
             <asp:Label ID="lblUsuario" runat="server"></asp:Label>
 &nbsp;<br />
             <table class="auto-style1">

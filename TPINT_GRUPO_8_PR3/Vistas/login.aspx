@@ -51,15 +51,15 @@
                     <td class="auto-style3">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style8">Legajo</td>
+                    <td class="auto-style8">Nombre de Usuario</td>
                     <td class="auto-style4">&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style9">
-                        <asp:TextBox ID="txtDni" runat="server" Height="23px" Width="160px"></asp:TextBox>
+                        <asp:TextBox ID="txtUsuario" runat="server" Height="23px" Width="160px"></asp:TextBox>
                         &nbsp;</td>
                     <td class="auto-style6">
-                        <asp:CustomValidator ID="cvLegajo" runat="server" ControlToValidate="txtDni" ForeColor="Red" OnServerValidate="cvInicioSesion_ServerValidate" ValidationGroup="logeo"></asp:CustomValidator>
+                        <asp:CustomValidator ID="cvUsuario" runat="server" ControlToValidate="txtDni" ForeColor="Red" OnServerValidate="cvInicioSesion_ServerValidate" ValidationGroup="logeo"></asp:CustomValidator>
                     </td>
                 </tr>
                 <tr>

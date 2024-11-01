@@ -25,3 +25,12 @@ C:\Users\USURIO\OneDrive\Escritorio\Programacion III\TPs Grupales\TP-INTEGRADOR-
 C:\Users\USURIO\OneDrive\Escritorio\Programacion III\TPs Grupales\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\obj\Debug\DAO.csproj.Up2Date
 C:\Users\USURIO\OneDrive\Escritorio\Programacion III\TPs Grupales\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\obj\Debug\DAO.dll
 C:\Users\USURIO\OneDrive\Escritorio\Programacion III\TPs Grupales\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\obj\Debug\DAO.pdb
+C:\Users\alejo\OneDrive\Documentos\GitHub\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\bin\Debug\DAO.dll
+C:\Users\alejo\OneDrive\Documentos\GitHub\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\bin\Debug\DAO.pdb
+C:\Users\alejo\OneDrive\Documentos\GitHub\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\bin\Debug\Entidades.dll
+C:\Users\alejo\OneDrive\Documentos\GitHub\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\bin\Debug\Entidades.pdb
+C:\Users\alejo\OneDrive\Documentos\GitHub\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\obj\Debug\DAO.csproj.AssemblyReference.cache
+C:\Users\alejo\OneDrive\Documentos\GitHub\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
+C:\Users\alejo\OneDrive\Documentos\GitHub\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\obj\Debug\DAO.csproj.Up2Date
+C:\Users\alejo\OneDrive\Documentos\GitHub\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\obj\Debug\DAO.dll
+C:\Users\alejo\OneDrive\Documentos\GitHub\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\obj\Debug\DAO.pdb
