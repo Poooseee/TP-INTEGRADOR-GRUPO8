@@ -13,5 +13,15 @@ namespace Vistas
         {
 
         }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void grvTurnos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

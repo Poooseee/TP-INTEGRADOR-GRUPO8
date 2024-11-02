@@ -58,6 +58,10 @@
                         </asp:GridView>
                     </td>
                 </tr>
+                <tr>
+                    <td class="auto-style2">
+                        &nbsp;</td>
+                </tr>
             </table>
         <div class="auto-style5">
             <asp:HyperLink ID="hlCerrarSesion" runat="server" NavigateUrl="~/login.aspx">Cerrar Sesion</asp:HyperLink>
