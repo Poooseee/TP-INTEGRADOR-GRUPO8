@@ -26,6 +26,15 @@
         .auto-style5 {
             text-align: left;
         }
+        .auto-style6 {
+            width: 100%;
+        }
+        .auto-style8 {
+            width: 606px;
+        }
+        .auto-style9 {
+            width: 129px;
+        }
     </style>
 </head>
 <body>
@@ -43,9 +52,24 @@
                     </td>
                 </tr>
                 <tr>
+                    <td class="auto-style5">
+                        <table class="auto-style6">
+                            <tr>
+                                <td class="auto-style9">Filtrar por Paciente:</td>
+                                <td class="auto-style8">
+                                    <asp:TextBox ID="txtPaciente" runat="server"></asp:TextBox>
+                                </td>
+                                <td>
+                                    <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" />
+                                </td>
+                            </tr>
+                        </table>
+&nbsp;&nbsp;&nbsp; </td>
+                </tr>
+                <tr>
                     <td class="auto-style2">
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:GridView ID="grvTurnos" runat="server" AutoGenerateColumns="False" Width="632px">
+                        <asp:GridView ID="grvTurnos" runat="server" AutoGenerateColumns="False" Width="632px" OnSelectedIndexChanged="grvTurnos_SelectedIndexChanged">
                             <Columns>
                                 <asp:TemplateField HeaderText="Turno"></asp:TemplateField>
                                 <asp:TemplateField HeaderText="Paciente"></asp:TemplateField>

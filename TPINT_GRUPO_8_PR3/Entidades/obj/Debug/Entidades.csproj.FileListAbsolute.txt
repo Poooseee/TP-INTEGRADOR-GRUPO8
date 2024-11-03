@@ -22,3 +22,9 @@ C:\Users\alejo\OneDrive\Documentos\GitHub\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3
 C:\Users\alejo\OneDrive\Documentos\GitHub\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
 C:\Users\alejo\OneDrive\Documentos\GitHub\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Entidades\obj\Debug\Entidades.dll
 C:\Users\alejo\OneDrive\Documentos\GitHub\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Entidades\obj\Debug\Entidades.pdb
+C:\Users\Administrator\Downloads\TP_INT_GRUPO_8\TPINT_GRUPO_8_PR3\Entidades\bin\Debug\Entidades.dll
+C:\Users\Administrator\Downloads\TP_INT_GRUPO_8\TPINT_GRUPO_8_PR3\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Administrator\Downloads\TP_INT_GRUPO_8\TPINT_GRUPO_8_PR3\Entidades\obj\Debug\Entidades.csproj.AssemblyReference.cache
+C:\Users\Administrator\Downloads\TP_INT_GRUPO_8\TPINT_GRUPO_8_PR3\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Downloads\TP_INT_GRUPO_8\TPINT_GRUPO_8_PR3\Entidades\obj\Debug\Entidades.dll
+C:\Users\Administrator\Downloads\TP_INT_GRUPO_8\TPINT_GRUPO_8_PR3\Entidades\obj\Debug\Entidades.pdb

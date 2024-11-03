@@ -13,16 +13,34 @@
         .auto-style2 {
             margin-left: 160px;
         }
+        .auto-style3 {
+            width: 100%;
+        }
+        .auto-style4 {
+            width: 83px;
+        }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div class="auto-style2">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Label ID="lblUsuario" runat="server"></asp:Label>
+                    &nbsp;<asp:Label ID="Label2" runat="server" Text="~ Administrador"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
             <asp:Label ID="Label1" runat="server" Font-Size="X-Large" Font-Underline="True" Text="Asignacion De Turnos"></asp:Label>
             <br />
             <br />
         <div>
+            <table class="auto-style3">
+                <tr>
+                    <td class="auto-style4">Especialidad:</td>
+                    <td>
+                        <asp:DropDownList ID="ddlEspecialidad" runat="server">
+                            <asp:ListItem>--Seleccionar--</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                </tr>
+            </table>
         </div>
             <asp:GridView ID="grvTurnos" runat="server" AutoGenerateColumns="False" Width="436px" HorizontalAlign="Left" OnSelectedIndexChanged="grvTurnos_SelectedIndexChanged">
                 <Columns>

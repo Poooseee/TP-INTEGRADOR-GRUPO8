@@ -18,5 +18,10 @@ namespace Vistas
         {
 
         }
+
+        protected void grvTurnos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
