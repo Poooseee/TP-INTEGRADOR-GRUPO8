@@ -67,7 +67,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administrador\ABML Medico\AltaMedico.aspx" />
+    <Content Include="Administrador\ABML Medico\EliminarMedico.aspx" />
+    <Content Include="Administrador\ABML Medico\SubMenuMedico.aspx" />
     <Content Include="Administrador\ABML Paciente\AltaPaciente.aspx" />
+    <Content Include="Administrador\ABML Paciente\EliminarPaciente.aspx" />
     <Content Include="Administrador\ABML Paciente\ModificarPacientes.aspx" />
     <Content Include="Administrador\ABML Paciente\SubMenuPaciente.aspx" />
     <Content Include="Administrador\asignacionTurnos.aspx" />
@@ -77,12 +81,40 @@
     <Content Include="Administrador\menuAdministrador.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administrador\ABML Medico\AltaMedico.aspx.cs">
+      <DependentUpon>AltaMedico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\ABML Medico\AltaMedico.aspx.designer.cs">
+      <DependentUpon>AltaMedico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\ABML Medico\EliminarMedico.aspx.cs">
+      <DependentUpon>EliminarMedico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\ABML Medico\EliminarMedico.aspx.designer.cs">
+      <DependentUpon>EliminarMedico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\ABML Medico\SubMenuMedico.aspx.cs">
+      <DependentUpon>SubMenuMedico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\ABML Medico\SubMenuMedico.aspx.designer.cs">
+      <DependentUpon>SubMenuMedico.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\ABML Paciente\AltaPaciente.aspx.cs">
       <DependentUpon>AltaPaciente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Administrador\ABML Paciente\AltaPaciente.aspx.designer.cs">
       <DependentUpon>AltaPaciente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\ABML Paciente\EliminarPaciente.aspx.cs">
+      <DependentUpon>EliminarPaciente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\ABML Paciente\EliminarPaciente.aspx.designer.cs">
+      <DependentUpon>EliminarPaciente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administrador\ABML Paciente\ModificarPacientes.aspx.cs">
       <DependentUpon>ModificarPacientes.aspx</DependentUpon>
