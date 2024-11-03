@@ -10,35 +10,38 @@
         .auto-style1 {
             height: 150px;
         }
+        .auto-style2 {
+            margin-left: 160px;
+        }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div class="auto-style2">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label1" runat="server" Font-Size="X-Large" Font-Underline="True" Text="Asignacion De Turnos"></asp:Label>
             <br />
-        <div>
+            <br />
         <div>
         </div>
-        </div>
+            <asp:GridView ID="grvTurnos" runat="server" AutoGenerateColumns="False" Width="436px" HorizontalAlign="Left" OnSelectedIndexChanged="grvTurnos_SelectedIndexChanged">
+                <Columns>
+                    <asp:TemplateField HeaderText="Turnos"></asp:TemplateField>
+                    <asp:TemplateField HeaderText="Horarios"></asp:TemplateField>
+                </Columns>
+            </asp:GridView>
+            <asp:GridView ID="grvTurnos0" runat="server" AutoGenerateColumns="False" Width="253px" HorizontalAlign="Center" OnSelectedIndexChanged="grvTurnos_SelectedIndexChanged" Height="118px">
+                <Columns>
+                    <asp:TemplateField HeaderText="Medicos Disponibles"></asp:TemplateField>
+                </Columns>
+            </asp:GridView>
         </div>
         <div class="auto-style1">
-                        <asp:GridView ID="grvTurnos" runat="server" AutoGenerateColumns="False" Width="436px" HorizontalAlign="Left" OnSelectedIndexChanged="grvTurnos_SelectedIndexChanged">
-                            <Columns>
-                                <asp:TemplateField HeaderText="Turnos"></asp:TemplateField>
-                                <asp:TemplateField HeaderText="Medicos"></asp:TemplateField>
-                                <asp:BoundField HeaderText="Especialidad" ReadOnly="True" />
-                            </Columns>
-                        </asp:GridView>
-        </div>
-        <div class="auto-style1">
-                        <asp:GridView ID="grvTurnos0" runat="server" AutoGenerateColumns="False" Width="436px" HorizontalAlign="Left" OnSelectedIndexChanged="grvTurnos_SelectedIndexChanged">
-                            <Columns>
-                                <asp:TemplateField HeaderText="Medicos"></asp:TemplateField>
-                                <asp:BoundField HeaderText="Horarios" ReadOnly="True" />
-                            </Columns>
-                        </asp:GridView>
+                        <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="BtnAsignar" runat="server" Height="26px" Text="Asignar" Width="138px" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="BtnReset" runat="server" Height="26px" Text="Resetear" Width="138px" />
         </div>
     </form>
 </body>
