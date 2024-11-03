@@ -13,5 +13,10 @@ namespace Vistas.Administrador.ABML_Paciente
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

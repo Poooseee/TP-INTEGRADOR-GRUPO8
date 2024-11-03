@@ -36,7 +36,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style2">&nbsp;</td>
+                    <td class="auto-style2">
+                        <asp:HyperLink ID="hpVolver" runat="server" NavigateUrl="~/Administrador/ABML Paciente/SubMenuPaciente.aspx">Volver</asp:HyperLink>
+                    </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
@@ -74,6 +76,16 @@
                     <td>
                         <asp:Button ID="btnListarMedico" runat="server" Text="Listar Medicos" Width="120px" />
                     </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">&nbsp;</td>
+                    <td>
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">&nbsp;</td>
+                    <td>
+                        &nbsp;</td>
                 </tr>
             </table>
         </div>
