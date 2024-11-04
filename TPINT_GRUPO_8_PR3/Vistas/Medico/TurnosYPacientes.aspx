@@ -42,7 +42,6 @@
         <div class="auto-style2">
                         <asp:Label ID="lblUsuario" runat="server"></asp:Label>
                     <asp:Label ID="Label2" runat="server" Text="~ Médico"></asp:Label>
-                        <asp:HyperLink ID="hpVolver" runat="server" NavigateUrl="~/login.aspx">Volver</asp:HyperLink>
 &nbsp;<br />
             <table class="auto-style1">
                 <tr>
