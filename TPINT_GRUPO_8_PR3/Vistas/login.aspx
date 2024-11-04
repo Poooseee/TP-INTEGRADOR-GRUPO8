@@ -59,7 +59,7 @@
                         <asp:TextBox ID="txtUsuario" runat="server" Height="23px" Width="160px"></asp:TextBox>
                         &nbsp;</td>
                     <td class="auto-style6">
-                        <asp:CustomValidator ID="cvUsuario" runat="server" ControlToValidate="txtDni" ForeColor="Red" OnServerValidate="cvInicioSesion_ServerValidate" ValidationGroup="logeo"></asp:CustomValidator>
+                        <asp:CustomValidator ID="cvUsuario" runat="server" ControlToValidate="txtUsuario" ForeColor="Red" OnServerValidate="cvInicioSesion_ServerValidate" ValidationGroup="logeo"></asp:CustomValidator>
                     </td>
                 </tr>
                 <tr>

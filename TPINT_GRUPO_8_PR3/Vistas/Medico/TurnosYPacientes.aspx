@@ -74,6 +74,8 @@
                         <asp:GridView ID="grvTurnos" runat="server" AutoGenerateColumns="False" Width="632px" OnSelectedIndexChanged="grvTurnos_SelectedIndexChanged">
                             <Columns>
                                 <asp:TemplateField HeaderText="Turno"></asp:TemplateField>
+                                <asp:TemplateField HeaderText="Fecha"></asp:TemplateField>
+                                <asp:TemplateField HeaderText="Hora"></asp:TemplateField>
                                 <asp:TemplateField HeaderText="Paciente"></asp:TemplateField>
                                 <asp:TemplateField HeaderText="Presentismo">
                                     <ItemTemplate>

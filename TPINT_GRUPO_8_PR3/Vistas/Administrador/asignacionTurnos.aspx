@@ -47,6 +47,23 @@
         .auto-style12 {
             margin-left: 120px;
         }
+        .auto-style13 {
+            width: 72%;
+            margin-left: 120px;
+            margin-right: 100px;
+        }
+        .auto-style16 {
+            width: 83px;
+        }
+        .auto-style17 {
+            width: 146px;
+        }
+        .auto-style18 {
+            width: 80px;
+        }
+        .auto-style19 {
+            width: 127px;
+        }
     </style>
 </head>
 <body>
@@ -72,7 +89,8 @@
                     <td class="auto-style6">
                         Médico:</td>
                     <td class="auto-style7">
-                        <asp:TextBox ID="txtMedico" runat="server" Width="145px"></asp:TextBox>
+                        <asp:DropDownList ID="ddlDia0" runat="server" Height="16px" Width="114px">
+                        </asp:DropDownList>
                     </td>
                     <td class="auto-style8">
                         Día:</td>
@@ -91,21 +109,59 @@
         </div>
         </div>
         <p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Turnos Disponibles&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </p>
         <p class="auto-style12">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:GridView ID="gvTurnos" runat="server" AutoGenerateColumns="False" Width="916px" AutoGenerateEditButton="True">
+            <asp:GridView ID="gvTurnos" runat="server" AutoGenerateColumns="False" Width="916px" AutoGenerateEditButton="True" AutoGenerateSelectButton="True">
                 <Columns>
                     <asp:BoundField HeaderText="Fecha" />
                     <asp:BoundField HeaderText="Horario" />
                     <asp:BoundField HeaderText="Especialidad" />
                     <asp:BoundField HeaderText="Médico" />
-                    <asp:BoundField HeaderText="Nombre de Paciente" />
-                    <asp:BoundField HeaderText="DNI de Paciente" />
                 </Columns>
             </asp:GridView>
         </p>
+        <table class="auto-style13">
+            <tr>
+                <td class="auto-style19">Especialidad:</td>
+                <td class="auto-style18">
+                    <asp:Label ID="lblEspecialidad" runat="server"></asp:Label>
+                </td>
+                <td class="auto-style16">Medico:</td>
+                <td aria-grabbed="undefined" class="auto-style17">
+                    <asp:Label ID="lblMedico" runat="server"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style19">Día:</td>
+                <td class="auto-style18">
+                    <asp:Label ID="lblDia" runat="server"></asp:Label>
+                </td>
+                <td class="auto-style16">Horario: </td>
+                <td class="auto-style17">
+                    <asp:Label ID="lblHorario" runat="server"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style19">Nombre Paciente:</td>
+                <td class="auto-style18">
+                    <asp:TextBox ID="txtNombrePaciente" runat="server"></asp:TextBox>
+                </td>
+                <td class="auto-style16">Dni Paciente:</td>
+                <td class="auto-style17">
+                    <asp:TextBox ID="txtDniPaciente" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style19">
+                    <asp:Button ID="btnAgregar" runat="server" Text="Agregar" />
+                </td>
+                <td class="auto-style18">&nbsp;</td>
+                <td class="auto-style16">&nbsp;</td>
+                <td class="auto-style17">&nbsp;</td>
+            </tr>
+        </table>
     </form>
 </body>
 </html>
