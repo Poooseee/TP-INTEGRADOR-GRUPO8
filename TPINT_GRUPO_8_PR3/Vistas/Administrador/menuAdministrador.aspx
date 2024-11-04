@@ -44,7 +44,7 @@
                 <tr>
                     <td class="auto-style6"></td>
                     <td class="auto-style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="btnPacientes" runat="server" Text="Pacientes" Width="120px" />
+                        <asp:Button ID="btnPacientes" runat="server" Text="Pacientes" Width="120px" OnClick="btnPacientes_Click" />
                     </td>
                     <td class="auto-style7"></td>
                 </tr>
@@ -56,7 +56,7 @@
                 <tr>
                     <td class="auto-style6"></td>
                     <td class="auto-style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="btnMedicos" runat="server" Text="Médicos" Width="120px" />
+                        <asp:Button ID="btnMedicos" runat="server" Text="Médicos" Width="120px" OnClick="btnMedicos_Click" />
                     </td>
                     <td class="auto-style7"></td>
                 </tr>
@@ -68,7 +68,7 @@
                 <tr>
                     <td class="auto-style6"></td>
                     <td class="auto-style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="btnTurnos" runat="server" Text="Asignar Turnos" Width="120px" />
+                        <asp:Button ID="btnTurnos" runat="server" Text="Asignar Turnos" Width="120px" OnClick="btnTurnos_Click" />
                     </td>
                     <td class="auto-style7"></td>
                 </tr>
@@ -80,7 +80,7 @@
                 <tr>
                     <td class="auto-style6"></td>
                     <td class="auto-style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="btnInformes" runat="server" Text="Informes" Width="120px" />
+                        <asp:Button ID="btnInformes" runat="server" Text="Informes" Width="120px" OnClick="btnInformes_Click" />
                     </td>
                     <td class="auto-style7"></td>
                 </tr>

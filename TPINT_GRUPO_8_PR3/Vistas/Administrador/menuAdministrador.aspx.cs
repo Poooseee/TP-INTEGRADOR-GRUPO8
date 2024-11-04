@@ -13,5 +13,25 @@ namespace Vistas
         {
 
         }
+
+        protected void btnPacientes_Click(object sender, EventArgs e)
+        {
+            Server.TransferRequest("ABMLPaciente.aspx");
+        }
+
+        protected void btnMedicos_Click(object sender, EventArgs e)
+        {
+            Server.TransferRequest("ABMLMedico.aspx");
+        }
+
+        protected void btnTurnos_Click(object sender, EventArgs e)
+        {
+            Server.TransferRequest("asignacionTurnos.aspx");
+        }
+
+        protected void btnInformes_Click(object sender, EventArgs e)
+        {
+            Server.TransferRequest("Informes.aspx");
+        }
     }
 }
