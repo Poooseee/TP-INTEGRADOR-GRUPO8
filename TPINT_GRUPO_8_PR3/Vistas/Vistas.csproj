@@ -70,6 +70,7 @@
     <Content Include="Administrador\ABML Paciente.aspx" />
     <Content Include="Administrador\asignacionTurnos.aspx" />
     <Content Include="Administrador\ABMLMedico.aspx" />
+    <Content Include="Administrador\Informes.aspx" />
     <Content Include="login.aspx" />
     <Content Include="Medico\TurnosYPacientes.aspx" />
     <Content Include="Web.config" />
@@ -96,6 +97,13 @@
     </Compile>
     <Compile Include="Administrador\ABMLMedico.aspx.designer.cs">
       <DependentUpon>ABMLMedico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\Informes.aspx.cs">
+      <DependentUpon>Informes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\Informes.aspx.designer.cs">
+      <DependentUpon>Informes.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
