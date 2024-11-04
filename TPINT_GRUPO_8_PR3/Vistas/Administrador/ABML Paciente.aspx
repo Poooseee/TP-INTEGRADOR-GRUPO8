@@ -32,7 +32,10 @@
     <form id="form1" runat="server">
         <div class="auto-style1">
             <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong>
-            <asp:Label ID="lblUsuario" runat="server" CssClass="auto-style6"></asp:Label>
+                        <asp:Label ID="lblUsuario" runat="server"></asp:Label>
+                    <asp:Label ID="Label2" runat="server" Text="~ Administrador"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;
+                        <asp:HyperLink ID="hpVolver" runat="server" NavigateUrl="~/Administrador/menuAdministrador.aspx">Volver</asp:HyperLink>
             <strong>&nbsp;&nbsp;</strong></div>
         <p class="auto-style2">
             <strong>Agregar Paciente</strong></p>
@@ -44,13 +47,13 @@
                         <asp:TextBox ID="txtDni" runat="server" CssClass="auto-style3" Width="139px"></asp:TextBox>
                         &nbsp;<span class="auto-style3"><asp:RequiredFieldValidator ID="rfvDni" runat="server" ControlToValidate="txtDni" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
                     </td>
-                    <td>NOMBRE:</span></td>
+                    <td class="auto-style3">NOMBRE:</span></td>
                     <td>
                         <asp:TextBox ID="txtNombre" runat="server" CssClass="auto-style3" Width="135px"></asp:TextBox>
                         <span class="auto-style3">
                         <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ControlToValidate="txtNombre" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
                     </td>
-                    <td>APELLIDO:</span></td>
+                    <td class="auto-style3">APELLIDO:</span></td>
                     <td>
                         <asp:TextBox ID="txtApellido" runat="server" CssClass="auto-style3" Width="132px"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtApellido" CssClass="auto-style3" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
@@ -85,7 +88,7 @@
                         <span class="auto-style3">
                         <asp:RequiredFieldValidator ID="rfvProvincia" runat="server" ControlToValidate="ddlProvincia" ForeColor="Red" InitialValue="0" ValidationGroup="1">*</asp:RequiredFieldValidator>
                     </td>
-                    <td>LOCALIDAD:</span></td>
+                    <td class="auto-style3">LOCALIDAD:</span></td>
                     <td>
                         <asp:DropDownList ID="ddlLocalidad" runat="server" CssClass="auto-style3" Height="30px" Width="154px">
                         </asp:DropDownList>

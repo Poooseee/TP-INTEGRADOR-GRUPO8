@@ -64,3 +64,14 @@ C:\Users\Administrator\Downloads\TP_INT_GRUPO_8\TPINT_GRUPO_8_PR3\Negocio\obj\De
 C:\Users\Administrator\Downloads\TP_INT_GRUPO_8\TPINT_GRUPO_8_PR3\Negocio\obj\Debug\Negocio.csproj.Up2Date
 C:\Users\Administrator\Downloads\TP_INT_GRUPO_8\TPINT_GRUPO_8_PR3\Negocio\obj\Debug\Negocio.dll
 C:\Users\Administrator\Downloads\TP_INT_GRUPO_8\TPINT_GRUPO_8_PR3\Negocio\obj\Debug\Negocio.pdb
+D:\PC\Desktop\UTN\Programación 3\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Negocio\bin\Debug\Negocio.dll
+D:\PC\Desktop\UTN\Programación 3\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Negocio\bin\Debug\Negocio.pdb
+D:\PC\Desktop\UTN\Programación 3\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Negocio\bin\Debug\DAO.dll
+D:\PC\Desktop\UTN\Programación 3\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Negocio\bin\Debug\Entidades.dll
+D:\PC\Desktop\UTN\Programación 3\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Negocio\bin\Debug\DAO.pdb
+D:\PC\Desktop\UTN\Programación 3\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Negocio\bin\Debug\Entidades.pdb
+D:\PC\Desktop\UTN\Programación 3\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Negocio\obj\Debug\Negocio.csproj.AssemblyReference.cache
+D:\PC\Desktop\UTN\Programación 3\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+D:\PC\Desktop\UTN\Programación 3\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Negocio\obj\Debug\Negocio.csproj.Up2Date
+D:\PC\Desktop\UTN\Programación 3\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Negocio\obj\Debug\Negocio.dll
+D:\PC\Desktop\UTN\Programación 3\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Negocio\obj\Debug\Negocio.pdb

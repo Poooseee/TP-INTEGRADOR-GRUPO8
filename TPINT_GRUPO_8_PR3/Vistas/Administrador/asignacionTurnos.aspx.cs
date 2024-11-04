@@ -23,5 +23,10 @@ namespace Vistas
         {
 
         }
+
+        protected void grdPacientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

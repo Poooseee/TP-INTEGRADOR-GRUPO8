@@ -69,39 +69,39 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.DropDownList ddlEspecialidad;
 
         /// <summary>
-        /// Control grvTurnos.
+        /// Control txtMedico.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grvTurnos;
+        protected global::System.Web.UI.WebControls.TextBox txtMedico;
 
         /// <summary>
-        /// Control grvTurnos0.
+        /// Control ddlDia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grvTurnos0;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDia;
 
         /// <summary>
-        /// Control BtnAsignar.
+        /// Control ddlHorario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnAsignar;
+        protected global::System.Web.UI.WebControls.DropDownList ddlHorario;
 
         /// <summary>
-        /// Control BtnReset.
+        /// Control gvTurnos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnReset;
+        protected global::System.Web.UI.WebControls.GridView gvTurnos;
     }
 }

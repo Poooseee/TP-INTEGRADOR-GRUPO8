@@ -43,3 +43,12 @@ C:\Users\Administrator\Downloads\TP_INT_GRUPO_8\TPINT_GRUPO_8_PR3\DAO\obj\Debug\
 C:\Users\Administrator\Downloads\TP_INT_GRUPO_8\TPINT_GRUPO_8_PR3\DAO\obj\Debug\DAO.csproj.Up2Date
 C:\Users\Administrator\Downloads\TP_INT_GRUPO_8\TPINT_GRUPO_8_PR3\DAO\obj\Debug\DAO.dll
 C:\Users\Administrator\Downloads\TP_INT_GRUPO_8\TPINT_GRUPO_8_PR3\DAO\obj\Debug\DAO.pdb
+D:\PC\Desktop\UTN\Programación 3\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\bin\Debug\DAO.dll
+D:\PC\Desktop\UTN\Programación 3\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\bin\Debug\DAO.pdb
+D:\PC\Desktop\UTN\Programación 3\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\bin\Debug\Entidades.dll
+D:\PC\Desktop\UTN\Programación 3\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\bin\Debug\Entidades.pdb
+D:\PC\Desktop\UTN\Programación 3\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\obj\Debug\DAO.csproj.AssemblyReference.cache
+D:\PC\Desktop\UTN\Programación 3\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
+D:\PC\Desktop\UTN\Programación 3\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\obj\Debug\DAO.csproj.Up2Date
+D:\PC\Desktop\UTN\Programación 3\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\obj\Debug\DAO.dll
+D:\PC\Desktop\UTN\Programación 3\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\obj\Debug\DAO.pdb
