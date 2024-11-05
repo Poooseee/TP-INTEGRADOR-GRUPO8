@@ -9,6 +9,7 @@
     <style type="text/css">
         .auto-style2 {
             width: 400px;
+            font-size:x-large;
         }
         .auto-style3 {
             width: 100%;
@@ -33,7 +34,7 @@
                         <asp:Label ID="lblUsuario" runat="server"></asp:Label>
                     &nbsp;<asp:Label ID="Label1" runat="server" Text="~ Administrador"></asp:Label>
                     </td>
-                    <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Menú Administrador</strong></td>
+                    <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>ADMINISTRADOR</strong></td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>

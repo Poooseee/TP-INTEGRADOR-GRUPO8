@@ -113,6 +113,9 @@
             width: 93px;
             height: 23px;
         }
+        .auto-style34 {
+            width: 100%;
+        }
     </style>
 </head>
 <body>
@@ -125,7 +128,14 @@
                         <asp:HyperLink ID="hpVolver" runat="server" NavigateUrl="~/Administrador/menuAdministrador.aspx">Volver</asp:HyperLink>
             <strong>&nbsp;&nbsp;</strong></div>
         <p class="auto-style2">
-            <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Agregar Médico </strong></p>
+            <strong>&nbsp;&nbsp;&nbsp;&nbsp;<table class="auto-style34">
+                <tr>
+                    <td>
+                        <asp:Label ID="Label4" runat="server" Text="AGREGAR MEDICO"></asp:Label>
+                    </td>
+                </tr>
+            </table>
+            
         <p class="auto-style2">
             <table class="auto-style4">
                 <tr>
