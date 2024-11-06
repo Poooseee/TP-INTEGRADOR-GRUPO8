@@ -112,6 +112,14 @@
         .auto-style81 {
             height: 80px;
         }
+        .auto-style82 {
+            height: 22px;
+            width: 110px;
+        }
+        .auto-style83 {
+            width: 111px;
+            height: 22px;
+        }
         </style>
 </head>
 <body>
@@ -161,15 +169,11 @@
                     <td class="auto-style71"></td>
                     <td class="auto-style71">Lunes</td>
                     <td class="auto-style71">
-            <strong>
-                        <asp:DropDownList ID="ddlHorario1Lunes" runat="server" Width="145px">
-                        </asp:DropDownList>
+                        <asp:TextBox ID="txtHorario1_1" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                     <td class="auto-style72">Hasta:</td>
                     <td class="auto-style72">
-            <strong>
-                        <asp:DropDownList ID="ddlHorario2Lunes" runat="server" Width="145px">
-                        </asp:DropDownList>
+                        <asp:TextBox ID="txtHorario1_2" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -184,15 +188,11 @@
                     <td class="auto-style69">&nbsp;</td>
                     <td class="auto-style69">Martes</td>
                     <td class="auto-style69">
-            <strong>
-                        <asp:DropDownList ID="ddlHorario1Martes" runat="server" Width="145px">
-                        </asp:DropDownList>
+                        <asp:TextBox ID="txtHorario2_1" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                     <td class="auto-style70">Hasta</td>
                     <td class="auto-style70">
-            <strong>
-                        <asp:DropDownList ID="ddlHorario2Martes" runat="server" Width="145px">
-                        </asp:DropDownList>
+                        <asp:TextBox ID="txtHorario2_2" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -207,38 +207,30 @@
                     <td class="auto-style69">&nbsp;</td>
                     <td class="auto-style69">Miercoles</td>
                     <td class="auto-style69">
-            <strong>
-                        <asp:DropDownList ID="ddlHorario1Miercoles" runat="server" Width="145px">
-                        </asp:DropDownList>
+                        <asp:TextBox ID="txtHorario3_1" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                     <td class="auto-style70">Hasta</td>
                     <td class="auto-style70">
-            <strong>
-                        <asp:DropDownList ID="ddlHorario2Miercoles" runat="server" Width="145px">
-                        </asp:DropDownList>
+                        <asp:TextBox ID="txtHorario3_2" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style69">Apellido:</td>
-                    <td class="auto-style69">
+                    <td class="auto-style41">Apellido:</td>
+                    <td class="auto-style41">
             <strong>
                         <asp:TextBox ID="txtApellido" runat="server" Width="135px"></asp:TextBox>
                     </td>
-                    <td class="auto-style69">
+                    <td class="auto-style41">
                         <asp:RequiredFieldValidator ID="rfvApellido" runat="server" ControlToValidate="txtApellido" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
                     </td>
-                    <td class="auto-style69">&nbsp;</td>
-                    <td class="auto-style69">Jueves</td>
-                    <td class="auto-style69">
-            <strong>
-                        <asp:DropDownList ID="ddlHorario1Jueves" runat="server" Width="145px">
-                        </asp:DropDownList>
+                    <td class="auto-style41"></td>
+                    <td class="auto-style41">Jueves</td>
+                    <td class="auto-style41">
+                        <asp:TextBox ID="txtHorario4_1" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
-                    <td class="auto-style70">Hasta</td>
-                    <td class="auto-style70">
-            <strong>
-                        <asp:DropDownList ID="ddlHorario2Jueves" runat="server" Width="145px">
-                        </asp:DropDownList>
+                    <td class="auto-style47">Hasta</td>
+                    <td class="auto-style47">
+                        <asp:TextBox ID="txtHorario4_2" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -254,38 +246,30 @@
                     <td class="auto-style69">&nbsp;</td>
                     <td class="auto-style69">Viernes</td>
                     <td class="auto-style69">
-            <strong>
-                        <asp:DropDownList ID="ddlHorario1Viernes" runat="server" Width="145px">
-                        </asp:DropDownList>
+                        <asp:TextBox ID="txtHorario5_1" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                     <td class="auto-style70">Hasta</td>
                     <td class="auto-style70">
-            <strong>
-                        <asp:DropDownList ID="ddlHorario2Viernes" runat="server" Width="145px">
-                        </asp:DropDownList>
+                        <asp:TextBox ID="txtHorario5_2" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style69">Nacionalidad:</td>
-                    <td class="auto-style69">
+                    <td class="auto-style82">Nacionalidad:</td>
+                    <td class="auto-style82">
             <strong>
                         <asp:TextBox ID="txtNacionalidad" runat="server" Width="133px" Height="16px"></asp:TextBox>
                     </td>
-                    <td class="auto-style69">
+                    <td class="auto-style82">
                         <asp:RequiredFieldValidator ID="rfvNacionalidad" runat="server" ControlToValidate="txtNacionalidad" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
                     </td>
-                    <td class="auto-style69">&nbsp;</td>
-                    <td class="auto-style69">Sabado</td>
-                    <td class="auto-style69">
-            <strong>
-                        <asp:DropDownList ID="ddlHorario1Sabado" runat="server" Width="145px">
-                        </asp:DropDownList>
+                    <td class="auto-style82"></td>
+                    <td class="auto-style82">Sabado</td>
+                    <td class="auto-style82">
+                        <asp:TextBox ID="txtHorario6_1" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
-                    <td class="auto-style70">Hasta</td>
-                    <td class="auto-style70">
-            <strong>
-                        <asp:DropDownList ID="ddlHorario2Sabado" runat="server" Width="145px">
-                        </asp:DropDownList>
+                    <td class="auto-style83">Hasta</td>
+                    <td class="auto-style83">
+                        <asp:TextBox ID="txtHorario6_2" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -300,15 +284,11 @@
                     <td class="auto-style28"></td>
                     <td class="auto-style28">Domingo</td>
                     <td class="auto-style28">
-            <strong>
-                        <asp:DropDownList ID="ddlHorario1Domingo" runat="server" Width="145px">
-                        </asp:DropDownList>
+                        <asp:TextBox ID="txtHorario7_1" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                     <td class="auto-style37">Hasta</td>
                     <td class="auto-style37">
-            <strong>
-                        <asp:DropDownList ID="ddlHorario2Domingo" runat="server" Width="145px">
-                        </asp:DropDownList>
+                        <asp:TextBox ID="txtHorario7_2" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -609,13 +589,11 @@
                     </td>
                     <td class="auto-style24">Desde:</td>
                     <td class="auto-style23">
-                        <asp:DropDownList ID="ddlAgregarHorarioInicio" runat="server" Width="145px">
-                        </asp:DropDownList>
+                        <asp:TextBox ID="txtHorarioInicio" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                     <td class="auto-style24">&nbsp;&nbsp;&nbsp; Hasta:</td>
                     <td class="auto-style79">
-                        <asp:DropDownList ID="ddlAgregarHorarioFin" runat="server" Width="145px">
-                        </asp:DropDownList>
+                        <asp:TextBox ID="txtHorarioFin" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                     <td class="auto-style78">
                         <asp:Button ID="btnAgregarDia" runat="server" Text="Agregar" />

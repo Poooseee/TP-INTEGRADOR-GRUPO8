@@ -57,7 +57,7 @@
             height: 43px;
         }
         .auto-style18 {
-            width: 176px;
+            width: 180px;
         }
         .auto-style19 {
             width: 206px;
@@ -79,6 +79,33 @@
         }
         .auto-style24 {
             height: 28px;
+        }
+        .auto-style25 {
+            width: 180px;
+            height: 23px;
+        }
+        .auto-style26 {
+            width: 206px;
+            height: 23px;
+        }
+        .auto-style27 {
+            width: 336px;
+            height: 23px;
+        }
+        .auto-style28 {
+            width: 180px;
+            height: 33px;
+        }
+        .auto-style29 {
+            width: 206px;
+            height: 33px;
+        }
+        .auto-style30 {
+            width: 336px;
+            height: 33px;
+        }
+        .auto-style31 {
+            height: 33px;
         }
     </style>
 </head>
@@ -159,7 +186,7 @@
                     <td class="auto-style13"></td>
                     <td class="auto-style10">Fecha de Nacimiento:</td>
                     <td class="auto-style10">
-                        <asp:TextBox ID="txtNacionalidad" runat="server" CssClass="auto-style6" Width="133px"></asp:TextBox>
+                        <asp:TextBox ID="txtNacionalidad" runat="server" CssClass="auto-style6" Width="133px" TextMode="Date"></asp:TextBox>
                     </td>
                     <td class="auto-style11">
                         <asp:RequiredFieldValidator ID="rfvFechaNac" runat="server" ControlToValidate="txtFechaNacimiento" CssClass="auto-style3" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
@@ -274,16 +301,16 @@
                     </td>
             </tr>
             <tr>
-                <td class="auto-style18">
+                <td class="auto-style28">
                     <asp:Label ID="lblBusqApel" runat="server" Text="Busqueda por Apellido:"></asp:Label>
                 </td>
-                <td class="auto-style19">
+                <td class="auto-style29">
                         <asp:TextBox ID="txtBusqApellido" runat="server" CssClass="auto-style10" Width="224px"></asp:TextBox>
                     </td>
-                <td class="auto-style20">
+                <td class="auto-style30">
                         <asp:Button ID="btnBuscarApel" runat="server" Text="Buscar" Width="83px" />
                     </td>
-                <td>&nbsp;</td>
+                <td class="auto-style31"></td>
             </tr>
             <tr>
                 <td class="auto-style18">
@@ -311,6 +338,16 @@
                         <asp:Button ID="btnBuscarSexo" runat="server" Text="Buscar" Width="83px" />
                     </td>
                 <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style25">
+                    Busqueda por Fecha de Nac:</td>
+                <td class="auto-style26">
+                        <asp:TextBox ID="txtFechaNacPac" runat="server" TextMode="Date" Width="219px"></asp:TextBox>
+                    </td>
+                <td class="auto-style27">
+                    </td>
+                <td class="auto-style2"></td>
             </tr>
             <tr>
                 <td class="auto-style18">&nbsp;</td>

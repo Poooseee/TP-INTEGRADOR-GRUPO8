@@ -100,8 +100,7 @@
                     <td class="auto-style10">
                         Horario:</td>
                     <td class="auto-style11">
-                        <asp:DropDownList ID="ddlHorario" runat="server" Height="16px" Width="100px">
-                        </asp:DropDownList>
+                        <asp:TextBox ID="txtHorarioTurno" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                 </tr>
             </table>

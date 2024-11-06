@@ -78,22 +78,22 @@ namespace Vistas.Administrador
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvLegajo;
 
         /// <summary>
-        /// Control ddlHorario1Lunes.
+        /// Control txtHorario1_1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlHorario1Lunes;
+        protected global::System.Web.UI.WebControls.TextBox txtHorario1_1;
 
         /// <summary>
-        /// Control ddlHorario2Lunes.
+        /// Control txtHorario1_2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlHorario2Lunes;
+        protected global::System.Web.UI.WebControls.TextBox txtHorario1_2;
 
         /// <summary>
         /// Control txtDNI.
@@ -114,22 +114,22 @@ namespace Vistas.Administrador
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDNI;
 
         /// <summary>
-        /// Control ddlHorario1Martes.
+        /// Control txtHorario2_1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlHorario1Martes;
+        protected global::System.Web.UI.WebControls.TextBox txtHorario2_1;
 
         /// <summary>
-        /// Control ddlHorario2Martes.
+        /// Control txtHorario2_2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlHorario2Martes;
+        protected global::System.Web.UI.WebControls.TextBox txtHorario2_2;
 
         /// <summary>
         /// Control txtNombre.
@@ -150,22 +150,22 @@ namespace Vistas.Administrador
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNombre;
 
         /// <summary>
-        /// Control ddlHorario1Miercoles.
+        /// Control txtHorario3_1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlHorario1Miercoles;
+        protected global::System.Web.UI.WebControls.TextBox txtHorario3_1;
 
         /// <summary>
-        /// Control ddlHorario2Miercoles.
+        /// Control txtHorario3_2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlHorario2Miercoles;
+        protected global::System.Web.UI.WebControls.TextBox txtHorario3_2;
 
         /// <summary>
         /// Control txtApellido.
@@ -186,22 +186,22 @@ namespace Vistas.Administrador
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvApellido;
 
         /// <summary>
-        /// Control ddlHorario1Jueves.
+        /// Control txtHorario4_1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlHorario1Jueves;
+        protected global::System.Web.UI.WebControls.TextBox txtHorario4_1;
 
         /// <summary>
-        /// Control ddlHorario2Jueves.
+        /// Control txtHorario4_2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlHorario2Jueves;
+        protected global::System.Web.UI.WebControls.TextBox txtHorario4_2;
 
         /// <summary>
         /// Control ddlSexo.
@@ -213,22 +213,22 @@ namespace Vistas.Administrador
         protected global::System.Web.UI.WebControls.DropDownList ddlSexo;
 
         /// <summary>
-        /// Control ddlHorario1Viernes.
+        /// Control txtHorario5_1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlHorario1Viernes;
+        protected global::System.Web.UI.WebControls.TextBox txtHorario5_1;
 
         /// <summary>
-        /// Control ddlHorario2Viernes.
+        /// Control txtHorario5_2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlHorario2Viernes;
+        protected global::System.Web.UI.WebControls.TextBox txtHorario5_2;
 
         /// <summary>
         /// Control txtNacionalidad.
@@ -249,22 +249,22 @@ namespace Vistas.Administrador
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNacionalidad;
 
         /// <summary>
-        /// Control ddlHorario1Sabado.
+        /// Control txtHorario6_1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlHorario1Sabado;
+        protected global::System.Web.UI.WebControls.TextBox txtHorario6_1;
 
         /// <summary>
-        /// Control ddlHorario2Sabado.
+        /// Control txtHorario6_2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlHorario2Sabado;
+        protected global::System.Web.UI.WebControls.TextBox txtHorario6_2;
 
         /// <summary>
         /// Control txtFechaNac.
@@ -285,22 +285,22 @@ namespace Vistas.Administrador
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFechaNac;
 
         /// <summary>
-        /// Control ddlHorario1Domingo.
+        /// Control txtHorario7_1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlHorario1Domingo;
+        protected global::System.Web.UI.WebControls.TextBox txtHorario7_1;
 
         /// <summary>
-        /// Control ddlHorario2Domingo.
+        /// Control txtHorario7_2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlHorario2Domingo;
+        protected global::System.Web.UI.WebControls.TextBox txtHorario7_2;
 
         /// <summary>
         /// Control txtDireccion.
@@ -483,22 +483,22 @@ namespace Vistas.Administrador
         protected global::System.Web.UI.WebControls.DropDownList ddlAgregarDia;
 
         /// <summary>
-        /// Control ddlAgregarHorarioInicio.
+        /// Control txtHorarioInicio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAgregarHorarioInicio;
+        protected global::System.Web.UI.WebControls.TextBox txtHorarioInicio;
 
         /// <summary>
-        /// Control ddlAgregarHorarioFin.
+        /// Control txtHorarioFin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAgregarHorarioFin;
+        protected global::System.Web.UI.WebControls.TextBox txtHorarioFin;
 
         /// <summary>
         /// Control btnAgregarDia.
