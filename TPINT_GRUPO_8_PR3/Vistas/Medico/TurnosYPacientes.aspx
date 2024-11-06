@@ -30,18 +30,30 @@
             width: 100%;
         }
         .auto-style8 {
-            width: 606px;
+            width: 465px;
         }
         .auto-style9 {
             width: 129px;
+        }
+        .auto-style11 {
+            width: 200px;
+        }
+        .auto-style12 {
+            width: 243px;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div class="auto-style2">
+                        <table class="auto-style6">
+                            <tr>
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Label ID="lblUsuario" runat="server"></asp:Label>
                     <asp:Label ID="Label2" runat="server" Text="~ Médico"></asp:Label>
+                                </td>
+                            </tr>
+                        </table>
 &nbsp;<br />
             <table class="auto-style1">
                 <tr>
@@ -57,8 +69,14 @@
                         <table class="auto-style6">
                             <tr>
                                 <td class="auto-style9">Filtrar por Paciente:</td>
+                                <td class="auto-style12">
+                                    &nbsp;
+                                    <asp:TextBox ID="txtPaciente" runat="server" Width="130px"></asp:TextBox>
+                                </td>
+                                <td class="auto-style11">
+                                    Filtrar por fecha</td>
                                 <td class="auto-style8">
-                                    <asp:TextBox ID="txtPaciente" runat="server"></asp:TextBox>
+                                    <asp:Calendar ID="clFechaTurno" runat="server" Height="118px" Width="5px" ShowGridLines="True"></asp:Calendar>
                                 </td>
                                 <td>
                                     <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" />

@@ -30,7 +30,7 @@
             height: 26px;
         }
         .auto-style8 {
-            width: 30px;
+            width: 39px;
             height: 26px;
         }
         .auto-style9 {
@@ -95,8 +95,7 @@
                     <td class="auto-style8">
                         Día:</td>
                     <td class="auto-style9">
-                        <asp:DropDownList ID="ddlDia" runat="server" Height="16px" Width="114px">
-                        </asp:DropDownList>
+                        <asp:Calendar ID="clFecha" runat="server" ShowGridLines="True" Width="5px"></asp:Calendar>
                     </td>
                     <td class="auto-style10">
                         Horario:</td>
