@@ -120,6 +120,71 @@
             width: 111px;
             height: 22px;
         }
+        .auto-style84 {
+            height: 24px;
+            width: 31px;
+        }
+        .auto-style86 {
+            width: 31px;
+            height: 26px;
+        }
+        .auto-style87 {
+            height: 22px;
+            width: 31px;
+        }
+        .auto-style88 {
+            height: 13px;
+            width: 31px;
+        }
+        .auto-style89 {
+            width: 31px;
+        }
+        .auto-style91 {
+            height: 24px;
+            width: 35px;
+        }
+        .auto-style93 {
+            width: 35px;
+            height: 26px;
+        }
+        .auto-style94 {
+            height: 22px;
+            width: 35px;
+        }
+        .auto-style95 {
+            height: 13px;
+            width: 35px;
+        }
+        .auto-style96 {
+            width: 35px;
+            height: 23px;
+        }
+        .auto-style97 {
+            width: 35px;
+        }
+        .auto-style100 {
+            height: 24px;
+            width: 33px;
+        }
+        .auto-style101 {
+            width: 33px;
+            height: 26px;
+        }
+        .auto-style102 {
+            height: 22px;
+            width: 33px;
+        }
+        .auto-style103 {
+            height: 13px;
+            width: 33px;
+        }
+        .auto-style104 {
+            width: 33px;
+            height: 23px;
+        }
+        .auto-style105 {
+            width: 33px;
+        }
         </style>
 </head>
 <body>
@@ -130,8 +195,8 @@
                     <td class="auto-style67"></td>
                     <td class="auto-style67"></td>
                     <td class="auto-style67"></td>
-                    <td class="auto-style67"></td>
-                    <td class="auto-style67"></td>
+                    <td class="auto-style104"></td>
+                    <td class="auto-style96"></td>
                     <td class="auto-style53" colspan="2">
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Label ID="lblUsuario" runat="server"></asp:Label>
@@ -146,7 +211,7 @@
                     <td colspan="8">
             <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
                         <asp:Label ID="Label4" runat="server" Text="AGREGAR MEDICO"></asp:Label>
                         <br />
                     </td>
@@ -154,7 +219,7 @@
                 <tr>
                     <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DATOS PERSONAES</td>
                     <td class="auto-style69">&nbsp;</td>
-                    <td class="auto-style69">&nbsp;</td>
+                    <td class="auto-style105">&nbsp;</td>
                     <td colspan="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HORARIOS</td>
                 </tr>
                 <tr>
@@ -166,12 +231,12 @@
                     <td class="auto-style71">
                         <asp:RequiredFieldValidator ID="rfvLegajo" runat="server" ControlToValidate="txtLegajo" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
                     </td>
-                    <td class="auto-style71"></td>
-                    <td class="auto-style71">Lunes</td>
+                    <td class="auto-style100"></td>
+                    <td class="auto-style91">Lunes</td>
                     <td class="auto-style71">
                         <asp:TextBox ID="txtHorario1_1" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
-                    <td class="auto-style72">Hasta:</td>
+                    <td class="auto-style84">Hasta:</td>
                     <td class="auto-style72">
                         <asp:TextBox ID="txtHorario1_2" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
@@ -185,12 +250,12 @@
                     <td class="auto-style69">
                         <asp:RequiredFieldValidator ID="rfvDNI" runat="server" ControlToValidate="txtDNI" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
                     </td>
-                    <td class="auto-style69">&nbsp;</td>
-                    <td class="auto-style69">Martes</td>
+                    <td class="auto-style105">&nbsp;</td>
+                    <td class="auto-style97">Martes</td>
                     <td class="auto-style69">
                         <asp:TextBox ID="txtHorario2_1" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
-                    <td class="auto-style70">Hasta</td>
+                    <td class="auto-style89">Hasta</td>
                     <td class="auto-style70">
                         <asp:TextBox ID="txtHorario2_2" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
@@ -204,12 +269,12 @@
                     <td class="auto-style69">
                         <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ControlToValidate="txtNombre" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
                     </td>
-                    <td class="auto-style69">&nbsp;</td>
-                    <td class="auto-style69">Miercoles</td>
+                    <td class="auto-style105">&nbsp;</td>
+                    <td class="auto-style97">Miercoles</td>
                     <td class="auto-style69">
                         <asp:TextBox ID="txtHorario3_1" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
-                    <td class="auto-style70">Hasta</td>
+                    <td class="auto-style89">Hasta</td>
                     <td class="auto-style70">
                         <asp:TextBox ID="txtHorario3_2" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
@@ -223,12 +288,12 @@
                     <td class="auto-style41">
                         <asp:RequiredFieldValidator ID="rfvApellido" runat="server" ControlToValidate="txtApellido" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
                     </td>
-                    <td class="auto-style41"></td>
-                    <td class="auto-style41">Jueves</td>
+                    <td class="auto-style101"></td>
+                    <td class="auto-style93">Jueves</td>
                     <td class="auto-style41">
                         <asp:TextBox ID="txtHorario4_1" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
-                    <td class="auto-style47">Hasta</td>
+                    <td class="auto-style86">Hasta</td>
                     <td class="auto-style47">
                         <asp:TextBox ID="txtHorario4_2" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
@@ -243,12 +308,12 @@
                         </asp:DropDownList>
                     </td>
                     <td class="auto-style69">&nbsp;</td>
-                    <td class="auto-style69">&nbsp;</td>
-                    <td class="auto-style69">Viernes</td>
+                    <td class="auto-style105">&nbsp;</td>
+                    <td class="auto-style97">Viernes</td>
                     <td class="auto-style69">
                         <asp:TextBox ID="txtHorario5_1" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
-                    <td class="auto-style70">Hasta</td>
+                    <td class="auto-style89">Hasta</td>
                     <td class="auto-style70">
                         <asp:TextBox ID="txtHorario5_2" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
@@ -262,12 +327,12 @@
                     <td class="auto-style82">
                         <asp:RequiredFieldValidator ID="rfvNacionalidad" runat="server" ControlToValidate="txtNacionalidad" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
                     </td>
-                    <td class="auto-style82"></td>
-                    <td class="auto-style82">Sabado</td>
+                    <td class="auto-style102"></td>
+                    <td class="auto-style94">Sabado</td>
                     <td class="auto-style82">
                         <asp:TextBox ID="txtHorario6_1" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
-                    <td class="auto-style83">Hasta</td>
+                    <td class="auto-style87">Hasta</td>
                     <td class="auto-style83">
                         <asp:TextBox ID="txtHorario6_2" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
@@ -281,12 +346,12 @@
                     <td class="auto-style28">
                         <asp:RequiredFieldValidator ID="rfvFechaNac" runat="server" ControlToValidate="txtFechaNac" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
                     </td>
-                    <td class="auto-style28"></td>
-                    <td class="auto-style28">Domingo</td>
+                    <td class="auto-style103"></td>
+                    <td class="auto-style95">Domingo</td>
                     <td class="auto-style28">
                         <asp:TextBox ID="txtHorario7_1" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
-                    <td class="auto-style37">Hasta</td>
+                    <td class="auto-style88">Hasta</td>
                     <td class="auto-style37">
                         <asp:TextBox ID="txtHorario7_2" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
@@ -300,10 +365,10 @@
                     <td class="auto-style69">
                         <asp:RequiredFieldValidator ID="rfvDireccion" runat="server" ControlToValidate="txtDireccion" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
                     </td>
+                    <td class="auto-style105">&nbsp;</td>
+                    <td class="auto-style97">&nbsp;</td>
                     <td class="auto-style69">&nbsp;</td>
-                    <td class="auto-style69">&nbsp;</td>
-                    <td class="auto-style69">&nbsp;</td>
-                    <td class="auto-style70">&nbsp;</td>
+                    <td class="auto-style89">&nbsp;</td>
                     <td class="auto-style70">&nbsp;</td>
                 </tr>
                 <tr>
@@ -316,10 +381,10 @@
                     <td class="auto-style41">
                         <asp:RequiredFieldValidator ID="rfvProvincia" runat="server" ControlToValidate="ddlProvincia" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
                     </td>
+                    <td class="auto-style101"></td>
+                    <td class="auto-style93">&nbsp;</td>
                     <td class="auto-style41"></td>
-                    <td class="auto-style41">&nbsp;</td>
-                    <td class="auto-style41"></td>
-                    <td class="auto-style47"></td>
+                    <td class="auto-style86"></td>
                     <td class="auto-style47"></td>
                 </tr>
                 <tr>
@@ -332,10 +397,10 @@
                     <td class="auto-style69">
                         <asp:RequiredFieldValidator ID="rfvLocalidad" runat="server" ControlToValidate="ddlLocalidad" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
                     </td>
+                    <td class="auto-style105">&nbsp;</td>
+                    <td class="auto-style97">&nbsp;</td>
                     <td class="auto-style69">&nbsp;</td>
-                    <td class="auto-style69">&nbsp;</td>
-                    <td class="auto-style69">&nbsp;</td>
-                    <td class="auto-style70">&nbsp;</td>
+                    <td class="auto-style89">&nbsp;</td>
                     <td class="auto-style70">&nbsp;</td>
                 </tr>
                 <tr>
@@ -347,10 +412,10 @@
                     <td class="auto-style69">
                         <asp:RequiredFieldValidator ID="rfvTelefono" runat="server" ControlToValidate="txtTelefono" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
                     </td>
+                    <td class="auto-style105">&nbsp;</td>
+                    <td class="auto-style97">&nbsp;</td>
                     <td class="auto-style69">&nbsp;</td>
-                    <td class="auto-style69">&nbsp;</td>
-                    <td class="auto-style69">&nbsp;</td>
-                    <td class="auto-style70">&nbsp;</td>
+                    <td class="auto-style89">&nbsp;</td>
                     <td class="auto-style70">&nbsp;</td>
                 </tr>
                 <tr>
@@ -362,10 +427,10 @@
                     <td class="auto-style69">
                         <asp:RequiredFieldValidator ID="rfvCorreo" runat="server" ControlToValidate="txtCorreo" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
                     </td>
+                    <td class="auto-style105">&nbsp;</td>
+                    <td class="auto-style97">&nbsp;</td>
                     <td class="auto-style69">&nbsp;</td>
-                    <td class="auto-style69">&nbsp;</td>
-                    <td class="auto-style69">&nbsp;</td>
-                    <td class="auto-style70">&nbsp;</td>
+                    <td class="auto-style89">&nbsp;</td>
                     <td class="auto-style70">&nbsp;</td>
                 </tr>
                 <tr>
@@ -378,21 +443,16 @@
                     <td class="auto-style69">
                         <asp:RequiredFieldValidator ID="rfvEspecialidad" runat="server" ControlToValidate="ddlEspecialidades" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
                     </td>
+                    <td class="auto-style105">&nbsp;</td>
+                    <td class="auto-style97">&nbsp;</td>
                     <td class="auto-style69">&nbsp;</td>
-                    <td class="auto-style69">&nbsp;</td>
-                    <td class="auto-style69">&nbsp;</td>
-                    <td class="auto-style70">&nbsp;</td>
+                    <td class="auto-style89">&nbsp;</td>
                     <td class="auto-style70">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style69">&nbsp;</td>
-                    <td class="auto-style69">&nbsp;</td>
-                    <td class="auto-style69">&nbsp;</td>
-                    <td colspan="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <td colspan="8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                         <asp:Button ID="btnAlta" runat="server" Text="Dar de Alta" Width="106px" />
                     </td>
-                    <td class="auto-style70">&nbsp;</td>
-                    <td class="auto-style70">&nbsp;</td>
                 </tr>
             </table>
         </div>

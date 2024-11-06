@@ -10,14 +10,8 @@
 
         .auto-style2 {
             width: 30%;
-            margin-left: 528px;
+            margin-left: 300px;
             margin-right: 0px;
-        }
-        .auto-style7 {
-            font-size: x-large;
-            text-align: center;
-            height: 51px;
-            width: 238px;
         }
         .auto-style3 {
             font-size: x-large;
@@ -40,15 +34,19 @@
             text-align: center;
             height: 40px;
         }
+        .auto-style10 {
+            margin-left: 400px;
+        }
         </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            LOGIN<table class="auto-style2">
+            <p class="auto-style10">
+            LOGIN</p>
+            <table class="auto-style2">
                 <tr>
-                    <td class="auto-style7"><strong>Iniciar Sesion</strong></td>
-                    <td class="auto-style3">&nbsp;</td>
+                    <td class="auto-style3" colspan="2"><strong>Iniciar Sesion</strong></td>
                 </tr>
                 <tr>
                     <td class="auto-style8">Nombre de Usuario</td>
@@ -68,7 +66,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style9">
-                        <asp:TextBox ID="txtContraseña" runat="server" Height="24px" Width="161px"></asp:TextBox>
+                        <asp:TextBox ID="txtContraseña" runat="server" Height="24px" Width="161px" TextMode="Password"></asp:TextBox>
                     </td>
                     <td class="auto-style6">
                         <asp:CustomValidator ID="cvContrasena" runat="server" ControlToValidate="txtContraseña" ForeColor="Red" OnServerValidate="cvContrasena_ServerValidate" ValidationGroup="logeo"></asp:CustomValidator>

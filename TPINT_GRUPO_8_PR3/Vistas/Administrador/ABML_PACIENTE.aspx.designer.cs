@@ -393,6 +393,15 @@ namespace Vistas.Administrador
         protected global::System.Web.UI.WebControls.TextBox txtFechaNacPac;
 
         /// <summary>
+        /// Control btnBuscarFechaNac.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBuscarFechaNac;
+
+        /// <summary>
         /// Control grdPacientes.
         /// </summary>
         /// <remarks>

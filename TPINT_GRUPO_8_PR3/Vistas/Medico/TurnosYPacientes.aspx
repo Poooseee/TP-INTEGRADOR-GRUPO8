@@ -9,7 +9,7 @@
     <style type="text/css">
         .auto-style1 {
             width: 43%;
-            margin-left: 309px;
+            margin-left: 100px;
         }
         .auto-style2 {
             text-align: center;
