@@ -76,7 +76,7 @@
                                 <td class="auto-style11">
                                     Filtrar por fecha</td>
                                 <td class="auto-style8">
-                                    <asp:Calendar ID="clFechaTurno" runat="server" Height="118px" Width="5px" ShowGridLines="True"></asp:Calendar>
+                                    <asp:TextBox ID="txtFecha" runat="server" TextMode="Date"></asp:TextBox>
                                 </td>
                                 <td>
                                     <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" />

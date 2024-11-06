@@ -93,9 +93,9 @@
                         </asp:DropDownList>
                     </td>
                     <td class="auto-style8">
-                        Día:</td>
+                        Fecha:</td>
                     <td class="auto-style9">
-                        <asp:Calendar ID="clFecha" runat="server" ShowGridLines="True" Width="5px"></asp:Calendar>
+                        <asp:TextBox ID="txtFechaTurno" runat="server" TextMode="Date"></asp:TextBox>
                     </td>
                     <td class="auto-style10">
                         Horario:</td>
