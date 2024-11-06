@@ -43,19 +43,6 @@ namespace DAO
                 return null;
             }
         }
-        private SqlDataAdapter ObtenerAdaptador(SqlCommand cmd)
-        {
-            SqlDataAdapter adaptador;
-            try
-            {
-                adaptador = new SqlDataAdapter(cmd);
-                return adaptador;
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-        }
         private SqlCommand ObtenerComando(string consultaSql, SqlConnection cn, Dictionary<string, object> parametros = null)
         {
             SqlCommand comando = new SqlCommand(consultaSql, cn);
@@ -82,50 +69,6 @@ namespace DAO
             con.Close();
             return ds.Tables[NombreTabla];
         }
-        public DataTable ObtenerTabla(string NombreTabla, String Sql, Dictionary<string, object> parametros)
-        {
-            DataSet ds = new DataSet();
-            SqlConnection con = ObtenerConexion();
-            SqlCommand cmd = ObtenerComando(Sql, con, parametros);
-            SqlDataAdapter adap = ObtenerAdaptador(cmd);
-            adap.Fill(ds, NombreTabla);
-            con.Close();
-            return ds.Tables[NombreTabla];
-        }
-        public int InsertarRegistro(string NombreTabla, String sql)
-        {
-            DataSet ds = new DataSet();
-            int filas = 0;
-            SqlConnection con = ObtenerConexion();
-            SqlCommand cmd = ObtenerComando(sql, con);
-            filas = cmd.ExecuteNonQuery();
-            con.Close();
-            return filas;
-        }
-        public int ModificarRegistro(string NombreTabla, String sql, Dictionary<string, object> parametros)
-        {
-            DataSet ds = new DataSet();
-            int filas = 0;
-            SqlConnection con = ObtenerConexion();
-            SqlCommand cmd = ObtenerComando(sql, con, parametros);
-            filas = cmd.ExecuteNonQuery();
-            con.Close();
-            return filas;
-        }
-        public int EjecutarProcedimientoAlmacenado(SqlCommand Comando, String NombreSP)
-        {
-            int FilasCambiadas;
-            SqlConnection Conexion = ObtenerConexion();
-            SqlCommand cmd = new SqlCommand();
-            cmd = Comando;
-            cmd.Connection = Conexion;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = NombreSP;
-            FilasCambiadas = cmd.ExecuteNonQuery();
-            Conexion.Close();
-            return FilasCambiadas;
-        }
-
         public Boolean existe(String consulta)
         {
             Boolean estado = false;
