@@ -153,7 +153,9 @@
             <strong>
                         <asp:TextBox ID="txtLegajo" runat="server" Width="135px" TextMode="Number"></asp:TextBox>
                     </td>
-                    <td class="auto-style71"></td>
+                    <td class="auto-style71">
+                        <asp:RequiredFieldValidator ID="rfvLegajo" runat="server" ControlToValidate="txtLegajo" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
+                    </td>
                     <td class="auto-style71"></td>
                     <td class="auto-style71">Lunes</td>
                     <td class="auto-style71">
@@ -174,7 +176,9 @@
             <strong>
                         <asp:TextBox ID="txtDNI" runat="server" Width="135px" TextMode="Number"></asp:TextBox>
                     </td>
-                    <td class="auto-style69">&nbsp;</td>
+                    <td class="auto-style69">
+                        <asp:RequiredFieldValidator ID="rfvDNI" runat="server" ControlToValidate="txtDNI" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
+                    </td>
                     <td class="auto-style69">&nbsp;</td>
                     <td class="auto-style69">Martes</td>
                     <td class="auto-style69">
@@ -195,7 +199,9 @@
             <strong>
                         <asp:TextBox ID="txtNombre" runat="server" Width="135px"></asp:TextBox>
                     </td>
-                    <td class="auto-style69">&nbsp;</td>
+                    <td class="auto-style69">
+                        <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ControlToValidate="txtNombre" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
+                    </td>
                     <td class="auto-style69">&nbsp;</td>
                     <td class="auto-style69">Miercoles</td>
                     <td class="auto-style69">
@@ -216,7 +222,9 @@
             <strong>
                         <asp:TextBox ID="txtApellido" runat="server" Width="135px"></asp:TextBox>
                     </td>
-                    <td class="auto-style69">&nbsp;</td>
+                    <td class="auto-style69">
+                        <asp:RequiredFieldValidator ID="rfvApellido" runat="server" ControlToValidate="txtApellido" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
+                    </td>
                     <td class="auto-style69">&nbsp;</td>
                     <td class="auto-style69">Jueves</td>
                     <td class="auto-style69">
@@ -261,7 +269,9 @@
             <strong>
                         <asp:TextBox ID="txtNacionalidad" runat="server" Width="133px" Height="16px"></asp:TextBox>
                     </td>
-                    <td class="auto-style69">&nbsp;</td>
+                    <td class="auto-style69">
+                        <asp:RequiredFieldValidator ID="rfvNacionalidad" runat="server" ControlToValidate="txtNacionalidad" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
+                    </td>
                     <td class="auto-style69">&nbsp;</td>
                     <td class="auto-style69">Sabado</td>
                     <td class="auto-style69">
@@ -282,7 +292,9 @@
             <strong>
                         <asp:TextBox ID="txtFechaNac" runat="server" Width="135px" TextMode="Date"></asp:TextBox>
                     </td>
-                    <td class="auto-style28"></td>
+                    <td class="auto-style28">
+                        <asp:RequiredFieldValidator ID="rfvFechaNac" runat="server" ControlToValidate="txtFechaNac" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
+                    </td>
                     <td class="auto-style28"></td>
                     <td class="auto-style28">Domingo</td>
                     <td class="auto-style28">
@@ -303,7 +315,9 @@
             <strong>
                         <asp:TextBox ID="txtDireccion" runat="server" Width="133px"></asp:TextBox>
                     </td>
-                    <td class="auto-style69">&nbsp;</td>
+                    <td class="auto-style69">
+                        <asp:RequiredFieldValidator ID="rfvDireccion" runat="server" ControlToValidate="txtDireccion" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
+                    </td>
                     <td class="auto-style69">&nbsp;</td>
                     <td class="auto-style69">&nbsp;</td>
                     <td class="auto-style69">&nbsp;</td>
@@ -317,7 +331,9 @@
                         <asp:DropDownList ID="ddlProvincia" runat="server" AutoPostBack="True" Height="26px" OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged" Width="143px">
                         </asp:DropDownList>
                         </td>
-                    <td class="auto-style41"></td>
+                    <td class="auto-style41">
+                        <asp:RequiredFieldValidator ID="rfvProvincia" runat="server" ControlToValidate="ddlProvincia" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
+                    </td>
                     <td class="auto-style41"></td>
                     <td class="auto-style41">&nbsp;</td>
                     <td class="auto-style41"></td>
@@ -331,7 +347,9 @@
                         <asp:DropDownList ID="ddlLocalidad" runat="server" Height="30px" Width="145px">
                         </asp:DropDownList>
                         </td>
-                    <td class="auto-style69">&nbsp;</td>
+                    <td class="auto-style69">
+                        <asp:RequiredFieldValidator ID="rfvLocalidad" runat="server" ControlToValidate="ddlLocalidad" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
+                    </td>
                     <td class="auto-style69">&nbsp;</td>
                     <td class="auto-style69">&nbsp;</td>
                     <td class="auto-style69">&nbsp;</td>
@@ -344,7 +362,9 @@
             <strong>
                         <asp:TextBox ID="txtTelefono" runat="server" Width="135px" TextMode="Number"></asp:TextBox>
                     </td>
-                    <td class="auto-style69">&nbsp;</td>
+                    <td class="auto-style69">
+                        <asp:RequiredFieldValidator ID="rfvTelefono" runat="server" ControlToValidate="txtTelefono" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
+                    </td>
                     <td class="auto-style69">&nbsp;</td>
                     <td class="auto-style69">&nbsp;</td>
                     <td class="auto-style69">&nbsp;</td>
@@ -357,7 +377,9 @@
             <strong>
                         <asp:TextBox ID="txtCorreo" runat="server" Width="135px" TextMode="Email"></asp:TextBox>
                     </td>
-                    <td class="auto-style69">&nbsp;</td>
+                    <td class="auto-style69">
+                        <asp:RequiredFieldValidator ID="rfvCorreo" runat="server" ControlToValidate="txtCorreo" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
+                    </td>
                     <td class="auto-style69">&nbsp;</td>
                     <td class="auto-style69">&nbsp;</td>
                     <td class="auto-style69">&nbsp;</td>
@@ -371,7 +393,9 @@
                         <asp:DropDownList ID="ddlEspecialidades" runat="server" Height="24px" Width="145px">
                         </asp:DropDownList>
                     </td>
-                    <td class="auto-style69">&nbsp;</td>
+                    <td class="auto-style69">
+                        <asp:RequiredFieldValidator ID="rfvEspecialidad" runat="server" ControlToValidate="ddlEspecialidades" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
+                    </td>
                     <td class="auto-style69">&nbsp;</td>
                     <td class="auto-style69">&nbsp;</td>
                     <td class="auto-style69">&nbsp;</td>

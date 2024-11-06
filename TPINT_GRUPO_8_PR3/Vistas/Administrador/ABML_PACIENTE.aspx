@@ -57,13 +57,28 @@
             height: 43px;
         }
         .auto-style18 {
-            width: 126px;
+            width: 176px;
         }
         .auto-style19 {
             width: 206px;
         }
         .auto-style20 {
             width: 336px;
+        }
+        .auto-style21 {
+            width: 313px;
+            height: 28px;
+        }
+        .auto-style22 {
+            width: 417px;
+            height: 28px;
+        }
+        .auto-style23 {
+            width: 219px;
+            height: 28px;
+        }
+        .auto-style24 {
+            height: 28px;
         }
     </style>
 </head>
@@ -118,15 +133,15 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style12">&nbsp;</td>
-                    <td class="auto-style8">Apellido:</td>
-                    <td class="auto-style8">
+                    <td class="auto-style21"></td>
+                    <td class="auto-style22">Apellido:</td>
+                    <td class="auto-style22">
                         <asp:TextBox ID="txtApellido" runat="server" CssClass="auto-style3" Width="132px"></asp:TextBox>
                         </td>
-                    <td class="auto-style7">
+                    <td class="auto-style23">
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtApellido" CssClass="auto-style3" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
                     </td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style24"></td>
                 </tr>
                 <tr>
                     <td class="auto-style13"></td>
@@ -146,7 +161,9 @@
                     <td class="auto-style10">
                         <asp:TextBox ID="txtNacionalidad" runat="server" CssClass="auto-style6" Width="133px"></asp:TextBox>
                     </td>
-                    <td class="auto-style11"></td>
+                    <td class="auto-style11">
+                        <asp:RequiredFieldValidator ID="rfvFechaNac" runat="server" ControlToValidate="txtFechaNacimiento" CssClass="auto-style3" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                    </td>
                     <td class="auto-style2"></td>
                 </tr>
                 <tr>
@@ -155,7 +172,9 @@
                     <td class="auto-style8">
                         <asp:TextBox ID="txtFechaNacimiento" runat="server" CssClass="auto-style3" TextMode="Date" Width="130px"></asp:TextBox>
                     </td>
-                    <td class="auto-style7">&nbsp;</td>
+                    <td class="auto-style7">
+                        <asp:RequiredFieldValidator ID="rfvNacionalidad" runat="server" ControlToValidate="txtNacionalidad" CssClass="auto-style3" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                    </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
@@ -189,7 +208,9 @@
                     <td class="auto-style10">
                         <asp:TextBox ID="txtDireccion" runat="server" CssClass="auto-style3" Width="138px"></asp:TextBox>
                     </td>
-                    <td class="auto-style11"></td>
+                    <td class="auto-style11">
+                        <asp:RequiredFieldValidator ID="rfvDireccion" runat="server" ControlToValidate="txtDireccion" CssClass="auto-style3" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                    </td>
                     <td class="auto-style2"></td>
                 </tr>
                 <tr>
@@ -198,7 +219,9 @@
                     <td class="auto-style8">
                         <asp:TextBox ID="txtTelefono" runat="server" CssClass="auto-style3" Width="136px" TextMode="Number"></asp:TextBox>
                     </td>
-                    <td class="auto-style7">&nbsp;</td>
+                    <td class="auto-style7">
+                        <asp:RequiredFieldValidator ID="rfvTelefono" runat="server" ControlToValidate="txtTelefono" CssClass="auto-style3" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                    </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
@@ -207,7 +230,9 @@
                     <td class="auto-style8">
                         <asp:TextBox ID="txtCorreo" runat="server" CssClass="auto-style3" TextMode="Email"></asp:TextBox>
                     </td>
-                    <td class="auto-style7">&nbsp;</td>
+                    <td class="auto-style7">
+                        <asp:RequiredFieldValidator ID="rfvCorreo" runat="server" ControlToValidate="txtCorreo" CssClass="auto-style3" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                    </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
@@ -241,29 +266,50 @@
                 <td class="auto-style19">
                         <asp:TextBox ID="txtBusquedaDni" runat="server" CssClass="auto-style10" Width="224px"></asp:TextBox>
                     </td>
-                <td class="auto-style20">&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="Button1" runat="server" Text="Buscar" Width="83px" />
+                <td class="auto-style20">
+                        <asp:Button ID="btnBuscarDni" runat="server" Text="Buscar" Width="83px" />
                     </td>
                 <td>
                         <asp:Button ID="Button2" runat="server" Text="Listar Todos" Width="83px" />
                     </td>
             </tr>
             <tr>
-                <td class="auto-style18">&nbsp;</td>
-                <td class="auto-style19">&nbsp;</td>
-                <td class="auto-style20">&nbsp;</td>
+                <td class="auto-style18">
+                    <asp:Label ID="lblBusqApel" runat="server" Text="Busqueda por Apellido:"></asp:Label>
+                </td>
+                <td class="auto-style19">
+                        <asp:TextBox ID="txtBusqApellido" runat="server" CssClass="auto-style10" Width="224px"></asp:TextBox>
+                    </td>
+                <td class="auto-style20">
+                        <asp:Button ID="btnBuscarApel" runat="server" Text="Buscar" Width="83px" />
+                    </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style18">&nbsp;</td>
-                <td class="auto-style19">&nbsp;</td>
-                <td class="auto-style20">&nbsp;</td>
+                <td class="auto-style18">
+                    <asp:Label ID="lblBusqNacionalidad" runat="server" Text="Busqueda por Nacionalidad:"></asp:Label>
+                </td>
+                <td class="auto-style19">
+                        <asp:TextBox ID="txtBusqNacio" runat="server" CssClass="auto-style10" Width="224px"></asp:TextBox>
+                    </td>
+                <td class="auto-style20">
+                        <asp:Button ID="btnBuscarNacio" runat="server" Text="Buscar" Width="83px" />
+                    </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style18">&nbsp;</td>
-                <td class="auto-style19">&nbsp;</td>
-                <td class="auto-style20">&nbsp;</td>
+                <td class="auto-style18">
+                    <asp:Label ID="lblBusqSexo" runat="server" Text="Busqueda por Sexo:"></asp:Label>
+                </td>
+                <td class="auto-style19">
+                        <asp:DropDownList ID="ddlBusqSexo" runat="server" CssClass="auto-style3" Width="145px">
+                            <asp:ListItem>Masculino</asp:ListItem>
+                            <asp:ListItem>Femenino</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                <td class="auto-style20">
+                        <asp:Button ID="btnBuscarSexo" runat="server" Text="Buscar" Width="83px" />
+                    </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
