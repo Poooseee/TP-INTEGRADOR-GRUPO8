@@ -8,7 +8,7 @@ namespace Entidades
 {
     public class Medico
     {
-        int Legajo;
+        int legajo;
         int dni;
         string nombre;
         string apellido;
@@ -25,7 +25,7 @@ namespace Entidades
 
         public Medico(bool est = true) { estado = est; }
 
-        public int Legajo1 { get => Legajo; set => Legajo = value; }
+        public int Legajo { get => legajo; set => legajo = value; }
         public int Dni { get => dni; set => dni = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Apellido { get => apellido; set => apellido = value; }
