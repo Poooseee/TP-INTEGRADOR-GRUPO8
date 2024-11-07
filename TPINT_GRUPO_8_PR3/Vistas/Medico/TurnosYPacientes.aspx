@@ -88,7 +88,7 @@
                 <tr>
                     <td class="auto-style2">
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:GridView ID="grvTurnos" runat="server" AutoGenerateColumns="False" Width="632px" OnSelectedIndexChanged="grvTurnos_SelectedIndexChanged">
+                        <asp:GridView ID="grvTurnos" runat="server" AutoGenerateColumns="False" Width="788px" OnSelectedIndexChanged="grvTurnos_SelectedIndexChanged">
                             <Columns>
                                 <asp:TemplateField HeaderText="Turno"></asp:TemplateField>
                                 <asp:TemplateField HeaderText="Fecha"></asp:TemplateField>
@@ -96,8 +96,23 @@
                                 <asp:TemplateField HeaderText="Paciente"></asp:TemplateField>
                                 <asp:TemplateField HeaderText="Presentismo">
                                     <ItemTemplate>
-                                        <asp:CheckBox ID="ChkBoxPresente" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="Presente" />
+                                        <asp:DropDownList ID="ddlPresentismo" runat="server">
+                                            <asp:ListItem Text="Presente" Value="PRESENTE"></asp:ListItem>
+                                            <asp:ListItem Text="Ausente" Value="AUSENTE"></asp:ListItem>
+                                        </asp:DropDownList>
                                     </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Estado del Turno">
+                                    <ItemTemplate>
+                                        <asp:DropDownList ID="ddlEstado" runat="server">
+                                            <asp:ListItem Text="Cumplido" Value="CUMPLIDO"></asp:ListItem>
+                                            <asp:ListItem Text="Dado de baja" Value="DADO DE BAJA"></asp:ListItem>
+
+                                        </asp:DropDownList>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Observaciones">
+                                   
                                 </asp:TemplateField>
                             </Columns>
                         </asp:GridView>

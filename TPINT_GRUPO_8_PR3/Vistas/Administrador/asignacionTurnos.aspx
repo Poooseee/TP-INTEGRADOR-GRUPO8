@@ -148,7 +148,7 @@
                 </td>
                 <td class="auto-style16">Dni Paciente:</td>
                 <td class="auto-style17">
-                    <asp:TextBox ID="txtDniPaciente" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtDniPaciente" runat="server" TextMode="Number"></asp:TextBox>
                 </td>
             </tr>
             <tr>

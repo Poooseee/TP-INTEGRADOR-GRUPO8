@@ -13,5 +13,20 @@ namespace Vistas
         {
 
         }
+
+        protected void cvInicioSesion_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+
+        }
+
+        protected void cvContrasena_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+
+        }
+
+        protected void btnIngresar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
