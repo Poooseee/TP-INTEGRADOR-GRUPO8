@@ -197,7 +197,7 @@
                     <td class="auto-style12">&nbsp;</td>
                     <td class="auto-style8">Nacionalidad:</td>
                     <td class="auto-style8">
-                        <asp:TextBox ID="txtFechaNacimiento" runat="server" CssClass="auto-style3" TextMode="Date" Width="130px"></asp:TextBox>
+                        <asp:TextBox ID="txtFechaNacimiento" runat="server" CssClass="auto-style3" Width="130px"></asp:TextBox>
                     </td>
                     <td class="auto-style7">
                         <asp:RequiredFieldValidator ID="rfvNacionalidad" runat="server" ControlToValidate="txtNacionalidad" CssClass="auto-style3" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
@@ -291,7 +291,7 @@
                         <asp:Label ID="Label6" runat="server" Text="Busqueda por DNI:"></asp:Label>
                     </td>
                 <td class="auto-style19">
-                        <asp:TextBox ID="txtBusquedaDni" runat="server" CssClass="auto-style10" Width="224px"></asp:TextBox>
+                        <asp:TextBox ID="txtBusquedaDni" runat="server" CssClass="auto-style10" Width="224px" TextMode="Number"></asp:TextBox>
                     </td>
                 <td class="auto-style20">
                         <asp:Button ID="btnBuscarDni" runat="server" Text="Buscar" Width="83px" />

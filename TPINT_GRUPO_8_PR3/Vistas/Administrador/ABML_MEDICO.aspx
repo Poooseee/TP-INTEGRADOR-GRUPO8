@@ -185,6 +185,28 @@
         .auto-style105 {
             width: 33px;
         }
+        .auto-style106 {
+            height: 61px;
+        }
+        .auto-style107 {
+            width: 152px;
+            height: 24px;
+        }
+        .auto-style109 {
+            width: 152px;
+            height: 26px;
+        }
+        .auto-style110 {
+            width: 152px;
+            height: 22px;
+        }
+        .auto-style111 {
+            width: 152px;
+            height: 13px;
+        }
+        .auto-style112 {
+            width: 152px;
+        }
         </style>
 </head>
 <body>
@@ -208,7 +230,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="8">
+                    <td colspan="8" class="auto-style106">
             <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
@@ -233,7 +255,7 @@
                     </td>
                     <td class="auto-style100"></td>
                     <td class="auto-style91">Lunes</td>
-                    <td class="auto-style71">
+                    <td class="auto-style107">
                         <asp:TextBox ID="txtHorario1_1" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                     <td class="auto-style84">Hasta:</td>
@@ -252,7 +274,7 @@
                     </td>
                     <td class="auto-style105">&nbsp;</td>
                     <td class="auto-style97">Martes</td>
-                    <td class="auto-style69">
+                    <td class="auto-style112">
                         <asp:TextBox ID="txtHorario2_1" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                     <td class="auto-style89">Hasta</td>
@@ -271,7 +293,7 @@
                     </td>
                     <td class="auto-style105">&nbsp;</td>
                     <td class="auto-style97">Miercoles</td>
-                    <td class="auto-style69">
+                    <td class="auto-style112">
                         <asp:TextBox ID="txtHorario3_1" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                     <td class="auto-style89">Hasta</td>
@@ -290,7 +312,7 @@
                     </td>
                     <td class="auto-style101"></td>
                     <td class="auto-style93">Jueves</td>
-                    <td class="auto-style41">
+                    <td class="auto-style109">
                         <asp:TextBox ID="txtHorario4_1" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                     <td class="auto-style86">Hasta</td>
@@ -310,7 +332,7 @@
                     <td class="auto-style69">&nbsp;</td>
                     <td class="auto-style105">&nbsp;</td>
                     <td class="auto-style97">Viernes</td>
-                    <td class="auto-style69">
+                    <td class="auto-style112">
                         <asp:TextBox ID="txtHorario5_1" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                     <td class="auto-style89">Hasta</td>
@@ -329,7 +351,7 @@
                     </td>
                     <td class="auto-style102"></td>
                     <td class="auto-style94">Sabado</td>
-                    <td class="auto-style82">
+                    <td class="auto-style110">
                         <asp:TextBox ID="txtHorario6_1" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                     <td class="auto-style87">Hasta</td>
@@ -348,7 +370,7 @@
                     </td>
                     <td class="auto-style103"></td>
                     <td class="auto-style95">Domingo</td>
-                    <td class="auto-style28">
+                    <td class="auto-style111">
                         <asp:TextBox ID="txtHorario7_1" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                     <td class="auto-style88">Hasta</td>
@@ -367,7 +389,7 @@
                     </td>
                     <td class="auto-style105">&nbsp;</td>
                     <td class="auto-style97">&nbsp;</td>
-                    <td class="auto-style69">&nbsp;</td>
+                    <td class="auto-style112">&nbsp;</td>
                     <td class="auto-style89">&nbsp;</td>
                     <td class="auto-style70">&nbsp;</td>
                 </tr>
@@ -383,25 +405,29 @@
                     </td>
                     <td class="auto-style101"></td>
                     <td class="auto-style93">&nbsp;</td>
-                    <td class="auto-style41"></td>
+                    <td class="auto-style109">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USUARIO</td>
                     <td class="auto-style86"></td>
                     <td class="auto-style47"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style69">Localidad:</td>
-                    <td class="auto-style69">
+                    <td class="auto-style41">Localidad:</td>
+                    <td class="auto-style41">
             <strong>
                         <asp:DropDownList ID="ddlLocalidad" runat="server" Height="30px" Width="145px">
                         </asp:DropDownList>
                         </td>
-                    <td class="auto-style69">
+                    <td class="auto-style41">
                         <asp:RequiredFieldValidator ID="rfvLocalidad" runat="server" ControlToValidate="ddlLocalidad" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
                     </td>
-                    <td class="auto-style105">&nbsp;</td>
-                    <td class="auto-style97">&nbsp;</td>
-                    <td class="auto-style69">&nbsp;</td>
-                    <td class="auto-style89">&nbsp;</td>
-                    <td class="auto-style70">&nbsp;</td>
+                    <td class="auto-style101"></td>
+                    <td class="auto-style93">Usuario:</td>
+                    <td class="auto-style109">
+            <strong>
+                        <asp:TextBox ID="txtUsuario" runat="server" Width="135px"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvUsuario" runat="server" ControlToValidate="txtUsuario" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
+                    </td>
+                    <td class="auto-style86"></td>
+                    <td class="auto-style47"></td>
                 </tr>
                 <tr>
                     <td class="auto-style69">Telefono:</td>
@@ -413,8 +439,12 @@
                         <asp:RequiredFieldValidator ID="rfvTelefono" runat="server" ControlToValidate="txtTelefono" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
                     </td>
                     <td class="auto-style105">&nbsp;</td>
-                    <td class="auto-style97">&nbsp;</td>
-                    <td class="auto-style69">&nbsp;</td>
+                    <td class="auto-style97">Contraseña:</td>
+                    <td class="auto-style112">
+            <strong>
+                        <asp:TextBox ID="txtPass" runat="server" Width="135px" TextMode="Password"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvPass" runat="server" ControlToValidate="txtPass" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
+                    </td>
                     <td class="auto-style89">&nbsp;</td>
                     <td class="auto-style70">&nbsp;</td>
                 </tr>
@@ -429,7 +459,7 @@
                     </td>
                     <td class="auto-style105">&nbsp;</td>
                     <td class="auto-style97">&nbsp;</td>
-                    <td class="auto-style69">&nbsp;</td>
+                    <td class="auto-style112">&nbsp;</td>
                     <td class="auto-style89">&nbsp;</td>
                     <td class="auto-style70">&nbsp;</td>
                 </tr>
@@ -445,7 +475,7 @@
                     </td>
                     <td class="auto-style105">&nbsp;</td>
                     <td class="auto-style97">&nbsp;</td>
-                    <td class="auto-style69">&nbsp;</td>
+                    <td class="auto-style112">&nbsp;</td>
                     <td class="auto-style89">&nbsp;</td>
                     <td class="auto-style70">&nbsp;</td>
                 </tr>
@@ -473,7 +503,7 @@
             <tr>
                 <td aria-expanded="false" class="auto-style74">Busqueda por Legajo: </td>
                 <td class="auto-style75">
-                    <asp:TextBox ID="TextBox9" runat="server" Width="187px"></asp:TextBox>
+                    <asp:TextBox ID="TextBox9" runat="server" Width="187px" TextMode="Number"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;
                     <asp:Button ID="Button2" runat="server" Text="Buscar" />
                 </td>

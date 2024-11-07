@@ -138,5 +138,13 @@ namespace DAO
             Conexion.Close();
             return estado;
         }
+        public int EjecutarConsulta(string consultaSQL)
+        {
+            SqlConnection conexion = ObtenerConexion();
+            SqlCommand cmd = new SqlCommand(consultaSQL, conexion);
+            int filas = cmd.ExecuteNonQuery();
+            conexion.Close();
+            return filas;
+        }
     }
 }
