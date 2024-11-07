@@ -37,6 +37,24 @@
         .auto-style10 {
             margin-left: 400px;
         }
+        .auto-style11 {
+            text-align: center;
+            height: 29px;
+            width: 238px;
+        }
+        .auto-style12 {
+            text-align: center;
+            height: 29px;
+        }
+        .auto-style13 {
+            text-align: center;
+            height: 51px;
+            width: 238px;
+        }
+        .auto-style14 {
+            text-align: center;
+            height: 51px;
+        }
         </style>
 </head>
 <body>
@@ -57,7 +75,7 @@
                         <asp:TextBox ID="txtUsuario" runat="server" Height="23px" Width="160px"></asp:TextBox>
                         &nbsp;</td>
                     <td class="auto-style6">
-                        <asp:CustomValidator ID="cvUsuario" runat="server" ControlToValidate="txtUsuario" ForeColor="Red" OnServerValidate="cvInicioSesion_ServerValidate" ValidationGroup="logeo"></asp:CustomValidator>
+                        <asp:CustomValidator ID="cvUsuario" runat="server" ControlToValidate="txtUsuario" ForeColor="Red" OnServerValidate="cvInicioSesion_ServerValidate" ValidationGroup="logeo">Incorrecto</asp:CustomValidator>
                     </td>
                 </tr>
                 <tr>
@@ -69,20 +87,20 @@
                         <asp:TextBox ID="txtContraseña" runat="server" Height="24px" Width="161px" TextMode="Password"></asp:TextBox>
                     </td>
                     <td class="auto-style6">
-                        <asp:CustomValidator ID="cvContrasena" runat="server" ControlToValidate="txtContraseña" ForeColor="Red" OnServerValidate="cvContrasena_ServerValidate" ValidationGroup="logeo"></asp:CustomValidator>
+                        <asp:CustomValidator ID="cvContrasena" runat="server" ControlToValidate="txtContraseña" ForeColor="Red" OnServerValidate="cvContrasena_ServerValidate" ValidationGroup="logeo">incorrecta</asp:CustomValidator>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style9">
+                    <td class="auto-style11">
                         <asp:CheckBox ID="cbRecordarme" runat="server" Text="Recordar inicio" />
                     </td>
-                    <td class="auto-style6">&nbsp;</td>
+                    <td class="auto-style12">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style9">
+                    <td class="auto-style13">
                         <asp:Button ID="btnIngresar" runat="server" Height="28px" OnClick="btnIngresar_Click" Text="Ingresar" ValidationGroup="logeo" Width="74px" />
                     </td>
-                    <td class="auto-style6">&nbsp;</td>
+                    <td class="auto-style14">&nbsp;</td>
                 </tr>
             </table>
         </div>

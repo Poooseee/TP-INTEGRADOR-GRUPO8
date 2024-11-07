@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace DAO
 {
-     class AccesoDatos
+    public class AccesoDatos
     {
-        string rutaBD = "";
+        string rutaBD = "Data Source=laptopjano\\sqlexpress;Initial Catalog=TP_INT_GRUPO8;Integrated Security=True";
 
         public AccesoDatos()
         {
@@ -128,7 +128,8 @@ namespace DAO
         public Boolean existe(String consulta)
         {
             Boolean estado = false;
-            SqlConnection Conexion = ObtenerConexion();
+            SqlConnection Conexion = new SqlConnection(rutaBD);
+            Conexion.Open();
             SqlCommand cmd = new SqlCommand(consulta, Conexion);
             SqlDataReader datos = cmd.ExecuteReader();
             if (datos.Read())
