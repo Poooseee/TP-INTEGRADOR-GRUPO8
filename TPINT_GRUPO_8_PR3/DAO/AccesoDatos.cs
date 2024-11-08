@@ -10,7 +10,7 @@ namespace DAO
 {
     public class AccesoDatos
     {
-        string rutaBD = "Data Source=laptopjano\\sqlexpress;Initial Catalog=TP_INT_GRUPO8;Integrated Security=True";
+        string rutaBD = "Data Source=localhost\\sqlexpress;Initial Catalog=TP_INT_GRUPO8;Integrated Security=True";
 
         public AccesoDatos()
         {
@@ -128,8 +128,7 @@ namespace DAO
         public Boolean existe(String consulta)
         {
             Boolean estado = false;
-            SqlConnection Conexion = new SqlConnection(rutaBD);
-            Conexion.Open();
+            SqlConnection Conexion = ObtenerConexion();
             SqlCommand cmd = new SqlCommand(consulta, Conexion);
             SqlDataReader datos = cmd.ExecuteReader();
             if (datos.Read())

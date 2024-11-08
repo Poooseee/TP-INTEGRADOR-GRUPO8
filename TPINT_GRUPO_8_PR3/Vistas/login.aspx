@@ -87,7 +87,7 @@
                         <asp:TextBox ID="txtContraseña" runat="server" Height="24px" Width="161px" TextMode="Password"></asp:TextBox>
                     </td>
                     <td class="auto-style6">
-                        <asp:CustomValidator ID="cvContrasena" runat="server" ControlToValidate="txtContraseña" ForeColor="Red" OnServerValidate="cvContrasena_ServerValidate" ValidationGroup="logeo">incorrecta</asp:CustomValidator>
+                        <asp:CustomValidator ID="cvContrasena" runat="server" ControlToValidate="txtContraseña" ForeColor="Red" OnServerValidate="cvContrasena_ServerValidate" ValidationGroup="logeo">Incorrecta</asp:CustomValidator>
                     </td>
                 </tr>
                 <tr>
