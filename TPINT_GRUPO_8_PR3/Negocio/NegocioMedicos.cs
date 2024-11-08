@@ -17,6 +17,22 @@ namespace Negocio
             return DaoMedicos.obtenerTablaMedicos();
         }
 
+        public bool BajaMedico(int legajo)
+        {
+            Medico medico = new Medico();
+            medico.Legajo = legajo;
+            bool eliminado = false;
+            if (DaoMedicos.existeMedico(legajo))
+            {
+               if(DaoMedicos.bajaMedico(medico) == 1)
+                {
+                    eliminado = true;
+                }
+
+            }
+            return eliminado;
+        }
+
         public bool agregarMedico(Medico medico)
         {
             int filas = 0;

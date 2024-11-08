@@ -26,8 +26,8 @@ namespace Vistas.Administrador
         NegocioMedicos negMedicos = new NegocioMedicos();
         public void obtenerCookie()
         {
-            HttpCookie cookie = this.Request.Cookies["UsuarioInfo"];
-            lblUsuario.Text = cookie["Usuario"];
+          //  HttpCookie cookie = this.Request.Cookies["UsuarioInfo"];
+           // lblUsuario.Text = cookie["Usuario"];
         }
         public void cargarProvinciasAlDDL()
         {
@@ -117,6 +117,20 @@ namespace Vistas.Administrador
                
             }
 
+        }
+
+        protected void grdMedicos_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            int legajo = Convert.ToInt32(((Label)grdMedicos.Rows[e.RowIndex].FindControl("lbl_it_legajo")).Text);
+           if(negMedicos.BajaMedico(legajo))
+            {
+                lblMensaje.Text = "ELIMINADO CORRECTAMENTE";
+            }
+            else
+            {
+                lblMensaje.Text = "NO SE PUDO ELIMINAR";
+            }
+            cargarGrdMedicos();
         }
     }
 }
