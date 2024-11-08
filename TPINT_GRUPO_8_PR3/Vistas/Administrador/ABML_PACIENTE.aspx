@@ -107,6 +107,21 @@
         .auto-style31 {
             height: 33px;
         }
+        .auto-style32 {
+            width: 180px;
+            height: 30px;
+        }
+        .auto-style33 {
+            width: 206px;
+            height: 30px;
+        }
+        .auto-style34 {
+            width: 336px;
+            height: 30px;
+        }
+        .auto-style35 {
+            height: 30px;
+        }
     </style>
 </head>
 <body>
@@ -186,7 +201,7 @@
                     <td class="auto-style13"></td>
                     <td class="auto-style10">Fecha de Nacimiento:</td>
                     <td class="auto-style10">
-                        <asp:TextBox ID="txtNacionalidad" runat="server" CssClass="auto-style6" Width="133px" TextMode="Date"></asp:TextBox>
+                        <asp:TextBox ID="txtFechaNacimiento" runat="server" CssClass="auto-style3" Width="130px"></asp:TextBox>
                     </td>
                     <td class="auto-style11">
                         <asp:RequiredFieldValidator ID="rfvFechaNac" runat="server" ControlToValidate="txtFechaNacimiento" CssClass="auto-style3" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
@@ -197,7 +212,7 @@
                     <td class="auto-style12">&nbsp;</td>
                     <td class="auto-style8">Nacionalidad:</td>
                     <td class="auto-style8">
-                        <asp:TextBox ID="txtFechaNacimiento" runat="server" CssClass="auto-style3" Width="130px"></asp:TextBox>
+                        <asp:TextBox ID="txtNacionalidad" runat="server" CssClass="auto-style6" Width="133px" TextMode="Date"></asp:TextBox>
                     </td>
                     <td class="auto-style7">
                         <asp:RequiredFieldValidator ID="rfvNacionalidad" runat="server" ControlToValidate="txtNacionalidad" CssClass="auto-style3" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
@@ -267,7 +282,7 @@
                     <td class="auto-style8">&nbsp;</td>
                     <td class="auto-style8">
                         <br />
-                        <asp:Button ID="btnAgregar" runat="server" CssClass="auto-style3" Height="30px" Text="Agregar Paciente" ValidationGroup="1" Width="200px" />
+                        <asp:Button ID="btnAgregar" runat="server" CssClass="auto-style3" Height="30px" Text="Agregar Paciente" ValidationGroup="1" Width="200px" OnClick="btnAgregar_Click" />
                     </td>
                     <td class="auto-style7">&nbsp;</td>
                     <td>&nbsp;</td>
@@ -294,7 +309,7 @@
                         <asp:TextBox ID="txtBusquedaDni" runat="server" CssClass="auto-style10" Width="224px" TextMode="Number"></asp:TextBox>
                     </td>
                 <td class="auto-style20">
-                        <asp:Button ID="btnBuscarDni" runat="server" Text="Buscar" Width="83px" />
+                        <asp:Button ID="btnBuscarDni" runat="server" Text="Buscar" Width="83px" OnClick="btnBuscarDni_Click" />
                     </td>
                 <td>
                         <asp:Button ID="Button2" runat="server" Text="Listar Todos" Width="83px" />
@@ -308,7 +323,7 @@
                         <asp:TextBox ID="txtBusqApellido" runat="server" CssClass="auto-style10" Width="224px"></asp:TextBox>
                     </td>
                 <td class="auto-style30">
-                        <asp:Button ID="btnBuscarApel" runat="server" Text="Buscar" Width="83px" />
+                        <asp:Button ID="btnBuscarApel" runat="server" Text="Buscar" Width="83px" OnClick="btnBuscarApel_Click" />
                     </td>
                 <td class="auto-style31"></td>
             </tr>
@@ -320,24 +335,24 @@
                         <asp:TextBox ID="txtBusqNacio" runat="server" CssClass="auto-style10" Width="224px"></asp:TextBox>
                     </td>
                 <td class="auto-style20">
-                        <asp:Button ID="btnBuscarNacio" runat="server" Text="Buscar" Width="83px" />
+                        <asp:Button ID="btnBuscarNacio" runat="server" Text="Buscar" Width="83px" OnClick="btnBuscarNacio_Click" />
                     </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style18">
+                <td class="auto-style32">
                     <asp:Label ID="lblBusqSexo" runat="server" Text="Busqueda por Sexo:"></asp:Label>
                 </td>
-                <td class="auto-style19">
+                <td class="auto-style33">
                         <asp:DropDownList ID="ddlBusqSexo" runat="server" CssClass="auto-style3" Width="145px">
                             <asp:ListItem>Masculino</asp:ListItem>
                             <asp:ListItem>Femenino</asp:ListItem>
                         </asp:DropDownList>
                     </td>
-                <td class="auto-style20">
-                        <asp:Button ID="btnBuscarSexo" runat="server" Text="Buscar" Width="83px" />
+                <td class="auto-style34">
+                        <asp:Button ID="btnBuscarSexo" runat="server" Text="Buscar" Width="83px" OnClick="btnBuscarSexo_Click" />
                     </td>
-                <td>&nbsp;</td>
+                <td class="auto-style35"></td>
             </tr>
             <tr>
                 <td class="auto-style25">
@@ -346,7 +361,7 @@
                         <asp:TextBox ID="txtFechaNacPac" runat="server" TextMode="Date" Width="219px"></asp:TextBox>
                     </td>
                 <td class="auto-style27">
-                        <asp:Button ID="btnBuscarFechaNac" runat="server" Text="Buscar" Width="83px" />
+                        <asp:Button ID="btnBuscarFechaNac" runat="server" Text="Buscar" Width="83px" OnClick="btnBuscarFechaNac_Click" />
                     </td>
                 <td class="auto-style2"></td>
             </tr>
@@ -358,7 +373,7 @@
             </tr>
             <tr>
                 <td colspan="4">
-        <asp:GridView ID="grdPacientes" runat="server" AutoGenerateColumns="False" AutoGenerateDeleteButton="True" AutoGenerateEditButton="True" CssClass="auto-style6" OnRowCancelingEdit="grdPacientes_RowCancelingEdit" OnRowEditing="grdPacientes_RowEditing" OnRowUpdated="grdPacientes_RowUpdated" OnRowUpdating="grdPacientes_RowUpdating">
+        <asp:GridView ID="grdPacientes" runat="server" AutoGenerateColumns="False" AutoGenerateDeleteButton="True" AutoGenerateEditButton="True" CssClass="auto-style6" OnRowCancelingEdit="grdPacientes_RowCancelingEdit" OnRowEditing="grdPacientes_RowEditing" OnRowUpdated="grdPacientes_RowUpdated" OnRowUpdating="grdPacientes_RowUpdating" OnSelectedIndexChanged="grdPacientes_SelectedIndexChanged">
             <Columns>
                 <asp:TemplateField HeaderText="Dni">
                     <EditItemTemplate>

@@ -70,3 +70,12 @@ C:\Users\jano\Desktop\Proyectos .NET\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\
 C:\Users\jano\Desktop\Proyectos .NET\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\obj\Debug\DAO.csproj.Up2Date
 C:\Users\jano\Desktop\Proyectos .NET\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\obj\Debug\DAO.dll
 C:\Users\jano\Desktop\Proyectos .NET\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\obj\Debug\DAO.pdb
+C:\Users\Fede\Desktop\Nueva carpeta (3)\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\bin\Debug\DAO.dll
+C:\Users\Fede\Desktop\Nueva carpeta (3)\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\bin\Debug\DAO.pdb
+C:\Users\Fede\Desktop\Nueva carpeta (3)\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\bin\Debug\Entidades.dll
+C:\Users\Fede\Desktop\Nueva carpeta (3)\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\bin\Debug\Entidades.pdb
+C:\Users\Fede\Desktop\Nueva carpeta (3)\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\obj\Debug\DAO.csproj.AssemblyReference.cache
+C:\Users\Fede\Desktop\Nueva carpeta (3)\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
+C:\Users\Fede\Desktop\Nueva carpeta (3)\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\obj\Debug\DAO.csproj.Up2Date
+C:\Users\Fede\Desktop\Nueva carpeta (3)\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\obj\Debug\DAO.dll
+C:\Users\Fede\Desktop\Nueva carpeta (3)\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\DAO\obj\Debug\DAO.pdb

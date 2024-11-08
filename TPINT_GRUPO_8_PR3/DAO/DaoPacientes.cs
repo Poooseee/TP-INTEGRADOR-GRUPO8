@@ -21,7 +21,7 @@ namespace DAO
             return ad.ObtenerTabla("Pacientes" , consulta);
         }
 
-        public bool existePaciente(string dni)
+        public bool existePaciente(int dni)
         {
             return ad.existe("SELECT * FROM Pacientes WHERE DNI_P = " + dni);
         }
@@ -32,6 +32,15 @@ namespace DAO
                 ", Localidades.nombreLocalidad_L AS Localidad , Provincias.nombreProvincia_PR AS Provincia , email_P AS Email , telefono_P AS Telefono , baja_p AS Baja FROM Pacientes INNER JOIN Localidades ON " +
                 "Pacientes.Idlocalidad_P = Localidades.IdLocalidad_L INNER JOIN Provincias ON Pacientes.Idprovincia_P = Provincias.IdProvincia_PR WHERE DNI_P = " + dni;
             
+            return ad.ObtenerTabla("Pacientes", consulta);
+        }
+
+        public DataTable buscarPacientePorApellido(string apellido)
+        {
+            string consulta = "SELECT DNI_P AS Dni , nombre_P AS Nombre , apellido_P AS Apellido , sexo_P AS Sexo , nacionalidad_P AS Nacionalidad , fechaNac_P  AS FechaNacimiento , direccion_P AS Direccion " +
+                ", Localidades.nombreLocalidad_L AS Localidad , Provincias.nombreProvincia_PR AS Provincia , email_P AS Email , telefono_P AS Telefono , baja_p AS Baja FROM Pacientes INNER JOIN Localidades ON " +
+                "Pacientes.Idlocalidad_P = Localidades.IdLocalidad_L INNER JOIN Provincias ON Pacientes.Idprovincia_P = Provincias.IdProvincia_PR WHERE APELLiDO_P = " + apellido;
+
             return ad.ObtenerTabla("Pacientes", consulta);
         }
 
