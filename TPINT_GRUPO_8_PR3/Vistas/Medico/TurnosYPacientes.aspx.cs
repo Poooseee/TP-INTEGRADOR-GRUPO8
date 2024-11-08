@@ -11,7 +11,8 @@ namespace Vistas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            HttpCookie cookie = this.Request.Cookies["usuarioInfo"];
+            lblUsuario.Text = cookie["Usuario"];
         }
 
         protected void CheckBox1_CheckedChanged(object sender, EventArgs e)

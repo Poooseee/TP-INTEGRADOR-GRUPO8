@@ -1,4 +1,5 @@
-﻿using Negocio;
+﻿using Entidades;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -18,8 +19,15 @@ namespace Vistas.Administrador
                 cargarGrdMedicos();
                 cargarProvinciasAlDDL();
                 cargarLocalidadesAlDDL();
+                obtenerCookie();
             }
 
+        }
+        NegocioMedicos negMedicos = new NegocioMedicos();
+        public void obtenerCookie()
+        {
+            HttpCookie cookie = this.Request.Cookies["UsuarioInfo"];
+            lblUsuario.Text = cookie["Usuario"];
         }
         public void cargarProvinciasAlDDL()
         {
@@ -32,7 +40,6 @@ namespace Vistas.Administrador
             ddlProvincia.DataBind();
             ddlProvincia.Items.Insert(0, new ListItem("Seleccione una provincia", "0"));
         }
-
         public void cargarLocalidadesAlDDL()
         {
             NegocioLocalidades loc = new NegocioLocalidades();
@@ -44,14 +51,12 @@ namespace Vistas.Administrador
             ddlLocalidad.DataBind();
             ddlLocalidad.Items.Insert(0, new ListItem("Seleccione una localidad", "0"));
         }
-
         public void cargarGrdMedicos()
         {
             NegocioMedicos NM = new NegocioMedicos();
             grdMedicos.DataSource = NM.obtenerTablaMedicos();
             grdMedicos.DataBind();
         }
-
         protected void ddlProvincia_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -73,9 +78,44 @@ namespace Vistas.Administrador
         {
 
         }
-
         protected void grdMedicos_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
+
+        }
+        protected Medico llenarEntidadMedico()
+        {
+            Medico medico = new Medico();
+            medico.Legajo = int.Parse(txtLegajo.Text.Trim());
+            medico.Dni = int.Parse(txtDNI.Text.Trim());
+            medico.Nombre = txtNombre.Text.Trim();
+            medico.Apellido = txtApellido.Text.Trim();
+            medico.Sexo = ddlSexo.SelectedValue.ToString();
+            medico.Nacionalidad = ddlNacionalidad.SelectedValue.ToString();
+            medico.FechaNac = DateTime.Parse(txtFechaNac.Text.Trim());
+            medico.Direccion = txtDireccion.Text.Trim();
+            medico.Localidad = int.Parse(ddlLocalidad.SelectedValue.ToString());
+            medico.Provincia = int.Parse(ddlProvincia.SelectedValue.ToString());
+            medico.Email = txtCorreo.Text.Trim();
+            medico.Telefono = txtTelefono.Text.Trim();
+            medico.Especialidad = ddlEspecialidades.SelectedItem.ToString();
+            medico.Baja = false;
+           
+            return medico;
+        }
+
+        protected void btnAlta_Click(object sender, EventArgs e)
+        {
+            
+            //se carga un objeto con todos los valores
+            Medico medico = llenarEntidadMedico();
+            if (negMedicos.agregarMedico(medico))
+            {
+                
+            }
+            else
+            {
+               
+            }
 
         }
     }

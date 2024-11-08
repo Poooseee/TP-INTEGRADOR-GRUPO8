@@ -20,10 +20,9 @@ namespace Entidades
         int provincia;
         string email;
         string telefono;
-        bool estado;
+        bool baja;
         string especialidad;
 
-        public Medico(bool est = true) { estado = est; }
 
         public int Legajo { get => legajo; set => legajo = value; }
         public int Dni { get => dni; set => dni = value; }
@@ -37,7 +36,8 @@ namespace Entidades
         public int Provincia { get => provincia; set => provincia = value; }
         public string Email { get => email; set => email = value; }
         public string Telefono { get => telefono; set => telefono = value; }
-        public bool Estado { get => estado; set => estado = value; }
+
         public string Especialidad { get => especialidad; set => especialidad = value; }
+        public bool Baja { get => baja; set => baja = value; }
     }
 }

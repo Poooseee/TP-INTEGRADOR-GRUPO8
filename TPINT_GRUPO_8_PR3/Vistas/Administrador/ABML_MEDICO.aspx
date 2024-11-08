@@ -122,22 +122,22 @@
         }
         .auto-style84 {
             height: 24px;
-            width: 31px;
+            width: 59px;
         }
         .auto-style86 {
-            width: 31px;
+            width: 59px;
             height: 26px;
         }
         .auto-style87 {
             height: 22px;
-            width: 31px;
+            width: 59px;
         }
         .auto-style88 {
             height: 13px;
-            width: 31px;
+            width: 59px;
         }
         .auto-style89 {
-            width: 31px;
+            width: 59px;
         }
         .auto-style91 {
             height: 24px;
@@ -343,12 +343,13 @@
                 <tr>
                     <td class="auto-style82">Nacionalidad:</td>
                     <td class="auto-style82">
-            <strong>
-                        <asp:TextBox ID="txtNacionalidad" runat="server" Width="133px" Height="16px"></asp:TextBox>
+                        <asp:DropDownList ID="ddlNacionalidad" runat="server" Height="16px" Width="136px">
+                            <asp:ListItem>Argentino/a</asp:ListItem>
+                            <asp:ListItem>Peruano/a</asp:ListItem>
+                        </asp:DropDownList>
                     </td>
                     <td class="auto-style82">
-                        <asp:RequiredFieldValidator ID="rfvNacionalidad" runat="server" ControlToValidate="txtNacionalidad" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
-                    </td>
+                        &nbsp;</td>
                     <td class="auto-style102"></td>
                     <td class="auto-style94">Sabado</td>
                     <td class="auto-style110">
@@ -484,12 +485,14 @@
             <strong>
                         <asp:CompareValidator ID="cvPass" runat="server" ControlToCompare="txtPass2" ControlToValidate="txtPass" ErrorMessage="Las contraseñas deben ser iguales." ForeColor="Red" ValidationGroup="medico"></asp:CompareValidator>
                     </td>
-                    <td class="auto-style89">&nbsp;</td>
+                    <td class="auto-style89">
+                        <asp:HiddenField ID="hfConfirmar" runat="server" />
+                    </td>
                     <td class="auto-style70">&nbsp;</td>
                 </tr>
                 <tr>
                     <td colspan="8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-                        <asp:Button ID="btnAlta" runat="server" Text="Dar de Alta" Width="106px" />
+                        <asp:Button ID="btnAlta" runat="server" Text="Dar de Alta" Width="106px" OnClick="btnAlta_Click" />
                     </td>
                 </tr>
             </table>
@@ -696,5 +699,6 @@
             </tr>
         </table>
     </form>
+    <script src="../Scripts/JavaScript.js"></script>
 </body>
 </html>
