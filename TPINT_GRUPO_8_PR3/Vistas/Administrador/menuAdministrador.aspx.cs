@@ -33,5 +33,18 @@ namespace Vistas
         {
             Server.TransferRequest("Informes.aspx");
         }
+
+        protected void lnkbtnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            //ELIMINAMOS LA COOKIE
+            if (Request.Cookies["UsuarioInfo"] != null)
+            {
+                HttpCookie cookie = Request.Cookies["UsuarioInfo"];
+                cookie.Expires = DateTime.Now.AddDays(-1);
+                this.Response.Cookies.Add(cookie);
+            }
+
+            Response.Redirect("login.aspx");
+        }
     }
 }

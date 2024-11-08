@@ -569,3 +569,5 @@ C:\Users\jano\Desktop\Proyectos .NET\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Vist
 C:\Users\jano\Desktop\Proyectos .NET\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Vistas\obj\Debug\Vistas.pdb
 C:\Users\agust\Documents\GitHub\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Vistas\bin\DAO.dll
 C:\Users\agust\Documents\GitHub\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Vistas\bin\DAO.pdb
+C:\Users\Administrator\Downloads\TP_INT_GRUPO_8\TPINT_GRUPO_8_PR3\Vistas\bin\DAO.dll
+C:\Users\Administrator\Downloads\TP_INT_GRUPO_8\TPINT_GRUPO_8_PR3\Vistas\bin\DAO.pdb

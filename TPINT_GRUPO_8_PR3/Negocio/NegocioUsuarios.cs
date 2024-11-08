@@ -1,7 +1,9 @@
 ﻿using DAO;
 using Entidades;
 using System;
+using System.Web;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,12 +34,41 @@ namespace Negocio
                 return 0;
             }
         }
+
+        public DataRow inicioSesion(string nombreUsuario , string constrasenia)
+        {
+            Usuarios login = new Usuarios();
+            login.Contrasenia = constrasenia;
+            login.NombreUsuario = nombreUsuario;
+
+            DataTable respuesta = DAO.login(login);
+
+            if(respuesta.Rows.Count > 0)
+            {
+                //SE ENCONTRO
+                return respuesta.Rows[0];
+                DataRow fila = respuesta.Rows[0];
+
+                string usuario = fila["Usuario"].ToString();
+                int legajo = Convert.ToInt32(fila["Legajo"]);
+                string tipoUsuario = fila["tipoUsuario"].ToString();
+
+                return fila;
+            }
+            else
+            {
+                //NO SE ENCONTRO
+                return null;
+            }
+        }
+
         public bool contraseniaValida(string contrasenia)
         {
             Usuarios usuario = new Usuarios();
             usuario.Contrasenia = contrasenia;
             return DAO.contraseniaValida(usuario);
         }
+
         public bool nombreUsuarioValido(string nombreUsuario)
         {
             Usuarios usuario = new Usuarios();
