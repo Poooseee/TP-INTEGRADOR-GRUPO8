@@ -32,7 +32,18 @@ namespace Negocio
             }
             return eliminado;
         }
-
+        public bool actualizarMedico(Medico medico)
+        {
+            bool actualizado = false;
+            if (DaoMedicos.existeMedico(medico.Legajo))
+            {
+                if (DaoMedicos.actualizarMedico(medico)==1)
+                {
+                    actualizado = true;
+                }
+            }
+            return actualizado;
+        }
         public bool agregarMedico(Medico medico)
         {
             int filas = 0;

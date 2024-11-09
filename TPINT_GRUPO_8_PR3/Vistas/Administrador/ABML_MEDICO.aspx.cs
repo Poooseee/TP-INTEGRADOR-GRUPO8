@@ -109,9 +109,41 @@ namespace Vistas.Administrador
         {
 
         }
-        protected void grdMedicos_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        protected Medico ObtenerYActualizarDatosMedico(GridViewRow fila)
         {
 
+            Medico medico = new Medico();
+            medico.Legajo = int.Parse(((Label)fila.FindControl("lbl_it_legajo")).Text);
+            medico.Especialidad = ((DropDownList)fila.FindControl("ddl_eit_Especialidad")).SelectedValue;
+            medico.Nombre = (((TextBox)fila.FindControl("txt_Eit_Nombre")).Text);
+            medico.Apellido = (((TextBox)fila.FindControl("txt_Eit_Apellido")).Text);
+            medico.Sexo = (((TextBox)fila.FindControl("txt_Eit_Sexo")).Text);
+            medico.Nacionalidad = (((TextBox)fila.FindControl("txt_Eit_Nacionalidad")).Text);
+            medico.FechaNac = DateTime.Parse((((TextBox)fila.FindControl("txt_Eit_FechaDeNacimiento")).Text));
+            medico.Direccion = (((TextBox)fila.FindControl("txt_Eit_Direccion")).Text);
+            medico.Localidad = int.Parse(((DropDownList)fila.FindControl("ddl_eit_Localidad")).SelectedValue);
+            medico.Provincia = int.Parse(((DropDownList)fila.FindControl("ddl_eit_Provincia")).SelectedValue);
+            medico.Email = (((TextBox)fila.FindControl("txt_Eit_Correo")).Text);
+            medico.Telefono = (((TextBox)fila.FindControl("txt_Eit_Telefono")).Text);
+            medico.Baja = false;
+
+            return medico;
+        }
+        protected void grdMedicos_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            int RowIndex = e.RowIndex;
+            GridViewRow fila = grdMedicos.Rows[RowIndex];
+
+            Medico medico = ObtenerYActualizarDatosMedico(fila);
+
+            if (negMedicos.actualizarMedico(medico))
+            {
+
+            }
+            else
+            {
+
+            }
         }
         protected Medico llenarEntidadMedico()
         {
@@ -179,6 +211,12 @@ namespace Vistas.Administrador
         {
             cargarGrdMedicos();
             txtBuscarLegajo.Text = "";
+        }
+
+        protected void grdMedicos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdMedicos.PageIndex = e.NewPageIndex;
+            cargarGrdMedicos();
         }
     }
 }

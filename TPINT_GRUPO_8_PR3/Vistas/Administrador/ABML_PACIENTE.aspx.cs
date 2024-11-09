@@ -89,7 +89,6 @@ namespace Vistas.Administrador
             grdPacientes.EditIndex = e.NewEditIndex;
             cargarGrdPacientes();
         }
-
         protected void grdPacientes_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -105,14 +104,13 @@ namespace Vistas.Administrador
             paciente.FechaNac = DateTime.Parse(txtFechaNacimiento.Text.Trim());
             paciente.Nacionalidad = txtNacionalidad.Text.Trim();
             paciente.Provincia = ddlProvincia.SelectedValue.ToString();
-            paciente.Localidad =ddlLocalidad.SelectedValue.ToString();
+            paciente.Localidad = ddlLocalidad.SelectedValue.ToString();
             paciente.Direccion = txtDireccion.Text.Trim();
             paciente.Telefono = txtTelefono.Text.Trim();
-            paciente.Email = txtCorreo.Text.Trim();           
+            paciente.Email = txtCorreo.Text.Trim();
 
             return paciente;
         }
-
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             Paciente paciente = llenarEntidadPaciente();
@@ -125,34 +123,34 @@ namespace Vistas.Administrador
 
             }
         }
-
         protected void btnBuscarDni_Click(object sender, EventArgs e)
         {
             string DNI;
             DNI = txtBusquedaDni.Text.Trim();
             negPacientes.obtenerPacientesPorDNI(DNI);
         }
-
         protected void btnBuscarApel_Click(object sender, EventArgs e)
         {
             string Apellido;
-            Apellido = txtBusqApellido.Text.Trim(); 
+            Apellido = txtBusqApellido.Text.Trim();
             negPacientes.obtenerPacientesPorApellido(Apellido);
         }
-
         protected void btnBuscarNacio_Click(object sender, EventArgs e)
         {
 
         }
-
         protected void btnBuscarSexo_Click(object sender, EventArgs e)
         {
 
         }
-
         protected void btnBuscarFechaNac_Click(object sender, EventArgs e)
         {
 
+        }
+        protected void grdPacientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdPacientes.PageIndex = e.NewPageIndex;
+            cargarGrdPacientes();
         }
     }
    

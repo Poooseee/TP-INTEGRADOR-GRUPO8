@@ -29,7 +29,26 @@ namespace DAO
         {
             return ad.existe("SELECT * FROM Medicos WHERE Legajo_M = " + legajo);
         }
+        public int actualizarMedico(Medico m)
+        {
+            string consulta = "UPDATE Medicos SET " +
+                      "DNI_M = '" + m.Dni + "', " +
+                      "nombre_M = '" + m.Nombre + "', " +
+                      "apellido_M = '" + m.Apellido + "', " +
+                      "sexo_M = '" + m.Sexo + "', " +
+                      "nacionalidad_M = '" + m.Nacionalidad + "', " +
+                      "fechaNac_M = '" + m.FechaNac + "', " +
+                      "direccion_M = '" + m.Direccion + "', " +
+                      "IdLocalidad_M = '" + m.Localidad + "', " +
+                      "IdProvincia_M = '" + m.Provincia + "', " +
+                      "email_M = '" + m.Email + "', " +
+                      "telefono_M = '" + m.Telefono + "', " +
+                      "especialidad_M = '" + m.Especialidad + "', " +
+                      "baja_m = '" + m.Baja +"' " +
+                      "WHERE Legajo_M = '" + m.Legajo + "'";
 
+            return ad.EjecutarConsulta(consulta);
+        }
         public int bajaMedico(Medico m)
         {
             string consulta = "UPDATE Medicos SET Baja_m = 1 WHERE Legajo_M = '" + m.Legajo + "'";
