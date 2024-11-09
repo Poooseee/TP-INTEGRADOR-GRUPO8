@@ -231,22 +231,13 @@ namespace Vistas.Administrador
         protected global::System.Web.UI.WebControls.TextBox txtHorario5_2;
 
         /// <summary>
-        /// Control txtNacionalidad.
+        /// Control ddlNacionalidad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNacionalidad;
-
-        /// <summary>
-        /// Control rfvNacionalidad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNacionalidad;
+        protected global::System.Web.UI.WebControls.DropDownList ddlNacionalidad;
 
         /// <summary>
         /// Control txtHorario6_1.
@@ -429,6 +420,24 @@ namespace Vistas.Administrador
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCorreo;
 
         /// <summary>
+        /// Control txtPass2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPass2;
+
+        /// <summary>
+        /// Control rfvPass2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPass2;
+
+        /// <summary>
         /// Control ddlEspecialidades.
         /// </summary>
         /// <remarks>
@@ -445,6 +454,24 @@ namespace Vistas.Administrador
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEspecialidad;
+
+        /// <summary>
+        /// Control cvPass.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cvPass;
+
+        /// <summary>
+        /// Control hfConfirmar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfConfirmar;
 
         /// <summary>
         /// Control btnAlta.
@@ -499,6 +526,15 @@ namespace Vistas.Administrador
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdMedicos;
+
+        /// <summary>
+        /// Control lblMensaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMensaje;
 
         /// <summary>
         /// Control grdHorarios.

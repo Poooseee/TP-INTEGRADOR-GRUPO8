@@ -87,7 +87,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style6">&nbsp;&nbsp;&nbsp;
-                        <asp:LinkButton ID="lnkbtnCerrarSesion" runat="server" PostBackUrl="~/login.aspx">Cerrar Sesión</asp:LinkButton>
+                        <asp:LinkButton ID="lnkbtnCerrarSesion" runat="server" PostBackUrl="~/login.aspx" OnClick="lnkbtnCerrarSesion_Click">Cerrar Sesión</asp:LinkButton>
                     </td>
                     <td class="auto-style6">&nbsp;</td>
                     <td class="auto-style7">&nbsp;</td>

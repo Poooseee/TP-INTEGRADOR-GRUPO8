@@ -73,6 +73,7 @@
     <Content Include="Administrador\Informes.aspx" />
     <Content Include="login.aspx" />
     <Content Include="Medico\TurnosYPacientes.aspx" />
+    <Content Include="Scripts\JavaScript.js" />
     <Content Include="Web.config" />
     <Content Include="Administrador\menuAdministrador.aspx" />
   </ItemGroup>

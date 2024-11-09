@@ -22,7 +22,8 @@ namespace Entidades
         string telefono;
         bool estado;
 
-        Paciente(bool est = true) { estado = est; }
+       // Paciente(bool est = true) { estado = est; }
+        public Paciente(bool est = true) { estado = est; }
 
         public int Dni { get => dni; set => dni = value; }
         public string Nombre { get => nombre; set => nombre = value; }

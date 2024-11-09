@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace DAO
 {
-     class AccesoDatos
+    public class AccesoDatos
     {
-        string rutaBD = "";
+        string rutaBD = "Data Source=localhost\\sqlexpress;Initial Catalog=TP_INT_GRUPO8;Integrated Security=True";
 
         public AccesoDatos()
         {
