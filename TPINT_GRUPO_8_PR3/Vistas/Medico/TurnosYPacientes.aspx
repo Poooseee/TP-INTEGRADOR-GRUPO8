@@ -88,30 +88,55 @@
                 <tr>
                     <td class="auto-style2">
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:GridView ID="grvTurnos" runat="server" AutoGenerateColumns="False" Width="788px" OnSelectedIndexChanged="grvTurnos_SelectedIndexChanged">
+                        <asp:GridView ID="grvTurnos" runat="server" AutoGenerateColumns="False" Width="788px" AutoGenerateEditButton="True" OnRowCancelingEdit="grvTurnos_RowCancelingEdit" OnRowEditing="grvTurnos_RowEditing" OnRowUpdating="grvTurnos_RowUpdating">
                             <Columns>
-                                <asp:TemplateField HeaderText="Turno"></asp:TemplateField>
-                                <asp:TemplateField HeaderText="Fecha"></asp:TemplateField>
-                                <asp:TemplateField HeaderText="Hora"></asp:TemplateField>
-                                <asp:TemplateField HeaderText="Paciente"></asp:TemplateField>
-                                <asp:TemplateField HeaderText="Presentismo">
+                                <asp:TemplateField HeaderText="Turno">
                                     <ItemTemplate>
+                                        <asp:Label ID="lblNroTurno" runat="server" Text='<%# Bind("NroTurno") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Fecha">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblFechaTurno" runat="server" Text='<%# Bind("fecha_T") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Hora">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblHoraTurno" runat="server" Text='<%# Bind("horario_T") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Paciente">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblDNIPaciente" runat="server" Text='<%# Bind("DniPaciente_T") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Presentismo">
+                                    <EditItemTemplate>
                                         <asp:DropDownList ID="ddlPresentismo" runat="server">
                                             <asp:ListItem Text="Presente" Value="PRESENTE"></asp:ListItem>
                                             <asp:ListItem Text="Ausente" Value="AUSENTE"></asp:ListItem>
                                         </asp:DropDownList>
+                                    </EditItemTemplate>
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblPresentismo" runat="server" Text='<%# Bind("estadoPaciente_T") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Estado del Turno">
-                                    <ItemTemplate>
+                                    <EditItemTemplate>
                                         <asp:DropDownList ID="ddlEstado" runat="server">
                                             <asp:ListItem Text="Cumplido" Value="CUMPLIDO"></asp:ListItem>
                                             <asp:ListItem Text="Dado de baja" Value="DADO DE BAJA"></asp:ListItem>
-
                                         </asp:DropDownList>
+                                    </EditItemTemplate>
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblEstadoTurno" runat="server" Text='<%# Bind("estadoTurno_T") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Observaciones">
+                                   
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblObservaciones" runat="server" Text='<%# Bind("observacion_T") %>'></asp:Label>
+                                    </ItemTemplate>
                                    
                                 </asp:TemplateField>
                             </Columns>
