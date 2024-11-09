@@ -12,9 +12,19 @@ namespace Vistas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //HttpCookie cookie = this.Request.Cookies["usuarioInfo"];
-            //lblUsuario.Text = cookie["Usuario"];
-            cargarGrdTurnos();
+            if(Request.Cookies["UsuarioInfo"] != null)
+            {
+                //EL USUARIO ESTA LOGUEADO EN EL SISTEMA
+                HttpCookie cookie = Request.Cookies["UsuarioInfo"];
+                string usuario = cookie["Usuario"];
+                lblUsuario.Text = usuario;
+                cargarGrdTurnos();
+            }
+            else
+            {
+                //EL USUARIO NO ESTA LOGUEADO EN EL SISTEMA
+                Response.Redirect("../login.aspx");
+            }
         }
         public void cargarGrdTurnos()
         {
@@ -49,6 +59,15 @@ namespace Vistas
             */
             grvTurnos.EditIndex = -1;
             cargarGrdTurnos();
+        }
+
+        protected void lnkbtnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            //ELIMINAMOS LA COOKIE
+            HttpCookie cookie = Request.Cookies["UsuarioInfo"];
+            cookie.Expires = DateTime.Now.AddDays(-1);
+            this.Response.Cookies.Add(cookie);
+            Response.Redirect("login.aspx");
         }
     }
 }

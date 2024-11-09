@@ -11,7 +11,28 @@ namespace Vistas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.Cookies["UsuarioInfo"] != null)
+            {
+                //EL USUARIO ESTA LOGUEADO EN EL SISTEMA
+                HttpCookie cookie = Request.Cookies["UsuarioInfo"];
 
+                if (cookie["TipoUsuario"] == "Administrador")
+                {
+                    //EL USUARIO TIENE ACCESO
+                    string usuario = cookie["Usuario"];
+                    lblUsuario.Text = usuario;
+                }
+                else
+                {
+                    //EL USUARIO NO TIENE ACCESO
+                    Response.Redirect("../Medico/TurnosYPacientes.aspx");
+                }
+            }
+            else
+            {
+                //EL USUARIO NO ESTA LOGUEADO EN EL SISTEMA
+                Response.Redirect("../login.aspx");
+            }
         }
 
         protected void btnPacientes_Click(object sender, EventArgs e)
@@ -37,12 +58,9 @@ namespace Vistas
         protected void lnkbtnCerrarSesion_Click(object sender, EventArgs e)
         {
             //ELIMINAMOS LA COOKIE
-            if (Request.Cookies["UsuarioInfo"] != null)
-            {
-                HttpCookie cookie = Request.Cookies["UsuarioInfo"];
-                cookie.Expires = DateTime.Now.AddDays(-1);
-                this.Response.Cookies.Add(cookie);
-            }
+            HttpCookie cookie = new HttpCookie("UsuarioInfo");
+            cookie.Expires = DateTime.Now.AddDays(-1);
+            Response.Cookies.Add(cookie);
 
             Response.Redirect("login.aspx");
         }

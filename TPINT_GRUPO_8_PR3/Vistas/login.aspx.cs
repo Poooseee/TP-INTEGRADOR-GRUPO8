@@ -51,20 +51,21 @@ namespace Vistas
                 cookie["Legajo"] = legajo.ToString();
                 cookie["TipoUsuario"] = tipoUsuario;
                 cookie["Usuario"] = usuario;
+                cookie.Path = "/";
 
                 //EXPIRA EN 2 HORAS
                 cookie.Expires = DateTime.Now.AddHours(2);
 
                 //AGREGAMOS LA COOKIE
-                this.Response.Cookies.Add(cookie);
+                Response.Cookies.Add(cookie);
 
                 if(tipoUsuario == "Medico")
                 {
-                    Server.Transfer("Medico/TurnosYPacientes.aspx");
+                    Response.Redirect("Medico/TurnosYPacientes.aspx");
                 }
                 else
                 {
-                    Server.Transfer("Administrador/menuAdministrador.aspx");
+                    Response.Redirect("Administrador/menuAdministrador.aspx");
                 }
             }
             else

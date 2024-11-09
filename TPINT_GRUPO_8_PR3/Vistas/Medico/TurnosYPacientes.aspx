@@ -149,7 +149,7 @@
                 </tr>
             </table>
         <div class="auto-style5">
-            <asp:HyperLink ID="hlCerrarSesion" runat="server" NavigateUrl="~/login.aspx">Cerrar Sesion</asp:HyperLink>
+                        <asp:LinkButton ID="lnkbtnCerrarSesion" runat="server" PostBackUrl="~/login.aspx" OnClick="lnkbtnCerrarSesion_Click">Cerrar Sesión</asp:LinkButton>
         </div>
         </div>
     </form>
