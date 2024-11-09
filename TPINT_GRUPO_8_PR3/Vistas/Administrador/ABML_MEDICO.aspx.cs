@@ -18,7 +18,7 @@ namespace Vistas.Administrador
             {
                 cargarGrdMedicos();
                 cargarProvinciasAlDDL();
-                cargarLocalidadesAlDDL();
+                cargarEspecialidadesAlDDL();
                 obtenerCookie();
             }
 
@@ -40,16 +40,16 @@ namespace Vistas.Administrador
             ddlProvincia.DataBind();
             ddlProvincia.Items.Insert(0, new ListItem("Seleccione una provincia", "0"));
         }
-        public void cargarLocalidadesAlDDL()
+
+        public void cargarEspecialidadesAlDDL()
         {
-            NegocioLocalidades loc = new NegocioLocalidades();
+            NegocioEspecialidades esp = new NegocioEspecialidades();
             DataTable dt = new DataTable();
-            dt = loc.obtenerTablaLocalidades();
-            ddlLocalidad.DataSource = dt;
-            ddlLocalidad.DataTextField = "nombreLocalidad_L";
-            ddlLocalidad.DataValueField = "IdLocalidad_L";
-            ddlLocalidad.DataBind();
-            ddlLocalidad.Items.Insert(0, new ListItem("Seleccione una localidad", "0"));
+            dt = esp.obtenerTablaEspecialidades();
+            ddlEspecialidades.DataSource = dt;
+            ddlEspecialidades.DataTextField = "nombreEspecialidad_E";
+            ddlEspecialidades.DataBind();
+            ddlEspecialidades.Items.Insert(0, new ListItem("Seleccione una especialidad"));
         }
         public void cargarGrdMedicos()
         {
@@ -59,7 +59,15 @@ namespace Vistas.Administrador
         }
         protected void ddlProvincia_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            NegocioLocalidades loc = new NegocioLocalidades();
+            DataTable dt = new DataTable();
+            int IdProvincia = ddlProvincia.SelectedIndex;
+            dt = loc.obtenerTablaLocalidades(IdProvincia);
+            ddlLocalidad.DataSource = dt;
+            ddlLocalidad.DataTextField = "nombreLocalidad_L";
+            ddlLocalidad.DataValueField = "IdLocalidad_L";
+            ddlLocalidad.DataBind();
+            ddlLocalidad.Items.Insert(0, new ListItem("Seleccione una localidad", "0"));
         }
 
         protected void grdMedicos_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
@@ -105,16 +113,15 @@ namespace Vistas.Administrador
 
         protected void btnAlta_Click(object sender, EventArgs e)
         {
-            
             //se carga un objeto con todos los valores
             Medico medico = llenarEntidadMedico();
             if (negMedicos.agregarMedico(medico))
             {
-                
+                lblAgregado.Text = "El medico se ha agregado correctamente.";
             }
             else
             {
-               
+                lblAgregado.Text = "No se ha podido agregar el medico.";
             }
 
         }
@@ -131,6 +138,24 @@ namespace Vistas.Administrador
                 lblMensaje.Text = "NO SE PUDO ELIMINAR";
             }
             cargarGrdMedicos();
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (txtBuscarLegajo.Text.Trim().Length > 0)
+            {
+                DataTable dt = new DataTable();
+                int legajo = int.Parse(txtBuscarLegajo.Text);
+                dt = negMedicos.FiltrarMedicosPorLegajo(legajo);
+                grdMedicos.DataSource = dt;
+                grdMedicos.DataBind();
+                txtBuscarLegajo.Text = "";
+            }
+        }
+        protected void btnListarTodos_Click(object sender, EventArgs e)
+        {
+            cargarGrdMedicos();
+            txtBuscarLegajo.Text = "";
         }
     }
 }

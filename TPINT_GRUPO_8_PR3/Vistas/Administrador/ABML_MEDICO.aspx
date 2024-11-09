@@ -399,7 +399,6 @@
                     <td class="auto-style41">
             <strong>
                         <asp:DropDownList ID="ddlProvincia" runat="server" AutoPostBack="True" Height="26px" OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged" Width="143px">
-                            <asp:ListItem></asp:ListItem>
                         </asp:DropDownList>
                         </td>
                     <td class="auto-style41">
@@ -415,7 +414,7 @@
                     <td class="auto-style41">Localidad:</td>
                     <td class="auto-style41">
             <strong>
-                        <asp:DropDownList ID="ddlLocalidad" runat="server" Height="30px" Width="145px">
+                        <asp:DropDownList ID="ddlLocalidad" runat="server" Height="30px" Width="145px" AutoPostBack="True">
                         </asp:DropDownList>
                         </td>
                     <td class="auto-style41">
@@ -483,7 +482,7 @@
                     <td class="auto-style97">&nbsp;</td>
                     <td class="auto-style112">
             <strong>
-                        <asp:CompareValidator ID="cvPass" runat="server" ControlToCompare="txtPass2" ControlToValidate="txtPass" ErrorMessage="Las contraseñas deben ser iguales." ForeColor="Red" ValidationGroup="medico"></asp:CompareValidator>
+                        <asp:CompareValidator ID="cvPass" runat="server" ControlToCompare="txtPass" ControlToValidate="txtPass2" ErrorMessage="Las contraseñas deben ser iguales." ForeColor="Red" ValidationGroup="Medico"></asp:CompareValidator>
                     </td>
                     <td class="auto-style89">
                         <asp:HiddenField ID="hfConfirmar" runat="server" />
@@ -492,7 +491,9 @@
                 </tr>
                 <tr>
                     <td colspan="8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-                        <asp:Button ID="btnAlta" runat="server" Text="Dar de Alta" Width="106px" OnClick="btnAlta_Click" />
+                        <asp:Button ID="btnAlta" runat="server" Text="Dar de Alta" Width="106px" OnClick="btnAlta_Click" ValidationGroup="Medico" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Label ID="lblAgregado" runat="server" ForeColor="Green"></asp:Label>
                     </td>
                 </tr>
             </table>
@@ -514,12 +515,12 @@
             <tr>
                 <td aria-expanded="false" class="auto-style74">Busqueda por Legajo: </td>
                 <td class="auto-style75">
-                    <asp:TextBox ID="TextBox9" runat="server" Width="187px" TextMode="Number"></asp:TextBox>
+                    <asp:TextBox ID="txtBuscarLegajo" runat="server" Width="187px" TextMode="Number"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="Button2" runat="server" Text="Buscar" />
+                    <asp:Button ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" />
                 </td>
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="Button3" runat="server" Text="Listar Todos" />
+                    <asp:Button ID="btnListarTodos" runat="server" Text="Listar Todos" OnClick="btnListarTodos_Click" />
                 </td>
             </tr>
             <tr>

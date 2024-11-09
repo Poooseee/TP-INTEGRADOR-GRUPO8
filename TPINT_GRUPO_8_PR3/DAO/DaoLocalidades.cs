@@ -9,10 +9,10 @@ namespace DAO
 {
     public class DaoLocalidades
     {
-        public DataTable ObtenerLocalidades()
+        public DataTable ObtenerLocalidades(int Id_Provincia)
         {
             AccesoDatos datos = new AccesoDatos();
-            string consulta = "SELECT * FROM LOCALIDADES";
+            string consulta = "SELECT nombreLocalidad_L, IdLocalidad_L FROM LOCALIDADES WHERE IdProvincia_L = " + Id_Provincia;
             return datos.ObtenerTabla("Localidades", consulta);
         }
     }

@@ -38,8 +38,8 @@ namespace DAO
 
         public DataTable buscarMedicoPorLegajo(int legajo)
         {
-            string consulta = "SELECT Legajo_M AS Legajo , DNI_M AS Dni , nombre_M AS Nombre , apellido_M AS Apellido , sexo_M AS Sexo , nacionalidad_M AS Nacionalidad , fechaNac_M AS Fecha Nacimiento " +
-               ", direccion_M AS Direccion , Localidades.nombreLocalidad_M AS Localidad , Provincias.nombreProvincia_PR AS Provincia , email_M AS Email , telefono_M AS Telefono , baja_M AS Baja , especialidad_M " +
+            string consulta = "SELECT Legajo_M AS Legajo , DNI_M AS Dni , nombre_M AS Nombre , apellido_M AS Apellido , sexo_M AS Sexo , nacionalidad_M AS Nacionalidad , fechaNac_M AS FechaNacimiento " +
+               ", direccion_M AS Direccion , Localidades.nombreLocalidad_L AS Localidad , Provincias.nombreProvincia_PR AS Provincia , email_M AS Email , telefono_M AS Telefono , baja_M AS Baja , especialidad_M " +
                "AS Especialidad FROM Medicos INNER JOIN Localidades ON Medicos.Idlocalidad_M = Localidades.IdLocalidad_L INNER JOIN Provincias ON Medicos.Idprovincia_M = Provincias.IdProvincia_PR INNER JOIN Especialidades " +
                "ON Medicos.especialidad_M = Especialidades.nombreEspecialidad_E WHERE Legajo_M = " + legajo;
 

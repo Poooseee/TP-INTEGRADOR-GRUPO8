@@ -10,10 +10,10 @@ namespace Negocio
 {
     public class NegocioLocalidades
     {
-        public DataTable obtenerTablaLocalidades()
+        public DataTable obtenerTablaLocalidades(int IdProvincia)
         {
             DaoLocalidades dao = new DaoLocalidades();
-            return dao.ObtenerLocalidades();
+            return dao.ObtenerLocalidades(IdProvincia);
         }
     }
 }

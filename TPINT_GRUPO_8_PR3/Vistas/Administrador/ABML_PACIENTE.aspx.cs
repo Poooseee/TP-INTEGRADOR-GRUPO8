@@ -43,7 +43,8 @@ namespace Vistas.Administrador
         {
             NegocioLocalidades loc = new NegocioLocalidades();
             DataTable dt = new DataTable();
-            dt = loc.obtenerTablaLocalidades();
+            int idProvincia = ddlProvincia.SelectedIndex;
+            dt = loc.obtenerTablaLocalidades(idProvincia);
             ddlLocalidad.DataSource = dt;
             ddlLocalidad.DataTextField = "nombreLocalidad_L";
             ddlLocalidad.DataValueField = "IdLocalidad_L";
