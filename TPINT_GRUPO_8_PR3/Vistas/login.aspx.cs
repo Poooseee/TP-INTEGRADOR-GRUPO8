@@ -14,6 +14,15 @@ namespace Vistas
         NegocioUsuarios negUs = new NegocioUsuarios();
         protected void Page_Load(object sender, EventArgs e)
         {
+            ViewState["Contraseña"] = txtContraseña.Text;
+            if (ViewState["Contraseña"] != null)
+            {
+                txtContraseña.Text = ViewState["Contraseña"].ToString();
+                if (txtContraseña.TextMode == TextBoxMode.Password)
+                {
+                    txtContraseña.Attributes["value"] = ViewState["Contraseña"].ToString();
+                }
+            }
             if (Request.Cookies["UsuarioInfo"] != null)
             {
                 //EL USUARIO ESTA LOGUEADO EN EL SISTEMA
@@ -102,6 +111,22 @@ namespace Vistas
 
             //        break;
             //}
+        }
+
+        protected void btnMostrar_Click(object sender, EventArgs e)
+        {
+            ViewState["Contraseña"] = txtContraseña.Text;
+            if (txtContraseña.TextMode == TextBoxMode.Password)
+            {
+                txtContraseña.TextMode = TextBoxMode.SingleLine;
+                btnMostrar.Text = "Ocultar";
+            }
+            else
+            {
+                txtContraseña.TextMode = TextBoxMode.Password;
+                btnMostrar.Text = "Mostrar";
+                txtContraseña.Attributes["value"] = ViewState["Contraseña"].ToString();
+            }
         }
     }
 }
