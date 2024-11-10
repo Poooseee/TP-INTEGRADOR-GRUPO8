@@ -149,7 +149,7 @@
                 </tr>
             </table>
         <div class="auto-style5">
-                        <asp:LinkButton ID="lnkbtnCerrarSesion" runat="server" PostBackUrl="~/login.aspx" OnClick="lnkbtnCerrarSesion_Click">Cerrar Sesión</asp:LinkButton>
+                        <asp:LinkButton ID="lnkbtnCerrarSesion" runat="server" OnClick="lnkbtnCerrarSesion_Click">Cerrar Sesión</asp:LinkButton>
         </div>
         </div>
     </form>

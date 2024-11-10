@@ -129,7 +129,9 @@
         <div>
             <table class="auto-style1">
                 <tr>
-                    <td class="auto-style14"></td>
+                    <td class="auto-style14">
+                        <asp:LinkButton ID="lnkbtnCerrarSesion" runat="server" OnClick="lnkbtnCerrarSesion_Click">Cerrar Sesión</asp:LinkButton>
+                    </td>
                     <td class="auto-style15"></td>
                     <td class="auto-style15"></td>
                     <td class="auto-style16">
