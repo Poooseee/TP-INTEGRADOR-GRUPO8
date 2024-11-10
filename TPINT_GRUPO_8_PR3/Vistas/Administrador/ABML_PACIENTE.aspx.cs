@@ -25,9 +25,12 @@ namespace Vistas.Administrador
                     string usuario = cookie["Usuario"];
                     lblUsuario.Text = usuario;
 
-                    cargarGrdPacientes();
-                    cargarProvinciasAlDDL();
-                    cargarLocalidadesAlDDL();
+                    if (!IsPostBack)
+                    {
+                        cargarGrdPacientes();
+                        cargarProvinciasAlDDL();
+                        ddlLocalidadesDefault();
+                    }
                     obtenerCookie();
                 }
                 else
@@ -41,6 +44,7 @@ namespace Vistas.Administrador
                 //EL USUARIO NO ESTA LOGUEADO EN EL SISTEMA
                 Response.Redirect("../login.aspx");
             }
+            lblAgregado.Text = "";
         }
         NegocioPacientes negPacientes = new NegocioPacientes();
 
@@ -62,11 +66,16 @@ namespace Vistas.Administrador
             ddlProvincia.Items.Insert(0, new ListItem("Seleccione una provincia", "0"));
 
         }
+        public void ddlLocalidadesDefault()
+        {
+            ddlLocalidad.Items.Insert(0, new ListItem("Seleccione una localidad", "0"));
+            ddlLocalidad.DataBind();
+        }
         public void cargarLocalidadesAlDDL()
         {
             NegocioLocalidades loc = new NegocioLocalidades();
             DataTable dt = new DataTable();
-            int idProvincia = ddlProvincia.SelectedIndex;
+            int idProvincia = int.Parse(ddlProvincia.SelectedValue);
             dt = loc.obtenerTablaLocalidades(idProvincia);
             ddlLocalidad.DataSource = dt;
             ddlLocalidad.DataTextField = "nombreLocalidad_L";
@@ -103,8 +112,8 @@ namespace Vistas.Administrador
             paciente.Sexo = ddlSexo.SelectedValue.ToString();
             paciente.FechaNac = DateTime.Parse(txtFechaNacimiento.Text.Trim());
             paciente.Nacionalidad = txtNacionalidad.Text.Trim();
-            paciente.Provincia = ddlProvincia.SelectedValue.ToString();
-            paciente.Localidad = ddlLocalidad.SelectedValue.ToString();
+            paciente.Provincia = int.Parse(ddlProvincia.SelectedValue);
+            paciente.Localidad = int.Parse(ddlLocalidad.SelectedValue);
             paciente.Direccion = txtDireccion.Text.Trim();
             paciente.Telefono = txtTelefono.Text.Trim();
             paciente.Email = txtCorreo.Text.Trim();
@@ -116,7 +125,9 @@ namespace Vistas.Administrador
             Paciente paciente = llenarEntidadPaciente();
             if (negPacientes.agregarPaciente(paciente))
             {
-
+                lblAgregado.Text = "Se ha agregado correctamente el paciente";
+                limpiarAgregado();
+                cargarGrdPacientes();
             }
             else
             {
@@ -163,6 +174,26 @@ namespace Vistas.Administrador
             Response.Cookies.Add(cookie);
 
             Response.Redirect("../login.aspx");
+        }
+
+        protected void ddlProvincia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cargarLocalidadesAlDDL();
+        }
+        
+        public void limpiarAgregado()
+        {
+            txtDni.Text = "";
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            ddlSexo.SelectedIndex = 0;
+            txtFechaNacimiento.Text = "";
+            txtNacionalidad.Text = "";
+            ddlProvincia.SelectedIndex = 0;
+            ddlLocalidad.SelectedIndex = 0;
+            txtDireccion.Text = "";
+            txtTelefono.Text = "";
+            txtCorreo.Text = "";
         }
     }
    

@@ -203,7 +203,7 @@
                     <td class="auto-style13"></td>
                     <td class="auto-style10">Fecha de Nacimiento:</td>
                     <td class="auto-style10">
-                        <asp:TextBox ID="txtFechaNacimiento" runat="server" CssClass="auto-style3" Width="130px"></asp:TextBox>
+                        <asp:TextBox ID="txtFechaNacimiento" runat="server" CssClass="auto-style3" Width="130px" TextMode="Date"></asp:TextBox>
                     </td>
                     <td class="auto-style11">
                         <asp:RequiredFieldValidator ID="rfvFechaNac" runat="server" ControlToValidate="txtFechaNacimiento" CssClass="auto-style3" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
@@ -214,7 +214,7 @@
                     <td class="auto-style12">&nbsp;</td>
                     <td class="auto-style8">Nacionalidad:</td>
                     <td class="auto-style8">
-                        <asp:TextBox ID="txtNacionalidad" runat="server" CssClass="auto-style6" Width="133px" TextMode="Date"></asp:TextBox>
+                        <asp:TextBox ID="txtNacionalidad" runat="server" CssClass="auto-style6" Width="133px"></asp:TextBox>
                     </td>
                     <td class="auto-style7">
                         <asp:RequiredFieldValidator ID="rfvNacionalidad" runat="server" ControlToValidate="txtNacionalidad" CssClass="auto-style3" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
@@ -225,7 +225,7 @@
                     <td class="auto-style12">&nbsp;</td>
                     <td class="auto-style8">Provincia:</td>
                     <td class="auto-style8">
-                        <asp:DropDownList ID="ddlProvincia" runat="server" AutoPostBack="True" CssClass="auto-style3" Height="29px" Width="172px">
+                        <asp:DropDownList ID="ddlProvincia" runat="server" AutoPostBack="True" CssClass="auto-style3" Height="29px" Width="172px" OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged">
                         </asp:DropDownList>
                     </td>
                     <td class="auto-style7">
@@ -286,7 +286,9 @@
                         <br />
                         <asp:Button ID="btnAgregar" runat="server" CssClass="auto-style3" Height="30px" Text="Agregar Paciente" ValidationGroup="1" Width="200px" OnClick="btnAgregar_Click" />
                     </td>
-                    <td class="auto-style7">&nbsp;</td>
+                    <td class="auto-style7">
+                        <asp:Label ID="lblAgregado" runat="server"></asp:Label>
+                    </td>
                     <td>&nbsp;</td>
                 </tr>
             </table>
