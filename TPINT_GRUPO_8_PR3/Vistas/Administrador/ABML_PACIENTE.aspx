@@ -313,10 +313,9 @@
                         <asp:TextBox ID="txtBusquedaDni" runat="server" CssClass="auto-style10" Width="224px" TextMode="Number"></asp:TextBox>
                     </td>
                 <td class="auto-style20">
-                        <asp:Button ID="btnBuscarDni" runat="server" Text="Buscar" Width="83px" OnClick="btnBuscarDni_Click" />
-                    </td>
+                        &nbsp;</td>
                 <td>
-                        <asp:Button ID="Button2" runat="server" Text="Listar Todos" Width="83px" />
+                        <asp:Button ID="Button2" runat="server" Text="Listar Todos" Width="83px" OnClick="Button2_Click" />
                     </td>
             </tr>
             <tr>
@@ -327,8 +326,7 @@
                         <asp:TextBox ID="txtBusqApellido" runat="server" CssClass="auto-style10" Width="224px"></asp:TextBox>
                     </td>
                 <td class="auto-style30">
-                        <asp:Button ID="btnBuscarApel" runat="server" Text="Buscar" Width="83px" OnClick="btnBuscarApel_Click" />
-                    </td>
+                        &nbsp;</td>
                 <td class="auto-style31"></td>
             </tr>
             <tr>
@@ -339,8 +337,7 @@
                         <asp:TextBox ID="txtBusqNacio" runat="server" CssClass="auto-style10" Width="224px"></asp:TextBox>
                     </td>
                 <td class="auto-style20">
-                        <asp:Button ID="btnBuscarNacio" runat="server" Text="Buscar" Width="83px" OnClick="btnBuscarNacio_Click" />
-                    </td>
+                        &nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
@@ -354,8 +351,7 @@
                         </asp:DropDownList>
                     </td>
                 <td class="auto-style34">
-                        <asp:Button ID="btnBuscarSexo" runat="server" Text="Buscar" Width="83px" OnClick="btnBuscarSexo_Click" />
-                    </td>
+                        &nbsp;</td>
                 <td class="auto-style35"></td>
             </tr>
             <tr>
@@ -365,7 +361,7 @@
                         <asp:TextBox ID="txtFechaNacPac" runat="server" TextMode="Date" Width="219px"></asp:TextBox>
                     </td>
                 <td class="auto-style27">
-                        <asp:Button ID="btnBuscarFechaNac" runat="server" Text="Buscar" Width="83px" OnClick="btnBuscarFechaNac_Click" />
+                        <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" Width="83px" OnClick="btnFiltrar_Click" />
                     </td>
                 <td class="auto-style2"></td>
             </tr>

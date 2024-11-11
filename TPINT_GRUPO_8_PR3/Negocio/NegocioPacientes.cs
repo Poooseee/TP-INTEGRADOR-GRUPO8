@@ -16,17 +16,6 @@ namespace Negocio
         {
             return DaoPacientes.obtenerTablaPacientes();
         }
-
-        public DataTable obtenerPacientesPorDNI(string IDaoPacientes)
-        {
-            return DaoPacientes.buscarPacientePorDni(IDaoPacientes);
-        }
-        public DataTable obtenerPacientesPorApellido(string IDaoPacientes)
-        {
-            return DaoPacientes.buscarPacientePorApellido(IDaoPacientes);
-        }
-
-
         public bool agregarPaciente(Paciente paciente)
         {
             int filas = 0;
@@ -56,5 +45,15 @@ namespace Negocio
 
             return filas;
         }
+
+        public DataTable ObtenerTablaFiltrada(Paciente paciente)
+        {
+
+          return DaoPacientes.obtenerTablaPacientesFiltrada(paciente);
+            
+        }
+        
+
+        
     }
 }

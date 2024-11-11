@@ -99,18 +99,7 @@ namespace Vistas
                 txtUsuario.Text = "";
                 txtContraseña.Text = "";
             }
-            //switch (negUs.inicioSession(txtUsuario.Text, txtContraseña.Text))
-            //{
-            //    case 1:
-            //        Server.Transfer("Administrador/menuAdministrador.aspx");
-            //        break;
-            //    case 2:
-            //        Server.Transfer("Medico/TurnosYPacientes.aspx");
-            //        break;
-            //    case 0:
-
-            //        break;
-            //}
+           
         }
 
         protected void btnMostrar_Click(object sender, EventArgs e)

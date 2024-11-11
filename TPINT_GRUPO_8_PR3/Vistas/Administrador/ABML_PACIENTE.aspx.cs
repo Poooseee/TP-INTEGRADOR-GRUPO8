@@ -106,11 +106,11 @@ namespace Vistas.Administrador
         {
             Paciente paciente = new Paciente();
 
-            paciente.Dni = int.Parse(txtDni.Text.Trim());
+            paciente.Dni = txtDni.Text.Trim();
             paciente.Nombre = txtNombre.Text.Trim();
             paciente.Apellido = txtApellido.Text.Trim();
             paciente.Sexo = ddlSexo.SelectedValue.ToString();
-            paciente.FechaNac = DateTime.Parse(txtFechaNacimiento.Text.Trim());
+            paciente.FechaNac = txtFechaNacimiento.Text.Trim();
             paciente.Nacionalidad = txtNacionalidad.Text.Trim();
             paciente.Provincia = int.Parse(ddlProvincia.SelectedValue);
             paciente.Localidad = int.Parse(ddlLocalidad.SelectedValue);
@@ -134,30 +134,7 @@ namespace Vistas.Administrador
 
             }
         }
-        protected void btnBuscarDni_Click(object sender, EventArgs e)
-        {
-            string DNI;
-            DNI = txtBusquedaDni.Text.Trim();
-            negPacientes.obtenerPacientesPorDNI(DNI);
-        }
-        protected void btnBuscarApel_Click(object sender, EventArgs e)
-        {
-            string Apellido;
-            Apellido = txtBusqApellido.Text.Trim();
-            negPacientes.obtenerPacientesPorApellido(Apellido);
-        }
-        protected void btnBuscarNacio_Click(object sender, EventArgs e)
-        {
-
-        }
-        protected void btnBuscarSexo_Click(object sender, EventArgs e)
-        {
-
-        }
-        protected void btnBuscarFechaNac_Click(object sender, EventArgs e)
-        {
-
-        }
+        
         protected void grdPacientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             grdPacientes.PageIndex = e.NewPageIndex;
@@ -213,6 +190,27 @@ namespace Vistas.Administrador
             {
                 lblMensaje.Text = "NO SE PUDO ELIMINAR AL PACIENTE";
             }
+        }
+
+        protected void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            Paciente pac = new Paciente();
+            pac.Dni = txtBusquedaDni.Text;
+            pac.Apellido = txtBusqApellido.Text;
+            pac.FechaNac = txtFechaNacPac.Text;
+            pac.Sexo = ddlBusqSexo.SelectedValue.ToString();
+            pac.Nacionalidad = txtBusqNacio.Text;
+            grdPacientes.DataSource = negPacientes.ObtenerTablaFiltrada(pac);
+            grdPacientes.DataBind();
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            txtBusqApellido.Text = string.Empty;
+            txtBusqNacio.Text = string.Empty;
+            txtBusquedaDni.Text = string.Empty;
+            txtFechaNacPac.Text= string.Empty;    
+            cargarGrdPacientes();
         }
     }
    

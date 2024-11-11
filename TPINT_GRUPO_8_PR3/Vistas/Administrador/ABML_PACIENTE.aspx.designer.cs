@@ -303,15 +303,6 @@ namespace Vistas.Administrador
         protected global::System.Web.UI.WebControls.TextBox txtBusquedaDni;
 
         /// <summary>
-        /// Control btnBuscarDni.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscarDni;
-
-        /// <summary>
         /// Control Button2.
         /// </summary>
         /// <remarks>
@@ -339,15 +330,6 @@ namespace Vistas.Administrador
         protected global::System.Web.UI.WebControls.TextBox txtBusqApellido;
 
         /// <summary>
-        /// Control btnBuscarApel.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscarApel;
-
-        /// <summary>
         /// Control lblBusqNacionalidad.
         /// </summary>
         /// <remarks>
@@ -364,15 +346,6 @@ namespace Vistas.Administrador
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBusqNacio;
-
-        /// <summary>
-        /// Control btnBuscarNacio.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscarNacio;
 
         /// <summary>
         /// Control lblBusqSexo.
@@ -393,15 +366,6 @@ namespace Vistas.Administrador
         protected global::System.Web.UI.WebControls.DropDownList ddlBusqSexo;
 
         /// <summary>
-        /// Control btnBuscarSexo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscarSexo;
-
-        /// <summary>
         /// Control txtFechaNacPac.
         /// </summary>
         /// <remarks>
@@ -411,13 +375,13 @@ namespace Vistas.Administrador
         protected global::System.Web.UI.WebControls.TextBox txtFechaNacPac;
 
         /// <summary>
-        /// Control btnBuscarFechaNac.
+        /// Control btnFiltrar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscarFechaNac;
+        protected global::System.Web.UI.WebControls.Button btnFiltrar;
 
         /// <summary>
         /// Control grdPacientes.

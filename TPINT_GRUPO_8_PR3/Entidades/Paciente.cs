@@ -9,12 +9,12 @@ namespace Entidades
 {
     public class Paciente
     {
-        int dni;
+        string dni;
         string nombre;
         string apellido;
         string sexo;
         string nacionalidad;
-        DateTime fechaNac;
+        string fechaNac;
         string direccion;
         int localidad;
         int provincia;
@@ -25,12 +25,12 @@ namespace Entidades
        // Paciente(bool est = true) { estado = est; }
         public Paciente(bool est = true) { estado = est; }
 
-        public int Dni { get => dni; set => dni = value; }
+        public string Dni { get => dni; set => dni = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Apellido { get => apellido; set => apellido = value; }
         public string Sexo { get => sexo; set => sexo = value; }
         public string Nacionalidad { get => nacionalidad; set => nacionalidad = value; }
-        public DateTime FechaNac { get => fechaNac; set => fechaNac = value; }
+        public string FechaNac { get => fechaNac; set => fechaNac = value; }
         public string Direccion { get => direccion; set => direccion = value; }
         public int Localidad { get => localidad; set => localidad = value; }
         public int Provincia { get => provincia; set => provincia = value; }
