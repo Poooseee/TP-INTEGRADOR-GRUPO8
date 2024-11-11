@@ -117,6 +117,7 @@ namespace Vistas.Administrador
             paciente.Direccion = txtDireccion.Text.Trim();
             paciente.Telefono = txtTelefono.Text.Trim();
             paciente.Email = txtCorreo.Text.Trim();
+            paciente.Estado = false;
 
             return paciente;
         }
@@ -204,12 +205,13 @@ namespace Vistas.Administrador
             grdPacientes.DataBind();
         }
 
-        protected void Button2_Click(object sender, EventArgs e)
+        protected void btnListarTodo_Click(object sender, EventArgs e)
         {
             txtBusqApellido.Text = string.Empty;
             txtBusqNacio.Text = string.Empty;
             txtBusquedaDni.Text = string.Empty;
-            txtFechaNacPac.Text= string.Empty;    
+            txtFechaNacPac.Text = string.Empty;
+            ddlBusqSexo.SelectedIndex = 0;
             cargarGrdPacientes();
         }
     }

@@ -46,8 +46,8 @@ namespace DAO
             string consulta = "SELECT DNI_P AS Dni , nombre_P AS Nombre , apellido_P AS Apellido , sexo_P AS Sexo , nacionalidad_P AS Nacionalidad , fechaNac_P  AS FechaNacimiento , direccion_P AS Direccion "
                 +", Localidades.nombreLocalidad_L AS Localidad , Provincias.nombreProvincia_PR AS Provincia , email_P AS Email , telefono_P AS Telefono , baja_p AS Baja FROM Pacientes INNER JOIN Localidades ON "
                 +  "Pacientes.Idlocalidad_P = Localidades.IdLocalidad_L INNER JOIN Provincias ON Pacientes.Idprovincia_P = Provincias.IdProvincia_PR" +
-                " WHERE Baja_p = 0 AND DNI_p LIKE '" + paciente.Dni+"%' AND apellido_P LIKE '"+paciente.Apellido+"%' AND nacionalidad_P LIKE '"
-                +paciente.Nacionalidad+"%' AND sexo_P LIKE '"+paciente.Sexo+"%' AND fechaNac_P LIKE '"+paciente.FechaNac+"%'" ;
+                " WHERE Baja_p = 0 AND DNI_p LIKE '%" + paciente.Dni+"%' AND apellido_P LIKE '%"+paciente.Apellido+"%' AND nacionalidad_P LIKE '%"
+                +paciente.Nacionalidad+"%' AND sexo_P LIKE '%"+paciente.Sexo+"%' AND YEAR(fechaNac_P) LIKE '%"+paciente.FechaNac+"%'" ;
 
             return ad.ObtenerTabla("TablaPacientesFiltrada", consulta);
         }
