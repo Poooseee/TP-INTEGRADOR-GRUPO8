@@ -195,6 +195,25 @@ namespace Vistas.Administrador
             txtTelefono.Text = "";
             txtCorreo.Text = "";
         }
+
+        protected void grdPacientes_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            string dni = ((Label)grdPacientes.Rows[e.RowIndex].Cells[0].FindControl("lbl_it_dni")).Text;
+            int filas = 0;
+
+            NegocioPacientes negPac = new NegocioPacientes();
+            filas = negPac.eliminarPaciente(dni);
+
+            if(filas == 1)
+            {
+                lblMensaje.Text = "PACIENTE ELIMINADO CORRECTAMENTE";
+                cargarGrdPacientes();
+            }
+            else
+            {
+                lblMensaje.Text = "NO SE PUDO ELIMINAR AL PACIENTE";
+            }
+        }
     }
    
 }

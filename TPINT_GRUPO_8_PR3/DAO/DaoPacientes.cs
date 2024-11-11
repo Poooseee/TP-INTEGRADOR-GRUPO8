@@ -55,7 +55,7 @@ namespace DAO
 
         public int eliminarPaciente(string dni)
         {
-            string consulta = "DELETE FROM Pacientes WHERE DNI_P = " + dni;
+            string consulta = "DELETE FROM Pacientes WHERE DNI_P = '" + dni + "'";
             return ad.EjecutarConsulta(consulta);
         }
     }

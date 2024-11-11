@@ -46,5 +46,15 @@ namespace Negocio
             return false;
            
         }
+
+        public int eliminarPaciente(string dni)
+        {
+            DaoPacientes dao = new DaoPacientes();
+
+            int filas = 0;
+            filas = dao.eliminarPaciente(dni);
+
+            return filas;
+        }
     }
 }
