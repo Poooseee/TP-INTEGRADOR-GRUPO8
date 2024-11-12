@@ -56,9 +56,6 @@
         .auto-style17 {
             height: 43px;
         }
-        .auto-style18 {
-            width: 180px;
-        }
         .auto-style19 {
             width: 206px;
         }
@@ -80,10 +77,6 @@
         .auto-style24 {
             height: 28px;
         }
-        .auto-style25 {
-            width: 180px;
-            height: 23px;
-        }
         .auto-style26 {
             width: 206px;
             height: 23px;
@@ -91,10 +84,6 @@
         .auto-style27 {
             width: 336px;
             height: 23px;
-        }
-        .auto-style28 {
-            width: 180px;
-            height: 33px;
         }
         .auto-style29 {
             width: 206px;
@@ -107,10 +96,6 @@
         .auto-style31 {
             height: 33px;
         }
-        .auto-style32 {
-            width: 180px;
-            height: 30px;
-        }
         .auto-style33 {
             width: 206px;
             height: 30px;
@@ -121,6 +106,21 @@
         }
         .auto-style35 {
             height: 30px;
+        }
+        .auto-style36 {
+            width: 207px;
+        }
+        .auto-style37 {
+            width: 207px;
+            height: 33px;
+        }
+        .auto-style38 {
+            width: 207px;
+            height: 30px;
+        }
+        .auto-style39 {
+            width: 207px;
+            height: 23px;
         }
     </style>
 </head>
@@ -191,7 +191,7 @@
                     <td class="auto-style13"></td>
                     <td class="auto-style10">Sexo:</td>
                     <td class="auto-style10">
-                        <asp:DropDownList ID="ddlSexo" runat="server" CssClass="auto-style3" Width="145px">
+                        <asp:DropDownList ID="ddlSexo" runat="server" CssClass="auto-style3" Width="169px">
                             <asp:ListItem Value="0">Seleccione un sexo</asp:ListItem>
                             <asp:ListItem>Masculino</asp:ListItem>
                             <asp:ListItem>Femenino</asp:ListItem>
@@ -229,7 +229,7 @@
                     <td class="auto-style12">&nbsp;</td>
                     <td class="auto-style8">Provincia:</td>
                     <td class="auto-style8">
-                        <asp:DropDownList ID="ddlProvincia" runat="server" AutoPostBack="True" CssClass="auto-style3" Height="29px" Width="172px" OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged">
+                        <asp:DropDownList ID="ddlProvincia" runat="server" AutoPostBack="True" CssClass="auto-style3" Height="29px" Width="219px" OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged">
                         </asp:DropDownList>
                     </td>
                     <td class="auto-style7">
@@ -242,7 +242,7 @@
                     <td class="auto-style12">&nbsp;</td>
                     <td class="auto-style8">Localidad:</td>
                     <td class="auto-style8">
-                        <asp:DropDownList ID="ddlLocalidad" runat="server" CssClass="auto-style3" Height="30px" Width="154px">
+                        <asp:DropDownList ID="ddlLocalidad" runat="server" CssClass="auto-style3" Height="30px" Width="218px">
                         </asp:DropDownList>
                         </td>
                     <td class="auto-style7">
@@ -305,12 +305,12 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Label ID="Label5" runat="server" Text="MODIFICAR PACIENTE"></asp:Label>
+                        <asp:Label ID="Label5" runat="server" Text="MODIFICAR PACIENTE" Enabled="False"></asp:Label>
                         <br />
                 </td>
             </tr>
             <tr>
-                <td class="auto-style18">
+                <td class="auto-style36">
                         <asp:Label ID="Label6" runat="server" Text="Busqueda por DNI:"></asp:Label>
                     </td>
                 <td class="auto-style19">
@@ -322,7 +322,7 @@
                         &nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style28">
+                <td class="auto-style37">
                     <asp:Label ID="lblBusqApel" runat="server" Text="Busqueda por Apellido:"></asp:Label>
                 </td>
                 <td class="auto-style29">
@@ -333,7 +333,7 @@
                 <td class="auto-style31"></td>
             </tr>
             <tr>
-                <td class="auto-style18">
+                <td class="auto-style36">
                     <asp:Label ID="lblBusqNacionalidad" runat="server" Text="Busqueda por Nacionalidad:"></asp:Label>
                 </td>
                 <td class="auto-style19">
@@ -344,11 +344,11 @@
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style32">
+                <td class="auto-style38">
                     <asp:Label ID="lblBusqSexo" runat="server" Text="Busqueda por Sexo:"></asp:Label>
                 </td>
                 <td class="auto-style33">
-                        <asp:DropDownList ID="ddlBusqSexo" runat="server" CssClass="auto-style3" Width="145px">
+                        <asp:DropDownList ID="ddlBusqSexo" runat="server" CssClass="auto-style3" Width="169px">
                             <asp:ListItem Value="mf">Seleccione un sexo</asp:ListItem>
                             <asp:ListItem>Masculino</asp:ListItem>
                             <asp:ListItem>Femenino</asp:ListItem>
@@ -359,8 +359,8 @@
                 <td class="auto-style35"></td>
             </tr>
             <tr>
-                <td class="auto-style25">
-                    Busqueda por Año de nac:</td>
+                <td class="auto-style39">
+                    Busqueda por Año de Nacimieto:</td>
                 <td class="auto-style26">
                         <asp:TextBox ID="txtFechaNacPac" runat="server" Width="219px"></asp:TextBox>
                     </td>
@@ -372,7 +372,7 @@
                 <td class="auto-style2"></td>
             </tr>
             <tr>
-                <td class="auto-style18">&nbsp;</td>
+                <td class="auto-style36">&nbsp;</td>
                 <td class="auto-style19">&nbsp;</td>
                 <td class="auto-style20">&nbsp;</td>
                 <td>&nbsp;</td>

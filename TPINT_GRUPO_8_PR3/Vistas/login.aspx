@@ -9,9 +9,9 @@
     <style type="text/css">
 
         .auto-style2 {
-            width: 33%;
+            width: 45%;
             margin-left: 300px;
-            margin-right: 0px;
+            margin-right: 122px;
         }
         .auto-style3 {
             font-size: x-large;
@@ -34,9 +34,6 @@
             text-align: center;
             height: 40px;
         }
-        .auto-style10 {
-            margin-left: 520px;
-        }
         .auto-style11 {
             text-align: center;
             height: 29px;
@@ -55,23 +52,31 @@
             text-align: center;
             height: 51px;
         }
+        .auto-style15 {
+            width: 357px;
+            margin-left: 320px;
+        }
         </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            <p class="auto-style10">
-            LOGIN</p>
+            <p aria-live="off" class="auto-style15" style="font-family: 'Times New Roman', Times, serif; font-size: 35px; text-decoration: blink">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Login<br />
+            </p>
             <table class="auto-style2">
                 <tr>
-                    <td class="auto-style3" colspan="2"><strong>Iniciar Sesion</strong></td>
+                    <td class="auto-style3" colspan="2"><strong style="font-family: 'Times New Roman', Times, serif; font-size: 32px; text-decoration: underline;">Iniciar Sesion</strong></td>
                 </tr>
                 <tr>
-                    <td class="auto-style8">Nombre de Usuario</td>
+                    <td class="auto-style8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nombre de Usuario</td>
                     <td class="auto-style4">&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style9">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:TextBox ID="txtUsuario" runat="server" Height="23px" Width="160px"></asp:TextBox>
                         &nbsp;</td>
                     <td class="auto-style6">
@@ -79,13 +84,17 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style8">Contraseña</td>
+                    <td class="auto-style8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Contraseña</td>
                     <td class="auto-style4">&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style9">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:TextBox ID="txtContraseña" runat="server" Height="24px" Width="161px" TextMode="Password"></asp:TextBox>
                     &nbsp;<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Button ID="btnMostrar" runat="server" OnClick="btnMostrar_Click" Text="Mostrar" Width="58px" />
                     </td>
                     <td class="auto-style6">
@@ -94,15 +103,17 @@
                 </tr>
                 <tr>
                     <td class="auto-style11">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:CheckBox ID="cbRecordarme" runat="server" Text="Recordar inicio" />
                     </td>
                     <td class="auto-style12">&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style13">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Button ID="btnIngresar" runat="server" Height="28px" OnClick="btnIngresar_Click" Text="Ingresar" ValidationGroup="logeo" Width="74px" />
                     </td>
-                    <td class="auto-style14">&nbsp;</td>
+                    <td class="auto-style14"></td>
                 </tr>
             </table>
         </div>
