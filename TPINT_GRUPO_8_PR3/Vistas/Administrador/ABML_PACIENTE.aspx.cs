@@ -54,6 +54,7 @@ namespace Vistas.Administrador
             grdPacientes.DataSource = NP.obtenerTablaPacientes();
             grdPacientes.DataBind();
         }
+       
         public void cargarProvinciasAlDDL()
         {
             NegocioProvincias prov = new NegocioProvincias();
@@ -91,12 +92,12 @@ namespace Vistas.Administrador
         protected void grdPacientes_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             grdPacientes.EditIndex = -1;
-            cargarGrdPacientes();
+            tablaPacientes();
         }
         protected void grdPacientes_RowEditing(object sender, GridViewEditEventArgs e)
         {
             grdPacientes.EditIndex = e.NewEditIndex;
-            cargarGrdPacientes();
+            tablaPacientes();
         }
         protected void grdPacientes_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -139,7 +140,7 @@ namespace Vistas.Administrador
         protected void grdPacientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             grdPacientes.PageIndex = e.NewPageIndex;
-            cargarGrdPacientes();
+            tablaPacientes();
         }
 
         protected void lnkbtnCerrarSesion_Click(object sender, EventArgs e)
@@ -200,6 +201,10 @@ namespace Vistas.Administrador
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
+            tablaPacientes();
+        }
+        public void tablaPacientes()
+        {
             Paciente pac = new Paciente();
             pac.Dni = txtBusquedaDni.Text;
             pac.Apellido = txtBusqApellido.Text;
@@ -209,7 +214,6 @@ namespace Vistas.Administrador
             grdPacientes.DataSource = negPacientes.ObtenerTablaFiltrada(pac);
             grdPacientes.DataBind();
         }
-
         protected void btnListarTodo_Click(object sender, EventArgs e)
         {
             txtBusqApellido.Text = string.Empty;
@@ -231,7 +235,7 @@ namespace Vistas.Administrador
             {
                 lblMensaje.Text = "NO SE HA PODIDO ELIMINAR EL PACIENTE";
             }
-            cargarGrdPacientes();
+            tablaPacientes();
             lbtnNo.Visible = false;
             lbtnSI.Visible = false;
         }
