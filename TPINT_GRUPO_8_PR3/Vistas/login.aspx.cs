@@ -62,12 +62,14 @@ namespace Vistas
                 //AGARRAMOS LOS DATOS
                 string usuario = fila["Usuario"].ToString();
                 int legajo = Convert.ToInt32(fila["Legajo"]);
-                string tipoUsuario = fila["TipoUsuario"].ToString();
+                string TipoUsuario = fila["TipoUsuario"].ToString();
+                if (cbRecordarme.Checked)
+                {
 
                 //CREAMOS LA COOKIE
                 HttpCookie cookie = new HttpCookie("UsuarioInfo");
                 cookie["Legajo"] = legajo.ToString();
-                cookie["TipoUsuario"] = tipoUsuario;
+                cookie["TipoUsuario"] = TipoUsuario;
                 cookie["Usuario"] = usuario;
                 cookie.Path = "/";
 
@@ -76,8 +78,9 @@ namespace Vistas
 
                 //AGREGAMOS LA COOKIE
                 Response.Cookies.Add(cookie);
+                }
 
-                if(tipoUsuario == "Medico")
+                if(fila["TipoUsuario"].ToString() == "Medico")
                 {
                     Response.Redirect("Medico/TurnosYPacientes.aspx");
                 }

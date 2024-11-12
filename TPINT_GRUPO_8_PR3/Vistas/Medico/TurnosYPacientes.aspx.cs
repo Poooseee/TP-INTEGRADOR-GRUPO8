@@ -23,7 +23,7 @@ namespace Vistas
             else
             {
                 //EL USUARIO NO ESTA LOGUEADO EN EL SISTEMA
-                Response.Redirect("../login.aspx");
+              //  Response.Redirect("../login.aspx");
             }
         }
         public void cargarGrdTurnos()
