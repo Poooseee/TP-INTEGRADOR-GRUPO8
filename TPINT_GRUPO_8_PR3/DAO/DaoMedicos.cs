@@ -85,5 +85,11 @@ namespace DAO
             string consulta = "DELETE FROM Medicos WHERE Legajo_M = " + legajo;
             return ad.EjecutarConsulta(consulta);
         }
+
+        public DataTable obtenerMedicosDeEspecialidad(string especialidad)
+        {
+            string consulta = "select * from medicos WHERE Baja_m = 0 AND especialidad_m = '" + especialidad + "'";
+            return ad.ObtenerTabla("MedicosDeEspecialidad", consulta);
+        }
     }
 }

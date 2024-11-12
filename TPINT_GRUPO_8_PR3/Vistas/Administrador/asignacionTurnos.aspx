@@ -18,7 +18,7 @@
             height: 26px;
         }
         .auto-style5 {
-            width: 141px;
+            width: 158px;
             height: 26px;
         }
         .auto-style6 {
@@ -84,25 +84,30 @@
                 <tr>
                     <td class="auto-style4">Especialidad:</td>
                     <td class="auto-style5">
-                        <asp:DropDownList ID="ddlEspecialidad" runat="server">
+                        <asp:DropDownList ID="ddlEspecialidad" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlEspecialidad_SelectedIndexChanged">
                             <asp:ListItem>--Seleccionar--</asp:ListItem>
                         </asp:DropDownList>
                     </td>
                     <td class="auto-style6">
                         Médico:</td>
                     <td class="auto-style7">
-                        <asp:DropDownList ID="ddlDia0" runat="server" Height="16px" Width="114px">
+                        <asp:DropDownList ID="ddlMedicos" runat="server" Height="17px" Width="150px" AutoPostBack="True" OnSelectedIndexChanged="ddlMedicos_SelectedIndexChanged">
+                            <asp:ListItem>-- Seleccione Medico --</asp:ListItem>
                         </asp:DropDownList>
                     </td>
                     <td class="auto-style8">
-                        Fecha:</td>
+                        Dia:</td>
                     <td class="auto-style9">
-                        <asp:TextBox ID="txtFechaTurno" runat="server" TextMode="Date"></asp:TextBox>
+                        <asp:DropDownList ID="ddlDias" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlDias_SelectedIndexChanged">
+                            <asp:ListItem>-- Seleccione Dia --</asp:ListItem>
+                            <asp:ListItem></asp:ListItem>
+                        </asp:DropDownList>
                     </td>
                     <td class="auto-style10">
                         Horario:</td>
                     <td class="auto-style11">
-                        <asp:TextBox ID="txtHorarioTurno" runat="server" TextMode="Time"></asp:TextBox>
+                        <asp:DropDownList ID="ddlHorarios" runat="server">
+                        </asp:DropDownList>
                     </td>
                 </tr>
             </table>

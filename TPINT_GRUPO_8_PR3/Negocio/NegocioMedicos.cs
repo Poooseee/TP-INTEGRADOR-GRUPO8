@@ -65,6 +65,10 @@ namespace Negocio
             return false;
         }
 
+        public DataTable obtenerMedicosDeEspecialidad(string especialidad)
+        {
+           return DaoMedicos.obtenerMedicosDeEspecialidad(especialidad);
+        }
         public DataTable FiltrarMedicosPorLegajo(int legajo)
         {
             return DaoMedicos.buscarMedicoPorLegajo(legajo);
