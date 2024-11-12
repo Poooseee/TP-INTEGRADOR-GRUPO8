@@ -258,11 +258,11 @@
                     <td class="auto-style100"></td>
                     <td class="auto-style91">Lunes</td>
                     <td class="auto-style107">
-                        <asp:TextBox ID="txtHorario1_1" runat="server" TextMode="Time"></asp:TextBox>
+                        <asp:TextBox ID="txtHorarioLunes_1" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                     <td class="auto-style84">Hasta:</td>
                     <td class="auto-style72">
-                        <asp:TextBox ID="txtHorario1_2" runat="server" TextMode="Time"></asp:TextBox>
+                        <asp:TextBox ID="txtHorarioLunes_2" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -277,11 +277,11 @@
                     <td class="auto-style105">&nbsp;</td>
                     <td class="auto-style97">Martes</td>
                     <td class="auto-style112">
-                        <asp:TextBox ID="txtHorario2_1" runat="server" TextMode="Time"></asp:TextBox>
+                        <asp:TextBox ID="txtHorarioMartes_1" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                     <td class="auto-style89">Hasta</td>
                     <td class="auto-style70">
-                        <asp:TextBox ID="txtHorario2_2" runat="server" TextMode="Time"></asp:TextBox>
+                        <asp:TextBox ID="txtHorarioMartes_2" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -296,11 +296,11 @@
                     <td class="auto-style105">&nbsp;</td>
                     <td class="auto-style97">Miercoles</td>
                     <td class="auto-style112">
-                        <asp:TextBox ID="txtHorario3_1" runat="server" TextMode="Time"></asp:TextBox>
+                        <asp:TextBox ID="txtHorarioMiercoles_1" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                     <td class="auto-style89">Hasta</td>
                     <td class="auto-style70">
-                        <asp:TextBox ID="txtHorario3_2" runat="server" TextMode="Time"></asp:TextBox>
+                        <asp:TextBox ID="txtHorarioMiercoles_2" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -315,11 +315,11 @@
                     <td class="auto-style101"></td>
                     <td class="auto-style93">Jueves</td>
                     <td class="auto-style109">
-                        <asp:TextBox ID="txtHorario4_1" runat="server" TextMode="Time"></asp:TextBox>
+                        <asp:TextBox ID="txtHorarioJueves_1" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                     <td class="auto-style86">Hasta</td>
                     <td class="auto-style47">
-                        <asp:TextBox ID="txtHorario4_2" runat="server" TextMode="Time"></asp:TextBox>
+                        <asp:TextBox ID="txtHorarioJueves_2" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -335,11 +335,11 @@
                     <td class="auto-style105">&nbsp;</td>
                     <td class="auto-style97">Viernes</td>
                     <td class="auto-style112">
-                        <asp:TextBox ID="txtHorario5_1" runat="server" TextMode="Time"></asp:TextBox>
+                        <asp:TextBox ID="txtHorarioViernes_1" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                     <td class="auto-style89">Hasta</td>
                     <td class="auto-style70">
-                        <asp:TextBox ID="txtHorario5_2" runat="server" TextMode="Time"></asp:TextBox>
+                        <asp:TextBox ID="txtHorarioViernes_2" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -355,11 +355,11 @@
                     <td class="auto-style102"></td>
                     <td class="auto-style94">Sabado</td>
                     <td class="auto-style110">
-                        <asp:TextBox ID="txtHorario6_1" runat="server" TextMode="Time"></asp:TextBox>
+                        <asp:TextBox ID="txtHorarioSabado_1" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                     <td class="auto-style87">Hasta</td>
                     <td class="auto-style83">
-                        <asp:TextBox ID="txtHorario6_2" runat="server" TextMode="Time"></asp:TextBox>
+                        <asp:TextBox ID="txtHorarioSabado_2" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -374,11 +374,11 @@
                     <td class="auto-style103"></td>
                     <td class="auto-style95">Domingo</td>
                     <td class="auto-style111">
-                        <asp:TextBox ID="txtHorario7_1" runat="server" TextMode="Time"></asp:TextBox>
+                        <asp:TextBox ID="txtHorarioDomingo_1" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                     <td class="auto-style88">Hasta</td>
                     <td class="auto-style37">
-                        <asp:TextBox ID="txtHorario7_2" runat="server" TextMode="Time"></asp:TextBox>
+                        <asp:TextBox ID="txtHorarioDomingo_2" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>

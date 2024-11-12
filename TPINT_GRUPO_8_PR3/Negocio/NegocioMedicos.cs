@@ -57,12 +57,12 @@ namespace Negocio
             }
            
             //si se pudo agregar retorna true, sino false
-            if (filas == 1 && filas2==1)
+            if (filas == 1 && filas2 == 1)
             {
                 return true;
             }
+
             return false;
-           
         }
 
         public DataTable FiltrarMedicosPorLegajo(int legajo)

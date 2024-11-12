@@ -63,8 +63,6 @@ namespace Vistas
                 string usuario = fila["Usuario"].ToString();
                 int legajo = Convert.ToInt32(fila["Legajo"]);
                 string TipoUsuario = fila["TipoUsuario"].ToString();
-                if (cbRecordarme.Checked)
-                {
 
                 //CREAMOS LA COOKIE
                 HttpCookie cookie = new HttpCookie("UsuarioInfo");
@@ -78,7 +76,6 @@ namespace Vistas
 
                 //AGREGAMOS LA COOKIE
                 Response.Cookies.Add(cookie);
-                }
 
                 if(fila["TipoUsuario"].ToString() == "Medico")
                 {

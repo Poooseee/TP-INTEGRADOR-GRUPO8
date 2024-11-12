@@ -65,6 +65,12 @@ namespace DAO
             return ad.ObtenerTabla("Medicos", consulta);
         }
 
+        public DataTable buscarMedicoPorDni(string dni)
+        {
+            string consulta = "SELECT Legajo_M AS Legajo FROM Medicos WHERE DNI_M = '" + dni + "'";
+            return ad.ObtenerTabla("Medicos", consulta);
+        }
+
         public int agregarMedico(Medico medico)
         {
             string Consulta = "INSERT INTO MEDICOS (DNI_M, nombre_M, apellido_M, sexo_M, nacionalidad_M, fechaNac_M, direccion_M, Idlocalidad_M, Idprovincia_M, email_M, telefono_M," +

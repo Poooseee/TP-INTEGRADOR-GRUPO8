@@ -49,6 +49,7 @@ namespace Vistas.Administrador
 
         }
         NegocioMedicos negMedicos = new NegocioMedicos();
+        NegocioHorarios negHorarios = new NegocioHorarios();
         public void obtenerCookie()
         {
             //  HttpCookie cookie = this.Request.Cookies["UsuarioInfo"];
@@ -187,16 +188,30 @@ namespace Vistas.Administrador
 
         protected void btnAlta_Click(object sender, EventArgs e)
         {
-            //se carga un objeto con todos los valores
+            //AGARRAMOS EL DNI
+            string dni = txtDNI.Text.Trim();
+
+            //SE CARGA UN OBJETO CON LOS VALORES
             Medico medico = llenarEntidadMedico();
             Usuarios usuario = llenarEntidadUsuario();
-            if (negMedicos.agregarMedico(medico, usuario))
+
+            //AGARRAMOS LOS HORARIOS INGRESADOS Y LOS GUARDAMOS EN UN ARRAY
+            List<(DayOfWeek dia, TimeSpan? horaIngreso, TimeSpan? horaEgreso)> horarios = getHorarios();
+
+            if (verificarHorarios(horarios))
             {
-                lblAgregado.Text = "El medico se ha agregado correctamente.";
+                if (negMedicos.agregarMedico(medico, usuario))
+                {
+                    lblAgregado.Text = "El medico se ha agregado correctamente.";
+                }
+                else
+                {
+                    lblAgregado.Text = "No se ha podido agregar el medico.";
+                }
             }
             else
             {
-                lblAgregado.Text = "No se ha podido agregar el medico.";
+                lblAgregado.Text = "No se ha podido agregar el medico. Los horarios ingresados no son validos.";
             }
 
         }
@@ -296,6 +311,45 @@ namespace Vistas.Administrador
         {
             grdHorarios.EditIndex = -1;
             cargarGrdHorarios();
+        }
+
+        protected List<(DayOfWeek dia , TimeSpan? horaIngreso , TimeSpan? horaEgreso)> getHorarios()
+        {
+            //ARRAY PARA LOS DIAS DE LA SEMANA
+            string[] diasSemana = { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo" };
+
+            //ARRAY PARA GUARDAR EL DIA DE LA SEMANA, LA HORA DE INGRESO Y EGRESO
+            List<(DayOfWeek dia, TimeSpan? horaIngreso, TimeSpan? horaEgreso)> horarios = new List<(DayOfWeek, TimeSpan?, TimeSpan?)>();
+
+            for (int i = 0; i < diasSemana.Length; i++)
+            {
+                //AGARRAMOS EL VALOR DE LOS TEXTBOX
+                TextBox txtIngreso = (TextBox)FindControl($"txtHorario{diasSemana[i]}_1");
+                TextBox txtEgreso = (TextBox)FindControl($"txtHorario{diasSemana[i]}_2");
+
+                //CONVERTIMOS LOS VALORES A TIMESPAN, SI NO SE INGRESO NADA SE PONE EN NULL
+                TimeSpan? horaIngreso = TimeSpan.TryParse(txtIngreso.Text, out TimeSpan ingreso) ? (TimeSpan?)ingreso : null;
+                TimeSpan? horaEgreso = TimeSpan.TryParse(txtEgreso.Text, out TimeSpan egreso) ? (TimeSpan?)egreso : null;
+
+                //AGREGAMOS EL DIA, HORA INGRESO Y EGRESO AL ARRAY
+                horarios.Add(((DayOfWeek)i, horaIngreso, horaEgreso));
+            }
+
+            return horarios;
+        }
+
+        protected bool verificarHorarios(List<(DayOfWeek dia, TimeSpan? horaIngreso, TimeSpan? horaEgreso)> horarios)
+        {
+            foreach (var horario in horarios)
+            {
+                //VERIFICA SI SE INGRESO UN VALOR(NO ES NULL) Y SI 'horaIngreso' ES MENOR A 'horaEgreso'
+                if (horario.horaIngreso.HasValue && horario.horaEgreso.HasValue && horario.horaIngreso < horario.horaEgreso)
+                {
+                    return true; //HAY POR LO MENOS UN HORARIO VALIDO(SE PUEDE REGISTRAR)
+                }
+            }
+
+            return false; //NO HAY NINGUN HORARIO VALIDO(NO SE PUEDE REGISTRAR)
         }
     }
 }

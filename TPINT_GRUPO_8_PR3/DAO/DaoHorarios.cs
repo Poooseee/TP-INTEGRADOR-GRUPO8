@@ -12,8 +12,13 @@ namespace DAO
         public DataTable obtenerTablaHorarios()
         {
             AccesoDatos ad = new AccesoDatos();
-            string consulta = "SELECT * from JORNADALABORARXMEDICO";
+            string consulta = "SELECT * from JORNADALABORALXMEDICO";
             return ad.ObtenerTabla("Horarios", consulta);
+        }
+
+        public int agregarHorario()
+        {
+            //ACA REBICIMOS LOS DATOS DEL HORARIO VALIDO Y HACEMOS LA CONSULTA PARA INSERTAR EL REGISTRO
         }
     }
 }
