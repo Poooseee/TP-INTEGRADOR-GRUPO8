@@ -14,7 +14,7 @@ namespace Entidades
         string apellido;
         string sexo;
         string nacionalidad;
-        DateTime fechaNac;
+        string fechaNac;
         string direccion;
         int localidad;
         int provincia;
@@ -30,7 +30,7 @@ namespace Entidades
         public string Apellido { get => apellido; set => apellido = value; }
         public string Sexo { get => sexo; set => sexo = value; }
         public string Nacionalidad { get => nacionalidad; set => nacionalidad = value; }
-        public DateTime FechaNac { get => fechaNac; set => fechaNac = value; }
+        public string FechaNac { get => fechaNac; set => fechaNac = value; }
         public string Direccion { get => direccion; set => direccion = value; }
         public int Localidad { get => localidad; set => localidad = value; }
         public int Provincia { get => provincia; set => provincia = value; }

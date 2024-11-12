@@ -44,19 +44,20 @@ namespace Negocio
             }
             return actualizado;
         }
-        public bool agregarMedico(Medico medico)
+        public bool agregarMedico(Medico medico, Usuarios usuario)
         {
-            int filas = 0;
-
+            int filas = 0, filas2 = 0;
+            DaoUsuarios daoUsuarios = new DaoUsuarios();
             
-            if (DaoMedicos.existeMedico(medico.Legajo) == false)
+            if (DaoMedicos.existeMedico(medico.Legajo) == false && daoUsuarios.nombreUsuarioValido(usuario) == false)
             {
                 //si no existe, agregalo
                 filas = DaoMedicos.agregarMedico(medico);
+                filas2 = daoUsuarios.agregarUsuario(usuario);
             }
            
             //si se pudo agregar retorna true, sino false
-            if (filas == 1)
+            if (filas == 1 && filas2==1)
             {
                 return true;
             }

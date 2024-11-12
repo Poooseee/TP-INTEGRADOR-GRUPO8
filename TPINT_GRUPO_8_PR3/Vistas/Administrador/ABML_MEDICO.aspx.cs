@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -28,6 +29,7 @@ namespace Vistas.Administrador
                         lblUsuario.Text = usuario;
 
                         cargarGrdMedicos();
+                        cargarGrdHorarios();
                         cargarProvinciasAlDDL();
                         cargarEspecialidadesAlDDL();
                         obtenerCookie();
@@ -49,8 +51,8 @@ namespace Vistas.Administrador
         NegocioMedicos negMedicos = new NegocioMedicos();
         public void obtenerCookie()
         {
-          //  HttpCookie cookie = this.Request.Cookies["UsuarioInfo"];
-           // lblUsuario.Text = cookie["Usuario"];
+            //  HttpCookie cookie = this.Request.Cookies["UsuarioInfo"];
+            // lblUsuario.Text = cookie["Usuario"];
         }
         public void cargarProvinciasAlDDL()
         {
@@ -80,6 +82,14 @@ namespace Vistas.Administrador
             grdMedicos.DataSource = NM.obtenerTablaMedicos();
             grdMedicos.DataBind();
         }
+
+        public void cargarGrdHorarios()
+        {
+            NegocioHorarios NH = new NegocioHorarios();
+            grdHorarios.DataSource = NH.obtenerTablaHorarios();
+            grdHorarios.DataBind();
+        }
+
         protected void ddlProvincia_SelectedIndexChanged(object sender, EventArgs e)
         {
             NegocioLocalidades loc = new NegocioLocalidades();
@@ -119,7 +129,7 @@ namespace Vistas.Administrador
             medico.Apellido = (((TextBox)fila.FindControl("txt_Eit_Apellido")).Text);
             medico.Sexo = (((TextBox)fila.FindControl("txt_Eit_Sexo")).Text);
             medico.Nacionalidad = (((TextBox)fila.FindControl("txt_Eit_Nacionalidad")).Text);
-            medico.FechaNac = DateTime.Parse((((TextBox)fila.FindControl("txt_Eit_FechaDeNacimiento")).Text));
+            medico.FechaNac = (((TextBox)fila.FindControl("txt_Eit_FechaDeNacimiento")).Text);
             medico.Direccion = (((TextBox)fila.FindControl("txt_Eit_Direccion")).Text);
             medico.Localidad = int.Parse(((DropDownList)fila.FindControl("ddl_eit_Localidad")).SelectedValue);
             medico.Provincia = int.Parse(((DropDownList)fila.FindControl("ddl_eit_Provincia")).SelectedValue);
@@ -148,13 +158,12 @@ namespace Vistas.Administrador
         protected Medico llenarEntidadMedico()
         {
             Medico medico = new Medico();
-            medico.Legajo = int.Parse(txtLegajo.Text.Trim());
             medico.Dni = int.Parse(txtDNI.Text.Trim());
             medico.Nombre = txtNombre.Text.Trim();
             medico.Apellido = txtApellido.Text.Trim();
             medico.Sexo = ddlSexo.SelectedValue.ToString();
             medico.Nacionalidad = ddlNacionalidad.SelectedValue.ToString();
-            medico.FechaNac = DateTime.Parse(txtFechaNac.Text.Trim());
+            medico.FechaNac = txtFechaNac.Text.Trim();
             medico.Direccion = txtDireccion.Text.Trim();
             medico.Localidad = int.Parse(ddlLocalidad.SelectedValue.ToString());
             medico.Provincia = int.Parse(ddlProvincia.SelectedValue.ToString());
@@ -162,15 +171,26 @@ namespace Vistas.Administrador
             medico.Telefono = txtTelefono.Text.Trim();
             medico.Especialidad = ddlEspecialidades.SelectedItem.ToString();
             medico.Baja = false;
-           
+
             return medico;
+        }
+
+        protected Usuarios llenarEntidadUsuario()
+        {
+            Usuarios usuario = new Usuarios();
+            usuario.NombreUsuario = txtUsuario.Text.Trim();
+            usuario.Contrasenia = txtPass.Text.Trim();
+            usuario.TipoUsuario = "Medico";
+
+            return usuario;
         }
 
         protected void btnAlta_Click(object sender, EventArgs e)
         {
             //se carga un objeto con todos los valores
             Medico medico = llenarEntidadMedico();
-            if (negMedicos.agregarMedico(medico))
+            Usuarios usuario = llenarEntidadUsuario();
+            if (negMedicos.agregarMedico(medico, usuario))
             {
                 lblAgregado.Text = "El medico se ha agregado correctamente.";
             }
@@ -183,7 +203,13 @@ namespace Vistas.Administrador
 
         protected void grdMedicos_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            lblMensaje.Text = "¿SEGURO QUE QUIERE ELIMINAR ESTE MEDICO?";
+            lblMensaje.ForeColor = System.Drawing.Color.Red;
+            lbtnNo.Visible = true;
+            lbtnSi.Visible = true;
             int legajo = Convert.ToInt32(((Label)grdMedicos.Rows[e.RowIndex].FindControl("lbl_it_legajo")).Text);
+            Session["RowIndexDelete"] = legajo;
+            /*
            if(negMedicos.BajaMedico(legajo))
             {
                 lblMensaje.Text = "ELIMINADO CORRECTAMENTE";
@@ -193,6 +219,7 @@ namespace Vistas.Administrador
                 lblMensaje.Text = "NO SE PUDO ELIMINAR";
             }
             cargarGrdMedicos();
+           */
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
@@ -229,6 +256,46 @@ namespace Vistas.Administrador
             Response.Cookies.Add(cookie);
 
             Response.Redirect("../login.aspx");
+        }
+
+        protected void lbtnSi_Click(object sender, EventArgs e)
+        {
+            int legajo = (int)Session["RowIndexDelete"];
+            if (negMedicos.BajaMedico(legajo))
+            {
+                lblMensaje.Text = "ELIMINADO CORRECTAMENTE";
+            }
+            else
+            {
+                lblMensaje.Text = "NO SE PUDO ELIMINAR";
+            }
+            cargarGrdMedicos();
+            lbtnSi.Visible = false;
+            lbtnNo.Visible = false;
+        }
+
+        protected void lbtnNo_Click(object sender, EventArgs e)
+        {
+            lblMensaje.Text = "";
+            lbtnNo.Visible=false;
+            lbtnSi.Visible=false;
+        }
+
+        protected void grdHorarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void grdHorarios_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            grdHorarios.EditIndex = e.NewEditIndex;
+            cargarGrdHorarios();
+        }
+
+        protected void grdHorarios_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            grdHorarios.EditIndex = -1;
+            cargarGrdHorarios();
         }
     }
 }

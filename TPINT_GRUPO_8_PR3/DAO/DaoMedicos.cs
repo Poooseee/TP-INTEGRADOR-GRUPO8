@@ -67,10 +67,10 @@ namespace DAO
 
         public int agregarMedico(Medico medico)
         {
-            string Consulta = "INSERT INTO MEDICOS (Legajo_M, DNI_M, nombre_M, apellido_M, sexo_M, nacionalidad_M, fechaNac_M, direccion_M, Idlocalidad_M, Idprovincia_M, email_M, telefono_M" +
-                "baja_M, especialidad_M) VALUES ('" + medico.Legajo + "'," + medico.Dni + "'," + medico.Nombre + "'," + medico.Apellido + "'," + medico.Sexo + "'," + medico.Nacionalidad + 
-                "'," + medico.FechaNac + "'," + medico.Direccion + "'," +medico.Localidad + "'," +medico.Provincia + "'," +medico.Email + "'," + medico.Telefono + "'," +  
-                "'," + medico.Especialidad + "')";
+            string Consulta = "INSERT INTO MEDICOS (DNI_M, nombre_M, apellido_M, sexo_M, nacionalidad_M, fechaNac_M, direccion_M, Idlocalidad_M, Idprovincia_M, email_M, telefono_M," +
+                "baja_M, especialidad_M) VALUES ('" + medico.Dni + "' , '" + medico.Nombre + "' , '" + medico.Apellido + "' , '" + medico.Sexo + "' , '" + medico.Nacionalidad + 
+                "' , '" + medico.FechaNac + "' , '" + medico.Direccion + "' , '" +medico.Localidad + "' , '" +medico.Provincia + "' , '" +medico.Email + "' , '" + medico.Telefono + "' , '" +  
+                "' , '" + medico.Especialidad + "')";
             return ad.EjecutarConsulta(Consulta);
         }
 

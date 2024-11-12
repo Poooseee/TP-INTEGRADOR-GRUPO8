@@ -60,5 +60,12 @@ namespace DAO
             string consulta = "select * from usuarios WHERE nombreUsuario_U = '" + usuario.NombreUsuario + "'";
             return ad.existe(consulta);
         }
+
+        public int agregarUsuario(Usuarios usuario)
+        {
+            string consulta = "INSERT INTO USUARIOS (nombreUsuario_U, contraseniaUsuario_U, tipoUsuario_U) VALUES ('" + usuario.NombreUsuario + "' , '" + usuario.Contrasenia + "' , '" 
+                + usuario.TipoUsuario + "')";
+            return ad.EjecutarConsulta(consulta);
+        }
     }
 }

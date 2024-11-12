@@ -46,3 +46,9 @@ C:\Users\Fede\Desktop\Nueva carpeta (3)\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\E
 C:\Users\Fede\Desktop\Nueva carpeta (3)\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
 C:\Users\Fede\Desktop\Nueva carpeta (3)\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Entidades\obj\Debug\Entidades.dll
 C:\Users\Fede\Desktop\Nueva carpeta (3)\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Entidades\obj\Debug\Entidades.pdb
+C:\Users\agust\Documents\GitHub\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Entidades\bin\Debug\Entidades.dll
+C:\Users\agust\Documents\GitHub\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Entidades\bin\Debug\Entidades.pdb
+C:\Users\agust\Documents\GitHub\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Entidades\obj\Debug\Entidades.csproj.AssemblyReference.cache
+C:\Users\agust\Documents\GitHub\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\agust\Documents\GitHub\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Entidades\obj\Debug\Entidades.dll
+C:\Users\agust\Documents\GitHub\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Entidades\obj\Debug\Entidades.pdb
