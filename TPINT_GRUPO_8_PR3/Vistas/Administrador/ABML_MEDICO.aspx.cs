@@ -223,7 +223,7 @@ namespace Vistas.Administrador
             lbtnNo.Visible = true;
             lbtnSi.Visible = true;
             int legajo = Convert.ToInt32(((Label)grdMedicos.Rows[e.RowIndex].FindControl("lbl_it_legajo")).Text);
-            Session["RowIndexDelete"] = legajo;
+            Session["RowIndexDeleteMedico"] = legajo;
             /*
            if(negMedicos.BajaMedico(legajo))
             {
@@ -275,7 +275,7 @@ namespace Vistas.Administrador
 
         protected void lbtnSi_Click(object sender, EventArgs e)
         {
-            int legajo = (int)Session["RowIndexDelete"];
+            int legajo = (int)Session["RowIndexDeleteMedico"];
             if (negMedicos.BajaMedico(legajo))
             {
                 lblMensaje.Text = "ELIMINADO CORRECTAMENTE";

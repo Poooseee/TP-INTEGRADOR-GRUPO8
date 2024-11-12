@@ -349,7 +349,7 @@
                 </td>
                 <td class="auto-style33">
                         <asp:DropDownList ID="ddlBusqSexo" runat="server" CssClass="auto-style3" Width="145px">
-                            <asp:ListItem Value="m">Seleccione un sexo</asp:ListItem>
+                            <asp:ListItem Value="mf">Seleccione un sexo</asp:ListItem>
                             <asp:ListItem>Masculino</asp:ListItem>
                             <asp:ListItem>Femenino</asp:ListItem>
                         </asp:DropDownList>
@@ -488,6 +488,13 @@
             </Columns>
         </asp:GridView>
                     <asp:Label ID="lblMensaje" runat="server"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <asp:LinkButton ID="lbtnSI" runat="server" OnClick="lbtnSI_Click" Visible="False">SI</asp:LinkButton>
+&nbsp;&nbsp;
+                    <asp:LinkButton ID="lbtnNo" runat="server" OnClick="lbtnNo_Click" Visible="False">NO</asp:LinkButton>
                 </td>
             </tr>
         </table>

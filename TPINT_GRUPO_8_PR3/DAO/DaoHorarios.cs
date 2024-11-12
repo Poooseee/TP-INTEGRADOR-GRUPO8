@@ -16,9 +16,9 @@ namespace DAO
             return ad.ObtenerTabla("Horarios", consulta);
         }
 
-        public int agregarHorario()
+       /* public int agregarHorario()
         {
             //ACA REBICIMOS LOS DATOS DEL HORARIO VALIDO Y HACEMOS LA CONSULTA PARA INSERTAR EL REGISTRO
-        }
+        }*/
     }
 }

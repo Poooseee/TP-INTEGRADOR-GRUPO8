@@ -176,8 +176,13 @@ namespace Vistas.Administrador
 
         protected void grdPacientes_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            lblMensaje.Text = "¿SEGURO QUIERE ELIMINAR ESTE PACIENTE?";
+            lblMensaje.ForeColor = System.Drawing.Color.Red;
+            lbtnSI.Visible = true;
+            lbtnNo.Visible = true;
             string dni = ((Label)grdPacientes.Rows[e.RowIndex].Cells[0].FindControl("lbl_it_dni")).Text;
-            int filas = 0;
+            Session["RowIndexDeletePaciente"] = dni;
+            /*int filas = 0;
 
             NegocioPacientes negPac = new NegocioPacientes();
             filas = negPac.eliminarPaciente(dni);
@@ -190,7 +195,7 @@ namespace Vistas.Administrador
             else
             {
                 lblMensaje.Text = "NO SE PUDO ELIMINAR AL PACIENTE";
-            }
+            }*/
         }
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
@@ -213,6 +218,29 @@ namespace Vistas.Administrador
             txtFechaNacPac.Text = string.Empty;
             ddlBusqSexo.SelectedIndex = 0;
             cargarGrdPacientes();
+        }
+
+        protected void lbtnSI_Click(object sender, EventArgs e)
+        {
+            string Dni = (string)Session["RowIndexDeletePaciente"];
+            if (negPacientes.eliminarPaciente(Dni))
+            {
+                lblMensaje.Text = "PACIENTE ELIMINADO CORRECTAMENTE";
+            }
+            else
+            {
+                lblMensaje.Text = "NO SE HA PODIDO ELIMINAR EL PACIENTE";
+            }
+            cargarGrdPacientes();
+            lbtnNo.Visible = false;
+            lbtnSI.Visible = false;
+        }
+
+        protected void lbtnNo_Click(object sender, EventArgs e)
+        {
+            lblMensaje.Text = string.Empty;
+            lbtnNo.Visible = false;
+            lbtnSI.Visible = false;
         }
     }
    

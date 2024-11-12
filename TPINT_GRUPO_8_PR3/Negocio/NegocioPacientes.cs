@@ -36,14 +36,16 @@ namespace Negocio
            
         }
 
-        public int eliminarPaciente(string dni)
+        public bool eliminarPaciente(string dni)
         {
-            DaoPacientes dao = new DaoPacientes();
-
-            int filas = 0;
-            filas = dao.eliminarPaciente(dni);
-
-            return filas;
+           Paciente paciente = new Paciente();
+            paciente.Dni = dni;
+            bool eliminado = false;
+            if (DaoPacientes.eliminarPaciente(paciente) == 1)
+            {
+                eliminado = true;
+            }
+            return eliminado;
         }
 
         public DataTable ObtenerTablaFiltrada(Paciente paciente)
