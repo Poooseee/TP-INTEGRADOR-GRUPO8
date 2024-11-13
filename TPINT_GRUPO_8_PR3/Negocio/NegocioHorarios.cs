@@ -15,13 +15,13 @@ namespace Negocio
             DaoHorarios daoHorarios = new DaoHorarios();
             return daoHorarios.obtenerTablaHorarios();
         }
-        public DataTable obtenerHorariosDeMedico(string legajo)
+        public DataTable obtenerHorariosDeMedico(int legajo)
         {
             DaoHorarios daoHorarios = new DaoHorarios();
             return daoHorarios.obtenerHorariosDeMedico(legajo);
 
         }
-        public DataRow diaLaboralMedico(string legajoMedico, string dia)
+        public DataRow diaLaboralMedico(int legajoMedico, string dia)
         {
             DaoHorarios daoHorarios = new DaoHorarios();
             DataTable dt = daoHorarios.obtenerHorarioDeDia(legajoMedico, dia);
@@ -38,7 +38,27 @@ namespace Negocio
 
             return legajo;
         }
+        public bool actualizarHorarioMedico(int legajo, string dia, string horaIngreso, string horaEgreso)
+        {
+            DaoHorarios dao = new DaoHorarios();
+            bool actualizado = false;
 
+            if(dao.actualizarHorario(legajo, dia, horaIngreso, horaEgreso) == 1)
+            {
+                actualizado= true;
+            }
+            return actualizado;
+        }
+        public bool eliminarHorario(int legajo,string dia)
+        {
+            DaoHorarios dao = new DaoHorarios();
+            bool eliminado = false;
+            if (dao.eliminarHorario(legajo, dia) == 1)
+            {
+                eliminado = true;
+            }
+            return eliminado;
+        }
         public void agregarHorarios(int legajo , string dia , string horaIngreso , string horaEgreso)
         {
             DaoHorarios daoHorarios = new DaoHorarios();

@@ -573,6 +573,24 @@ namespace Vistas.Administrador
         protected global::System.Web.UI.WebControls.LinkButton lbtnNo;
 
         /// <summary>
+        /// Control lblLegajoMedicoHorarios.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLegajoMedicoHorarios;
+
+        /// <summary>
+        /// Control lblLegajoMedicoHorarioN.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLegajoMedicoHorarioN;
+
+        /// <summary>
         /// Control grdHorarios.
         /// </summary>
         /// <remarks>

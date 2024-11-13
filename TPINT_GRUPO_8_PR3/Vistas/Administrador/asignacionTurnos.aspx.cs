@@ -103,7 +103,7 @@ namespace Vistas
             //AGREGO LOS DIAS EN LOS QUE ATIENDE EL MEDICO
            
             NegocioHorarios negHorarios = new NegocioHorarios();
-            DataTable dt = negHorarios.obtenerHorariosDeMedico(ddlMedicos.SelectedValue.ToString());
+            DataTable dt = negHorarios.obtenerHorariosDeMedico(int.Parse(ddlMedicos.SelectedValue.ToString()));
             ddlDias.DataSource = dt;
             ddlDias.DataTextField = "DIA";
             ddlDias.DataValueField = "DIA";
@@ -116,7 +116,7 @@ namespace Vistas
             // agrego los horarios del dia seleccionado
 
             NegocioHorarios negHorarios = new NegocioHorarios();
-            DataRow dr = negHorarios.diaLaboralMedico(ddlMedicos.SelectedValue.ToString(), ddlDias.SelectedItem.Text.ToString());
+            DataRow dr = negHorarios.diaLaboralMedico(int.Parse(ddlMedicos.SelectedValue.ToString()), ddlDias.SelectedItem.Text.ToString());
 
             // obtengo horario de entrada y de salida 
 
