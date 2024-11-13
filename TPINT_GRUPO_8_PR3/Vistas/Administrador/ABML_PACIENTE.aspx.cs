@@ -285,6 +285,38 @@ namespace Vistas.Administrador
             grdPacientes.EditIndex = -1;
             tablaPacientes();
         }
+
+        protected void btnDarAlta_Click(object sender, EventArgs e)
+        {
+            lblMsjAlta.Text = "¿SEGURO QUIERE DAR DE ALTA A ESTE PACIENTE?";
+            lblMsjAlta.ForeColor = System.Drawing.Color.Green;
+            lbtnAltaSI.Visible = true;
+            lbtnAltaNO.Visible = true;
+        }
+
+        protected void lbtnAltaSI_Click(object sender, EventArgs e)
+        {
+            string Dni = txtAltaBusquedaDni.Text;
+            if (negPacientes.darAltaPaciente(Dni))
+            {
+                lblMsjAlta.Text = "PACIENTE DADO DE ALTA CORRECTAMENTE";
+            }
+            else
+            {
+                lblMsjAlta.Text = "NO SE HA PODIDO DAR DE ALTA AL PACIENTE";
+            }
+            tablaPacientes();
+            txtAltaBusquedaDni.Text = "";
+            lbtnAltaNO.Visible = false;
+            lbtnAltaSI.Visible = false;
+        }
+
+        protected void lbtnAltaNO_Click(object sender, EventArgs e)
+        {
+            lblMsjAlta.Text = string.Empty;
+            lbtnAltaNO.Visible = false;
+            lbtnAltaSI.Visible = false;
+        }
     }
    
 }

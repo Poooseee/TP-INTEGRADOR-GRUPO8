@@ -8,6 +8,7 @@ using System.Linq.Expressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Vistas.Administrador
 {
@@ -163,7 +164,7 @@ namespace Vistas.Administrador
             medico.Nombre = txtNombre.Text.Trim();
             medico.Apellido = txtApellido.Text.Trim();
             medico.Sexo = ddlSexo.SelectedValue.ToString();
-            medico.Nacionalidad = ddlNacionalidad.SelectedValue.ToString();
+            medico.Nacionalidad = txtNacionalidad.Text;
             medico.FechaNac = txtFechaNac.Text.Trim();
             medico.Direccion = txtDireccion.Text.Trim();
             medico.Localidad = int.Parse(ddlLocalidad.SelectedValue.ToString());
@@ -203,6 +204,9 @@ namespace Vistas.Administrador
                     agregarHorarios(legajo);
                     vaciarCampos();
                     lblAgregado.Text = "El medico se ha agregado correctamente.";
+                    cargarGrdMedicos();
+                    cargarGrdHorarios();
+                    vaciarCampos();
                 }
                 else
                 {
@@ -568,7 +572,42 @@ namespace Vistas.Administrador
 
         protected void vaciarCampos()
         {
-            //HABRIA QUE VACIAR LOS CAMPOS DESPUES DE DAR DE ALTA EL MEDICO
+            txtDNI.Text = "";
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            ddlSexo.SelectedIndex = 0;
+            txtNacionalidad.Text = "";
+            txtFechaNac.Text = "";
+            txtDireccion.Text = "";
+            txtTelefono.Text = "";
+            txtCorreo.Text = "";
+
+            ddlEspecialidades.SelectedIndex = 0;
+            ddlProvincia.SelectedIndex = 0;
+            ddlLocalidad.SelectedIndex = 0;
+
+            txtHorarioLunes_1.Text = "";
+            txtHorarioLunes_2.Text = "";
+
+            txtHorarioMartes_1.Text = "";
+            txtHorarioMartes_2.Text = "";
+
+            txtHorarioMiercoles_1.Text = "";
+            txtHorarioMiercoles_2.Text = "";
+
+            txtHorarioJueves_1.Text = "";
+            txtHorarioJueves_2.Text = "";
+
+            txtHorarioViernes_1.Text = "";
+            txtHorarioViernes_2.Text = "";
+
+            txtHorarioSabado_1.Text = "";
+            txtHorarioSabado_2.Text = "";
+
+            txtHorarioDomingo_1.Text = "";
+            txtHorarioDomingo_2.Text = "";
+
+            txtUsuario.Text = "";
         }
     }
 }

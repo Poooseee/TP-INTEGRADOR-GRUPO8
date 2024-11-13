@@ -122,6 +122,9 @@
             width: 207px;
             height: 23px;
         }
+        .auto-style40 {
+            height: 26px;
+        }
     </style>
 </head>
 <body>
@@ -305,7 +308,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Label ID="Label5" runat="server" Text="MODIFICAR PACIENTE" Enabled="False"></asp:Label>
+                        <asp:Label ID="lblModPac" runat="server" Text="MODIFICAR PACIENTE" Enabled="False"></asp:Label>
                         <br />
                 </td>
             </tr>
@@ -485,6 +488,35 @@
                     <asp:LinkButton ID="lbtnSI" runat="server" OnClick="lbtnSI_Click" Visible="False">SI</asp:LinkButton>
 &nbsp;&nbsp;
                     <asp:LinkButton ID="lbtnNo" runat="server" OnClick="lbtnNo_Click" Visible="False">NO</asp:LinkButton>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="4">
+            <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Label ID="Label5" runat="server" Text="DAR ALTA PACIENTE" Enabled="False"></asp:Label>
+                        </td>
+            </tr>
+            <tr>
+                <td colspan="4" class="auto-style40">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                        <asp:Label ID="lblAltaDNI" runat="server" Text="DNI:"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:TextBox ID="txtAltaBusquedaDni" runat="server" CssClass="auto-style10" Width="224px" TextMode="Number"></asp:TextBox>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="btnDarAlta" runat="server" OnClick="btnDarAlta_Click" Text="Dar Alta" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="lblMsjAlta" runat="server"></asp:Label>
+&nbsp;
+                    <asp:LinkButton ID="lbtnAltaSI" runat="server" OnClick="lbtnAltaSI_Click" Visible="False">SI</asp:LinkButton>
+&nbsp;&nbsp;&nbsp;
+                    <asp:LinkButton ID="lbtnAltaNO" runat="server" OnClick="lbtnAltaNO_Click" Visible="False">NO</asp:LinkButton>
                 </td>
             </tr>
         </table>

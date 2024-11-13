@@ -48,6 +48,18 @@ namespace Negocio
             return eliminado;
         }
 
+        public bool darAltaPaciente(string dni)
+        {
+            Paciente paciente = new Paciente();
+            paciente.Dni = dni;
+            bool alta = false;
+            if (DaoPacientes.darAltaPaciente(paciente) == 1)
+            {
+                alta = true;
+            }
+            return alta;
+        }
+
         public bool actualizarPaciente(Paciente paciente)
         {
             int filas = 0;

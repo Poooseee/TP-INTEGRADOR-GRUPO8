@@ -92,10 +92,6 @@
         .auto-style23 {
             width: 145px;
         }
-        .auto-style76 {
-            width: 275px;
-            height: 23px;
-        }
         .auto-style77 {
             height: 23px;
             width: 91px;
@@ -105,9 +101,6 @@
         }
         .auto-style79 {
             width: 148px;
-        }
-        .auto-style80 {
-            width: 275px;
         }
         .auto-style81 {
             height: 80px;
@@ -207,8 +200,22 @@
         .auto-style112 {
             width: 154px;
         }
-        .auto-style113 {
-            margin-bottom: 0px;
+        .auto-style114 {
+            margin-left: 0px;
+        }
+        .auto-style115 {
+            height: 23px;
+            width: 165px;
+        }
+        .auto-style116 {
+            width: 165px;
+        }
+        .auto-style117 {
+            width: 168px;
+            height: 13px;
+        }
+        .auto-style118 {
+            width: 168px;
         }
         </style>
 </head>
@@ -327,11 +334,14 @@
                     <td class="auto-style69">
             <strong>
                         <asp:DropDownList ID="ddlSexo" runat="server" Width="142px" Height="18px">
+                            <asp:ListItem Value="0">Seleccione un sexo</asp:ListItem>
                             <asp:ListItem>Masculino</asp:ListItem>
                             <asp:ListItem>Femenino</asp:ListItem>
                         </asp:DropDownList>
                     </td>
-                    <td class="auto-style69">&nbsp;</td>
+                    <td class="auto-style69">
+                        <asp:RequiredFieldValidator ID="rfvSexo" runat="server" ControlToValidate="ddlSexo" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico" InitialValue="0"></asp:RequiredFieldValidator>
+                    </td>
                     <td class="auto-style105">&nbsp;</td>
                     <td class="auto-style97">Viernes</td>
                     <td class="auto-style112">
@@ -345,13 +355,11 @@
                 <tr>
                     <td class="auto-style82">Nacionalidad:</td>
                     <td class="auto-style82">
-                        <asp:DropDownList ID="ddlNacionalidad" runat="server" Height="16px" Width="136px">
-                            <asp:ListItem>Argentino/a</asp:ListItem>
-                            <asp:ListItem>Peruano/a</asp:ListItem>
-                        </asp:DropDownList>
+                        <asp:TextBox ID="txtNacionalidad" runat="server" Width="135px"></asp:TextBox>
                     </td>
                     <td class="auto-style82">
-                        &nbsp;</td>
+                        <asp:RequiredFieldValidator ID="rfvNacionalidad" runat="server" ControlToValidate="txtNacionalidad" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>
+                    </td>
                     <td class="auto-style102"></td>
                     <td class="auto-style94">Sabado</td>
                     <td class="auto-style110">
@@ -713,8 +721,8 @@
             <strong>
             <table class="auto-style17">
                 <tr>
-                    <td class="auto-style76">Agregar Horarios</td>
-                    <td class="auto-style28"></td>
+                    <td class="auto-style115">Agregar Horarios</td>
+                    <td class="auto-style117"></td>
                     <td class="auto-style29"></td>
                     <td class="auto-style30"></td>
                     <td class="auto-style29"></td>
@@ -722,9 +730,13 @@
                     <td class="auto-style77"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style80">DIA:</td>
+                    <td class="auto-style116">Legajo:</td>
+                    <td class="auto-style118">
+                        <asp:TextBox ID="txtLegajoHorario" runat="server"></asp:TextBox>
+                    </td>
+                    <td class="auto-style70">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DIA:</td>
                     <td class="auto-style19">
-                        <asp:DropDownList ID="ddlAgregarDia" runat="server" Width="145px">
+                        <asp:DropDownList ID="ddlAgregarDia" runat="server" Width="145px" CssClass="auto-style114">
                             <asp:ListItem>LUNES</asp:ListItem>
                             <asp:ListItem>MARTES</asp:ListItem>
                             <asp:ListItem>MIERCOLES</asp:ListItem>

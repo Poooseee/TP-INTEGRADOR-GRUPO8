@@ -41,6 +41,12 @@ namespace DAO
             return ad.EjecutarConsulta(consulta);
         }
 
+        public int darAltaPaciente(Paciente p)
+        {
+            string consulta = "UPDATE Pacientes SET Baja_P = 0 WHERE DNI_P = '" + p.Dni + "'";
+            return ad.EjecutarConsulta(consulta);
+        }
+
         public int actualizarPaciente(Paciente paciente)
         {
             string consulta = "UPDATE PACIENTES SET nombre_P = '" + paciente.Nombre + "', apellido_P = '" + paciente.Apellido + "', sexo_P = '" + paciente.Sexo +
