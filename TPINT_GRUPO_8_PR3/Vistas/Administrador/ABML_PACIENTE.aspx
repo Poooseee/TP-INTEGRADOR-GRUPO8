@@ -350,8 +350,8 @@
                 <td class="auto-style33">
                         <asp:DropDownList ID="ddlBusqSexo" runat="server" CssClass="auto-style3" Width="169px">
                             <asp:ListItem Value="mf">Seleccione un sexo</asp:ListItem>
-                            <asp:ListItem>Masculino</asp:ListItem>
-                            <asp:ListItem>Femenino</asp:ListItem>
+                            <asp:ListItem Value="m">Masculino</asp:ListItem>
+                            <asp:ListItem Value="f">Femenino</asp:ListItem>
                         </asp:DropDownList>
                     </td>
                 <td class="auto-style34">
@@ -407,7 +407,11 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Sexo">
                     <EditItemTemplate>
-                        <asp:TextBox ID="txt_Eit_Sexo" runat="server" Text='<%# Bind("Sexo") %>'></asp:TextBox>
+                        <asp:DropDownList ID="ddl_Eit_Sexo" runat="server">
+                            <asp:ListItem>--Seleccione un Sexo--</asp:ListItem>
+                            <asp:ListItem>Masculino</asp:ListItem>
+                            <asp:ListItem>Femenino</asp:ListItem>
+                        </asp:DropDownList>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="lbl_it_Sexo" runat="server" Text='<%# Bind("Sexo") %>'></asp:Label>

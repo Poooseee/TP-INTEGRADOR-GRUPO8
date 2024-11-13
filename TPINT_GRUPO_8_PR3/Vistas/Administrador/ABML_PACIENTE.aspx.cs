@@ -179,20 +179,6 @@ namespace Vistas.Administrador
             lbtnNo.Visible = true;
             string dni = ((Label)grdPacientes.Rows[e.RowIndex].Cells[0].FindControl("lbl_it_dni")).Text;
             Session["RowIndexDeletePaciente"] = dni;
-            /*int filas = 0;
-
-            NegocioPacientes negPac = new NegocioPacientes();
-            filas = negPac.eliminarPaciente(dni);
-
-            if(filas == 1)
-            {
-                lblMensaje.Text = "PACIENTE ELIMINADO CORRECTAMENTE";
-                cargarGrdPacientes();
-            }
-            else
-            {
-                lblMensaje.Text = "NO SE PUDO ELIMINAR AL PACIENTE";
-            }*/
         }
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
@@ -277,7 +263,7 @@ namespace Vistas.Administrador
             paciente.Dni = ((Label)grdPacientes.Rows[e.RowIndex].FindControl("lbl_Eit_Dni")).Text;
             paciente.Nombre = ((TextBox)grdPacientes.Rows[e.RowIndex].FindControl("txt_Eit_Nombre")).Text;
             paciente.Apellido = ((TextBox)grdPacientes.Rows[e.RowIndex].FindControl("txt_Eit_Apellido")).Text;
-            paciente.Sexo = ((TextBox)grdPacientes.Rows[e.RowIndex].FindControl("txt_Eit_Sexo")).Text;
+            paciente.Sexo = (((DropDownList)grdPacientes.Rows[e.RowIndex].FindControl("ddl_Eit_Sexo")).SelectedValue);
             paciente.Nacionalidad = ((TextBox)grdPacientes.Rows[e.RowIndex].FindControl("txt_Eit_Nacionalidad")).Text;
             paciente.FechaNac = ((TextBox)grdPacientes.Rows[e.RowIndex].FindControl("txt_Eit_FechaDeNacimiento")).Text;
             paciente.Direccion = ((TextBox)grdPacientes.Rows[e.RowIndex].FindControl("txt_Eit_Direccion")).Text;
@@ -286,7 +272,16 @@ namespace Vistas.Administrador
             paciente.Email = ((TextBox)grdPacientes.Rows[e.RowIndex].FindControl("txt_Eit_Correo")).Text;
             paciente.Telefono = ((TextBox)grdPacientes.Rows[e.RowIndex].FindControl("txt_Eit_Telefono")).Text;
 
-            negPac.actualizarPaciente(paciente);
+            if (negPac.actualizarPaciente(paciente))
+            {
+                lblMensaje.Text = "EL PACIENTE SE ACTUALIZÓ CORRECTAMENTE";
+                lblMensaje.ForeColor = System.Drawing.Color.Green;
+            }
+            else
+            {
+                lblMensaje.Text = "EL PACIENTE NO SE PUDO ACTUALIZAR";
+                lblMensaje.ForeColor= System.Drawing.Color.Red;
+            }
             grdPacientes.EditIndex = -1;
             tablaPacientes();
         }
