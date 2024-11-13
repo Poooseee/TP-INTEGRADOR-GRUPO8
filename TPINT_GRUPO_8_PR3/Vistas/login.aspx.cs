@@ -56,7 +56,7 @@ namespace Vistas
         protected void btnIngresar_Click(object sender, EventArgs e)
         {
             DataRow fila = negUs.inicioSesion(txtUsuario.Text, txtContraseña.Text);
-
+            
             if(fila != null)
             {
                 //AGARRAMOS LOS DATOS
@@ -64,6 +64,7 @@ namespace Vistas
                 int legajo = Convert.ToInt32(fila["Legajo"]);
                 string TipoUsuario = fila["TipoUsuario"].ToString();
 
+                
                 //CREAMOS LA COOKIE
                 HttpCookie cookie = new HttpCookie("UsuarioInfo");
                 cookie["Legajo"] = legajo.ToString();

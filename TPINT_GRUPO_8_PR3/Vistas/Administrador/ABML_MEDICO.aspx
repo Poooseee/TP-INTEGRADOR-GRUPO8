@@ -754,7 +754,7 @@
                         <asp:TextBox ID="txtHorarioFin" runat="server" TextMode="Time"></asp:TextBox>
                     </td>
                     <td class="auto-style78">
-                        <asp:Button ID="btnAgregarDia" runat="server" Text="Agregar" />
+                        <asp:Button ID="btnAgregarDia" runat="server" Text="Agregar" OnClick="btnAgregarDia_Click" />
                     </td>
                 </tr>
             </table>

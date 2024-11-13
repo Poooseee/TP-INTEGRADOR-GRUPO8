@@ -53,7 +53,7 @@ namespace DAO
 
             horaEgreso += ":00";
             horaIngreso += ":00";
-            string consulta = "UPDATE JornadaLaboralXMedico SET HoraIngreso ='" + horaIngreso + "', HoraEgreso=" + horaEgreso
+            string consulta = "UPDATE JornadaLaboralXMedico SET HoraIngreso ='" + horaIngreso + "', HoraEgreso= '" + horaEgreso
                 + "' WHERE legajoMedico_JXM = " + legajo + " AND diaAtencion = '" + dia + "'"; 
             
             return ad.EjecutarConsulta(consulta);

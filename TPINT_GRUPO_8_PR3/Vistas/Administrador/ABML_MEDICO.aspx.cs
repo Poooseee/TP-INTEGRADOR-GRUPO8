@@ -620,18 +620,20 @@ namespace Vistas.Administrador
 
             int legajo = int.Parse(lblLegajoMedicoHorarioN.Text);
             string dia = (((Label)fila.FindControl("lbl_It_DiaAtencion")).Text);
-            string ingreso = (((Label)fila.FindControl("txt_Eit_HoraInicio")).Text);
-            string egreso = (((Label)fila.FindControl("txt_Eit_HoraEgreso")).Text);
+            string ingreso = (((TextBox)fila.FindControl("txt_Eit_HoraInicio")).Text);
+            string egreso = (((TextBox)fila.FindControl("txt_Eit_HoraEgreso")).Text);
             
             if (negHorarios.actualizarHorarioMedico(legajo,dia,ingreso,egreso))
             {
                 
+                actualizarTablaModificarHorarios();
             }
             else
             {
 
             }
-
+            grdHorarios.EditIndex = -1;
+            actualizarTablaModificarHorarios();
         }
 
         protected void grdHorarios_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -650,6 +652,12 @@ namespace Vistas.Administrador
             {
                 
             }
+            actualizarTablaModificarHorarios();
+        }
+
+        protected void btnAgregarDia_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
