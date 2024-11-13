@@ -28,9 +28,24 @@ namespace DAO
                 "AND DiaAtencion = '" + dia + "'";
             return ad.ObtenerTabla("HorarioDiaLaboral", consulta);
         }
-        /* public int agregarHorario()
-         {
-             //ACA REBICIMOS LOS DATOS DEL HORARIO VALIDO Y HACEMOS LA CONSULTA PARA INSERTAR EL REGISTRO
-         }*/
+
+        public DataTable getLegajoMedico()
+        {
+            AccesoDatos ad = new AccesoDatos();
+            string consulta = "DECLARE @ProximoLegajo INT  SET @ProximoLegajo = IDENT_CURRENT('Medicos') SELECT @ProximoLegajo AS legajo";
+
+            return ad.ObtenerTabla("Medicos", consulta);
+        }
+        
+        public void agregarHorarios(int legajo, string dia, string horaIngreso, string horaEgreso)
+        {
+            AccesoDatos ad = new AccesoDatos();
+
+            horaEgreso += ":00";
+            horaIngreso += ":00";
+            string consulta = "INSERT INTO JornadaLaboralXMedico (legajoMedico_JXM , diaAtencion , HoraIngreso , HoraEgreso) VALUES (" + legajo + " , '" + dia + "' , '" + horaIngreso + "' , '" + horaEgreso + "')";
+
+            ad.ObtenerTabla("JornadaLaboralxMedico", consulta);
+        }
     }
 }

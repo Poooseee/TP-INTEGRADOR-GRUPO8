@@ -27,11 +27,22 @@ namespace Negocio
             DataTable dt = daoHorarios.obtenerHorarioDeDia(legajoMedico, dia);
             return dt.Rows[0];
         }
-        /* public bool agregarHorarios(List<(DayOfWeek dia, TimeSpan? horaIngreso, TimeSpan? horaEgreso)> horarios)
-         {
-             //ACA YA SE PUEDE MANDAR AL DAO CON UN FOR UNO POR UNO(SOLO SE LO PASA SI EL HORARIO ES VALIDO)
-             //NECESITAMOS TAMBIEN DE ALGUNA FORMA AGARRAR EL LEGAJO DEL MEDICO QUE SE ACABA DE INGRESAR. HICEL LA FUNCION 'buscarMedicoPorDni' en DaoMedicos PARA ESTO
-             //POR ESTO AGARRO EL VALOR DEL TXT DE DNI
-         }*/
+
+        public int getLegajoMedico()
+        {
+            DaoHorarios daoHorarios = new DaoHorarios();
+            DataTable dt = daoHorarios.getLegajoMedico();
+
+            DataRow row = dt.Rows[0];
+            int legajo = Convert.ToInt32(row["legajo"]);
+
+            return legajo;
+        }
+
+        public void agregarHorarios(int legajo , string dia , string horaIngreso , string horaEgreso)
+        {
+            DaoHorarios daoHorarios = new DaoHorarios();
+            daoHorarios.agregarHorarios(legajo, dia, horaIngreso, horaEgreso);
+        }
     }
 }
