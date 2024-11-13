@@ -39,6 +39,27 @@ namespace Vistas.Administrador
                     Response.Redirect("../Medico/TurnosYPacientes.aspx");
                 }
             }
+            else if (Session["TipoUsuario"] != null)
+            {
+                //EL USUARIO ESTA LOGUEADO EN EL SISTEMA
+                if (Session["TipoUsuario"].ToString() == "Administrador")
+                {
+                    //EL USUARIO TIENE ACCESO
+                    string usuario = Session["Usuario"].ToString();
+                    lblUsuario.Text = usuario;
+                    if (!IsPostBack)
+                    {
+                        cargarGrdPacientes();
+                        cargarProvinciasAlDDL();
+                        ddlLocalidadesDefault();
+                    }
+                }
+                else
+                {
+                    //EL USUARIO NO TIENE ACCESO
+                    Response.Redirect("../Medico/TurnosYPacientes.aspx");
+                }
+            }
             else
             {
                 //EL USUARIO NO ESTA LOGUEADO EN EL SISTEMA

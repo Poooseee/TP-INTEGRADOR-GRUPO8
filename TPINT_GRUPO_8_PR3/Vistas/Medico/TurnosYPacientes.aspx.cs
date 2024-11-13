@@ -15,15 +15,40 @@ namespace Vistas
             if(Request.Cookies["UsuarioInfo"] != null)
             {
                 //EL USUARIO ESTA LOGUEADO EN EL SISTEMA
-                HttpCookie cookie = Request.Cookies["UsuarioInfo"];
-                string usuario = cookie["Usuario"];
-                lblUsuario.Text = usuario;
-                cargarGrdTurnos();
+                if(Session["TipoUsuario"].ToString() == "Medico")
+                {
+                    //EL USUARIO TIENE ACCESO
+                    HttpCookie cookie = Request.Cookies["UsuarioInfo"];
+                    string usuario = cookie["Usuario"];
+                    lblUsuario.Text = usuario;
+                    cargarGrdTurnos();
+                }
+                else
+                {
+                    //EL USUARIO NO TIENE ACCESO
+                    Response.Redirect("../Medico/TurnosYPacientes.aspx");
+                }
+            }
+            else if (Session["TipoUsuario"] != null)
+            {
+                //EL USUARIO ESTA LOGUEADO EN EL SISTEMA
+                if (Session["TipoUsuario"].ToString() == "Medico")
+                {
+                    //EL USUARIO TIENE ACCESO
+                    string usuario = Session["Usuario"].ToString();
+                    lblUsuario.Text = usuario;
+                    cargarGrdTurnos();
+                }
+                else
+                {
+                    //EL USUARIO NO TIENE ACCESO
+                    Response.Redirect("../Medico/TurnosYPacientes.aspx");
+                }
             }
             else
             {
                 //EL USUARIO NO ESTA LOGUEADO EN EL SISTEMA
-              //  Response.Redirect("../login.aspx");
+                 Response.Redirect("../login.aspx");
             }
         }
         public void cargarGrdTurnos()

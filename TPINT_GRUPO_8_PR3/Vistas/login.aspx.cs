@@ -64,21 +64,30 @@ namespace Vistas
                 int legajo = Convert.ToInt32(fila["Legajo"]);
                 string TipoUsuario = fila["TipoUsuario"].ToString();
 
-                
-                //CREAMOS LA COOKIE
-                HttpCookie cookie = new HttpCookie("UsuarioInfo");
-                cookie["Legajo"] = legajo.ToString();
-                cookie["TipoUsuario"] = TipoUsuario;
-                cookie["Usuario"] = usuario;
-                cookie.Path = "/";
+                if(cbRecordarme.Checked)
+                {
+                    //CREAMOS LA COOKIE
+                    HttpCookie cookie = new HttpCookie("UsuarioInfo");
+                    cookie["Legajo"] = legajo.ToString();
+                    cookie["TipoUsuario"] = TipoUsuario;
+                    cookie["Usuario"] = usuario;
+                    cookie.Path = "/";
 
-                //EXPIRA EN 2 HORAS
-                cookie.Expires = DateTime.Now.AddHours(2);
+                    //EXPIRA EN 2 HORAS
+                    cookie.Expires = DateTime.Now.AddHours(2);
 
-                //AGREGAMOS LA COOKIE
-                Response.Cookies.Add(cookie);
+                    //AGREGAMOS LA COOKIE
+                    Response.Cookies.Add(cookie);
+                }
+                else
+                {
+                    //CREAMOS LA SESSION
+                    Session["Legajo"] = legajo;
+                    Session["TipoUsuario"] = TipoUsuario;
+                    Session["Usuario"] = usuario;
+                }
 
-                if(fila["TipoUsuario"].ToString() == "Medico")
+                if (fila["TipoUsuario"].ToString() == "Medico")
                 {
                     Response.Redirect("Medico/TurnosYPacientes.aspx");
                 }
