@@ -54,7 +54,7 @@ namespace Vistas.Administrador
             grdPacientes.DataSource = NP.obtenerTablaPacientes();
             grdPacientes.DataBind();
         }
-       
+
         public void cargarProvinciasAlDDL()
         {
             NegocioProvincias prov = new NegocioProvincias();
@@ -99,10 +99,6 @@ namespace Vistas.Administrador
             grdPacientes.EditIndex = e.NewEditIndex;
             tablaPacientes();
         }
-        protected void grdPacientes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
         protected Paciente llenarEntidadPaciente()
         {
             Paciente paciente = new Paciente();
@@ -136,7 +132,7 @@ namespace Vistas.Administrador
 
             }
         }
-        
+
         protected void grdPacientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             grdPacientes.PageIndex = e.NewPageIndex;
@@ -159,7 +155,7 @@ namespace Vistas.Administrador
         {
             cargarLocalidadesAlDDL();
         }
-        
+
         public void limpiarAgregado()
         {
             txtDni.Text = "";
@@ -245,6 +241,54 @@ namespace Vistas.Administrador
             lblMensaje.Text = string.Empty;
             lbtnNo.Visible = false;
             lbtnSI.Visible = false;
+        }
+
+        protected void grdPacientes_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow && e.Row.RowState.HasFlag(DataControlRowState.Edit))
+            {
+                DropDownList ddlLocalidad = (DropDownList)e.Row.FindControl("ddl_eit_Localidad");
+                DropDownList ddlProvincia = (DropDownList)e.Row.FindControl("ddl_eit_Provincia");
+                NegocioLocalidades loc = new NegocioLocalidades();
+                NegocioProvincias prov = new NegocioProvincias();
+                DataTable dt = new DataTable();
+
+                dt = prov.obtenerTablaProvincias();
+                ddlProvincia.DataSource = dt;
+                ddlProvincia.DataTextField = "nombreProvincia_PR";
+                ddlProvincia.DataValueField = "IdProvincia_PR";
+                ddlProvincia.DataBind();
+                ddlProvincia.Items.Insert(0, new ListItem("Seleccione una provincia", "0"));
+
+                dt = loc.obtenerTablaLocalidades(0);
+                ddlLocalidad.DataSource = dt;
+                ddlLocalidad.DataTextField = "nombreLocalidad_L";
+                ddlLocalidad.DataValueField = "IdLocalidad_L";
+                ddlLocalidad.DataBind();
+                ddlLocalidad.Items.Insert(0, new ListItem("Seleccione una localidad", "0"));
+            }
+        }
+
+        protected void grdPacientes_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            Paciente paciente = new Paciente();
+            NegocioPacientes negPac = new NegocioPacientes();
+
+            paciente.Dni = ((Label)grdPacientes.Rows[e.RowIndex].FindControl("lbl_Eit_Dni")).Text;
+            paciente.Nombre = ((TextBox)grdPacientes.Rows[e.RowIndex].FindControl("txt_Eit_Nombre")).Text;
+            paciente.Apellido = ((TextBox)grdPacientes.Rows[e.RowIndex].FindControl("txt_Eit_Apellido")).Text;
+            paciente.Sexo = ((TextBox)grdPacientes.Rows[e.RowIndex].FindControl("txt_Eit_Sexo")).Text;
+            paciente.Nacionalidad = ((TextBox)grdPacientes.Rows[e.RowIndex].FindControl("txt_Eit_Nacionalidad")).Text;
+            paciente.FechaNac = ((TextBox)grdPacientes.Rows[e.RowIndex].FindControl("txt_Eit_FechaDeNacimiento")).Text;
+            paciente.Direccion = ((TextBox)grdPacientes.Rows[e.RowIndex].FindControl("txt_Eit_Direccion")).Text;
+            paciente.Localidad = int.Parse(((DropDownList)grdPacientes.Rows[e.RowIndex].FindControl("ddl_eit_Localidad")).SelectedValue);
+            paciente.Provincia = int.Parse(((DropDownList)grdPacientes.Rows[e.RowIndex].FindControl("ddl_eit_Provincia")).SelectedValue);
+            paciente.Email = ((TextBox)grdPacientes.Rows[e.RowIndex].FindControl("txt_Eit_Correo")).Text;
+            paciente.Telefono = ((TextBox)grdPacientes.Rows[e.RowIndex].FindControl("txt_Eit_Telefono")).Text;
+
+            negPac.actualizarPaciente(paciente);
+            grdPacientes.EditIndex = -1;
+            tablaPacientes();
         }
     }
    

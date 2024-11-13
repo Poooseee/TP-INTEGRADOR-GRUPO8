@@ -41,6 +41,15 @@ namespace DAO
             return ad.EjecutarConsulta(consulta);
         }
 
+        public int actualizarPaciente(Paciente paciente)
+        {
+            string consulta = "UPDATE PACIENTES SET nombre_P = '" + paciente.Nombre + "', apellido_P = '" + paciente.Apellido + "', sexo_P = '" + paciente.Sexo +
+                "', nacionalidad_P = '" + paciente.Nacionalidad + "', fechaNac_P = '" + paciente.FechaNac + "', direccion_P = '" + paciente.Direccion +
+                "', Idlocalidad_P = "+paciente.Localidad+", Idprovincia_P = "+paciente.Provincia+", email_P = '" + paciente.Email +
+                "', telefono_P = '" + paciente.Telefono + "' WHERE DNI_P = '" + paciente.Dni+"'";
+            return ad.EjecutarConsulta(consulta);
+        }
+
         public DataTable obtenerTablaPacientesFiltrada(Paciente paciente)
         {
             string consulta = "SELECT DNI_P AS Dni , nombre_P AS Nombre , apellido_P AS Apellido , sexo_P AS Sexo , nacionalidad_P AS Nacionalidad , fechaNac_P  AS FechaNacimiento , direccion_P AS Direccion "
@@ -51,5 +60,6 @@ namespace DAO
 
             return ad.ObtenerTabla("TablaPacientesFiltrada", consulta);
         }
+
     }
 }

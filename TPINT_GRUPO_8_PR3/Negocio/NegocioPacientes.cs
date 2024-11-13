@@ -48,6 +48,17 @@ namespace Negocio
             return eliminado;
         }
 
+        public bool actualizarPaciente(Paciente paciente)
+        {
+            int filas = 0;
+            filas = DaoPacientes.actualizarPaciente(paciente);
+            if(filas == 1)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public DataTable ObtenerTablaFiltrada(Paciente paciente)
         {
 

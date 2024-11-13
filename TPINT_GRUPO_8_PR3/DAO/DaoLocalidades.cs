@@ -11,9 +11,18 @@ namespace DAO
     {
         public DataTable ObtenerLocalidades(int Id_Provincia)
         {
-            AccesoDatos datos = new AccesoDatos();
-            string consulta = "SELECT nombreLocalidad_L, IdLocalidad_L FROM LOCALIDADES WHERE IdProvincia_L = " + Id_Provincia;
-            return datos.ObtenerTabla("Localidades", consulta);
+            if (Id_Provincia != 0)
+            {
+                AccesoDatos datos = new AccesoDatos();
+                string consulta = "SELECT nombreLocalidad_L, IdLocalidad_L FROM LOCALIDADES WHERE IdProvincia_L = " + Id_Provincia;
+                return datos.ObtenerTabla("Localidades", consulta);
+            }
+            else
+            {
+                AccesoDatos datos = new AccesoDatos();
+                string consulta = "SELECT nombreLocalidad_L, IdLocalidad_L FROM LOCALIDADES";
+                return datos.ObtenerTabla("Localidades", consulta);
+            }
         }
     }
 }
