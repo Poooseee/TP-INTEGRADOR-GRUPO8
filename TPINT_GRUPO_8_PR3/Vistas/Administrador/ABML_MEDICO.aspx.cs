@@ -650,21 +650,14 @@ namespace Vistas.Administrador
 
         protected void grdHorarios_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            int RowIndex = e.RowIndex;
-            GridViewRow fila = grdHorarios.Rows[RowIndex];
-
+            lblMensajeHorario.Text = "¿SEGURO QUE QUIERE ELIMINAR ESTE MEDICO?";
+            lblMensajeHorario.ForeColor = System.Drawing.Color.Red;
+            lbtnNoHorario.Visible = true;
+            lbtnSiHorario.Visible = true;
+            string dia = ((Label)grdHorarios.Rows[e.RowIndex].FindControl("lbl_It_DiaAtencion")).Text;
             int legajo = int.Parse(lblLegajoMedicoHorarioN.Text);
-            string dia = (((Label)fila.FindControl("lbl_It_DiaAtencion")).Text);
-
-            if (negHorarios.eliminarHorario(legajo, dia))
-            {
-
-            }
-            else
-            {
-                
-            }
-            actualizarTablaModificarHorarios();
+            Session["RowIndexDeleteHorario_dia"] = dia;
+            Session["RowIndexDeleteHorario_leg"] = legajo;
         }
 
         protected void btnAgregarDia_Click(object sender, EventArgs e)
@@ -718,6 +711,29 @@ namespace Vistas.Administrador
                 ddlEitEspecialidad.Items.Insert(0, new ListItem("Seleccione una especialidad", "0"));
             }
         }
-    
+
+        protected void lbtnSiHorario_Click1(object sender, EventArgs e)
+        {
+            string dia = Session["RowIndexDeleteHorario_dia"].ToString();
+            int legajo = (int)Session["RowIndexDeleteHorario_leg"];
+            if (negHorarios.eliminarHorario(legajo, dia))
+            {
+                lblMensajeHorario.Text = "ELIMINADO CORRECTAMENTE";
+            }
+            else
+            {
+                lblMensajeHorario.Text = "NO SE PUDO ELIMINAR";
+            }
+            actualizarTablaModificarHorarios();
+            lbtnSiHorario.Visible = false;
+            lbtnNoHorario.Visible = false;
+        }
+
+        protected void lbtnNoHorario_Click1(object sender, EventArgs e)
+        {
+            lblMensajeHorario.Text = "";
+            lbtnNoHorario.Visible = false;
+            lbtnSiHorario.Visible = false;
+        }
     }
 }

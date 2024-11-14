@@ -711,9 +711,9 @@
                 <td>
                     <asp:Label ID="lblMensajeHorario" runat="server"></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:LinkButton ID="lbtnSiHorario" runat="server" Visible="False">SI</asp:LinkButton>
+                    <asp:LinkButton ID="lbtnSiHorario" runat="server" OnClick="lbtnSiHorario_Click1" Visible="False">SI</asp:LinkButton>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:LinkButton ID="lbtnNoHorario" runat="server" Visible="False">NO</asp:LinkButton>
+                    <asp:LinkButton ID="lbtnNoHorario" runat="server" OnClick="lbtnNoHorario_Click1" Visible="False">NO</asp:LinkButton>
                     </td>
 </tr>
             <tr>
@@ -741,7 +741,7 @@
                     <td class="auto-style116">Legajo:</td>
                     <td class="auto-style118">
                         <asp:TextBox ID="txtLegajoHorario" runat="server"></asp:TextBox>
-                    &nbsp;<strong><asp:RequiredFieldValidator ID="rfvHorarioLegajo" runat="server" BackColor="White" BorderColor="White" ControlToValidate="txtLegajoHorario" ErrorMessage="RequiredFieldValidator" ForeColor="Red">*</asp:RequiredFieldValidator>
+                    &nbsp;<strong><asp:RequiredFieldValidator ID="rfvHorarioLegajo" runat="server" BackColor="White" BorderColor="White" ControlToValidate="txtLegajoHorario" ErrorMessage="RequiredFieldValidator" ForeColor="Red" ValidationGroup="groupHorario">*</asp:RequiredFieldValidator>
                     </td>
                     <td class="auto-style70">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DIA:</td>
                     <td class="auto-style19">
@@ -759,16 +759,16 @@
                     <td class="auto-style23">
                         <asp:TextBox ID="txtHorarioInicio" runat="server" TextMode="Time"></asp:TextBox>
             <strong>
-                        <asp:RequiredFieldValidator ID="rfvInicioAgregar" runat="server" BackColor="White" BorderColor="White" ControlToValidate="txtHorarioInicio" ErrorMessage="RequiredFieldValidator" ForeColor="Red">*</asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvInicioAgregar" runat="server" BackColor="White" BorderColor="White" ControlToValidate="txtHorarioInicio" ErrorMessage="RequiredFieldValidator" ForeColor="Red" ValidationGroup="groupHorario">*</asp:RequiredFieldValidator>
                     </td>
                     <td class="auto-style24">&nbsp;&nbsp;&nbsp; Hasta:</td>
                     <td class="auto-style79">
                         <asp:TextBox ID="txtHorarioFin" runat="server" TextMode="Time"></asp:TextBox>
             <strong>
-                        <asp:RequiredFieldValidator ID="rfvFinAgregar" runat="server" BackColor="White" BorderColor="White" ControlToValidate="txtHorarioFin" ErrorMessage="RequiredFieldValidator" ForeColor="Red">*</asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvFinAgregar" runat="server" BackColor="White" BorderColor="White" ControlToValidate="txtHorarioFin" ErrorMessage="RequiredFieldValidator" ForeColor="Red" ValidationGroup="groupHorario">*</asp:RequiredFieldValidator>
                     </td>
                     <td class="auto-style78">
-                        <asp:Button ID="btnAgregarDia" runat="server" Text="Agregar" OnClick="btnAgregarDia_Click" />
+                        <asp:Button ID="btnAgregarDia" runat="server" Text="Agregar" OnClick="btnAgregarDia_Click" ValidationGroup="groupHorario" />
                     </td>
                 </tr>
                 <tr>
