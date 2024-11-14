@@ -668,12 +668,11 @@
                     <br />
         <table class="auto-style15">
             <tr>
-                <td>Modificacion de Horarios<asp:AdRotator runat="server"></asp:AdRotator>
-                </td>
+                <td>Modificacion de Horarios</td>
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblLegajoMedicoHorarios" runat="server">LEGAJO N:</asp:Label>
+                    <asp:Label ID="lblLegajoMedicoHorarios" runat="server">--SELECCIONE UN MEDICO--</asp:Label>
                     <asp:Label ID="lblLegajoMedicoHorarioN" runat="server"></asp:Label>
 
                 </td>
@@ -756,6 +755,23 @@
                     <td class="auto-style78">
                         <asp:Button ID="btnAgregarDia" runat="server" Text="Agregar" OnClick="btnAgregarDia_Click" />
                     </td>
+                </tr>
+                <tr>
+                    <td class="auto-style116">&nbsp;</td>
+                    <td class="auto-style118">
+                        &nbsp;</td>
+                    <td class="auto-style70">&nbsp;</td>
+                    <td class="auto-style19">
+                        <asp:Label ID="lblHorarioAgregado" runat="server" ForeColor="Green"></asp:Label>
+                    </td>
+                    <td class="auto-style24">&nbsp;</td>
+                    <td class="auto-style23">
+                        &nbsp;</td>
+                    <td class="auto-style24">&nbsp;</td>
+                    <td class="auto-style79">
+                        &nbsp;</td>
+                    <td class="auto-style78">
+                        &nbsp;</td>
                 </tr>
             </table>
                 </td>

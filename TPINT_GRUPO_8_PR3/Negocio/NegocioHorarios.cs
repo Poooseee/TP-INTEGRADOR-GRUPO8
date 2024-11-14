@@ -59,10 +59,21 @@ namespace Negocio
             }
             return eliminado;
         }
-        public void agregarHorarios(int legajo , string dia , string horaIngreso , string horaEgreso)
+        public bool agregarHorarios(int legajo , string dia , string horaIngreso , string horaEgreso)
         {
             DaoHorarios daoHorarios = new DaoHorarios();
-            daoHorarios.agregarHorarios(legajo, dia, horaIngreso, horaEgreso);
+            DaoMedicos daoMedicos = new DaoMedicos();
+            if (daoMedicos.existeMedico(legajo) && daoHorarios.existeHorario(legajo, dia, horaIngreso, horaEgreso)==false)
+            {
+                int filas = daoHorarios.agregarHorarios(legajo, dia, horaIngreso, horaEgreso);
+
+                if (filas == 1)
+                {
+                    return true;
+                }
+            }
+            return false;
+
         }
     }
 }

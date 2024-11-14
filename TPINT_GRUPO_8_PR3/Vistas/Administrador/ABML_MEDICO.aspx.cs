@@ -623,6 +623,7 @@ namespace Vistas.Administrador
             lblLegajoMedicoHorarioN.Text = legajoSeleccionado.ToString();
 
             //llenar la grid con la info del legajo seleccionado
+            lblLegajoMedicoHorarios.Text = "LEGAJO N:";
             actualizarTablaModificarHorarios();
         }
         protected void actualizarTablaModificarHorarios()
@@ -676,7 +677,18 @@ namespace Vistas.Administrador
 
         protected void btnAgregarDia_Click(object sender, EventArgs e)
         {
-
+            if(negHorarios.agregarHorarios(int.Parse(txtLegajoHorario.Text), ddlAgregarDia.SelectedValue, txtHorarioInicio.Text, txtHorarioFin.Text))
+            {
+                lblHorarioAgregado.Text = "SE AGREGÓ EL HORARIO CORRECTAMENTE";
+            }
+            else
+            {
+                lblHorarioAgregado.Text = "NO SE PUDO AGREGAR EL HORARIO";
+            }
+            txtLegajoHorario.Text = "";
+            ddlAgregarDia.SelectedIndex = 0;
+            txtHorarioInicio.Text = "";
+            txtHorarioFin.Text = "";
         }
     }
 }

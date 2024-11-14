@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -14,11 +15,11 @@ namespace Vistas
         {
             if(Request.Cookies["UsuarioInfo"] != null)
             {
+                HttpCookie cookie = Request.Cookies["UsuarioInfo"];
                 //EL USUARIO ESTA LOGUEADO EN EL SISTEMA
-                if(Session["TipoUsuario"].ToString() == "Medico")
+                if(cookie["TipoUsuario"].ToString() == "Medico")
                 {
                     //EL USUARIO TIENE ACCESO
-                    HttpCookie cookie = Request.Cookies["UsuarioInfo"];
                     string usuario = cookie["Usuario"];
                     lblUsuario.Text = usuario;
                     cargarGrdTurnos();
