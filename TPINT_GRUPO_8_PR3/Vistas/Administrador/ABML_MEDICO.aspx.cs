@@ -678,5 +678,24 @@ namespace Vistas.Administrador
         {
 
         }
+
+        protected void BtnBuscarS_Click(object sender, EventArgs e)
+        {
+            NegocioMedicos negocioMedicos = new NegocioMedicos();
+            String Med;
+            Med = ddlBusqMedSexo.SelectedValue.ToString();
+            grdMedicos.DataSource = negocioMedicos.FiltrarMedicosPorSexo(Med);
+            grdMedicos.DataBind();
+
+        }
+
+        protected void BtnBuscarLeg_Click(object sender, EventArgs e)
+        {
+            NegocioMedicos negocioMedicos = new NegocioMedicos();
+            String Med;
+            Med= ddlBusqEspecialidad.SelectedValue.ToString();
+            grdMedicos.DataSource = negocioMedicos.FiltrarMedicosPorEspecialidad(Med);
+            grdMedicos.DataBind();
+        }
     }
 }

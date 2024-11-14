@@ -54,11 +54,8 @@
         .auto-style73 {
             width: 100%;
         }
-        .auto-style74 {
-            width: 134px;
-        }
         .auto-style75 {
-            width: 310px;
+            width: 428px;
         }
         .auto-style5 {
             font-size: medium;
@@ -216,6 +213,12 @@
         }
         .auto-style118 {
             width: 168px;
+        }
+        .auto-style119 {
+            width: 173px;
+        }
+        .auto-style3 {
+            font-size: medium;
         }
         </style>
 </head>
@@ -530,15 +533,41 @@
                 </td>
             </tr>
             <tr>
-                <td aria-expanded="false" class="auto-style74">Busqueda por Legajo: </td>
+                <td aria-expanded="false" class="auto-style119">Busqueda por Legajo: </td>
                 <td class="auto-style75">
                     <asp:TextBox ID="txtBuscarLegajo" runat="server" Width="187px" TextMode="Number"></asp:TextBox>
-&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
                     <asp:Button ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" />
                 </td>
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Button ID="btnListarTodos" runat="server" Text="Listar Todos" OnClick="btnListarTodos_Click" />
                 </td>
+            </tr>
+            <tr>
+                <td aria-expanded="false" class="auto-style119">Busqueda por Sexo:</td>
+                <td class="auto-style75">
+                        <asp:DropDownList ID="ddlBusqMedSexo" runat="server" CssClass="auto-style3" Width="169px">
+                            <asp:ListItem Value="mf">Seleccione un sexo</asp:ListItem>
+                            <asp:ListItem Value="m">Masculino</asp:ListItem>
+                            <asp:ListItem Value="f">Femenino</asp:ListItem>
+                        </asp:DropDownList>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="BtnBuscarS" runat="server" OnClick="BtnBuscarS_Click" Text="Button" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td aria-expanded="false" class="auto-style119">Busqueda por Especialidad:</td>
+                <td class="auto-style75">
+                        <asp:DropDownList ID="ddlBusqEspecialidad" runat="server" CssClass="auto-style3" Width="200px" OnSelectedIndexChanged="ddlEspecialidad_SelectedIndexChanged">
+                            <asp:ListItem Value="mf">Seleccione especiaidad</asp:ListItem>
+                            <asp:ListItem Value="m">Masculino</asp:ListItem>
+                            <asp:ListItem Value="f">Femenino</asp:ListItem>
+                        </asp:DropDownList>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="BtnBuscarLeg" runat="server" OnClick="BtnBuscarLeg_Click" Text="Button" />
+                </td>
+                <td>&nbsp;</td>
             </tr>
             <tr>
                 <td colspan="3">

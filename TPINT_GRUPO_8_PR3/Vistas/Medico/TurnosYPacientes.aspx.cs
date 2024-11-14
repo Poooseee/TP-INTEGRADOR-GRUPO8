@@ -14,12 +14,13 @@ namespace Vistas
         {
             if(Request.Cookies["UsuarioInfo"] != null)
             {
+                HttpCookie Cookie = Request.Cookies["UsuarioInfo"];
                 //EL USUARIO ESTA LOGUEADO EN EL SISTEMA
-                if(Session["TipoUsuario"].ToString() == "Medico")
+                if(Cookie["TipoUsuario"].ToString() == "Medico")
                 {
                     //EL USUARIO TIENE ACCESO
-                    HttpCookie cookie = Request.Cookies["UsuarioInfo"];
-                    string usuario = cookie["Usuario"];
+                    
+                    string usuario = Cookie["Usuario"];
                     lblUsuario.Text = usuario;
                     cargarGrdTurnos();
                 }
