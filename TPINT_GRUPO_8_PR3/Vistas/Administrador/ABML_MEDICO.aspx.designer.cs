@@ -600,6 +600,33 @@ namespace Vistas.Administrador
         protected global::System.Web.UI.WebControls.GridView grdHorarios;
 
         /// <summary>
+        /// Control lblMensajeHorario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMensajeHorario;
+
+        /// <summary>
+        /// Control lbtnSiHorario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnSiHorario;
+
+        /// <summary>
+        /// Control lbtnNoHorario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnNoHorario;
+
+        /// <summary>
         /// Control txtLegajoHorario.
         /// </summary>
         /// <remarks>
@@ -607,6 +634,15 @@ namespace Vistas.Administrador
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLegajoHorario;
+
+        /// <summary>
+        /// Control rfvHorarioLegajo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvHorarioLegajo;
 
         /// <summary>
         /// Control ddlAgregarDia.
@@ -627,6 +663,15 @@ namespace Vistas.Administrador
         protected global::System.Web.UI.WebControls.TextBox txtHorarioInicio;
 
         /// <summary>
+        /// Control rfvInicioAgregar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvInicioAgregar;
+
+        /// <summary>
         /// Control txtHorarioFin.
         /// </summary>
         /// <remarks>
@@ -634,6 +679,15 @@ namespace Vistas.Administrador
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtHorarioFin;
+
+        /// <summary>
+        /// Control rfvFinAgregar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFinAgregar;
 
         /// <summary>
         /// Control btnAgregarDia.

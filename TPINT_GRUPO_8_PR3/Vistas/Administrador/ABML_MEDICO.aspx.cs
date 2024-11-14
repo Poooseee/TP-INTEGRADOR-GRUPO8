@@ -130,11 +130,6 @@ namespace Vistas.Administrador
             grdMedicos.EditIndex = e.NewEditIndex;
             cargarGrdMedicos();
         }
-
-        protected void grdMedicos_RowUpdated(object sender, GridViewUpdatedEventArgs e)
-        {
-
-        }
         protected Medico ObtenerYActualizarDatosMedico(GridViewRow fila)
         {
 
@@ -164,11 +159,13 @@ namespace Vistas.Administrador
 
             if (negMedicos.actualizarMedico(medico))
             {
-
+                grdMedicos.EditIndex = -1;
+                cargarGrdMedicos();
+                lblMensaje.Text = "MÉDICO ACTUALIZADO CORRECTAMENTE";
             }
             else
             {
-
+                lblMensaje.Text = "NO SE PUDO ACTUALIZAR AL MÉDICO";
             }
         }
         protected Medico llenarEntidadMedico()
@@ -301,11 +298,6 @@ namespace Vistas.Administrador
             lblMensaje.Text = "";
             lbtnNo.Visible=false;
             lbtnSi.Visible=false;
-        }
-
-        protected void grdHorarios_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         protected void grdHorarios_RowEditing(object sender, GridViewEditEventArgs e)
@@ -689,6 +681,43 @@ namespace Vistas.Administrador
             ddlAgregarDia.SelectedIndex = 0;
             txtHorarioInicio.Text = "";
             txtHorarioFin.Text = "";
+            actualizarTablaModificarHorarios();
         }
+
+        protected void grdMedicos_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow && e.Row.RowState.HasFlag(DataControlRowState.Edit))
+            {
+                DropDownList ddlEitProvincia = (DropDownList)e.Row.FindControl("ddl_eit_Provincia");
+                DropDownList ddlEitLocalidad = (DropDownList)e.Row.FindControl("ddl_eit_Localidad");
+                DropDownList ddlEitEspecialidad = (DropDownList)e.Row.FindControl("ddl_eit_Especialidad");
+                NegocioLocalidades loc = new NegocioLocalidades();
+                NegocioProvincias prov = new NegocioProvincias();
+                NegocioEspecialidades esp = new NegocioEspecialidades();
+                DataTable dt = new DataTable();
+
+                dt = prov.obtenerTablaProvincias();
+                ddlEitProvincia.DataSource = dt;
+                ddlEitProvincia.DataTextField = "nombreProvincia_PR";
+                ddlEitProvincia.DataValueField = "IdProvincia_PR";
+                ddlEitProvincia.DataBind();
+                ddlEitProvincia.Items.Insert(0, new ListItem("Seleccione una provincia", "0"));
+
+                dt = loc.obtenerTablaLocalidades(0);
+                ddlEitLocalidad.DataSource = dt;
+                ddlEitLocalidad.DataTextField = "nombreLocalidad_L";
+                ddlEitLocalidad.DataValueField = "IdLocalidad_L";
+                ddlEitLocalidad.DataBind();
+                ddlEitLocalidad.Items.Insert(0, new ListItem("Seleccione una localidad", "0"));
+
+                dt = esp.obtenerTablaEspecialidades();
+                ddlEitEspecialidad.DataSource = dt;
+                ddlEitEspecialidad.DataTextField = "nombreEspecialidad_E";
+                ddlEitEspecialidad.DataValueField = "nombreEspecialidad_E";
+                ddlEitEspecialidad.DataBind();
+                ddlEitEspecialidad.Items.Insert(0, new ListItem("Seleccione una especialidad", "0"));
+            }
+        }
+    
     }
 }
