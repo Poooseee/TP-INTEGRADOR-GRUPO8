@@ -73,13 +73,5 @@ namespace Negocio
         {
             return DaoMedicos.buscarMedicoPorLegajo(legajo);
         }
-        public DataTable FiltrarMedicosPorSexo(string Sexo)
-        {
-            return DaoMedicos.buscarMedicoPorSexo(Sexo);
-        }
-        public DataTable FiltrarMedicosPorEspecialidad(string Especialidad)
-        {
-            return DaoMedicos.buscarMedicoPorEspecialidad(Especialidad);
-        }
     }
 }

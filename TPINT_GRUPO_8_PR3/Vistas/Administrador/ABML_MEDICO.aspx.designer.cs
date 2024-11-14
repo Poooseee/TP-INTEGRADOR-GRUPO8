@@ -537,42 +537,6 @@ namespace Vistas.Administrador
         protected global::System.Web.UI.WebControls.Button btnListarTodos;
 
         /// <summary>
-        /// Control ddlBusqMedSexo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlBusqMedSexo;
-
-        /// <summary>
-        /// Control BtnBuscarS.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnBuscarS;
-
-        /// <summary>
-        /// Control ddlBusqEspecialidad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlBusqEspecialidad;
-
-        /// <summary>
-        /// Control BtnBuscarLeg.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnBuscarLeg;
-
-        /// <summary>
         /// Control grdMedicos.
         /// </summary>
         /// <remarks>

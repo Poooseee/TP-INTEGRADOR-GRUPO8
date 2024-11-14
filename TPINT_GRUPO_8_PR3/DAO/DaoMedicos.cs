@@ -71,18 +71,6 @@ namespace DAO
             return ad.ObtenerTabla("Medicos", consulta);
         }
 
-        public DataTable buscarMedicoPorSexo(string Sexo)
-        {
-            string consulta = "SELECT Sexo_M AS Sexo FROM Medicos WHERE Sexo_M = '" + Sexo + "'";
-            return ad.ObtenerTabla("Medicos", consulta);
-        }
-
-        public DataTable buscarMedicoPorEspecialidad(string Especialidad)
-        {
-            string consulta = "SELECT Especialidad_M AS Especialidad FROM Medicos WHERE Especialidad_M = '" + Especialidad + "'";
-            return ad.ObtenerTabla("Medicos", consulta);
-        }
-
         public int agregarMedico(Medico medico)
         {
             string Consulta = "INSERT INTO MEDICOS (DNI_M, nombre_M, apellido_M, sexo_M, nacionalidad_M, fechaNac_M, direccion_M, Idlocalidad_M, Idprovincia_M, email_M, telefono_M," +
