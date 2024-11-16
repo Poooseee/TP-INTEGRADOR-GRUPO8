@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Negocio;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -48,6 +50,67 @@ namespace Vistas.Administrador
                 //EL USUARIO NO ESTA LOGUEADO EN EL SISTEMA
                 Response.Redirect("../login.aspx");
             }
+
+            //PACIENTES
+            NegocioPacientes negPac = new NegocioPacientes();
+            DataTable dtPacientes = negPac.obtenerTablaPacientes();
+            int totalPacientes = dtPacientes.Rows.Count;
+            int anioActual = DateTime.Now.Year;
+            int sumaEdadesPacientes = 0;
+            int pacientesMasculinos = 0;
+            int pacientesFemeninos = 0;
+
+            foreach(DataRow fila in dtPacientes.Rows)
+            {
+                //AGARRAMOS EL SEXO
+                string sexoPacientes = fila["Sexo"].ToString();
+
+                //AGARRAMOS EL AÑO DE NACIMIENTO
+                DateTime fechaNacimiento = Convert.ToDateTime(fila["FechaNacimiento"]);
+                int edad = anioActual - fechaNacimiento.Year;
+                sumaEdadesPacientes += edad;
+
+                if (sexoPacientes == "Masculino")
+                {
+                    pacientesMasculinos++;
+                }
+                else
+                {
+                    pacientesFemeninos++;
+                }
+            }
+
+            //MEDICOS
+            NegocioMedicos negMed = new NegocioMedicos();
+            DataTable dtMedicos = negMed.obtenerTablaMedicos();
+            int totalMedicos = dtMedicos.Rows.Count;
+            int sumaEdadesMedicos = 0;
+
+            foreach(DataRow fila in dtMedicos.Rows)
+            {
+                //AGARRAMOS EL AÑO DE NACIMIENTO
+                DateTime fechaNacimiento = Convert.ToDateTime(fila["FechaNacimiento"]);
+                int edad = anioActual - fechaNacimiento.Year;
+                sumaEdadesMedicos += edad;
+            }
+
+            //INFORMES
+
+            //PORCENTAJE PACIENTES MASCULINOS
+            int porcentajeMasculinos = (totalPacientes > 0) ? (int)Math.Round((pacientesMasculinos * 100.0) / totalPacientes) : 0;
+            lblPacienteMasc.Text = porcentajeMasculinos.ToString() + "%";
+
+            //PORCENTAJE PACIENTES FEMENIOS
+            int porcentajeFemeninos = (totalPacientes > 0) ? (int)Math.Round((pacientesFemeninos * 100.0) / totalPacientes) : 0;
+            lblPacienteFem.Text = porcentajeFemeninos.ToString() + "%";
+
+            //PROMEDIO DE EDAD PACIENTES
+            int promedioEdadPacientes = (totalPacientes > 0) ? sumaEdadesPacientes / totalPacientes : 0;
+            lblPromPacientes.Text = promedioEdadPacientes.ToString() + " AÑOS";
+
+            //PROMEDIO DE EDAD MEDICOS
+            int promedioEdadMedicos = (totalMedicos > 0) ? sumaEdadesMedicos / totalMedicos : 0;
+            lblPromMedicos.Text = promedioEdadMedicos.ToString() + " AÑOS";
         }
 
         protected void lnkbtnCerrarSesion_Click(object sender, EventArgs e)
