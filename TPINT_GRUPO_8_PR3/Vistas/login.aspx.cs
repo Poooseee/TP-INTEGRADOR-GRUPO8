@@ -73,8 +73,8 @@ namespace Vistas
                     cookie["Usuario"] = usuario;
                     cookie.Path = "/";
 
-                    //EXPIRA EN 2 HORAS
-                    cookie.Expires = DateTime.Now.AddHours(2);
+                    //EXPIRA EN 7 DIAS
+                    cookie.Expires = DateTime.Now.AddDays(7);
 
                     //AGREGAMOS LA COOKIE
                     Response.Cookies.Add(cookie);

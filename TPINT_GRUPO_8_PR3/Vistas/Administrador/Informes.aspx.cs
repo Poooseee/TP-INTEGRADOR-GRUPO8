@@ -94,7 +94,37 @@ namespace Vistas.Administrador
                 sumaEdadesMedicos += edad;
             }
 
+            //TURNOS
+            NegocioTurnos negTur = new NegocioTurnos();
+            DataTable dtTurnos = negTur.obtenerTablaTurnos();
+            int totalTurnos = dtTurnos.Rows.Count;
+            int turnosPresentes = 0;
+            int turnosAusentes = 0;
+
+            foreach(DataRow fila in dtTurnos.Rows)
+            {
+                //AGARRAMOS EL ESTADO
+                string estadoTurno = fila["estadoPaciente_T"].ToString();
+
+                if(estadoTurno == "PRESENTE")
+                {
+                    turnosPresentes++;
+                }
+                else if(estadoTurno == "AUSENTE")
+                {
+                    turnosAusentes++;
+                }
+            }
+
             //INFORMES
+
+            //PORCENTAJE TURNOS AUSENTES
+            int porcentajeAusentes = (totalTurnos > 0) ? (int)Math.Round((turnosAusentes * 100.0) / totalTurnos) : 0;
+            lblAusentes.Text = porcentajeAusentes.ToString() + "%";
+
+            //PORCENTAJE TURNOS PRESENTES
+            int porcentajePresentes = (totalTurnos > 0) ? (int)Math.Round((turnosPresentes * 100.0) / totalTurnos) : 0;
+            lblPresentes.Text = porcentajePresentes.ToString() + "%";
 
             //PORCENTAJE PACIENTES MASCULINOS
             int porcentajeMasculinos = (totalPacientes > 0) ? (int)Math.Round((pacientesMasculinos * 100.0) / totalPacientes) : 0;
