@@ -73,5 +73,37 @@ namespace Negocio
         {
             return DaoMedicos.buscarMedicoPorLegajo(legajo);
         }
+
+        public string obtenerProvinciaAsignada(string legajo)
+        {
+
+            DataTable dt = DaoMedicos.obtenerProvinciaAsignada(legajo);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                return dt.Rows[0]["idProvincia_M"].ToString();
+
+            }
+            return null;
+        }
+        public string obtenerLocalidadAsignada(string legajo)
+        {
+            DataTable dt = DaoMedicos.obtenerLocalidadAsignada(legajo);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                return dt.Rows[0]["idLocalidad_M"].ToString();
+
+            }
+            return null;
+        }
+        public string obtenerEspecialidadAsignada(string legajo)
+        {
+            DataTable dt = DaoMedicos.obtenerEspecialidadAsignada(legajo);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                return dt.Rows[0]["especialidad_M"].ToString();
+
+            }
+            return null;
+        }
     }
 }

@@ -98,5 +98,22 @@ namespace DAO
             
             return ad.ObtenerTabla("MedicosDeEspecialidad", consulta);
         }
+
+        public DataTable obtenerProvinciaAsignada(string legajo)
+        {
+            string consulta = "SELECT IdProvincia_M FROM Medicos WHERE Legajo_M = '" + legajo + "'";
+            return ad.ObtenerTabla("provinciaAsingada", consulta );
+        }
+        public DataTable obtenerLocalidadAsignada(string legajo)
+        {
+            string consulta = "SELECT IdLocalidad_M FROM Medicos WHERE Legajo_M = '" + legajo + "'";
+            return ad.ObtenerTabla("LocalidadAsingada", consulta);
+        }
+        public DataTable obtenerEspecialidadAsignada(string legajo)
+        {
+            string consulta = "SELECT especialidad_M FROM Medicos WHERE Legajo_M = '" + legajo + "'";
+            return ad.ObtenerTabla("especialidadAsingada", consulta);
+        }
+
     }
 }

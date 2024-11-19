@@ -259,20 +259,22 @@ namespace Vistas.Administrador
                 NegocioLocalidades loc = new NegocioLocalidades();
                 NegocioProvincias prov = new NegocioProvincias();
                 DataTable dt = new DataTable();
+                NegocioPacientes negPac = new NegocioPacientes();
+                string dni = ((Label)e.Row.FindControl("lbl_Eit_Dni")).Text;
 
                 dt = prov.obtenerTablaProvincias();
                 ddlProvincia.DataSource = dt;
                 ddlProvincia.DataTextField = "nombreProvincia_PR";
                 ddlProvincia.DataValueField = "IdProvincia_PR";
                 ddlProvincia.DataBind();
-                ddlProvincia.Items.Insert(0, new ListItem("Seleccione una provincia", "0"));
+                ddlProvincia.SelectedValue = negPac.obtenerProvinciaAsignada(dni); 
 
                 dt = loc.obtenerTablaLocalidades(0);
                 ddlLocalidad.DataSource = dt;
                 ddlLocalidad.DataTextField = "nombreLocalidad_L";
                 ddlLocalidad.DataValueField = "IdLocalidad_L";
                 ddlLocalidad.DataBind();
-                ddlLocalidad.Items.Insert(0, new ListItem("Seleccione una localidad", "0"));
+                ddlLocalidad.SelectedValue = negPac.obtenerLocalidadAsignada(dni);
             }
         }
 

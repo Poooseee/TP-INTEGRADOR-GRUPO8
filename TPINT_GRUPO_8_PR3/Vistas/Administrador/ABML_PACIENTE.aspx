@@ -410,7 +410,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Sexo">
                     <EditItemTemplate>
-                        <asp:DropDownList ID="ddl_Eit_Sexo" runat="server">
+                        <asp:DropDownList ID="ddl_Eit_Sexo" runat="server" SelectedValue='<%# Bind("Sexo") %>'>
                             <asp:ListItem>--Seleccione un Sexo--</asp:ListItem>
                             <asp:ListItem>Masculino</asp:ListItem>
                             <asp:ListItem>Femenino</asp:ListItem>

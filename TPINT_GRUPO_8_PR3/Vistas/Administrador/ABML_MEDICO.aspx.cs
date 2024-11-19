@@ -688,27 +688,28 @@ namespace Vistas.Administrador
                 NegocioProvincias prov = new NegocioProvincias();
                 NegocioEspecialidades esp = new NegocioEspecialidades();
                 DataTable dt = new DataTable();
+                string legajo = ((Label)e.Row.FindControl("lbl_it_Legajo")).Text;
 
                 dt = prov.obtenerTablaProvincias();
                 ddlEitProvincia.DataSource = dt;
                 ddlEitProvincia.DataTextField = "nombreProvincia_PR";
                 ddlEitProvincia.DataValueField = "IdProvincia_PR";
                 ddlEitProvincia.DataBind();
-                ddlEitProvincia.Items.Insert(0, new ListItem("Seleccione una provincia", "0"));
+                ddlEitProvincia.SelectedValue = negMedicos.obtenerProvinciaAsignada(legajo);
 
                 dt = loc.obtenerTablaLocalidades(0);
                 ddlEitLocalidad.DataSource = dt;
                 ddlEitLocalidad.DataTextField = "nombreLocalidad_L";
                 ddlEitLocalidad.DataValueField = "IdLocalidad_L";
                 ddlEitLocalidad.DataBind();
-                ddlEitLocalidad.Items.Insert(0, new ListItem("Seleccione una localidad", "0"));
+                ddlEitLocalidad.SelectedValue = negMedicos.obtenerLocalidadAsignada(legajo);
 
                 dt = esp.obtenerTablaEspecialidades();
                 ddlEitEspecialidad.DataSource = dt;
                 ddlEitEspecialidad.DataTextField = "nombreEspecialidad_E";
                 ddlEitEspecialidad.DataValueField = "nombreEspecialidad_E";
                 ddlEitEspecialidad.DataBind();
-                ddlEitEspecialidad.Items.Insert(0, new ListItem("Seleccione una especialidad", "0"));
+                ddlEitEspecialidad.SelectedValue = negMedicos.obtenerEspecialidadAsignada(legajo);
             }
         }
 

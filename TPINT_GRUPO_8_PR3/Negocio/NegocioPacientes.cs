@@ -77,8 +77,27 @@ namespace Negocio
           return DaoPacientes.obtenerTablaPacientesFiltrada(paciente);
             
         }
-        
 
-        
+        public string obtenerLocalidadAsignada(string dni)
+        {
+            DataTable dt = DaoPacientes.obtenerLocalidadAsignada(dni);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                return dt.Rows[0]["idLocalidad_P"].ToString();
+
+            }
+            return null;
+        }
+        public string obtenerProvinciaAsignada(string dni)
+        {
+            DataTable dt = DaoPacientes.obtenerProvinciaAsignada(dni);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                return dt.Rows[0]["idProvincia_P"].ToString();
+
+            }
+            return null;
+        }
+
     }
 }

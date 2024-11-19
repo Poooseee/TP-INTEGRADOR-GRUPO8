@@ -67,5 +67,16 @@ namespace DAO
             return ad.ObtenerTabla("TablaPacientesFiltrada", consulta);
         }
 
+        public DataTable obtenerProvinciaAsignada(string dni)
+        {
+            string consulta = "SELECT IdProvincia_P FROM Pacientes WHERE dni_P = '" + dni + "'";
+            return ad.ObtenerTabla("provinciaAsingada", consulta);
+        }
+        public DataTable obtenerLocalidadAsignada(string dni)
+        {
+            string consulta = "SELECT IdLocalidad_P FROM Pacientes WHERE dni_P = '" + dni + "'";
+            return ad.ObtenerTabla("LocalidadAsingada", consulta);
+        }
+
     }
 }
