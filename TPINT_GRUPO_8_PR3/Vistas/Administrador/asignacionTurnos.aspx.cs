@@ -225,7 +225,6 @@ namespace Vistas
                 btnAgregar.Enabled = true;
             }
         }
-
         protected void vaciarCampoAsignacionTurno()
         {
             lblEspecialidad.Text = "";
@@ -242,6 +241,20 @@ namespace Vistas
             lblMedico.Text = medico;
             lblDia.Text = fecha;
             lblHorario.Text = horario;
+            txtDniPaciente.Text = "";
+            txtNombrePaciente.Text = "";
+        }
+        protected void vaciarPagina()
+        {
+            ddlEspecialidad.SelectedIndex = 0;
+            txtDia.Text = "";
+            ddlMedicos.SelectedIndex = 0;
+            ddlHorarios.SelectedIndex = 0;
+            lblNoExisteTurno.Text = "";
+            lblEspecialidad.Text = "";
+            lblDia.Text = "";
+            lblMedico.Text = "";
+            lblHorario.Text = "";
             txtDniPaciente.Text = "";
             txtNombrePaciente.Text = "";
         }
@@ -265,7 +278,8 @@ namespace Vistas
             {
                 lblError.Text = "";
                 lblAgendado.Text = "TURNO AGENDADO CON EXITO";
-                //vaciar todos los campos de todo
+                vaciarPagina();
+                btnAgregar.Enabled = false;
             }
             else
             {
