@@ -1,4 +1,5 @@
 ﻿using DAO;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,10 +13,19 @@ namespace Negocio
     { 
         DaoTurnos DaoTurnos = new DaoTurnos();
         public NegocioTurnos() { }
-
+         
         public DataTable obtenerTablaTurnos()
         {
             return DaoTurnos.obtenerTablaTurnos();
+        }
+        public bool verificarTurno(Turno turno)
+        {
+            bool existe = false;
+            if (DaoTurnos.buscarTurno(turno) > 0)
+            {
+                existe = true;
+            }
+            return existe;
         }
     }
 }

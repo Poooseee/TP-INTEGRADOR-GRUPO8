@@ -24,5 +24,11 @@ namespace DAO
                 " WHERE nroTurno="+turno.NroTurno;
             return ad.EjecutarConsulta(consulta);
         }
+
+        public int buscarTurno(Turno turno)
+        {
+            string consulta = "Select count(*) from TURNOS where legajoMedico_T = "+ turno.LegajoMedico + "and horario_T = '"+turno.Hora+"' and fecha_T = '"+turno.Fecha+"'";
+            return ad.EjecutarConsulta(consulta);       
+        }
     }
 }

@@ -15,6 +15,7 @@ namespace Entidades
         string presentismo;
         string estado;
         string observaciones;
+        int legajoMedico;
 
         public int NroTurno { get => nroTurno; set => nroTurno = value; }
         public DateTime Fecha { get => fecha; set => fecha = value; }
@@ -23,5 +24,6 @@ namespace Entidades
         public string Presentismo { get => presentismo; set => presentismo = value; }
         public string Estado { get => estado; set => estado = value; }
         public string Observaciones { get => observaciones; set => observaciones = value; }
+        public int LegajoMedico { get => legajoMedico; set => legajoMedico = value; }
     }
 }

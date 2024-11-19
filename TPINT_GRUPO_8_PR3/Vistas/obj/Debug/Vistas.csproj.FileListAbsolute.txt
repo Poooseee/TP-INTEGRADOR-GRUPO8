@@ -642,3 +642,5 @@ C:\Users\alejo\Documents\GitHub\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Vistas\ob
 C:\Users\alejo\Documents\GitHub\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Vistas\obj\Debug\Vistas.pdb
 C:\Users\USURIO\OneDrive\Escritorio\Programacion III\TPs Grupales\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Vistas\bin\DAO.dll
 C:\Users\USURIO\OneDrive\Escritorio\Programacion III\TPs Grupales\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Vistas\bin\DAO.pdb
+C:\Users\alejo\OneDrive\Documentos\GitHub\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Vistas\bin\DAO.dll
+C:\Users\alejo\OneDrive\Documentos\GitHub\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Vistas\bin\DAO.pdb

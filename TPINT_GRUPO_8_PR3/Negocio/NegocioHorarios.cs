@@ -21,10 +21,10 @@ namespace Negocio
             return daoHorarios.obtenerHorariosDeMedico(legajo);
 
         }
-        public DataRow diaLaboralMedico(int legajoMedico, string dia)
+        public DataRow diaLaboralMedico(int legajoMedico)
         {
             DaoHorarios daoHorarios = new DaoHorarios();
-            DataTable dt = daoHorarios.obtenerHorarioDeDia(legajoMedico, dia);
+            DataTable dt = daoHorarios.obtenerHorarioDeDia(legajoMedico);
             return dt.Rows[0];
         }
 

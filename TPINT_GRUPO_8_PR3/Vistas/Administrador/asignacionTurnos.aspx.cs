@@ -1,7 +1,9 @@
-﻿using Negocio;
+﻿using Entidades;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,11 +13,13 @@ namespace Vistas
 {
     public partial class asignacionTurnos : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-            cargarEspecialidades();
+                cargarEspecialidades();
+                deshabilitarFiltros();
 
             }
             if (Request.Cookies["UsuarioInfo"] != null)
@@ -53,7 +57,7 @@ namespace Vistas
             else
             {
                 //EL USUARIO NO ESTA LOGUEADO EN EL SISTEMA
-               // Response.Redirect("../login.aspx");
+                // Response.Redirect("../login.aspx");
             }
         }
         public void cargarEspecialidades()
@@ -65,24 +69,20 @@ namespace Vistas
             ddlEspecialidad.DataValueField = "NombreEspecialidad_E";
             ddlEspecialidad.DataBind();
             ddlEspecialidad.Items.Insert(0, new ListItem("-- Seleccione Especialidad --", "0"));
-           
-        }
 
+        }
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-
         protected void grvTurnos_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-
         protected void grdPacientes_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-
         protected void lnkbtnCerrarSesion_Click(object sender, EventArgs e)
         {
             //ELIMINAMOS LA COOKIE
@@ -94,15 +94,47 @@ namespace Vistas
 
             Response.Redirect("../login.aspx");
         }
+        protected void deshabilitarFiltros()
+        {
+            txtDia.Enabled = false;
+            ddlMedicos.Enabled = false;
+            ddlHorarios.Enabled = false;
+        }
 
+        // 1) SELECCIONAR ESPECIALIDAD
         protected void ddlEspecialidad_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //AGREGO LOS MEDICOS DE LA ESPECIALIDAD SELECCIONADA
+            if(ddlEspecialidad.SelectedIndex == 0)
+            {
+                txtDia.Enabled = false;
+                ddlMedicos.Enabled = false;
+                ddlHorarios.Enabled = false;
+            }
+            else
+            {
+                txtDia.Enabled = true;
+            }
+        }
+        // 2) SELECCIONAR FECHA
+        protected void txtDia_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtDia.Text.Trim()))
+            {
+                return;
+            }
+                ddlMedicos.Enabled = true;
+
+            //obtengo el dia de la semana segun la fecha
+            DateTime fecha = DateTime.Parse(txtDia.Text);
+            string dia = fecha.ToString("dddd", new CultureInfo("es-AR"));
+
+            //lleno el ddl de medicos segun especialidad y dia
             ddlMedicos.Items.Clear();
+
             ListItem itemDefault = new ListItem("-- Seleccione Medico --", "0");
             ddlMedicos.Items.Add(itemDefault);
             NegocioMedicos neg = new NegocioMedicos();
-            DataTable dt = neg.obtenerMedicosDeEspecialidad(ddlEspecialidad.SelectedItem.Text);
+            DataTable dt = neg.obtenerMedicosDeEspecialidad(ddlEspecialidad.SelectedItem.Text,dia);
             foreach (DataRow dr in dt.Rows)
             {
                 ListItem item = new ListItem();
@@ -110,28 +142,19 @@ namespace Vistas
                 item.Value = dr["Legajo_M"].ToString();
                 ddlMedicos.Items.Add(item);
             }
-
         }
-
+        // 3) SELECCIONAR MEDICO
         protected void ddlMedicos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //AGREGO LOS DIAS EN LOS QUE ATIENDE EL MEDICO
-           
-            NegocioHorarios negHorarios = new NegocioHorarios();
-            DataTable dt = negHorarios.obtenerHorariosDeMedico(int.Parse(ddlMedicos.SelectedValue.ToString()));
-            ddlDias.DataSource = dt;
-            ddlDias.DataTextField = "DIA";
-            ddlDias.DataValueField = "DIA";
-            ddlDias.DataBind();
-            ddlDias.Items.Insert(0, new ListItem("-- Seleccione Dia --", "0"));
-        }
-
-        protected void ddlDias_SelectedIndexChanged(object sender, EventArgs e)
-        {
+            if(ddlMedicos.SelectedIndex == 0)
+            {
+                return;
+            }
+            ddlHorarios.Enabled = true;
             // agrego los horarios del dia seleccionado
 
             NegocioHorarios negHorarios = new NegocioHorarios();
-            DataRow dr = negHorarios.diaLaboralMedico(int.Parse(ddlMedicos.SelectedValue.ToString()), ddlDias.SelectedItem.Text.ToString());
+            DataRow dr = negHorarios.diaLaboralMedico(int.Parse(ddlMedicos.SelectedValue.ToString()));
 
             // obtengo horario de entrada y de salida 
 
@@ -155,5 +178,40 @@ namespace Vistas
                 ddlHorarios.Items.Add(item);
             }
         }
+
+        protected void btnBuscarTurnos_Click(object sender, EventArgs e)
+        {
+            string especialidad = ddlEspecialidad.SelectedItem.ToString();
+            DateTime fecha = DateTime.Parse(txtDia.Text);
+            string dia = fecha.ToString("dddd", new CultureInfo("es-AR"));
+
+            //obtener y convertir el horario
+            string horarioSeleccionado = ddlHorarios.SelectedItem.Text;
+            string[] partesHorario = horarioSeleccionado.Split('-');
+            string horaInicioString = partesHorario[0].Trim();
+            DateTime horaInicio = DateTime.ParseExact(horaInicioString, "HH:mm", CultureInfo.InvariantCulture);
+            string hora = horaInicio.ToString("HH:mm:ss");
+
+            //llenar la entidad turno y verificar si existe uno en la DB
+            Turno turno = new Turno();
+            turno.Fecha = DateTime.Parse(txtDia.Text);
+            turno.LegajoMedico = int.Parse(ddlMedicos.SelectedValue);
+            turno.Hora = hora;
+
+            NegocioTurnos negTurno = new NegocioTurnos();
+            if (negTurno.verificarTurno(turno))
+            {
+                lblExisteTurno.Text = "EL TURNO YA ESTA OCUPADO";
+                lblNoExisteTurno.Text = "";
+                return;
+            }
+            else
+            {
+                lblNoExisteTurno.Text = "TURNO DISPONIBLE";
+                lblExisteTurno.Text = "";
+            }
+
+        }
+
     }
 }

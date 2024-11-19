@@ -7,41 +7,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <style type="text/css">
-        .auto-style2 {
-            margin-left: 160px;
-        }
         .auto-style3 {
             width: 100%;
         }
-        .auto-style4 {
-            width: 83px;
-            height: 26px;
-        }
-        .auto-style5 {
-            width: 158px;
-            height: 26px;
-        }
         .auto-style6 {
             width: 56px;
-            height: 26px;
-        }
-        .auto-style7 {
-            width: 173px;
             height: 26px;
         }
         .auto-style8 {
             width: 39px;
             height: 26px;
         }
-        .auto-style9 {
-            width: 134px;
-            height: 26px;
-        }
         .auto-style10 {
             width: 58px;
-            height: 26px;
-        }
-        .auto-style11 {
             height: 26px;
         }
         .auto-style12 {
@@ -64,61 +42,199 @@
         .auto-style19 {
             width: 127px;
         }
+        .auto-style20 {
+            height: 23px;
+        }
+        .auto-style23 {
+            width: 620px;
+        }
+        .auto-style24 {
+            height: 23px;
+            width: 620px;
+        }
+        .auto-style25 {
+            width: 603px;
+        }
+        .auto-style26 {
+            height: 23px;
+            width: 603px;
+        }
+        .auto-style27 {
+            height: 23px;
+            width: 207px;
+        }
+        .auto-style28 {
+            width: 207px;
+        }
+        .auto-style30 {
+            height: 23px;
+            width: 385px;
+        }
+        .auto-style31 {
+            width: 385px;
+        }
+        .auto-style32 {
+            width: 128px;
+            height: 26px;
+        }
+        .auto-style37 {
+            margin-left: 0px;
+        }
+        .auto-style41 {
+            width: 105px;
+            height: 26px;
+        }
+        .auto-style42 {
+            width: 108px;
+            height: 26px;
+        }
+        .auto-style43 {
+            width: 101px;
+            height: 26px;
+        }
+        .auto-style44 {
+            width: 102px;
+            height: 26px;
+        }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="auto-style2">
+
+        <table class="auto-style3">
+            <tr>
+                <td class="auto-style25" colspan="2">
                         <asp:Label ID="lblUsuario" runat="server"></asp:Label>
-                    &nbsp;<asp:Label ID="Label2" runat="server" Text="~ Administrador"></asp:Label>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="Label1" runat="server" Font-Size="X-Large" Font-Underline="True" Text="Asignacion De Turnos"></asp:Label>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="Label2" runat="server" Text="~ Administrador"></asp:Label>
+                    </td>
+                <td class="auto-style23">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style25" colspan="2">
                         <asp:LinkButton ID="lnkbtnCerrarSesion" runat="server" OnClick="lnkbtnCerrarSesion_Click">Cerrar Sesión</asp:LinkButton>
-            <br />
+                </td>
+                <td class="auto-style23">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style25" colspan="2">
                         <asp:HyperLink ID="hpVolver" runat="server" NavigateUrl="~/Administrador/menuAdministrador.aspx">Volver</asp:HyperLink>
-                        <br />
-            <br />
-        <div>
+                        </td>
+                <td class="auto-style23">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style25" colspan="2">&nbsp;</td>
+                <td class="auto-style23">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style20" colspan="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="Label1" runat="server" Font-Size="X-Large" Font-Underline="True" Text="Asignacion De Turnos"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style26" colspan="2"></td>
+                <td class="auto-style24"></td>
+            </tr>
+            <tr>
+                <td class="auto-style30">
             <table class="auto-style3">
                 <tr>
-                    <td class="auto-style4">Especialidad:</td>
-                    <td class="auto-style5">
-                        <asp:DropDownList ID="ddlEspecialidad" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlEspecialidad_SelectedIndexChanged">
+                    <td class="auto-style44">Especialidad:</td>
+                    <td class="auto-style32">
+                        <asp:DropDownList ID="ddlEspecialidad" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlEspecialidad_SelectedIndexChanged" Height="20px" Width="185px">
                             <asp:ListItem>--Seleccionar--</asp:ListItem>
-                        </asp:DropDownList>
-                    </td>
-                    <td class="auto-style6">
-                        Médico:</td>
-                    <td class="auto-style7">
-                        <asp:DropDownList ID="ddlMedicos" runat="server" Height="17px" Width="150px" AutoPostBack="True" OnSelectedIndexChanged="ddlMedicos_SelectedIndexChanged">
-                            <asp:ListItem>-- Seleccione Medico --</asp:ListItem>
-                        </asp:DropDownList>
-                    </td>
-                    <td class="auto-style8">
-                        Dia:</td>
-                    <td class="auto-style9">
-                        <asp:DropDownList ID="ddlDias" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlDias_SelectedIndexChanged">
-                            <asp:ListItem>-- Seleccione Dia --</asp:ListItem>
-                            <asp:ListItem></asp:ListItem>
-                        </asp:DropDownList>
-                    </td>
-                    <td class="auto-style10">
-                        Horario:</td>
-                    <td class="auto-style11">
-                        <asp:DropDownList ID="ddlHorarios" runat="server">
                         </asp:DropDownList>
                     </td>
                 </tr>
             </table>
-        </div>
-        </div>
-        <p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Turnos Disponibles&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        </p>
-        <p class="auto-style12">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:GridView ID="gvTurnos" runat="server" AutoGenerateColumns="False" Width="916px" AutoGenerateEditButton="True" AutoGenerateSelectButton="True">
+                </td>
+                <td class="auto-style27">
+                    <asp:RequiredFieldValidator ID="rfvEspecialidad" runat="server" ControlToValidate="ddlEspecialidad" ErrorMessage="*" ForeColor="#CC3300" InitialValue="0"></asp:RequiredFieldValidator>
+                    </td>
+                <td class="auto-style24">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style31">
+            <table class="auto-style3">
+                <tr>
+                    <td class="auto-style41">
+                        Dia:</td>
+                    <td class="auto-style8">
+                        <asp:TextBox ID="txtDia" runat="server" TextMode="Date" Width="184px" CssClass="auto-style37" Height="16px" OnTextChanged="txtDia_TextChanged"></asp:TextBox>
+                    </td>
+                </tr>
+            </table>
+                </td>
+                <td class="auto-style28">
+                    <asp:RequiredFieldValidator ID="rfvDia" runat="server" ControlToValidate="txtDia" ErrorMessage="*" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                    </td>
+                <td class="auto-style23">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style31">
+            <table class="auto-style3">
+                <tr>
+                    <td class="auto-style42">
+                        Médico:</td>
+                    <td class="auto-style6">
+                        <asp:DropDownList ID="ddlMedicos" runat="server" Height="17px" Width="199px" AutoPostBack="True" OnSelectedIndexChanged="ddlMedicos_SelectedIndexChanged">
+                            <asp:ListItem>-- Seleccione Medico --</asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                </tr>
+            </table>
+                </td>
+                <td class="auto-style28">
+                    <asp:RequiredFieldValidator ID="rfvMedico" runat="server" ControlToValidate="ddlMedicos" ErrorMessage="*" ForeColor="#CC3300" InitialValue="0"></asp:RequiredFieldValidator>
+                    </td>
+                <td class="auto-style23">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style31">
+            <table class="auto-style3">
+                <tr>
+                    <td class="auto-style43">
+                        Horario:</td>
+                    <td class="auto-style10">
+                        <asp:DropDownList ID="ddlHorarios" runat="server" Height="17px" Width="187px">
+                        </asp:DropDownList>
+                    </td>
+                </tr>
+            </table>
+                </td>
+                <td class="auto-style28">
+                    <asp:RequiredFieldValidator ID="rfvHorario" runat="server" ControlToValidate="ddlHorarios" ErrorMessage="*" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                    </td>
+                <td class="auto-style23">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style25" colspan="2">&nbsp;</td>
+                <td class="auto-style23">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style26" colspan="2">
+                    <asp:Button ID="btnBuscarTurnos" runat="server" Text="Buscar Turnos" OnClick="btnBuscarTurnos_Click" />
+                </td>
+                <td class="auto-style24"></td>
+            </tr>
+            <tr>
+                <td class="auto-style26" colspan="2">
+                    <asp:Label ID="lblNoExisteTurno" runat="server" ForeColor="#009900"></asp:Label>
+                    <asp:Label ID="lblExisteTurno" runat="server" ForeColor="#CC3300"></asp:Label>
+                </td>
+                <td class="auto-style23" rowspan="2">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style25" colspan="2">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style26" colspan="2">Turnos Disponibles&nbsp; </td>
+                <td class="auto-style24"></td>
+            </tr>
+            <tr>
+                <td colspan="3">
+            <asp:GridView ID="gvTurnos" runat="server" AutoGenerateColumns="False" Width="916px" AutoGenerateSelectButton="True" AllowPaging="True" PageSize="5">
                 <Columns>
                     <asp:BoundField HeaderText="Fecha" />
                     <asp:BoundField HeaderText="Horario" />
@@ -126,7 +242,14 @@
                     <asp:BoundField HeaderText="Médico" />
                 </Columns>
             </asp:GridView>
-        </p>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style25" colspan="2">&nbsp;</td>
+                <td class="auto-style23">&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="3">
         <table class="auto-style13">
             <tr>
                 <td class="auto-style19">Especialidad:</td>
@@ -159,14 +282,43 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style19">
-                    <asp:Button ID="btnAgregar" runat="server" Text="Agregar" />
+                <td colspan="4">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </td>
-                <td class="auto-style18">&nbsp;</td>
-                <td class="auto-style16">&nbsp;</td>
-                <td class="auto-style17">&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="btnAgregar" runat="server" Text="Agendar Turno" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    &nbsp;</td>
             </tr>
         </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style25" colspan="2">&nbsp;</td>
+                <td class="auto-style23">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style25" colspan="2">&nbsp;</td>
+                <td class="auto-style23">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style25" colspan="2">&nbsp;</td>
+                <td class="auto-style23">&nbsp;</td>
+            </tr>
+        </table>
+
+        <p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </p>
+        <p class="auto-style12">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p>
     </form>
 </body>
 </html>
