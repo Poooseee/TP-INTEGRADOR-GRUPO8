@@ -13,14 +13,14 @@ namespace Vistas
 {
     public partial class asignacionTurnos : System.Web.UI.Page
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 cargarEspecialidades();
                 deshabilitarFiltros();
-
+                ddlHorarios.Items.Insert(0, new ListItem("-- Seleccione un Horario --"));
+                btnAgregar.Enabled = false;
             }
             if (Request.Cookies["UsuarioInfo"] != null)
             {
@@ -122,7 +122,8 @@ namespace Vistas
             {
                 return;
             }
-                ddlMedicos.Enabled = true;
+            
+            ddlMedicos.Enabled = true;
 
             //obtengo el dia de la semana segun la fecha
             DateTime fecha = DateTime.Parse(txtDia.Text);
@@ -163,33 +164,34 @@ namespace Vistas
 
             // creo una variable para ir recorriendo de cada una hora
             TimeSpan unaHora = new TimeSpan(1, 0, 0);
-
             // va desde la hora de entrada sumando una hora hasta llegar a la hora de salida 
 
-            for (TimeSpan i = horaEntrada; i <= horaSalida; i += unaHora)
+            for (TimeSpan i = horaEntrada; i < horaSalida; i += unaHora)
             {
                 ListItem item = new ListItem();
-
                 // el i representa cada hora que le sumo una hora para mostrar la hora de finalizacion del turno
                 // conformando turnos de una hora desde que entra hasta que sale
 
-                TimeSpan horaFinalizacion = i + unaHora;
-                item.Text = i.ToString() + " - " + horaFinalizacion.ToString();
-                ddlHorarios.Items.Add(item);
+                 TimeSpan horaFinalizacion = i + unaHora;
+                 item.Text = i.ToString() + " - " + horaFinalizacion.ToString();
+                 ddlHorarios.Items.Add(item);
+
             }
         }
 
         protected void btnBuscarTurnos_Click(object sender, EventArgs e)
         {
             string especialidad = ddlEspecialidad.SelectedItem.ToString();
+            string medico = ddlMedicos.SelectedItem.ToString();
             DateTime fecha = DateTime.Parse(txtDia.Text);
+            string fechaTurno = fecha.ToString();
             string dia = fecha.ToString("dddd", new CultureInfo("es-AR"));
 
             //obtener y convertir el horario
             string horarioSeleccionado = ddlHorarios.SelectedItem.Text;
             string[] partesHorario = horarioSeleccionado.Split('-');
             string horaInicioString = partesHorario[0].Trim();
-            DateTime horaInicio = DateTime.ParseExact(horaInicioString, "HH:mm", CultureInfo.InvariantCulture);
+            DateTime horaInicio = DateTime.ParseExact(horaInicioString, "HH:mm:ss", CultureInfo.InvariantCulture);
             string hora = horaInicio.ToString("HH:mm:ss");
 
             //llenar la entidad turno y verificar si existe uno en la DB
@@ -203,15 +205,111 @@ namespace Vistas
             {
                 lblExisteTurno.Text = "EL TURNO YA ESTA OCUPADO";
                 lblNoExisteTurno.Text = "";
+                btnAgregar.Enabled = false;
+                vaciarCampoAsignacionTurno();
                 return;
             }
             else
             {
                 lblNoExisteTurno.Text = "TURNO DISPONIBLE";
                 lblExisteTurno.Text = "";
+                completarCampoAsignacionTurno(especialidad,medico, fechaTurno, hora);
+                btnAgregar.Enabled = true;
+            }          
+        }
+        protected void vaciarCampoAsignacionTurno()
+        {
+            lblEspecialidad.Text = "";
+            lblMedico.Text = "";
+            lblDia.Text = "";
+            lblHorario.Text = "";
+            txtDniPaciente.Text = "";
+            txtNombrePaciente.Text = "";
+
+        }
+        protected void completarCampoAsignacionTurno(string especialidad, string medico, string fecha,string horario)
+        {
+            lblEspecialidad.Text = especialidad;
+            lblMedico.Text = medico;
+            lblDia.Text = fecha;
+            lblHorario.Text = horario;
+            txtDniPaciente.Text = "";
+            txtNombrePaciente.Text = "";
+        }
+
+        protected void ddlHorarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string especialidad = ddlEspecialidad.SelectedItem.ToString();
+            string medico = ddlMedicos.SelectedItem.ToString();
+            DateTime fecha = DateTime.Parse(txtDia.Text);
+            string fechaTurno = fecha.ToString();
+            string dia = fecha.ToString("dddd", new CultureInfo("es-AR"));
+
+            //obtener y convertir el horario
+            string horarioSeleccionado = ddlHorarios.SelectedItem.Text;
+            string[] partesHorario = horarioSeleccionado.Split('-');
+            string horaInicioString = partesHorario[0].Trim();
+            DateTime horaInicio = DateTime.ParseExact(horaInicioString, "HH:mm:ss", CultureInfo.InvariantCulture);
+            string hora = horaInicio.ToString("HH:mm:ss");
+
+            //llenar la entidad turno y verificar si existe uno en la DB
+            Turno turno = new Turno();
+            turno.Fecha = DateTime.Parse(txtDia.Text);
+            turno.LegajoMedico = int.Parse(ddlMedicos.SelectedValue);
+            turno.Hora = hora;
+
+            NegocioTurnos negTurno = new NegocioTurnos();
+            if (negTurno.verificarTurno(turno))
+            {
+                lblExisteTurno.Text = "EL TURNO YA ESTA OCUPADO";
+                lblNoExisteTurno.Text = "";
+                btnAgregar.Enabled = false;
+                vaciarCampoAsignacionTurno();
+                return;
             }
+            else
+            {
+                lblNoExisteTurno.Text = "TURNO DISPONIBLE";
+                lblExisteTurno.Text = "";
+                completarCampoAsignacionTurno(especialidad, medico, fechaTurno, hora);
+                btnAgregar.Enabled = true;
+            }
+        }
+
+        protected void btnAgregar_Click(object sender, EventArgs e)
+        {
+            //llenar la entidad de turno
+            NegocioTurnos negocioTurnos = new NegocioTurnos();
+            Turno turno = new Turno();
+            turno.Especialidad = ddlEspecialidad.SelectedItem.ToString();
+            turno.LegajoMedico = int.Parse(ddlMedicos.SelectedValue.ToString());
+            turno.DniPaciente1 = txtDniPaciente.Text.Trim();
+            turno.Fecha = DateTime.Parse(txtDia.Text);
+            string horarioSeleccionado = ddlHorarios.SelectedItem.Text;
+            string[] partesHorario = horarioSeleccionado.Split('-');
+            string horaInicioString = partesHorario[0].Trim();
+            DateTime horaInicio = DateTime.ParseExact(horaInicioString, "HH:mm:ss", CultureInfo.InvariantCulture);
+            string hora = horaInicio.ToString("HH:mm:ss");
+            turno.Hora = hora;
+
+            if (negocioTurnos.agregarTurno(turno))
+            {
+                lblError.Text = "";
+                lblAgendado.Text = "TURNO AGENDADO CON EXITO";
+                //vaciar todos los campos de todo
+            }
+            else
+            {
+                lblAgendado.Text = "";
+                lblError.Text = "ERROR AL AGENDAR EL TURNO";
+            }
+
 
         }
 
+        protected void ddlHorarios_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

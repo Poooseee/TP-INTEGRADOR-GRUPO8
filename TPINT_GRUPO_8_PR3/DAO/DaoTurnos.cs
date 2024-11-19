@@ -30,5 +30,13 @@ namespace DAO
             string consulta = "Select count(*) from TURNOS where legajoMedico_T = "+ turno.LegajoMedico + "and horario_T = '"+turno.Hora+"' and fecha_T = '"+turno.Fecha+"'";
             return ad.EjecutarConsulta(consulta);       
         }
+
+        public int agregarTurno(Turno turno)
+        {
+            string consulta = "insert into TURNOS(especialidad_T, legajoMedico_T, DniPaciente_T, fecha_T, horario_T, estadoPaciente_T, estadoTurno_T, observacion_T) VALUES " +
+                "('"+turno.Especialidad+"', "+turno.LegajoMedico+",'"+turno.DniPaciente1+"', '"+turno.Fecha+"', '"+turno.Hora+ "', 'Ausente', 'POR_ATENDER','-')";
+
+            return ad.EjecutarConsulta(consulta);
+        }
     }
 }

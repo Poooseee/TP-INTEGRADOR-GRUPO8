@@ -124,8 +124,9 @@
                                 <asp:TemplateField HeaderText="Estado del Turno">
                                     <EditItemTemplate>
                                         <asp:DropDownList ID="ddlEstado" runat="server">
-                                            <asp:ListItem Text="Cumplido" Value="CUMPLIDO"></asp:ListItem>
-                                            <asp:ListItem Text="Dado de baja" Value="DADO DE BAJA"></asp:ListItem>
+                                            <asp:ListItem Text="Atendido" Value="CUMPLIDO"></asp:ListItem>
+                                            <asp:ListItem Text="Suspendido" Value="DADO DE BAJA"></asp:ListItem>
+                                            <asp:ListItem Value="POR_ATENDER">Por Atender</asp:ListItem>
                                         </asp:DropDownList>
                                     </EditItemTemplate>
                                     <ItemTemplate>

@@ -27,5 +27,13 @@ namespace Negocio
             }
             return existe;
         }
+        public bool agregarTurno(Turno turno)
+        {
+            if (DaoTurnos.agregarTurno(turno) > 0)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

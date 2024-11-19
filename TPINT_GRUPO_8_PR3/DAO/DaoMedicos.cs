@@ -91,10 +91,10 @@ namespace DAO
             string consulta = "" +
                 "Select nombre_M,apellido_M,Legajo_M " +
                 "from MEDICOS as m " +
-                "inner join JORNADALABORARXMEDICO as j" +
-                "   on m.Legajo_M = j.legajoMedico_JXM" +
-                "where baja_M = 0 " +
-                "and especialidad_M = '"+especialidad + "' and diaAtencion = '"+dia+"'";
+                "inner join JORNADALABORALXMEDICO as j" +
+                " on m.Legajo_M = j.legajoMedico_JXM" +
+                " where baja_M = 0 " +
+                " and especialidad_M = '"+especialidad + "' and diaAtencion = '"+dia+"'";
             
             return ad.ObtenerTabla("MedicosDeEspecialidad", consulta);
         }
