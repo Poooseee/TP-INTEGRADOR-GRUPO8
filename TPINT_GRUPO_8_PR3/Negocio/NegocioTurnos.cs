@@ -21,7 +21,7 @@ namespace Negocio
         public bool verificarTurno(Turno turno)
         {
             bool existe = false;
-            if (DaoTurnos.buscarTurno(turno) > 0)
+            if (DaoTurnos.buscarTurno(turno))
             {
                 existe = true;
             }

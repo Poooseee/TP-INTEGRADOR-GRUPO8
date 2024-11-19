@@ -198,7 +198,7 @@
                     <td class="auto-style75">&nbsp;</td>
                     <td class="auto-style71" colspan="2">Horario:</td>
                     <td class="auto-style57">
-                        <asp:DropDownList ID="ddlHorarios" runat="server" Height="17px" Width="187px" AutoPostBack="True" OnSelectedIndexChanged="ddlHorarios_SelectedIndexChanged" OnTextChanged="ddlHorarios_TextChanged">
+                        <asp:DropDownList ID="ddlHorarios" runat="server" Height="17px" Width="187px" AutoPostBack="True" OnSelectedIndexChanged="ddlHorarios_SelectedIndexChanged">
                         </asp:DropDownList>
                     </td>
                     <td class="auto-style58">

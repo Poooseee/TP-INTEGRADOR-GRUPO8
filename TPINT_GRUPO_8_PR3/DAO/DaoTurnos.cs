@@ -25,10 +25,10 @@ namespace DAO
             return ad.EjecutarConsulta(consulta);
         }
 
-        public int buscarTurno(Turno turno)
+        public bool buscarTurno(Turno turno)
         {
-            string consulta = "Select count(*) from TURNOS where legajoMedico_T = "+ turno.LegajoMedico + "and horario_T = '"+turno.Hora+"' and fecha_T = '"+turno.Fecha+"'";
-            return ad.EjecutarConsulta(consulta);       
+            string consulta = "Select * from TURNOS where legajoMedico_T = "+ turno.LegajoMedico + " and horario_T = '"+turno.Hora+"' and fecha_T = '"+turno.Fecha+"'";
+            return ad.existe(consulta);       
         }
 
         public int agregarTurno(Turno turno)
