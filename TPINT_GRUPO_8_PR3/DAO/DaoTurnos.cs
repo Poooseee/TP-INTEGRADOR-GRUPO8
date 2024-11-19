@@ -38,5 +38,47 @@ namespace DAO
 
             return ad.EjecutarConsulta(consulta);
         }
+
+        public DataTable obtenerPacienteConMasTurnos()
+        {
+            string consulta = @"
+                SELECT TOP 1
+                    DniPaciente_T,
+                    COUNT(DniPaciente_T) AS cantidad_turnos
+                    FROM Turnos
+                    WHERE MONTH(fecha_T) = MONTH(GETDATE()) AND YEAR(fecha_T) = YEAR(GETDATE())
+                    GROUP BY DniPaciente_T
+                    ORDER BY cantidad_turnos DESC";
+
+            return ad.ObtenerTabla("Turnos", consulta);
+        }
+
+        public DataTable ObtenerEspecialidadMasSolicitada()
+        {
+            string consulta = @"
+                SELECT TOP 1
+                    especialidad_T,
+                    COUNT(especialidad_T) AS cantidad_turnos
+                    FROM Turnos
+                    WHERE MONTH(fecha_T) = MONTH(GETDATE()) AND YEAR(fecha_T) = YEAR(GETDATE())
+                    GROUP BY especialidad_T
+                    ORDER BY cantidad_turnos DESC";
+
+            return ad.ObtenerTabla("Turnos", consulta);
+        }
+
+        public DataTable ObtenerMedicoMasSolicitado()
+        {
+            string consulta = @"
+                SELECT TOP 1
+                    legajoMedico_T,
+                    COUNT(legajoMedico_T) AS cantidad_turnos
+                    FROM Turnos
+                    WHERE MONTH(fecha_T) = MONTH(GETDATE()) AND YEAR(fecha_T) = YEAR(GETDATE())
+                    GROUP BY legajoMedico_T
+                    ORDER BY cantidad_turnos DESC";
+
+            return ad.ObtenerTabla("Turnos", consulta);
+        }
     }
 }

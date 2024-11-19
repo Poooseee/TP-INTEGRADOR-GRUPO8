@@ -105,5 +105,10 @@ namespace Negocio
             }
             return null;
         }
+
+        public DataTable ObtenerMedicoPorLegajo(int legajo)
+        {
+            return DaoMedicos.buscarMedicoPorLegajo(legajo);
+        }
     }
 }

@@ -78,5 +78,11 @@ namespace DAO
             return ad.ObtenerTabla("LocalidadAsingada", consulta);
         }
 
+        public DataTable ObtenerPacientePorDni(string dni)
+        {
+            string consulta = "SELECT * FROM Pacientes WHERE DNI_P = '" + dni + "'";
+            return ad.ObtenerTabla("Pacientes", consulta);
+        }
+
     }
 }

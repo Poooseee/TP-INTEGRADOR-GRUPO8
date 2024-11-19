@@ -35,5 +35,32 @@ namespace Negocio
             }
             return false;
         }
+
+        public string ObtenerPacientesConMasTurnos()
+        {
+            DataTable pacienteMasTurnos = DaoTurnos.obtenerPacienteConMasTurnos();
+            DataRow fila = pacienteMasTurnos.Rows[0];
+
+            string dniPaciente = fila["DniPaciente_T"].ToString();
+            return dniPaciente;
+        }
+
+        public string ObtenerEspecialidadMasSolicitada()
+        {
+            DataTable especialidadMasSolicitada = DaoTurnos.ObtenerEspecialidadMasSolicitada();
+            DataRow fila = especialidadMasSolicitada.Rows[0];
+
+            string especialidad = fila["especialidad_T"].ToString();
+            return especialidad;
+        }
+
+        public int ObtenerMedicoMasSolicitado()
+        {
+            DataTable medicoMasSolicitado = DaoTurnos.ObtenerMedicoMasSolicitado();
+            DataRow fila = medicoMasSolicitado.Rows[0];
+
+            int legajoMedico = Convert.ToInt32(fila["legajoMedico_T"]);
+            return legajoMedico;
+        }
     }
 }

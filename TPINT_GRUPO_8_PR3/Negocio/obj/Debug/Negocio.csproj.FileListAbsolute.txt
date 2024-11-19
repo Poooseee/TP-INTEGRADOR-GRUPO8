@@ -108,3 +108,14 @@ C:\Users\alejo\Documents\GitHub\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Negocio\o
 C:\Users\alejo\Documents\GitHub\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Negocio\obj\Debug\Negocio.csproj.Up2Date
 C:\Users\alejo\Documents\GitHub\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Negocio\obj\Debug\Negocio.dll
 C:\Users\alejo\Documents\GitHub\TP-INTEGRADOR-GRUPO8\TPINT_GRUPO_8_PR3\Negocio\obj\Debug\Negocio.pdb
+C:\Users\Administrator\Downloads\TP_INT_GRUP_8\TPINT_GRUPO_8_PR3\Negocio\bin\Debug\Negocio.dll
+C:\Users\Administrator\Downloads\TP_INT_GRUP_8\TPINT_GRUPO_8_PR3\Negocio\bin\Debug\Negocio.pdb
+C:\Users\Administrator\Downloads\TP_INT_GRUP_8\TPINT_GRUPO_8_PR3\Negocio\bin\Debug\DAO.dll
+C:\Users\Administrator\Downloads\TP_INT_GRUP_8\TPINT_GRUPO_8_PR3\Negocio\bin\Debug\Entidades.dll
+C:\Users\Administrator\Downloads\TP_INT_GRUP_8\TPINT_GRUPO_8_PR3\Negocio\bin\Debug\DAO.pdb
+C:\Users\Administrator\Downloads\TP_INT_GRUP_8\TPINT_GRUPO_8_PR3\Negocio\bin\Debug\Entidades.pdb
+C:\Users\Administrator\Downloads\TP_INT_GRUP_8\TPINT_GRUPO_8_PR3\Negocio\obj\Debug\Negocio.csproj.AssemblyReference.cache
+C:\Users\Administrator\Downloads\TP_INT_GRUP_8\TPINT_GRUPO_8_PR3\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Downloads\TP_INT_GRUP_8\TPINT_GRUPO_8_PR3\Negocio\obj\Debug\Negocio.csproj.Up2Date
+C:\Users\Administrator\Downloads\TP_INT_GRUP_8\TPINT_GRUPO_8_PR3\Negocio\obj\Debug\Negocio.dll
+C:\Users\Administrator\Downloads\TP_INT_GRUP_8\TPINT_GRUPO_8_PR3\Negocio\obj\Debug\Negocio.pdb

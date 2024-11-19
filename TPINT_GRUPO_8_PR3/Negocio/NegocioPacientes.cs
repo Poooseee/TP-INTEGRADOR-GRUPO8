@@ -99,5 +99,11 @@ namespace Negocio
             return null;
         }
 
+        public DataTable ObtenerPacientePorDni(string dni)
+        {
+            DataTable paciente = DaoPacientes.ObtenerPacientePorDni(dni);
+            return paciente;
+        }
+
     }
 }
