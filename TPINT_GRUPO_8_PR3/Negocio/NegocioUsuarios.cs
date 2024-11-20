@@ -47,13 +47,6 @@ namespace Negocio
             {
                 //SE ENCONTRO
                 return respuesta.Rows[0];
-                DataRow fila = respuesta.Rows[0];
-
-                string usuario = fila["Usuario"].ToString();
-                int legajo = Convert.ToInt32(fila["Legajo"]);
-                string tipoUsuario = fila["tipoUsuario"].ToString();
-
-                return fila;
             }
             else
             {

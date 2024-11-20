@@ -16,7 +16,8 @@ namespace Vistas
             if(Request.Cookies["UsuarioInfo"] != null)
             {
                 HttpCookie cookie = Request.Cookies["UsuarioInfo"];
-                //EL USUARIO ESTA LOGUEADO EN EL SISTEMA
+
+                //EL USUARIO ESTA LOGUEADO EN EL SISTEMA CON LA COOKIE
                 if(cookie["TipoUsuario"].ToString() == "Medico")
                 {
                     //EL USUARIO TIENE ACCESO
@@ -24,10 +25,10 @@ namespace Vistas
                     lblUsuario.Text = usuario;
                     cargarGrdTurnos();
                 }
-                else
+                else 
                 {
-                    //EL USUARIO NO TIENE ACCESO
-                    Response.Redirect("../Medico/TurnosYPacientes.aspx");
+                    //EL USUARIO NO ES MEDICO, SE REDIRIGE A ADMINISTRADOR
+                    Response.Redirect("../Administrador/menuAdministrador.aspx");
                 }
             }
             else if (Session["TipoUsuario"] != null)
@@ -42,8 +43,8 @@ namespace Vistas
                 }
                 else
                 {
-                    //EL USUARIO NO TIENE ACCESO
-                    Response.Redirect("../Medico/TurnosYPacientes.aspx");
+                    //EL USUARIO NO ES MEDICO, SE REDIRIGE A ADMINISTRADOR
+                    Response.Redirect("../Administrador/menuAdministrador.aspx");
                 }
             }
             else
@@ -89,14 +90,17 @@ namespace Vistas
 
         protected void lnkbtnCerrarSesion_Click(object sender, EventArgs e)
         {
-            //ELIMINAMOS LA COOKIE
+            eliminarCookie();
+
+            Response.Redirect("../login.aspx");
+        }
+        private void eliminarCookie()
+        {
             HttpCookie cookie = new HttpCookie("UsuarioInfo");
             cookie.Path = "/";
 
             cookie.Expires = DateTime.Now.AddDays(-1);
             Response.Cookies.Add(cookie);
-
-            Response.Redirect("../login.aspx");
         }
     }
 }

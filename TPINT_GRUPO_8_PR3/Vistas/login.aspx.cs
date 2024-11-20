@@ -1,4 +1,5 @@
-﻿using Negocio;
+﻿using Entidades;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -18,7 +19,7 @@ namespace Vistas
            
             if (Request.Cookies["UsuarioInfo"] != null)
             {
-                //EL USUARIO ESTA LOGUEADO EN EL SISTEMA
+                //EL USUARIO ESTA LOGUEADO EN EL SISTEMA CON LA COOKIE
                 HttpCookie cookie = Request.Cookies["UsuarioInfo"];
                 string tipoUsuario = cookie["TipoUsuario"];
                 
@@ -35,6 +36,7 @@ namespace Vistas
             }
         }
 
+        //CONTROLAR NOMBRE DE USUARIO
         protected void cvInicioSesion_ServerValidate(object source, ServerValidateEventArgs args)
         {
             if (negUs.nombreUsuarioValido(txtUsuario.Text))
@@ -44,6 +46,7 @@ namespace Vistas
             else { args.IsValid = false; }
         }
 
+        //CONTROLAR CONTRASEÑA
         protected void cvContrasena_ServerValidate(object source, ServerValidateEventArgs args)
         {
             if (negUs.contraseniaValida(txtContraseña.Text))
@@ -53,41 +56,50 @@ namespace Vistas
             else { args.IsValid = false; }
         }
 
+        //BOTON DE INGRESAR
+        private void crearCookie(string usuario, int legajo, string TipoUsuario)
+        {
+            //CREAMOS LA COOKIE
+            HttpCookie cookie = new HttpCookie("UsuarioInfo");
+            cookie["Legajo"] = legajo.ToString();
+            cookie["TipoUsuario"] = TipoUsuario;
+            cookie["Usuario"] = usuario;
+            cookie.Path = "/";
+
+            //EXPIRA EN 7 DIAS
+            cookie.Expires = DateTime.Now.AddDays(7);
+
+            //AGREGAMOS LA COOKIE
+            Response.Cookies.Add(cookie);
+        }
+        private void crearSession(string usuario, int legajo, string TipoUsuario)
+        {
+            //CREAMOS LA SESSION
+            Session["Legajo"] = legajo;
+            Session["TipoUsuario"] = TipoUsuario;
+            Session["Usuario"] = usuario;
+        }
         protected void btnIngresar_Click(object sender, EventArgs e)
         {
-            DataRow fila = negUs.inicioSesion(txtUsuario.Text, txtContraseña.Text);
+            DataRow datosUsuario = negUs.inicioSesion(txtUsuario.Text, txtContraseña.Text);
             
-            if(fila != null)
+            if(datosUsuario != null)
             {
                 //AGARRAMOS LOS DATOS
-                string usuario = fila["Usuario"].ToString();
-                int legajo = Convert.ToInt32(fila["Legajo"]);
-                string TipoUsuario = fila["TipoUsuario"].ToString();
+                string usuario = datosUsuario["Usuario"].ToString();
+                int legajo = Convert.ToInt32(datosUsuario["Legajo"]);
+                string TipoUsuario = datosUsuario["TipoUsuario"].ToString();
 
                 if(cbRecordarme.Checked)
                 {
-                    //CREAMOS LA COOKIE
-                    HttpCookie cookie = new HttpCookie("UsuarioInfo");
-                    cookie["Legajo"] = legajo.ToString();
-                    cookie["TipoUsuario"] = TipoUsuario;
-                    cookie["Usuario"] = usuario;
-                    cookie.Path = "/";
-
-                    //EXPIRA EN 7 DIAS
-                    cookie.Expires = DateTime.Now.AddDays(7);
-
-                    //AGREGAMOS LA COOKIE
-                    Response.Cookies.Add(cookie);
+                    crearCookie(usuario,legajo,TipoUsuario);
                 }
                 else
                 {
-                    //CREAMOS LA SESSION
-                    Session["Legajo"] = legajo;
-                    Session["TipoUsuario"] = TipoUsuario;
-                    Session["Usuario"] = usuario;
+                    crearSession(usuario, legajo, TipoUsuario);
                 }
 
-                if (fila["TipoUsuario"].ToString() == "Medico")
+                if (datosUsuario["TipoUsuario"].ToString() == "Medico")
                 {
                     Response.Redirect("Medico/TurnosYPacientes.aspx");
                 }
@@ -105,22 +117,30 @@ namespace Vistas
            
         }
 
+        //BOTON MOSTRAR/OCULTAR CONTRASEÑA
+        private void MostrarContraseña()
+        {
+            txtContraseña.TextMode = TextBoxMode.SingleLine;
+            btnMostrar.Text = "Ocultar";
+            txtContraseña.Attributes["value"] = contrasenia;
+        }
+        private void OcultarContraseña()
+        {
+            txtContraseña.TextMode = TextBoxMode.Password;
+            btnMostrar.Text = "Mostrar";
+            txtContraseña.Attributes["value"] = contrasenia;
+        }
         protected void btnMostrar_Click(object sender, EventArgs e)
         {
             contrasenia = txtContraseña.Text;
+
             if (txtContraseña.TextMode == TextBoxMode.Password)
             {
-
-                txtContraseña.TextMode = TextBoxMode.SingleLine;
-                btnMostrar.Text = "Ocultar";
-                txtContraseña.Attributes["value"] = contrasenia;
-
+                MostrarContraseña();
             }
             else
             {
-                txtContraseña.TextMode = TextBoxMode.Password;
-                btnMostrar.Text = "Mostrar";
-                txtContraseña.Attributes["value"] = contrasenia;
+                OcultarContraseña();  
             }
         }
     }

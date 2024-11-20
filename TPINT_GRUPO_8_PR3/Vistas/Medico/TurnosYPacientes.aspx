@@ -41,6 +41,10 @@
         .auto-style12 {
             width: 243px;
         }
+        .auto-style13 {
+            text-align: left;
+            height: 67px;
+        }
     </style>
 </head>
 <body>
@@ -65,7 +69,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style5">
+                    <td class="auto-style13">
                         <table class="auto-style6">
                             <tr>
                                 <td class="auto-style9">Filtrar por Paciente:</td>

@@ -72,14 +72,17 @@ namespace Vistas
 
         protected void lnkbtnCerrarSesion_Click(object sender, EventArgs e)
         {
+            eliminarCookie();
+            Response.Redirect("../login.aspx");
+        }
+        private void eliminarCookie()
+        {
             //ELIMINAMOS LA COOKIE
             HttpCookie cookie = new HttpCookie("UsuarioInfo");
             cookie.Path = "/";
 
             cookie.Expires = DateTime.Now.AddDays(-1);
             Response.Cookies.Add(cookie);
-
-            Response.Redirect("../login.aspx");
         }
     }
 }
