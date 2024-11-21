@@ -73,6 +73,7 @@ namespace Vistas
         protected void lnkbtnCerrarSesion_Click(object sender, EventArgs e)
         {
             eliminarCookie();
+           
             Response.Redirect("../login.aspx");
         }
         private void eliminarCookie()

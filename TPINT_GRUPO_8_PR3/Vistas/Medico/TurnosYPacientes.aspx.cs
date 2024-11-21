@@ -102,5 +102,17 @@ namespace Vistas
             cookie.Expires = DateTime.Now.AddDays(-1);
             Response.Cookies.Add(cookie);
         }
+
+        protected void grvTurnos_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                Label lbl = (Label)e.Row.FindControl("lblFechaTurno");
+                DateTime lblFecha = Convert.ToDateTime(((Label)e.Row.FindControl("lblFechaTurno")).Text);
+
+                lbl.Text = lblFecha.ToString("dd/MM/yyyy");
+
+            }
+        }
     }
 }
