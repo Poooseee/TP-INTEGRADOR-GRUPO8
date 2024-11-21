@@ -87,6 +87,15 @@ namespace Vistas.Administrador
         protected global::System.Web.UI.WebControls.TextBox txtHorarioLunes_2;
 
         /// <summary>
+        /// Control cmpvLunes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cmpvLunes;
+
+        /// <summary>
         /// Control txtDNI.
         /// </summary>
         /// <remarks>
@@ -121,6 +130,15 @@ namespace Vistas.Administrador
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtHorarioMartes_2;
+
+        /// <summary>
+        /// Control cmpvMartes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cmpvMartes;
 
         /// <summary>
         /// Control txtNombre.
@@ -159,6 +177,15 @@ namespace Vistas.Administrador
         protected global::System.Web.UI.WebControls.TextBox txtHorarioMiercoles_2;
 
         /// <summary>
+        /// Control cmpvMiercoles.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cmpvMiercoles;
+
+        /// <summary>
         /// Control txtApellido.
         /// </summary>
         /// <remarks>
@@ -193,6 +220,15 @@ namespace Vistas.Administrador
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtHorarioJueves_2;
+
+        /// <summary>
+        /// Control cmpvJueves.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cmpvJueves;
 
         /// <summary>
         /// Control ddlSexo.
@@ -231,6 +267,15 @@ namespace Vistas.Administrador
         protected global::System.Web.UI.WebControls.TextBox txtHorarioViernes_2;
 
         /// <summary>
+        /// Control cmpvViernes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cmpvViernes;
+
+        /// <summary>
         /// Control txtNacionalidad.
         /// </summary>
         /// <remarks>
@@ -267,6 +312,15 @@ namespace Vistas.Administrador
         protected global::System.Web.UI.WebControls.TextBox txtHorarioSabado_2;
 
         /// <summary>
+        /// Control cmpvSabado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cmpvSabado;
+
+        /// <summary>
         /// Control txtFechaNac.
         /// </summary>
         /// <remarks>
@@ -301,6 +355,15 @@ namespace Vistas.Administrador
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtHorarioDomingo_2;
+
+        /// <summary>
+        /// Control cmpvDomingo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cmpvDomingo;
 
         /// <summary>
         /// Control txtDireccion.

@@ -207,28 +207,20 @@ namespace Vistas.Administrador
             Medico medico = llenarEntidadMedico();
             Usuarios usuario = llenarEntidadUsuario();
 
-            if (verificarHorarios())
+            if (negMedicos.agregarMedico(medico, usuario))
             {
-                if (negMedicos.agregarMedico(medico, usuario))
-                {
-                    int legajo = getLegajoMedico();
-                    agregarHorarios(legajo);
-                    vaciarCampos();
-                    lblAgregado.Text = "El medico se ha agregado correctamente.";
-                    cargarGrdMedicos();
-                    //cargarGrdHorarios();
-                    vaciarCampos();
-                }
-                else
-                {
-                    lblAgregado.Text = "No se ha podido agregar el medico.";
-                }
+                 int legajo = getLegajoMedico();
+                 agregarHorarios(legajo);
+                 vaciarCampos();
+                 lblAgregado.Text = "El medico se ha agregado correctamente.";
+                 cargarGrdMedicos();
+                 vaciarCampos();
             }
             else
             {
-                lblAgregado.Text = "No se ha podido agregar el medico. Los horarios ingresados no son validos.";
+                lblAgregado.Text = "No se ha podido agregar el medico.";
             }
-
+  
         }
 
         protected void grdMedicos_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -309,122 +301,6 @@ namespace Vistas.Administrador
         {
             grdHorarios.EditIndex = -1;
             actualizarTablaModificarHorarios();
-        }
-
-        protected bool verificarHorarios()
-        {
-            //LUNES
-            if(!string.IsNullOrEmpty(txtHorarioLunes_1.Text) && !string.IsNullOrEmpty(txtHorarioLunes_2.Text))
-            {
-                string horaIngreso = txtHorarioLunes_1.Text;
-                string horaEgreso = txtHorarioLunes_2.Text;
-
-                //DIVIDIMOS EN HORAS Y MINUTOS
-                string[] partesIngreso = horaIngreso.Split(':');
-                string[] partesEgreso = horaEgreso.Split(':');
-
-                if(Convert.ToInt32(partesIngreso[0]) < Convert.ToInt32(partesEgreso[0]) || (Convert.ToInt32(partesIngreso[0]) == Convert.ToInt32(partesEgreso[0]) && Convert.ToInt32(partesIngreso[1]) < Convert.ToInt32(partesEgreso[1]))){
-                    return true;
-                }
-            }
-
-            //MARTES
-            if (!string.IsNullOrEmpty(txtHorarioMartes_1.Text) && !string.IsNullOrEmpty(txtHorarioMartes_2.Text))
-            {
-                string horaIngreso = txtHorarioMartes_1.Text;
-                string horaEgreso = txtHorarioMartes_2.Text;
-
-                //DIVIDIMOS EN HORAS Y MINUTOS
-                string[] partesIngreso = horaIngreso.Split(':');
-                string[] partesEgreso = horaEgreso.Split(':');
-
-                if (Convert.ToInt32(partesIngreso[0]) < Convert.ToInt32(partesEgreso[0]) || (Convert.ToInt32(partesIngreso[0]) == Convert.ToInt32(partesEgreso[0]) && Convert.ToInt32(partesIngreso[1]) < Convert.ToInt32(partesEgreso[1])))
-                {
-                    return true;
-                }
-            }
-
-            //MIERCOLES
-            if (!string.IsNullOrEmpty(txtHorarioMiercoles_1.Text) && !string.IsNullOrEmpty(txtHorarioMiercoles_2.Text))
-            {
-                string horaIngreso = txtHorarioMiercoles_1.Text;
-                string horaEgreso = txtHorarioMiercoles_2.Text;
-
-                //DIVIDIMOS EN HORAS Y MINUTOS
-                string[] partesIngreso = horaIngreso.Split(':');
-                string[] partesEgreso = horaEgreso.Split(':');
-
-                if (Convert.ToInt32(partesIngreso[0]) < Convert.ToInt32(partesEgreso[0]) || (Convert.ToInt32(partesIngreso[0]) == Convert.ToInt32(partesEgreso[0]) && Convert.ToInt32(partesIngreso[1]) < Convert.ToInt32(partesEgreso[1])))
-                {
-                    return true;
-                }
-            }
-
-            //JUEVES
-            if (!string.IsNullOrEmpty(txtHorarioJueves_1.Text) && !string.IsNullOrEmpty(txtHorarioJueves_2.Text))
-            {
-                string horaIngreso = txtHorarioJueves_1.Text;
-                string horaEgreso = txtHorarioJueves_2.Text;
-
-                //DIVIDIMOS EN HORAS Y MINUTOS
-                string[] partesIngreso = horaIngreso.Split(':');
-                string[] partesEgreso = horaEgreso.Split(':');
-
-                if (Convert.ToInt32(partesIngreso[0]) < Convert.ToInt32(partesEgreso[0]) || (Convert.ToInt32(partesIngreso[0]) == Convert.ToInt32(partesEgreso[0]) && Convert.ToInt32(partesIngreso[1]) < Convert.ToInt32(partesEgreso[1])))
-                {
-                    return true;
-                }
-            }
-
-            //VIERNES
-            if (!string.IsNullOrEmpty(txtHorarioViernes_1.Text) && !string.IsNullOrEmpty(txtHorarioViernes_2.Text))
-            {
-                string horaIngreso = txtHorarioViernes_1.Text;
-                string horaEgreso = txtHorarioViernes_2.Text;
-
-                //DIVIDIMOS EN HORAS Y MINUTOS
-                string[] partesIngreso = horaIngreso.Split(':');
-                string[] partesEgreso = horaEgreso.Split(':');
-
-                if (Convert.ToInt32(partesIngreso[0]) < Convert.ToInt32(partesEgreso[0]) || (Convert.ToInt32(partesIngreso[0]) == Convert.ToInt32(partesEgreso[0]) && Convert.ToInt32(partesIngreso[1]) < Convert.ToInt32(partesEgreso[1])))
-                {
-                    return true;
-                }
-            }
-
-            //SABADO
-            if (!string.IsNullOrEmpty(txtHorarioSabado_1.Text) && !string.IsNullOrEmpty(txtHorarioSabado_2.Text))
-            {
-                string horaIngreso = txtHorarioSabado_1.Text;
-                string horaEgreso = txtHorarioSabado_2.Text;
-
-                //DIVIDIMOS EN HORAS Y MINUTOS
-                string[] partesIngreso = horaIngreso.Split(':');
-                string[] partesEgreso = horaEgreso.Split(':');
-
-                if (Convert.ToInt32(partesIngreso[0]) < Convert.ToInt32(partesEgreso[0]) || (Convert.ToInt32(partesIngreso[0]) == Convert.ToInt32(partesEgreso[0]) && Convert.ToInt32(partesIngreso[1]) < Convert.ToInt32(partesEgreso[1])))
-                {
-                    return true;
-                }
-            }
-
-            //DOMINGO
-            if (!string.IsNullOrEmpty(txtHorarioDomingo_1.Text) && !string.IsNullOrEmpty(txtHorarioDomingo_2.Text))
-            {
-                string horaIngreso = txtHorarioDomingo_1.Text;
-                string horaEgreso = txtHorarioDomingo_2.Text;
-
-                //DIVIDIMOS EN HORAS Y MINUTOS
-                string[] partesIngreso = horaIngreso.Split(':');
-                string[] partesEgreso = horaEgreso.Split(':');
-
-                if (Convert.ToInt32(partesIngreso[0]) < Convert.ToInt32(partesEgreso[0]) || (Convert.ToInt32(partesIngreso[0]) == Convert.ToInt32(partesEgreso[0]) && Convert.ToInt32(partesIngreso[1]) < Convert.ToInt32(partesEgreso[1])))
-                {
-                    return true;
-                }
-            }
-
-            return false;
         }
 
         protected int getLegajoMedico()
@@ -735,6 +611,11 @@ namespace Vistas.Administrador
             lblMensajeHorario.Text = "";
             lbtnNoHorario.Visible = false;
             lbtnSiHorario.Visible = false;
+        }
+
+        protected void hfConfirmar_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

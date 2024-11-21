@@ -273,6 +273,7 @@
                     <td class="auto-style84">Hasta:</td>
                     <td class="auto-style72">
                         <asp:TextBox ID="txtHorarioLunes_2" runat="server" TextMode="Time"></asp:TextBox>
+                        <asp:CompareValidator ID="cmpvLunes" runat="server" ControlToCompare="txtHorarioLunes_2" ControlToValidate="txtHorarioLunes_1" ForeColor="Red" Operator="NotEqual" ValidationGroup="Medico">Iguales</asp:CompareValidator>
                     </td>
                 </tr>
                 <tr>
@@ -292,6 +293,7 @@
                     <td class="auto-style89">Hasta</td>
                     <td class="auto-style70">
                         <asp:TextBox ID="txtHorarioMartes_2" runat="server" TextMode="Time"></asp:TextBox>
+                        <asp:CompareValidator ID="cmpvMartes" runat="server" ControlToCompare="txtHorarioMartes_2" ControlToValidate="txtHorarioMartes_1" ForeColor="Red" Operator="NotEqual" ValidationGroup="Medico">Iguales</asp:CompareValidator>
                     </td>
                 </tr>
                 <tr>
@@ -311,6 +313,7 @@
                     <td class="auto-style89">Hasta</td>
                     <td class="auto-style70">
                         <asp:TextBox ID="txtHorarioMiercoles_2" runat="server" TextMode="Time"></asp:TextBox>
+                        <asp:CompareValidator ID="cmpvMiercoles" runat="server" ControlToCompare="txtHorarioMiercoles_2" ControlToValidate="txtHorarioMiercoles_1" ForeColor="Red" Operator="NotEqual" ValidationGroup="Medico">Iguales</asp:CompareValidator>
                     </td>
                 </tr>
                 <tr>
@@ -330,6 +333,7 @@
                     <td class="auto-style86">Hasta</td>
                     <td class="auto-style47">
                         <asp:TextBox ID="txtHorarioJueves_2" runat="server" TextMode="Time"></asp:TextBox>
+                        <asp:CompareValidator ID="cmpvJueves" runat="server" ControlToCompare="txtHorarioJueves_2" ControlToValidate="txtHorarioJueves_1" ForeColor="Red" Operator="NotEqual" ValidationGroup="Medico">Iguales</asp:CompareValidator>
                     </td>
                 </tr>
                 <tr>
@@ -353,6 +357,7 @@
                     <td class="auto-style89">Hasta</td>
                     <td class="auto-style70">
                         <asp:TextBox ID="txtHorarioViernes_2" runat="server" TextMode="Time"></asp:TextBox>
+                        <asp:CompareValidator ID="cmpvViernes" runat="server" ControlToCompare="txtHorarioViernes_2" ControlToValidate="txtHorarioViernes_1" ForeColor="Red" Operator="NotEqual" ValidationGroup="Medico">Iguales</asp:CompareValidator>
                     </td>
                 </tr>
                 <tr>
@@ -371,6 +376,7 @@
                     <td class="auto-style87">Hasta</td>
                     <td class="auto-style83">
                         <asp:TextBox ID="txtHorarioSabado_2" runat="server" TextMode="Time"></asp:TextBox>
+                        <asp:CompareValidator ID="cmpvSabado" runat="server" ControlToCompare="txtHorarioSabado_2" ControlToValidate="txtHorarioSabado_1" ForeColor="Red" Operator="NotEqual" ValidationGroup="Medico">Iguales</asp:CompareValidator>
                     </td>
                 </tr>
                 <tr>
@@ -390,6 +396,7 @@
                     <td class="auto-style88">Hasta</td>
                     <td class="auto-style37">
                         <asp:TextBox ID="txtHorarioDomingo_2" runat="server" TextMode="Time"></asp:TextBox>
+                        <asp:CompareValidator ID="cmpvDomingo" runat="server" ControlToCompare="txtHorarioDomingo_2" ControlToValidate="txtHorarioDomingo_1" ForeColor="Red" Operator="NotEqual" ValidationGroup="Medico">Iguales</asp:CompareValidator>
                     </td>
                 </tr>
                 <tr>
@@ -498,7 +505,7 @@
                         <asp:CompareValidator ID="cvPass" runat="server" ControlToCompare="txtPass" ControlToValidate="txtPass2" ErrorMessage="Las contraseñas deben ser iguales." ForeColor="Red" ValidationGroup="Medico"></asp:CompareValidator>
                     </td>
                     <td class="auto-style89">
-                        <asp:HiddenField ID="hfConfirmar" runat="server" />
+                        <asp:HiddenField ID="hfConfirmar" runat="server" OnValueChanged="hfConfirmar_ValueChanged" />
                     </td>
                     <td class="auto-style70">&nbsp;</td>
                 </tr>
