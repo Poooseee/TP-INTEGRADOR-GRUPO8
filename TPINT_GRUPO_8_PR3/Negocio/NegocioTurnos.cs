@@ -62,5 +62,21 @@ namespace Negocio
             int legajoMedico = Convert.ToInt32(fila["legajoMedico_T"]);
             return legajoMedico;
         }
+
+        public DataTable filtrarTurnos(int filtros , string paciente , string fecha)
+        {
+            if(filtros == 3)
+            {
+                return DaoTurnos.filtrarTurnos(filtros , paciente , fecha);
+            }
+            else if(filtros == 2)
+            {
+                return DaoTurnos.filtrarTurnos(filtros, paciente, null);
+            }
+            else
+            {
+                return DaoTurnos.filtrarTurnos(filtros, null, fecha);
+            }
+        }
     }
 }

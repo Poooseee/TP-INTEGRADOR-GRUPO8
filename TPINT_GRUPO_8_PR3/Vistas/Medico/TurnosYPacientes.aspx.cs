@@ -90,7 +90,14 @@ namespace Vistas
 
         protected void lnkbtnCerrarSesion_Click(object sender, EventArgs e)
         {
-            eliminarCookie();
+            if(Request.Cookies["UsuarioInfo"] != null)
+            {
+                eliminarCookie();
+            }
+            else
+            {
+                eliminarSessions();
+            }
 
             Response.Redirect("../login.aspx");
         }
@@ -103,6 +110,13 @@ namespace Vistas
             Response.Cookies.Add(cookie);
         }
 
+        private void eliminarSessions()
+        {
+            Session.Remove("TipoUsuario");
+            Session.Remove("Usuario");
+            Session.Remove("Legajo");
+        }
+
         protected void grvTurnos_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
@@ -112,6 +126,35 @@ namespace Vistas
 
                 lbl.Text = lblFecha.ToString("dd/MM/yyyy");
 
+            }
+        }
+
+        protected void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            if(txtPaciente.Text.Trim().Length > 0 && !string.IsNullOrEmpty(txtFecha.Text))
+            {
+                NegocioTurnos negTur = new NegocioTurnos();
+                grvTurnos.DataSource = negTur.filtrarTurnos(3 , txtPaciente.Text , txtFecha.Text);
+
+                grvTurnos.DataBind();
+            }
+            else if(txtPaciente.Text.Trim().Length > 0)
+            {
+                NegocioTurnos negTur = new NegocioTurnos();
+                grvTurnos.DataSource = negTur.filtrarTurnos(2 , txtPaciente.Text , null);
+
+                grvTurnos.DataBind();
+            }
+            else if (!string.IsNullOrEmpty(txtFecha.Text))
+            {
+                NegocioTurnos negTur = new NegocioTurnos();
+                grvTurnos.DataSource = negTur.filtrarTurnos(1 , null , txtFecha.Text);
+
+                grvTurnos.DataBind();
+            }
+            else
+            {
+                cargarGrdTurnos();
             }
         }
     }
