@@ -36,6 +36,16 @@ namespace Negocio
             return false;
         }
 
+        public bool actualizarTurno(Turno turno)
+        {
+            if(DaoTurnos.actualizarTurno(turno) > 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         public string ObtenerPacientesConMasTurnos()
         {
             DataTable pacienteMasTurnos = DaoTurnos.obtenerPacienteConMasTurnos();

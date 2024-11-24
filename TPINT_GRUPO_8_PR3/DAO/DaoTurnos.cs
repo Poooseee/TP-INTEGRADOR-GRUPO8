@@ -18,12 +18,6 @@ namespace DAO
 
             return ad.ObtenerTabla("Turnos", consulta);
         }
-        public int actualizarTurno(Turno turno)
-        {
-            string consulta = "UPDATE TURNOS SET estadoPaciente_T=" + turno.Presentismo+ ", estadoTurno_T="+turno.Estado+
-                " WHERE nroTurno="+turno.NroTurno;
-            return ad.EjecutarConsulta(consulta);
-        }
 
         public bool buscarTurno(Turno turno)
         {
@@ -34,7 +28,15 @@ namespace DAO
         public int agregarTurno(Turno turno)
         {
             string consulta = "insert into TURNOS(especialidad_T, legajoMedico_T, DniPaciente_T, fecha_T, horario_T, estadoPaciente_T, estadoTurno_T, observacion_T) VALUES " +
-                "('"+turno.Especialidad+"', "+turno.LegajoMedico+",'"+turno.DniPaciente1+"', '"+turno.Fecha+"', '"+turno.Hora+ "', 'Ausente', 'POR_ATENDER','-')";
+                "('"+turno.Especialidad+"', "+turno.LegajoMedico+",'"+turno.DniPaciente1+"', '"+turno.Fecha+"', '"+turno.Hora+ "', 'PENDIENTE', 'PENDIENTE','-')";
+
+            return ad.EjecutarConsulta(consulta);
+        }
+
+        public int actualizarTurno(Turno turno)
+        {
+            if (turno.Observaciones == null) turno.Observaciones = "-";
+            string consulta = "UPDATE Turnos SET estadoPaciente_T = '" + turno.Presentismo + "', estadoTurno_T = '" + turno.Estado + "', observacion_T = '" + turno.Observaciones + "' WHERE NroTurno = " + turno.NroTurno;
 
             return ad.EjecutarConsulta(consulta);
         }

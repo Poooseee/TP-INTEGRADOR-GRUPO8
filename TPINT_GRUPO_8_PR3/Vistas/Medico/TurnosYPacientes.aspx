@@ -100,6 +100,9 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Fecha">
+                                    <EditItemTemplate>
+                                        <asp:Label ID="lblFechaTurno" runat="server" Text='<%# Bind("fecha_T") %>'></asp:Label>
+                                    </EditItemTemplate>
                                     <ItemTemplate>
                                         <asp:Label ID="lblFechaTurno" runat="server" Text='<%# Bind("fecha_T") %>'></asp:Label>
                                     </ItemTemplate>
@@ -119,6 +122,7 @@
                                         <asp:DropDownList ID="ddlPresentismo" runat="server">
                                             <asp:ListItem Text="Presente" Value="PRESENTE"></asp:ListItem>
                                             <asp:ListItem Text="Ausente" Value="AUSENTE"></asp:ListItem>
+                                            <asp:ListItem Text="Pendiente" Value="PENDIENTE"></asp:ListItem>
                                         </asp:DropDownList>
                                     </EditItemTemplate>
                                     <ItemTemplate>
@@ -130,7 +134,7 @@
                                         <asp:DropDownList ID="ddlEstado" runat="server">
                                             <asp:ListItem Text="Atendido" Value="CUMPLIDO"></asp:ListItem>
                                             <asp:ListItem Text="Suspendido" Value="DADO DE BAJA"></asp:ListItem>
-                                            <asp:ListItem Value="POR_ATENDER">Por Atender</asp:ListItem>
+                                            <asp:ListItem Value="PENDIENTE">Pendiente</asp:ListItem>
                                         </asp:DropDownList>
                                     </EditItemTemplate>
                                     <ItemTemplate>
@@ -138,6 +142,10 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Observaciones">
+                                   
+                                    <EditItemTemplate>
+                                        <asp:TextBox ID="txtObservaciones" runat="server" Text='<%# Bind("observacion_T") %>'></asp:TextBox>
+                                    </EditItemTemplate>
                                    
                                     <ItemTemplate>
                                         <asp:Label ID="lblObservaciones" runat="server" Text='<%# Bind("observacion_T") %>'></asp:Label>
@@ -150,7 +158,8 @@
                 </tr>
                 <tr>
                     <td class="auto-style2">
-                        &nbsp;</td>
+                        <asp:Label ID="lblMensaje" runat="server"></asp:Label>
+                    </td>
                 </tr>
             </table>
         <div class="auto-style5">

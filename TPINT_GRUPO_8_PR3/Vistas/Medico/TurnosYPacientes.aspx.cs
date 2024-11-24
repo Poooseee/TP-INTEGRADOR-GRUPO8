@@ -1,4 +1,5 @@
-﻿using Negocio;
+﻿using Entidades;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Vistas
 {
@@ -75,15 +77,31 @@ namespace Vistas
 
         protected void grvTurnos_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            /* FALTA CREAR LA ENTIDAD TURNO Y MANDAR ESTO A LA BD
-            string NroTurno = ((Label)grvTurnos.Rows[e.RowIndex].FindControl("lblNroTurno")).Text;
-            string Fecha = ((Label)grvTurnos.Rows[e.RowIndex].FindControl("lblFechaTurno")).Text;
-            string Hora = ((Label)grvTurnos.Rows[e.RowIndex].FindControl("lblHoraTurno")).Text;
-            string Paciente = ((Label)grvTurnos.Rows[e.RowIndex].FindControl("lblDNIPaciente")).Text;
-            string Presentismo = ((DropDownList)grvTurnos.Rows[e.RowIndex].FindControl("ddlPresentismo")).SelectedValue;
-            string Estado = ((DropDownList)grvTurnos.Rows[e.RowIndex].FindControl("ddlEstado")).SelectedValue;
-            string Observaciones = ((Label)grvTurnos.Rows[e.RowIndex].FindControl("lblObservaciones")).Text;
-            */
+            Turno turno = new Turno();
+
+            //NO AGARRA LOS VALORES NUEVOS, SE QUEDA CON LOS VIEJOS
+            turno.NroTurno = Convert.ToInt32(((Label)grvTurnos.Rows[e.RowIndex].FindControl("lblNroTurno")).Text);
+            string fechaTexto = ((Label)grvTurnos.Rows[e.RowIndex].FindControl("lblFechaTurno")).Text;
+            string[] fechaValida = fechaTexto.Split('/');
+            turno.Fecha = DateTime.Parse(fechaValida[2] + "-" + fechaValida[1] + "-" + fechaValida[0]);
+            turno.Hora = ((Label)grvTurnos.Rows[e.RowIndex].FindControl("lblHoraTurno")).Text;
+            turno.DniPaciente1 = ((Label)grvTurnos.Rows[e.RowIndex].FindControl("lblDNIPaciente")).Text;
+            turno.Presentismo = ((DropDownList)grvTurnos.Rows[e.RowIndex].FindControl("ddlPresentismo")).SelectedValue;
+            turno.Estado = ((DropDownList)grvTurnos.Rows[e.RowIndex].FindControl("ddlEstado")).SelectedValue;
+            turno.Observaciones = ((TextBox)grvTurnos.Rows[e.RowIndex].FindControl("txtObservaciones")).Text;
+            
+            //ACTUALIZAMOS
+            NegocioTurnos negTur = new NegocioTurnos();
+
+            if (negTur.actualizarTurno(turno))
+            {
+                lblMensaje.Text = "TURNO ACTUALIZADO CON EXITO";
+            }
+            else
+            {
+                lblMensaje.Text = "ERROR AL ACTUALIZAR EL TURNO";
+            }
+            
             grvTurnos.EditIndex = -1;
             cargarGrdTurnos();
         }
@@ -125,7 +143,6 @@ namespace Vistas
                 DateTime lblFecha = Convert.ToDateTime(((Label)e.Row.FindControl("lblFechaTurno")).Text);
 
                 lbl.Text = lblFecha.ToString("dd/MM/yyyy");
-
             }
         }
 
