@@ -2,6 +2,7 @@
 using Negocio;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -25,7 +26,11 @@ namespace Vistas
                     //EL USUARIO TIENE ACCESO
                     string usuario = cookie["Usuario"];
                     lblUsuario.Text = usuario;
-                    cargarGrdTurnos();
+
+                    if (!IsPostBack)
+                    {
+                        cargarGrdTurnos();
+                    }
                 }
                 else 
                 {
@@ -41,7 +46,11 @@ namespace Vistas
                     //EL USUARIO TIENE ACCESO
                     string usuario = Session["Usuario"].ToString();
                     lblUsuario.Text = usuario;
-                    cargarGrdTurnos();
+
+                    if (!IsPostBack)
+                    {
+                        cargarGrdTurnos();
+                    }
                 }
                 else
                 {
@@ -63,10 +72,8 @@ namespace Vistas
         }
         protected void grvTurnos_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            NegocioTurnos negocioTurnos = new NegocioTurnos();
             grvTurnos.EditIndex = e.NewEditIndex;
-            negocioTurnos.obtenerTablaTurnos();
-            grvTurnos.DataBind();
+            cargarGrdTurnos();
         }
 
         protected void grvTurnos_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
@@ -143,6 +150,19 @@ namespace Vistas
                 DateTime lblFecha = Convert.ToDateTime(((Label)e.Row.FindControl("lblFechaTurno")).Text);
 
                 lbl.Text = lblFecha.ToString("dd/MM/yyyy");
+
+                if (e.Row.RowState.HasFlag(DataControlRowState.Edit))
+                {
+                    DropDownList ddlPresentismo = (DropDownList)e.Row.FindControl("ddlPresentismo");
+                    DropDownList ddlEstado = (DropDownList)e.Row.FindControl("ddlEstado");
+
+                    //DATOS DE LA FILA
+                    var dataItem = e.Row.DataItem as DataRowView;
+
+                    //PASAMOS LOS DATOS A LOS DDL
+                    ddlPresentismo.SelectedValue = dataItem["estadoPaciente_T"].ToString();
+                    ddlEstado.SelectedValue = dataItem["estadoTurno_T"].ToString();
+                }
             }
         }
 

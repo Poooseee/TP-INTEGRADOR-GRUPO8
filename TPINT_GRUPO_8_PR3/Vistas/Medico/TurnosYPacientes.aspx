@@ -120,9 +120,9 @@
                                 <asp:TemplateField HeaderText="Presentismo">
                                     <EditItemTemplate>
                                         <asp:DropDownList ID="ddlPresentismo" runat="server">
-                                            <asp:ListItem Text="Presente" Value="PRESENTE"></asp:ListItem>
-                                            <asp:ListItem Text="Ausente" Value="AUSENTE"></asp:ListItem>
-                                            <asp:ListItem Text="Pendiente" Value="PENDIENTE"></asp:ListItem>
+                                            <asp:ListItem Text="PRESENTE" Value="PRESENTE"></asp:ListItem>
+                                            <asp:ListItem Text="AUSENTE" Value="AUSENTE"></asp:ListItem>
+                                            <asp:ListItem Text="PENDIENTE" Value="PENDIENTE"></asp:ListItem>
                                         </asp:DropDownList>
                                     </EditItemTemplate>
                                     <ItemTemplate>
@@ -132,9 +132,9 @@
                                 <asp:TemplateField HeaderText="Estado del Turno">
                                     <EditItemTemplate>
                                         <asp:DropDownList ID="ddlEstado" runat="server">
-                                            <asp:ListItem Text="Atendido" Value="CUMPLIDO"></asp:ListItem>
-                                            <asp:ListItem Text="Suspendido" Value="DADO DE BAJA"></asp:ListItem>
-                                            <asp:ListItem Value="PENDIENTE">Pendiente</asp:ListItem>
+                                            <asp:ListItem Text="CUMPLIDO" Value="CUMPLIDO"></asp:ListItem>
+                                            <asp:ListItem Text="DADO DE BAJA" Value="DADO DE BAJA"></asp:ListItem>
+                                            <asp:ListItem Text="PENDIENTE" Value="PENDIENTE"></asp:ListItem>
                                         </asp:DropDownList>
                                     </EditItemTemplate>
                                     <ItemTemplate>
