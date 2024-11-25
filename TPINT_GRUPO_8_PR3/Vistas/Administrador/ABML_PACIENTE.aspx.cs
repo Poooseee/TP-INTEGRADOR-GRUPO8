@@ -273,6 +273,7 @@ namespace Vistas.Administrador
             {
                 DropDownList ddlLocalidad = (DropDownList)e.Row.FindControl("ddl_eit_Localidad");
                 DropDownList ddlProvincia = (DropDownList)e.Row.FindControl("ddl_eit_Provincia");
+                TextBox txtFechaNacimiento = (TextBox)e.Row.FindControl("txt_Eit_FechaDeNacimiento");
                 NegocioLocalidades loc = new NegocioLocalidades();
                 NegocioProvincias prov = new NegocioProvincias();
                 DataTable dt = new DataTable();
@@ -292,6 +293,10 @@ namespace Vistas.Administrador
                 ddlLocalidad.DataValueField = "IdLocalidad_L";
                 ddlLocalidad.DataBind();
                 ddlLocalidad.SelectedValue = negPac.obtenerLocalidadAsignada(dni);
+
+               // dt = negPac.obtenerFechaAsignada(dni);
+                txtFechaNacimiento.Text = negPac.obtenerFechaAsignada(dni);
+                lblMensaje.Text = negPac.obtenerFechaAsignada(dni);
             }
         }
 

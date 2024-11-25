@@ -104,6 +104,17 @@ namespace Negocio
             DataTable paciente = DaoPacientes.ObtenerPacientePorDni(dni);
             return paciente;
         }
+        public string obtenerFechaAsignada(string dni)
+        {
+            DataTable dt = DaoPacientes.ObtenerPacientePorDni(dni);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                DateTime fecha = Convert.ToDateTime(dt.Rows[0]["fechaNac_P"]);
+                return fecha.ToString("dd/MM/yyyy");
+
+            }
+            return null;
+        }
 
     }
 }

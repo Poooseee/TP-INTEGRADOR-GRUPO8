@@ -125,6 +125,21 @@
         .auto-style40 {
             height: 26px;
         }
+        .auto-style41 {
+            width: 313px;
+            height: 37px;
+        }
+        .auto-style42 {
+            width: 417px;
+            height: 37px;
+        }
+        .auto-style43 {
+            width: 219px;
+            height: 37px;
+        }
+        .auto-style44 {
+            height: 37px;
+        }
     </style>
 </head>
 <body>
@@ -218,15 +233,15 @@
                     <td class="auto-style2"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style12">&nbsp;</td>
-                    <td class="auto-style8">Nacionalidad:</td>
-                    <td class="auto-style8">
+                    <td class="auto-style41"></td>
+                    <td class="auto-style42">Nacionalidad:</td>
+                    <td class="auto-style42">
                         <asp:TextBox ID="txtNacionalidad" runat="server" CssClass="auto-style6" Width="133px"></asp:TextBox>
                     </td>
-                    <td class="auto-style7">
+                    <td class="auto-style43">
                         <asp:RequiredFieldValidator ID="rfvNacionalidad" runat="server" ControlToValidate="txtNacionalidad" CssClass="auto-style3" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
                     </td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style44"></td>
                 </tr>
                 <tr>
                     <td class="auto-style12">&nbsp;</td>
@@ -430,7 +445,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Fecha De Nacimiento">
                     <EditItemTemplate>
-                        <asp:TextBox ID="txt_Eit_FechaDeNacimiento" runat="server" Text='<%# Bind("FechaNacimiento") %>' TextMode="Date"></asp:TextBox>
+                        <asp:TextBox ID="txt_Eit_FechaDeNacimiento" runat="server" Text='<%# Eval("FechaNacimiento", "{0:dd/MM/yyyy}") %>'></asp:TextBox>
                     </EditItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="lbl_It_FechaNacimiento" runat="server" Text='<%# Eval("FechaNacimiento", "{0:dd/MM/yyyy}") %>'></asp:Label>
