@@ -461,7 +461,7 @@ namespace Vistas.Administrador
         protected void actualizarTablaModificarHorarios()
         {
             NegocioHorarios negH = new NegocioHorarios();
-            grdHorarios.DataSource = negH.obtenerHorariosDeMedico(int.Parse(lblLegajoMedicoHorarioN.Text));
+            grdHorarios.DataSource = negH.obtenerTablaHorarios();
             grdHorarios.DataBind();
         }
 

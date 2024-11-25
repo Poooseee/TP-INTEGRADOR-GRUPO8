@@ -64,10 +64,12 @@ namespace Vistas.Administrador
                 if (estadoTurno == "PRESENTE")
                 {
                     turnosPresentes++;
+                    totalTurnos++;
                 }
                 else if (estadoTurno == "AUSENTE")
                 {
                     turnosAusentes++;
+                    totalTurnos++;
                 }
             }
         }
@@ -118,21 +120,26 @@ namespace Vistas.Administrador
             controlarCookieYSession();
 
             //DECLARAMOS VARIABLES
-            ///globales
+            //GLOBALES
             int anioActual = DateTime.Now.Year;
-            ///pacientes
+
+            //PACIENTES
             int sumaEdadesPacientes = 0;
             int pacientesMasculinos = 0;
             int pacientesFemeninos = 0;
             int totalPacientes = 0;
-            ///medicos
+
+            //MEDICOS
             int sumaEdadesMedicos = 0;
             int totalMedicos = 0;
-            ///turnos
+
+            //TURNOS
+            DataTable dtTurnos = negTur.obtenerTablaTurnos();
             int turnosPresentes = 0;
             int turnosAusentes = 0;
-            DataTable dtTurnos = negTur.obtenerTablaTurnos();
-            int totalTurnos = dtTurnos.Rows.Count;
+            int totalTurnos = 0;
+
+            //DATOS
             string especialidadMasSolicitada = negTur.ObtenerEspecialidadMasSolicitada();
             string dniPacienteMasTurnos = negTur.ObtenerPacientesConMasTurnos();
             int legajoMedicoMasSolicitado = negTur.ObtenerMedicoMasSolicitado();

@@ -61,7 +61,7 @@ namespace DAO
         {
             horaEgreso += ":00";
             horaIngreso += ":00";
-            return ad.existe("SELECT * FROM JornadaLaboralXMedico WHERE legajoMedico_JXM = "+legajo+ "AND diaAtencion = '"+dia+ "'");
+            return ad.existe("SELECT * FROM JornadaLaboralXMedico WHERE legajoMedico_JXM = "+legajo+ " AND diaAtencion = '"+dia+ "'");
         }
     }
 }

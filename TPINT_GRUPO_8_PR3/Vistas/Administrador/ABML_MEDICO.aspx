@@ -693,7 +693,7 @@
             <Columns>
                 <asp:TemplateField HeaderText="Dia">
                     <ItemTemplate>
-                        <asp:Label ID="lbl_It_DiaAtencion" runat="server" Text='<%# Bind("DIA") %>'></asp:Label>
+                        <asp:Label ID="lbl_It_DiaAtencion" runat="server" Text='<%# Bind("diaAtencion") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Horario de Inicio">
@@ -701,7 +701,7 @@
                         <asp:TextBox ID="txt_Eit_HoraInicio" runat="server" CssClass="auto-style113" TextMode="Time"></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="lbl_It_HoraIngreso" runat="server" Text='<%# Bind("INGRESO") %>'></asp:Label>
+                        <asp:Label ID="lbl_It_HoraIngreso" runat="server" Text='<%# Bind("HoraIngreso") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Horario de Fin">
@@ -709,7 +709,7 @@
                         <asp:TextBox ID="txt_Eit_HoraEgreso" runat="server" TextMode="Time"></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="lbl_It_HoraEgreso" runat="server" Text='<%# Bind("EGRESO") %>'></asp:Label>
+                        <asp:Label ID="lbl_It_HoraEgreso" runat="server" Text='<%# Bind("HoraEgreso") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>

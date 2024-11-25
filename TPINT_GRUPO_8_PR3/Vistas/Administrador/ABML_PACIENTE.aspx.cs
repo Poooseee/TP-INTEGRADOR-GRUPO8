@@ -150,7 +150,7 @@ namespace Vistas.Administrador
             }
             else
             {
-
+                lblAgregado.Text = "Error al agregar el paciente. Verifique que el DNI sea correcto";
             }
         }
 
