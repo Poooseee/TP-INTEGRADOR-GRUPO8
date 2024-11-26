@@ -294,9 +294,8 @@ namespace Vistas.Administrador
                 ddlLocalidad.DataBind();
                 ddlLocalidad.SelectedValue = negPac.obtenerLocalidadAsignada(dni);
 
-               // dt = negPac.obtenerFechaAsignada(dni);
                 txtFechaNacimiento.Text = negPac.obtenerFechaAsignada(dni);
-                lblMensaje.Text = negPac.obtenerFechaAsignada(dni);
+               
             }
         }
 
