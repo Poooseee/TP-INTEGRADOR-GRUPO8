@@ -60,13 +60,13 @@ namespace Vistas.Administrador
         protected global::System.Web.UI.WebControls.HyperLink hpVolver;
 
         /// <summary>
-        /// Control Label4.
+        /// Control lblTitulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.Label lblTitulo;
 
         /// <summary>
         /// Control txtHorarioLunes_1.

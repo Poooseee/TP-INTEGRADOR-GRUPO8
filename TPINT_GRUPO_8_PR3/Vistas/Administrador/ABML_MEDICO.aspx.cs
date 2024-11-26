@@ -325,7 +325,8 @@ namespace Vistas.Administrador
         protected void grdHorarios_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             grdHorarios.EditIndex = -1;
-            actualizarTablaModificarHorarios();
+           int legajo =  Convert.ToInt32(((Label)grdHorarios.Rows[e.RowIndex].FindControl("lbl_it_legajo")).Text);
+            cargarGrdHorarios(legajo);
         }
 
         protected int getLegajoMedico()
@@ -443,6 +444,11 @@ namespace Vistas.Administrador
 
             txtUsuario.Text = "";
         }
+        public void cargarGrdHorarios(int legajo)
+        {
+            grdHorarios.DataSource = negHorarios.obtenerHorariosDeMedico(legajo);
+            grdHorarios.DataBind();
+        }
 
         protected void grdMedicos_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
@@ -456,14 +462,9 @@ namespace Vistas.Administrador
 
             //llenar la grid con la info del legajo seleccionado
             lblLegajoMedicoHorarios.Text = "LEGAJO N:";
-            actualizarTablaModificarHorarios();
+            cargarGrdHorarios(legajoSeleccionado);
         }
-        protected void actualizarTablaModificarHorarios()
-        {
-            NegocioHorarios negH = new NegocioHorarios();
-            grdHorarios.DataSource = negH.obtenerTablaHorarios();
-            grdHorarios.DataBind();
-        }
+        
 
         protected void grdHorarios_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
@@ -477,15 +478,15 @@ namespace Vistas.Administrador
             
             if (negHorarios.actualizarHorarioMedico(legajo,dia,ingreso,egreso))
             {
+
                 
-                actualizarTablaModificarHorarios();
             }
             else
             {
 
             }
             grdHorarios.EditIndex = -1;
-            actualizarTablaModificarHorarios();
+            cargarGrdHorarios(legajoSeleccionado);
         }
 
         protected void grdHorarios_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -510,11 +511,11 @@ namespace Vistas.Administrador
             {
                 lblHorarioAgregado.Text = "NO SE PUDO AGREGAR EL HORARIO";
             }
+            cargarGrdHorarios(int.Parse(txtLegajoHorario.Text));
             txtLegajoHorario.Text = "";
             ddlAgregarDia.SelectedIndex = 0;
             txtHorarioInicio.Text = "";
             txtHorarioFin.Text = "";
-            actualizarTablaModificarHorarios();
         }
 
         protected void grdMedicos_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -565,7 +566,7 @@ namespace Vistas.Administrador
             {
                 lblMensajeHorario.Text = "NO SE PUDO ELIMINAR";
             }
-            actualizarTablaModificarHorarios();
+            cargarGrdHorarios(legajo);
             lbtnSiHorario.Visible = false;
             lbtnNoHorario.Visible = false;
         }
