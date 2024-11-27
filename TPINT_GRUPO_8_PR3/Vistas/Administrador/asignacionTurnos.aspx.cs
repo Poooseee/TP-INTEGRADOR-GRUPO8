@@ -3,6 +3,7 @@ using Negocio;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Web;
@@ -144,10 +145,10 @@ namespace Vistas
             vaciarCampoAsignacionTurno();
             ddlMedicos.SelectedIndex = 0;
             ddlMedicos.Enabled = true;
-
             //obtengo el dia de la semana segun la fecha
             DateTime fecha = DateTime.Parse(txtDia.Text);
             string dia = fecha.ToString("dddd", new CultureInfo("es-AR"));
+            
 
             //lleno el ddl de medicos segun especialidad y dia
             ddlMedicos.Items.Clear();
@@ -179,11 +180,13 @@ namespace Vistas
             ddlHorarios.Items.Clear();
             ddlHorarios.Items.Insert(0, new ListItem("-- Seleccione un Horario --"));
             ddlHorarios.Enabled = true;
-            
-            // agrego los horarios del dia seleccionado
 
+            // agrego los horarios del dia seleccionado
+            DateTime fecha = DateTime.Parse(txtDia.Text);
+            string dia = fecha.ToString("dddd", new CultureInfo("es-AR"));
             NegocioHorarios negHorarios = new NegocioHorarios();
-            DataRow dr = negHorarios.diaLaboralMedico(int.Parse(ddlMedicos.SelectedValue.ToString()));
+
+            DataRow dr = negHorarios.diaLaboralMedico(int.Parse(ddlMedicos.SelectedValue.ToString()),dia);
 
             // obtengo horario de entrada y de salida 
 
@@ -211,19 +214,19 @@ namespace Vistas
             string especialidad = ddlEspecialidad.SelectedItem.ToString();
             string medico = ddlMedicos.SelectedItem.ToString();
             DateTime fecha = DateTime.Parse(txtDia.Text);
-            string fechaTurno = fecha.ToString();
+            string fechaTurno = fecha.ToString("dd/MM/yyyy");
 
             //obtener y convertir el horario
             string horarioSeleccionado = ddlHorarios.SelectedItem.Text.Trim();
             string[] partesHorario = horarioSeleccionado.Split('-');
-            string hora = partesHorario[0].Trim().ToString();
+            string horaComienzo = partesHorario[0].Trim().ToString();
             Label5.Text = fechaTurno;
 
             //llenar la entidad turno y verificar si existe uno en la DB
             Turno turno = new Turno();
             turno.Fecha = fecha;
             turno.LegajoMedico = int.Parse(ddlMedicos.SelectedValue.ToString());
-            turno.Hora = hora;            
+            turno.Hora = horaComienzo;            
             NegocioTurnos negTurno = new NegocioTurnos();
             
             if (negTurno.verificarTurno(turno))
@@ -238,7 +241,7 @@ namespace Vistas
             {
                 lblNoExisteTurno.Text = "TURNO DISPONIBLE";
                 lblExisteTurno.Text = "";
-                completarCampoAsignacionTurno(especialidad, medico, fechaTurno, hora);
+                completarCampoAsignacionTurno(especialidad, medico, fechaTurno, horaComienzo);
                 btnAgregar.Enabled = true;
             }
         }
