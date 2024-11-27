@@ -106,9 +106,22 @@ namespace Negocio
             return null;
         }
 
+        public string obtenerSexoAsignado(string legajo)
+        {
+            DataTable dt = DaoMedicos.obtenerSexoAsignado(legajo);
+            
+            if(dt != null && dt.Rows.Count > 0)
+            {
+                return dt.Rows[0]["sexo_M"].ToString();
+            }
+
+            return null;
+        }
+
         public DataTable ObtenerMedicoPorLegajo(int legajo)
         {
             return DaoMedicos.buscarMedicoPorLegajo(legajo);
         }
+
     }
 }

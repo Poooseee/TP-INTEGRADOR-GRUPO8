@@ -597,7 +597,10 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Sexo">
                     <EditItemTemplate>
-                        <asp:TextBox ID="txt_Eit_Sexo" runat="server" Text='<%# Bind("Sexo") %>'></asp:TextBox>
+                        <asp:DropDownList ID="ddl_eit_Sexo" runat="server">
+                            <asp:ListItem Text="Masculino" Value="Masculino"></asp:ListItem>
+                            <asp:ListItem Text="Femenino" Value="Femenino"></asp:ListItem>
+                        </asp:DropDownList>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="lbl_it_Sexo" runat="server" Text='<%# Bind("Sexo") %>'></asp:Label>
@@ -756,13 +759,13 @@
                     <td class="auto-style70">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DIA:</td>
                     <td class="auto-style19">
                         <asp:DropDownList ID="ddlAgregarDia" runat="server" Width="145px" CssClass="auto-style114">
-                            <asp:ListItem>LUNES</asp:ListItem>
-                            <asp:ListItem>MARTES</asp:ListItem>
-                            <asp:ListItem>MIERCOLES</asp:ListItem>
-                            <asp:ListItem>JUEVES</asp:ListItem>
-                            <asp:ListItem>VIERNES</asp:ListItem>
-                            <asp:ListItem>SABADO</asp:ListItem>
-                            <asp:ListItem>DOMINGO</asp:ListItem>
+                            <asp:ListItem>Lunes</asp:ListItem>
+                            <asp:ListItem>Martes</asp:ListItem>
+                            <asp:ListItem>Miercoles</asp:ListItem>
+                            <asp:ListItem>Jueves</asp:ListItem>
+                            <asp:ListItem>Viernes</asp:ListItem>
+                            <asp:ListItem>Sabado</asp:ListItem>
+                            <asp:ListItem>Domingo</asp:ListItem>
                         </asp:DropDownList>
                     </td>
                     <td class="auto-style24">Desde:</td>

@@ -86,7 +86,6 @@ namespace Vistas
         {
             Turno turno = new Turno();
 
-            //NO AGARRA LOS VALORES NUEVOS, SE QUEDA CON LOS VIEJOS
             turno.NroTurno = Convert.ToInt32(((Label)grvTurnos.Rows[e.RowIndex].FindControl("lblNroTurno")).Text);
             string fechaTexto = ((Label)grvTurnos.Rows[e.RowIndex].FindControl("lblFechaTurno")).Text;
             string[] fechaValida = fechaTexto.Split('/');
