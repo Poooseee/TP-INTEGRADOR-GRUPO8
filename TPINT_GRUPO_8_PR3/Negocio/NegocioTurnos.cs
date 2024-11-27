@@ -18,6 +18,18 @@ namespace Negocio
         {
             return DaoTurnos.obtenerTablaTurnos();
         }
+
+        public DataTable obtenerTurnosDeMedico(int legajo)
+        {
+            NegocioMedicos negMed = new NegocioMedicos();
+            if (negMed.existeMedico(legajo))
+            {
+            return DaoTurnos.obtenerTurnosDeMedico(legajo);
+
+            }
+            return null;
+        }
+
         public bool verificarTurno(Turno turno)
         {
             bool existe = false;
@@ -73,20 +85,9 @@ namespace Negocio
             return legajoMedico;
         }
 
-        public DataTable filtrarTurnos(int filtros , string paciente , string fecha)
+        public DataTable filtrarTurnos(int legajoMedico ,string paciente , string fecha)
         {
-            if(filtros == 3)
-            {
-                return DaoTurnos.filtrarTurnos(filtros , paciente , fecha);
-            }
-            else if(filtros == 2)
-            {
-                return DaoTurnos.filtrarTurnos(filtros, paciente, null);
-            }
-            else
-            {
-                return DaoTurnos.filtrarTurnos(filtros, null, fecha);
-            }
+            return DaoTurnos.filtrarTurnos( legajoMedico,paciente , fecha);
         }
     }
 }

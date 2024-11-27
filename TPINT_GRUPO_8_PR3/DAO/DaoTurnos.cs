@@ -18,6 +18,13 @@ namespace DAO
 
             return ad.ObtenerTabla("Turnos", consulta);
         }
+        public DataTable obtenerTurnosDeMedico(int legajo)
+        {
+            string consulta = "SELECT NroTurno, DniPaciente_T, fecha_T, horario_T, estadoPaciente_T, estadoTurno_T, Observacion_T" +
+            " FROM TURNOS WHERE LegajoMedico_T = "+legajo;
+
+            return ad.ObtenerTabla("Turnos", consulta);
+        }
 
         public bool buscarTurno(Turno turno)
         {
@@ -83,29 +90,12 @@ namespace DAO
             return ad.ObtenerTabla("Turnos", consulta);
         }
 
-        public DataTable filtrarTurnos(int filtros , string paciente , string fecha)
+        public DataTable filtrarTurnos( int legajoMedico,string paciente , string fecha)
         {
-            if(filtros == 3)
-            {
-                string consulta = "SELECT NroTurno, DniPaciente_T, fecha_T, horario_T, estadoPaciente_T, estadoTurno_T, Observacion_T" +
-                " FROM TURNOS WHERE DniPaciente_T = '" + paciente + "' AND fecha_T = '" + fecha + "'";
-
-                return ad.ObtenerTabla("Turnos", consulta);
-            }
-            else if(filtros == 2)
-            {
-                string consulta = "SELECT NroTurno, DniPaciente_T, fecha_T, horario_T, estadoPaciente_T, estadoTurno_T, Observacion_T" +
-                " FROM TURNOS WHERE DniPaciente_T = '" + paciente + "'";
-
-                return ad.ObtenerTabla("Turnos", consulta);
-            }
-            else
-            {
-                string consulta = "SELECT NroTurno, DniPaciente_T, fecha_T, horario_T, estadoPaciente_T, estadoTurno_T, Observacion_T" +
-                " FROM TURNOS WHERE fecha_T = '" + fecha + "'";
-
-                return ad.ObtenerTabla("Turnos", consulta);
-            }
+            string consulta = "SELECT NroTurno, DniPaciente_T, fecha_T, horario_T, estadoPaciente_T, estadoTurno_T, Observacion_T" +
+            " FROM TURNOS WHERE Legajo_M = "+ legajoMedico + " AND DniPaciente_T LIKE '" + paciente + "%' AND fecha_T LIKE '" + fecha + "%'";
+              return ad.ObtenerTabla("Turnos", consulta);
+           
         }
     }
 }

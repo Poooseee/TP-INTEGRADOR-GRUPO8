@@ -117,7 +117,14 @@ namespace Negocio
 
             return null;
         }
-
+        public bool existeMedico(int legajo)
+        {
+            if (DaoMedicos.existeMedico(legajo))
+            {
+                return true;
+            }
+            return false;
+        }
         public DataTable ObtenerMedicoPorLegajo(int legajo)
         {
             return DaoMedicos.buscarMedicoPorLegajo(legajo);

@@ -27,7 +27,7 @@ namespace DAO
 
         public bool existeMedico(int legajo)
         {
-            return ad.existe("SELECT * FROM Medicos WHERE Legajo_M = " + legajo);
+            return ad.existe("SELECT * FROM Medicos WHERE  baja_m = 0 AND Legajo_M = " + legajo);
         }
         public int actualizarMedico(Medico m)
         {

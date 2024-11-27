@@ -14,25 +14,26 @@ namespace Vistas
 {
     public partial class MenuMedicos : System.Web.UI.Page
     {
+        int legajoMedico;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Request.Cookies["UsuarioInfo"] != null)
+            if (Request.Cookies["UsuarioInfo"] != null)
             {
                 HttpCookie cookie = Request.Cookies["UsuarioInfo"];
 
                 //EL USUARIO ESTA LOGUEADO EN EL SISTEMA CON LA COOKIE
-                if(cookie["TipoUsuario"].ToString() == "Medico")
+                if (cookie["TipoUsuario"].ToString() == "Medico")
                 {
                     //EL USUARIO TIENE ACCESO
                     string usuario = cookie["Usuario"];
                     lblUsuario.Text = usuario;
-
+                    legajoMedico = Convert.ToInt32(cookie["Legajo"]);
                     if (!IsPostBack)
                     {
-                        cargarGrdTurnos();
+                        cargarGrdTurnos(legajoMedico);
                     }
                 }
-                else 
+                else
                 {
                     //EL USUARIO NO ES MEDICO, SE REDIRIGE A ADMINISTRADOR
                     Response.Redirect("../Administrador/menuAdministrador.aspx");
@@ -46,10 +47,10 @@ namespace Vistas
                     //EL USUARIO TIENE ACCESO
                     string usuario = Session["Usuario"].ToString();
                     lblUsuario.Text = usuario;
-
+                    legajoMedico = Convert.ToInt32(Session["Legajo"]);
                     if (!IsPostBack)
                     {
-                        cargarGrdTurnos();
+                        cargarGrdTurnos(legajoMedico);
                     }
                 }
                 else
@@ -61,25 +62,35 @@ namespace Vistas
             else
             {
                 //EL USUARIO NO ESTA LOGUEADO EN EL SISTEMA
-                 Response.Redirect("../login.aspx");
+                Response.Redirect("../login.aspx");
             }
         }
-        public void cargarGrdTurnos()
+        public void cargarGrdTurnos(int legajoMedico)
         {
-            NegocioTurnos negocioTurnos = new NegocioTurnos();
-            grvTurnos.DataSource = negocioTurnos.obtenerTablaTurnos();
-            grvTurnos.DataBind();
+                NegocioTurnos negocioTurnos = new NegocioTurnos();
+            if (txtPaciente.Text.Trim().Length > 0 || !string.IsNullOrEmpty(txtFecha.Text))
+            {
+                grvTurnos.DataSource = negocioTurnos.filtrarTurnos( legajoMedico,txtPaciente.Text, txtFecha.Text);
+                grvTurnos.DataBind();
+            }
+            else
+            {
+                grvTurnos.DataSource = negocioTurnos.obtenerTurnosDeMedico(legajoMedico);
+                grvTurnos.DataBind();
+                 
+            }
+            
         }
         protected void grvTurnos_RowEditing(object sender, GridViewEditEventArgs e)
         {
             grvTurnos.EditIndex = e.NewEditIndex;
-            cargarGrdTurnos();
+            cargarGrdTurnos(legajoMedico);
         }
 
         protected void grvTurnos_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             grvTurnos.EditIndex = -1;
-            cargarGrdTurnos();
+            cargarGrdTurnos(legajoMedico);
         }
 
         protected void grvTurnos_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -95,7 +106,7 @@ namespace Vistas
             turno.Presentismo = ((DropDownList)grvTurnos.Rows[e.RowIndex].FindControl("ddlPresentismo")).SelectedValue;
             turno.Estado = ((DropDownList)grvTurnos.Rows[e.RowIndex].FindControl("ddlEstado")).SelectedValue;
             turno.Observaciones = ((TextBox)grvTurnos.Rows[e.RowIndex].FindControl("txtObservaciones")).Text;
-            
+
             //ACTUALIZAMOS
             NegocioTurnos negTur = new NegocioTurnos();
 
@@ -107,14 +118,14 @@ namespace Vistas
             {
                 lblMensaje.Text = "ERROR AL ACTUALIZAR EL TURNO";
             }
-            
+
             grvTurnos.EditIndex = -1;
-            cargarGrdTurnos();
+            cargarGrdTurnos(legajoMedico);
         }
 
         protected void lnkbtnCerrarSesion_Click(object sender, EventArgs e)
         {
-            if(Request.Cookies["UsuarioInfo"] != null)
+            if (Request.Cookies["UsuarioInfo"] != null)
             {
                 eliminarCookie();
             }
@@ -167,31 +178,7 @@ namespace Vistas
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
-            if(txtPaciente.Text.Trim().Length > 0 && !string.IsNullOrEmpty(txtFecha.Text))
-            {
-                NegocioTurnos negTur = new NegocioTurnos();
-                grvTurnos.DataSource = negTur.filtrarTurnos(3 , txtPaciente.Text , txtFecha.Text);
-
-                grvTurnos.DataBind();
-            }
-            else if(txtPaciente.Text.Trim().Length > 0)
-            {
-                NegocioTurnos negTur = new NegocioTurnos();
-                grvTurnos.DataSource = negTur.filtrarTurnos(2 , txtPaciente.Text , null);
-
-                grvTurnos.DataBind();
-            }
-            else if (!string.IsNullOrEmpty(txtFecha.Text))
-            {
-                NegocioTurnos negTur = new NegocioTurnos();
-                grvTurnos.DataSource = negTur.filtrarTurnos(1 , null , txtFecha.Text);
-
-                grvTurnos.DataBind();
-            }
-            else
-            {
-                cargarGrdTurnos();
-            }
+                cargarGrdTurnos(legajoMedico);
         }
     }
 }
