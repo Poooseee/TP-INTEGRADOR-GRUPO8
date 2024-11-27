@@ -33,9 +33,9 @@ namespace Vistas.Administrador
                         cargarProvinciasAlDDL();
                         cargarEspecialidadesAlDDL();
 
-                        if(legajoSeleccionado != -1)
+                        if(LegajoSeleccionado != -1)
                         {
-                            cargarGrdHorarios(legajoSeleccionado);
+                            cargarGrdHorarios(LegajoSeleccionado);
                         }
                     }
                     else
@@ -56,9 +56,9 @@ namespace Vistas.Administrador
                         cargarProvinciasAlDDL();
                         cargarEspecialidadesAlDDL();
 
-                        if (legajoSeleccionado != -1)
+                        if (LegajoSeleccionado != -1)
                         {
-                            cargarGrdHorarios(legajoSeleccionado);
+                            cargarGrdHorarios(LegajoSeleccionado);
                         }
                     }
                     else
@@ -77,7 +77,19 @@ namespace Vistas.Administrador
         }
         NegocioMedicos negMedicos = new NegocioMedicos();
         NegocioHorarios negHorarios = new NegocioHorarios();
-        int legajoSeleccionado = -1;
+        public int LegajoSeleccionado
+        {
+            get
+            {
+                // si tiene un valor hace lo devuelve, sino le da -1
+                return ViewState["LegajoSeleccionado"] != null ? (int)ViewState["LegajoSeleccionado"] : -1;
+            }
+            set
+            {
+                // guarda el valor
+                ViewState["LegajoSeleccionado"] = value;
+            }
+        }
         public void cargarProvinciasAlDDL()
         {
             NegocioProvincias prov = new NegocioProvincias();
@@ -89,7 +101,6 @@ namespace Vistas.Administrador
             ddlProvincia.DataBind();
             ddlProvincia.Items.Insert(0, new ListItem("Seleccione una provincia", "0"));
         }
-
         public void cargarEspecialidadesAlDDL()
         {
             NegocioEspecialidades esp = new NegocioEspecialidades();
@@ -110,7 +121,6 @@ namespace Vistas.Administrador
                 dt = negMedicos.FiltrarMedicosPorLegajo(legajo);
                 grdMedicos.DataSource = dt;
                 grdMedicos.DataBind();
-                
             }
             else
             {
@@ -121,13 +131,67 @@ namespace Vistas.Administrador
 
         }
 
-        public void cargarGrdHorarios()
-        {
-            NegocioHorarios NH = new NegocioHorarios();
-            grdHorarios.DataSource = NH.obtenerTablaHorarios();
-            grdHorarios.DataBind();
-        }
+        //public void cargarGrdHorarios()
+        //{
+        //    NegocioHorarios NH = new NegocioHorarios();
+        //    grdHorarios.DataSource = NH.obtenerTablaHorarios();
+        //    grdHorarios.DataBind();
+        //}
 
+
+        //ALTA MEDICO
+        protected Medico llenarEntidadMedico()
+        {
+            Medico medico = new Medico();
+            medico.Dni = int.Parse(txtDNI.Text.Trim());
+            medico.Nombre = txtNombre.Text.Trim();
+            medico.Apellido = txtApellido.Text.Trim();
+            medico.Sexo = ddlSexo.SelectedValue.ToString();
+            medico.Nacionalidad = txtNacionalidad.Text;
+            medico.FechaNac = txtFechaNac.Text.Trim();
+            medico.Direccion = txtDireccion.Text.Trim();
+            medico.Localidad = int.Parse(ddlLocalidad.SelectedValue.ToString());
+            medico.Provincia = int.Parse(ddlProvincia.SelectedValue.ToString());
+            medico.Email = txtCorreo.Text.Trim();
+            medico.Telefono = txtTelefono.Text.Trim();
+            medico.Especialidad = ddlEspecialidades.SelectedItem.ToString();
+            medico.Baja = false;
+
+            return medico;
+        }
+        protected Usuarios llenarEntidadUsuario()
+        {
+            Usuarios usuario = new Usuarios();
+            usuario.NombreUsuario = txtUsuario.Text.Trim();
+            usuario.Contrasenia = txtPass.Text.Trim();
+            usuario.TipoUsuario = "Medico";
+
+            return usuario;
+        }
+        protected void btnAlta_Click(object sender, EventArgs e)
+        {
+            //AGARRAMOS EL DNI
+            string dni = txtDNI.Text.Trim();
+
+            //SE CARGA UN OBJETO CON LOS VALORES
+            Medico medico = llenarEntidadMedico();
+            Usuarios usuario = llenarEntidadUsuario();
+
+            if (negMedicos.agregarMedico(medico, usuario))
+            {
+                 int legajo = getLegajoMedico();
+                 agregarHorarios(legajo);
+                 vaciarCampos();
+                 lblAgregado.Text = "El medico se ha agregado correctamente.";
+                 cargarGrdMedicos();
+                 vaciarCampos();
+            }
+            else
+            {
+                lblAgregado.Text = "No se ha podido agregar el medico.";
+            }
+  
+        }
         protected void ddlProvincia_SelectedIndexChanged(object sender, EventArgs e)
         {
             NegocioLocalidades loc = new NegocioLocalidades();
@@ -141,12 +205,12 @@ namespace Vistas.Administrador
             ddlLocalidad.Items.Insert(0, new ListItem("Seleccione una localidad", "0"));
         }
 
+        //MODIFICACION MEDICO
         protected void grdMedicos_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             grdMedicos.EditIndex = -1;
             cargarGrdMedicos();
         }
-
         protected void grdMedicos_RowEditing(object sender, GridViewEditEventArgs e)
         {
             grdMedicos.EditIndex = e.NewEditIndex;
@@ -190,61 +254,6 @@ namespace Vistas.Administrador
                 lblMensaje.Text = "NO SE PUDO ACTUALIZAR AL MÉDICO";
             }
         }
-        protected Medico llenarEntidadMedico()
-        {
-            Medico medico = new Medico();
-            medico.Dni = int.Parse(txtDNI.Text.Trim());
-            medico.Nombre = txtNombre.Text.Trim();
-            medico.Apellido = txtApellido.Text.Trim();
-            medico.Sexo = ddlSexo.SelectedValue.ToString();
-            medico.Nacionalidad = txtNacionalidad.Text;
-            medico.FechaNac = txtFechaNac.Text.Trim();
-            medico.Direccion = txtDireccion.Text.Trim();
-            medico.Localidad = int.Parse(ddlLocalidad.SelectedValue.ToString());
-            medico.Provincia = int.Parse(ddlProvincia.SelectedValue.ToString());
-            medico.Email = txtCorreo.Text.Trim();
-            medico.Telefono = txtTelefono.Text.Trim();
-            medico.Especialidad = ddlEspecialidades.SelectedItem.ToString();
-            medico.Baja = false;
-
-            return medico;
-        }
-
-        protected Usuarios llenarEntidadUsuario()
-        {
-            Usuarios usuario = new Usuarios();
-            usuario.NombreUsuario = txtUsuario.Text.Trim();
-            usuario.Contrasenia = txtPass.Text.Trim();
-            usuario.TipoUsuario = "Medico";
-
-            return usuario;
-        }
-
-        protected void btnAlta_Click(object sender, EventArgs e)
-        {
-            //AGARRAMOS EL DNI
-            string dni = txtDNI.Text.Trim();
-
-            //SE CARGA UN OBJETO CON LOS VALORES
-            Medico medico = llenarEntidadMedico();
-            Usuarios usuario = llenarEntidadUsuario();
-
-            if (negMedicos.agregarMedico(medico, usuario))
-            {
-                 int legajo = getLegajoMedico();
-                 agregarHorarios(legajo);
-                 vaciarCampos();
-                 lblAgregado.Text = "El medico se ha agregado correctamente.";
-                 cargarGrdMedicos();
-                 vaciarCampos();
-            }
-            else
-            {
-                lblAgregado.Text = "No se ha podido agregar el medico.";
-            }
-  
-        }
-
         protected void grdMedicos_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             lblMensaje.Text = "¿SEGURO QUE QUIERE ELIMINAR ESTE MEDICO?";
@@ -254,9 +263,6 @@ namespace Vistas.Administrador
             int legajo = Convert.ToInt32(((Label)grdMedicos.Rows[e.RowIndex].FindControl("lbl_it_legajo")).Text);
             Session["RowIndexDeleteMedico"] = legajo;
         }
-
-
-
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
             cargarGrdMedicos();
@@ -266,42 +272,114 @@ namespace Vistas.Administrador
             txtBuscarLegajo.Text = "";
             cargarGrdMedicos();
         }
+        protected void grdMedicos_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow && e.Row.RowState.HasFlag(DataControlRowState.Edit))
+            {
+                DropDownList ddlEitSexo = (DropDownList)e.Row.FindControl("ddl_eit_Sexo");
+                DropDownList ddlEitProvincia = (DropDownList)e.Row.FindControl("ddl_eit_Provincia");
+                DropDownList ddlEitLocalidad = (DropDownList)e.Row.FindControl("ddl_eit_Localidad");
+                DropDownList ddlEitEspecialidad = (DropDownList)e.Row.FindControl("ddl_eit_Especialidad");
+                NegocioLocalidades loc = new NegocioLocalidades();
+                NegocioProvincias prov = new NegocioProvincias();
+                NegocioEspecialidades esp = new NegocioEspecialidades();
+                DataTable dt = new DataTable();
+                string legajo = ((Label)e.Row.FindControl("lbl_it_Legajo")).Text;
 
+                ddlEitSexo.SelectedValue = negMedicos.obtenerSexoAsignado(legajo);
+
+                dt = prov.obtenerTablaProvincias();
+                ddlEitProvincia.DataSource = dt;
+                ddlEitProvincia.DataTextField = "nombreProvincia_PR";
+                ddlEitProvincia.DataValueField = "IdProvincia_PR";
+                ddlEitProvincia.DataBind();
+                ddlEitProvincia.SelectedValue = negMedicos.obtenerProvinciaAsignada(legajo);
+
+                dt = loc.obtenerTablaLocalidades(0);
+                ddlEitLocalidad.DataSource = dt;
+                ddlEitLocalidad.DataTextField = "nombreLocalidad_L";
+                ddlEitLocalidad.DataValueField = "IdLocalidad_L";
+                ddlEitLocalidad.DataBind();
+                ddlEitLocalidad.SelectedValue = negMedicos.obtenerLocalidadAsignada(legajo);
+
+                dt = esp.obtenerTablaEspecialidades();
+                ddlEitEspecialidad.DataSource = dt;
+                ddlEitEspecialidad.DataTextField = "nombreEspecialidad_E";
+                ddlEitEspecialidad.DataValueField = "nombreEspecialidad_E";
+                ddlEitEspecialidad.DataBind();
+                ddlEitEspecialidad.SelectedValue = negMedicos.obtenerEspecialidadAsignada(legajo);
+            }
+        }
         protected void grdMedicos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             grdMedicos.PageIndex = e.NewPageIndex;
             cargarGrdMedicos();
         }
-
-        protected void lnkbtnCerrarSesion_Click(object sender, EventArgs e)
+       
+        //MODIFCACION HORARIOS
+        protected void grdHorarios_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            if (Request.Cookies["UsuarioInfo"] != null)
+            grdHorarios.EditIndex = e.NewEditIndex;
+            cargarGrdHorarios(LegajoSeleccionado);
+        }
+        protected void grdHorarios_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            grdHorarios.EditIndex = -1;
+            cargarGrdHorarios(LegajoSeleccionado);
+        }
+        protected void grdMedicos_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+            //obtener el legajo seleccionado y mostrarlo por pantalla
+            int selectedIndex = e.NewSelectedIndex;
+            GridViewRow fila = grdMedicos.Rows[selectedIndex];
+
+            LegajoSeleccionado = int.Parse(((Label)fila.FindControl("lbl_it_legajo")).Text);
+            
+            Label5.Text = LegajoSeleccionado.ToString();
+            lblLegajoMedicoHorarioN.Text = LegajoSeleccionado.ToString();
+
+            //llenar la grid con la info del legajo seleccionado
+            lblLegajoMedicoHorarios.Text = "LEGAJO N:";
+            cargarGrdHorarios(LegajoSeleccionado);
+        }
+        protected void grdHorarios_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            int RowIndex = e.RowIndex;
+            GridViewRow fila = grdHorarios.Rows[RowIndex];
+
+            int legajo = int.Parse(lblLegajoMedicoHorarioN.Text);
+            string dia = (((Label)fila.FindControl("lbl_It_DiaAtencion")).Text);
+            string ingreso = (((TextBox)fila.FindControl("txt_Eit_HoraInicio")).Text);
+            string egreso = (((TextBox)fila.FindControl("txt_Eit_HoraEgreso")).Text);
+            
+            if (negHorarios.actualizarHorarioMedico(legajo,dia,ingreso,egreso))
             {
-                eliminarCookie();
+                lblMensajeHorario.Text = "HORARIO ACTUALIZADO CORRECTAMENTE";
             }
             else
             {
-                eliminarSessions();
+                lblMensajeHorario.Text = "ERROR AL ACTUALIZAR EL HORARIO";
             }
-
-            Response.Redirect("../login.aspx");
+            grdHorarios.EditIndex = -1;
+            cargarGrdHorarios(LegajoSeleccionado);
         }
-        private void eliminarCookie()
+        protected void grdHorarios_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            HttpCookie cookie = new HttpCookie("UsuarioInfo");
-            cookie.Path = "/";
-
-            cookie.Expires = DateTime.Now.AddDays(-1);
-            Response.Cookies.Add(cookie);
+            lblMensajeHorario.Text = "¿SEGURO QUE QUIERE ELIMINAR EL HORARIO DE ESTE MEDICO?";
+            lblMensajeHorario.ForeColor = System.Drawing.Color.Red;
+            lbtnNoHorario.Visible = true;
+            lbtnSiHorario.Visible = true;
+            string dia = ((Label)grdHorarios.Rows[e.RowIndex].FindControl("lbl_It_DiaAtencion")).Text;
+            int legajo = int.Parse(lblLegajoMedicoHorarioN.Text);
+            Session["RowIndexDeleteHorario_dia"] = dia;
+            Session["RowIndexDeleteHorario_leg"] = legajo;
         }
-
-        private void eliminarSessions()
+       
+        public void cargarGrdHorarios(int legajo)
         {
-            Session.Remove("TipoUsuario");
-            Session.Remove("Usuario");
-            Session.Remove("Legajo");
+            grdHorarios.DataSource = negHorarios.obtenerHorariosDeMedico(legajo);
+            grdHorarios.DataBind();
         }
-
         protected void lbtnSi_Click(object sender, EventArgs e)
         {
             int legajo = (int)Session["RowIndexDeleteMedico"];
@@ -317,7 +395,6 @@ namespace Vistas.Administrador
             lbtnSi.Visible = false;
             lbtnNo.Visible = false;
         }
-
         protected void lbtnNo_Click(object sender, EventArgs e)
         {
             lblMensaje.Text = "";
@@ -325,26 +402,7 @@ namespace Vistas.Administrador
             lbtnSi.Visible=false;
         }
 
-        protected void grdHorarios_RowEditing(object sender, GridViewEditEventArgs e)
-        {
-            grdHorarios.EditIndex = e.NewEditIndex;
-            cargarGrdHorarios(legajoSeleccionado);
-        }
-
-        protected void grdHorarios_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
-        {
-            grdHorarios.EditIndex = -1;
-            cargarGrdHorarios(legajoSeleccionado);
-        }
-
-        protected int getLegajoMedico()
-        {
-            NegocioHorarios negocioHorarios = new NegocioHorarios();
-            int legajo = negocioHorarios.getLegajoMedico();
-
-            return legajo;
-        }
-
+        //AGREGAR HORARIOS
         protected void agregarHorarios(int legajo)
         {
             //LUNES
@@ -412,7 +470,80 @@ namespace Vistas.Administrador
                 
             }
         }
+        protected void lbtnSiHorario_Click1(object sender, EventArgs e)
+        {
+            string dia = Session["RowIndexDeleteHorario_dia"].ToString();
+            int legajo = (int)Session["RowIndexDeleteHorario_leg"];
+            if (negHorarios.eliminarHorario(legajo, dia))
+            {
+                lblMensajeHorario.Text = "ELIMINADO CORRECTAMENTE";
+            }
+            else
+            {
+                lblMensajeHorario.Text = "NO SE PUDO ELIMINAR";
+            }
+            cargarGrdHorarios(legajo);
+            lbtnSiHorario.Visible = false;
+            lbtnNoHorario.Visible = false;
+        }
+        protected void lbtnNoHorario_Click1(object sender, EventArgs e)
+        {
+            lblMensajeHorario.Text = "";
+            lbtnNoHorario.Visible = false;
+            lbtnSiHorario.Visible = false;
+        }
+        protected void btnAgregarDia_Click(object sender, EventArgs e)
+        {
+            if(negHorarios.agregarHorarios(int.Parse(txtLegajoHorario.Text), ddlAgregarDia.SelectedValue, txtHorarioInicio.Text, txtHorarioFin.Text))
+            {
+                lblHorarioAgregado.Text = "SE AGREGÓ EL HORARIO CORRECTAMENTE";
+            }
+            else
+            {
+                lblHorarioAgregado.Text = "NO SE PUDO AGREGAR EL HORARIO";
+            }
+            cargarGrdHorarios(int.Parse(txtLegajoHorario.Text));
+            txtLegajoHorario.Text = "";
+            ddlAgregarDia.SelectedIndex = 0;
+            txtHorarioInicio.Text = "";
+            txtHorarioFin.Text = "";
+        }
 
+        //FUNCIONES GLOBALES
+        protected void lnkbtnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            if (Request.Cookies["UsuarioInfo"] != null)
+            {
+                eliminarCookie();
+            }
+            else
+            {
+                eliminarSessions();
+            }
+
+            Response.Redirect("../login.aspx");
+        }
+        private void eliminarCookie()
+        {
+            HttpCookie cookie = new HttpCookie("UsuarioInfo");
+            cookie.Path = "/";
+
+            cookie.Expires = DateTime.Now.AddDays(-1);
+            Response.Cookies.Add(cookie);
+        }
+        private void eliminarSessions()
+        {
+            Session.Remove("TipoUsuario");
+            Session.Remove("Usuario");
+            Session.Remove("Legajo");
+        }
+        protected int getLegajoMedico()
+        {
+            NegocioHorarios negocioHorarios = new NegocioHorarios();
+            int legajo = negocioHorarios.getLegajoMedico();
+
+            return legajo;
+        }
         protected void vaciarCampos()
         {
             txtDNI.Text = "";
@@ -452,142 +583,6 @@ namespace Vistas.Administrador
 
             txtUsuario.Text = "";
         }
-        public void cargarGrdHorarios(int legajo)
-        {
-            grdHorarios.DataSource = negHorarios.obtenerHorariosDeMedico(legajo);
-            grdHorarios.DataBind();
-        }
-
-        protected void grdMedicos_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
-        {
-            //obtener el legajo seleccionado y mostrarlo por pantalla
-            int selectedIndex = e.NewSelectedIndex;
-            GridViewRow fila = grdMedicos.Rows[selectedIndex];
-         
-            legajoSeleccionado = int.Parse(((Label)fila.FindControl("lbl_it_legajo")).Text);
-           
-            lblLegajoMedicoHorarioN.Text = legajoSeleccionado.ToString();
-
-            //llenar la grid con la info del legajo seleccionado
-            lblLegajoMedicoHorarios.Text = "LEGAJO N:";
-            cargarGrdHorarios(legajoSeleccionado);
-        }
-        
-
-        protected void grdHorarios_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        {
-            int RowIndex = e.RowIndex;
-            GridViewRow fila = grdHorarios.Rows[RowIndex];
-
-            int legajo = int.Parse(lblLegajoMedicoHorarioN.Text);
-            string dia = (((Label)fila.FindControl("lbl_It_DiaAtencion")).Text);
-            string ingreso = (((TextBox)fila.FindControl("txt_Eit_HoraInicio")).Text);
-            string egreso = (((TextBox)fila.FindControl("txt_Eit_HoraEgreso")).Text);
-            
-            if (negHorarios.actualizarHorarioMedico(legajo,dia,ingreso,egreso))
-            {
-                lblMensajeHorario.Text = "HORARIO ACTUALIZADO CORRECTAMENTE";
-            }
-            else
-            {
-                lblMensajeHorario.Text = "ERROR AL ACTUALIZAR EL HORARIO";
-            }
-            grdHorarios.EditIndex = -1;
-            cargarGrdHorarios(legajoSeleccionado);
-        }
-
-        protected void grdHorarios_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        {
-            lblMensajeHorario.Text = "¿SEGURO QUE QUIERE ELIMINAR EL HORARIO DE ESTE MEDICO?";
-            lblMensajeHorario.ForeColor = System.Drawing.Color.Red;
-            lbtnNoHorario.Visible = true;
-            lbtnSiHorario.Visible = true;
-            string dia = ((Label)grdHorarios.Rows[e.RowIndex].FindControl("lbl_It_DiaAtencion")).Text;
-            int legajo = int.Parse(lblLegajoMedicoHorarioN.Text);
-            Session["RowIndexDeleteHorario_dia"] = dia;
-            Session["RowIndexDeleteHorario_leg"] = legajo;
-        }
-
-        protected void btnAgregarDia_Click(object sender, EventArgs e)
-        {
-            if(negHorarios.agregarHorarios(int.Parse(txtLegajoHorario.Text), ddlAgregarDia.SelectedValue, txtHorarioInicio.Text, txtHorarioFin.Text))
-            {
-                lblHorarioAgregado.Text = "SE AGREGÓ EL HORARIO CORRECTAMENTE";
-            }
-            else
-            {
-                lblHorarioAgregado.Text = "NO SE PUDO AGREGAR EL HORARIO";
-            }
-            cargarGrdHorarios(int.Parse(txtLegajoHorario.Text));
-            txtLegajoHorario.Text = "";
-            ddlAgregarDia.SelectedIndex = 0;
-            txtHorarioInicio.Text = "";
-            txtHorarioFin.Text = "";
-        }
-
-        protected void grdMedicos_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.DataRow && e.Row.RowState.HasFlag(DataControlRowState.Edit))
-            {
-                DropDownList ddlEitSexo = (DropDownList)e.Row.FindControl("ddl_eit_Sexo");
-                DropDownList ddlEitProvincia = (DropDownList)e.Row.FindControl("ddl_eit_Provincia");
-                DropDownList ddlEitLocalidad = (DropDownList)e.Row.FindControl("ddl_eit_Localidad");
-                DropDownList ddlEitEspecialidad = (DropDownList)e.Row.FindControl("ddl_eit_Especialidad");
-                NegocioLocalidades loc = new NegocioLocalidades();
-                NegocioProvincias prov = new NegocioProvincias();
-                NegocioEspecialidades esp = new NegocioEspecialidades();
-                DataTable dt = new DataTable();
-                string legajo = ((Label)e.Row.FindControl("lbl_it_Legajo")).Text;
-
-                ddlEitSexo.SelectedValue = negMedicos.obtenerSexoAsignado(legajo);
-
-                dt = prov.obtenerTablaProvincias();
-                ddlEitProvincia.DataSource = dt;
-                ddlEitProvincia.DataTextField = "nombreProvincia_PR";
-                ddlEitProvincia.DataValueField = "IdProvincia_PR";
-                ddlEitProvincia.DataBind();
-                ddlEitProvincia.SelectedValue = negMedicos.obtenerProvinciaAsignada(legajo);
-
-                dt = loc.obtenerTablaLocalidades(0);
-                ddlEitLocalidad.DataSource = dt;
-                ddlEitLocalidad.DataTextField = "nombreLocalidad_L";
-                ddlEitLocalidad.DataValueField = "IdLocalidad_L";
-                ddlEitLocalidad.DataBind();
-                ddlEitLocalidad.SelectedValue = negMedicos.obtenerLocalidadAsignada(legajo);
-
-                dt = esp.obtenerTablaEspecialidades();
-                ddlEitEspecialidad.DataSource = dt;
-                ddlEitEspecialidad.DataTextField = "nombreEspecialidad_E";
-                ddlEitEspecialidad.DataValueField = "nombreEspecialidad_E";
-                ddlEitEspecialidad.DataBind();
-                ddlEitEspecialidad.SelectedValue = negMedicos.obtenerEspecialidadAsignada(legajo);
-            }
-        }
-
-        protected void lbtnSiHorario_Click1(object sender, EventArgs e)
-        {
-            string dia = Session["RowIndexDeleteHorario_dia"].ToString();
-            int legajo = (int)Session["RowIndexDeleteHorario_leg"];
-            if (negHorarios.eliminarHorario(legajo, dia))
-            {
-                lblMensajeHorario.Text = "ELIMINADO CORRECTAMENTE";
-            }
-            else
-            {
-                lblMensajeHorario.Text = "NO SE PUDO ELIMINAR";
-            }
-            cargarGrdHorarios(legajo);
-            lbtnSiHorario.Visible = false;
-            lbtnNoHorario.Visible = false;
-        }
-
-        protected void lbtnNoHorario_Click1(object sender, EventArgs e)
-        {
-            lblMensajeHorario.Text = "";
-            lbtnNoHorario.Visible = false;
-            lbtnSiHorario.Visible = false;
-        }
-
         protected void hfConfirmar_ValueChanged(object sender, EventArgs e)
         {
 

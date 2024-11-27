@@ -148,7 +148,14 @@ namespace Vistas
             //obtengo el dia de la semana segun la fecha
             DateTime fecha = DateTime.Parse(txtDia.Text);
             string dia = fecha.ToString("dddd", new CultureInfo("es-AR"));
-            
+            if (dia == "miércoles")
+            {
+                dia = "Miercoles";
+            }
+            if(dia == "sábado")
+            {
+                dia = "Sabado";
+            }
 
             //lleno el ddl de medicos segun especialidad y dia
             ddlMedicos.Items.Clear();
@@ -184,6 +191,14 @@ namespace Vistas
             // agrego los horarios del dia seleccionado
             DateTime fecha = DateTime.Parse(txtDia.Text);
             string dia = fecha.ToString("dddd", new CultureInfo("es-AR"));
+            if (dia == "miércoles")
+            {
+                dia = "Miercoles";
+            }
+            if (dia == "sábado")
+            {
+                dia = "Sabado";
+            }
             NegocioHorarios negHorarios = new NegocioHorarios();
 
             DataRow dr = negHorarios.diaLaboralMedico(int.Parse(ddlMedicos.SelectedValue.ToString()),dia);

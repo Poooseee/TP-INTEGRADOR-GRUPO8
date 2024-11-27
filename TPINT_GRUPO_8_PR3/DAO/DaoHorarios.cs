@@ -23,7 +23,7 @@ namespace DAO
         }
         public DataTable obtenerHorarioDeDia(int legajoMedico,string dia)
         {
-            string consulta = "SELECT diaAtencion AS 'DIA', HoraIngreso AS 'INGRESO', HoraEgreso AS 'EGRESO' FROM JORNADALABORALXMEDICO WHERE LegajoMedico_JXM = " + legajoMedico + " AND diaAtencion = '" + dia+"'";
+            string consulta = "SELECT diaAtencion AS 'DIA', HoraIngreso AS 'INGRESO', HoraEgreso AS 'EGRESO' FROM JORNADALABORALXMEDICO WHERE LegajoMedico_JXM = "+ legajoMedico + " AND diaAtencion = '"+ dia+"'";
             return ad.ObtenerTabla("HorarioDiaLaboral", consulta);
         }
 
