@@ -14,6 +14,8 @@ namespace Vistas.Administrador
        NegocioPacientes negPac = new NegocioPacientes();
        NegocioMedicos negMed = new NegocioMedicos();
        NegocioTurnos negTur = new NegocioTurnos();
+
+        // cuenta cantidad de pacientes masculinos y femeninos y suma las edades de todos
         private void calcularDatosPacientes(ref int pacientesMasculinos, ref int pacientesFemeninos,ref int totalPacientes, ref int anioActual, ref int sumaEdadesPacientes)
         {
             DataTable dtPacientes = negPac.obtenerTablaPacientes();
@@ -39,6 +41,8 @@ namespace Vistas.Administrador
                 }
             }
         }
+
+        // suma todas las edades de todos los medicos
         private void calcularDatosMedicos(ref int sumaEdadesMedicos, ref int anioActual, ref int totalMedicos)
         {
             DataTable dtMedicos = negMed.obtenerTablaMedicos();
@@ -53,6 +57,7 @@ namespace Vistas.Administrador
                 sumaEdadesMedicos += edad;
             }
         }
+        // cuenta la cantidad de turnos presentes y cantidad de ausente y cuenta todos en general
         private void calcularDatosTurnos(ref int totalTurnos, ref int turnosPresentes, ref int turnosAusentes, ref DataTable dtTurnos )
         {
 
@@ -64,13 +69,13 @@ namespace Vistas.Administrador
                 if (estadoTurno == "PRESENTE")
                 {
                     turnosPresentes++;
-                    totalTurnos++;
+                    
                 }
                 else if (estadoTurno == "AUSENTE")
                 {
                     turnosAusentes++;
-                    totalTurnos++;
                 }
+                    totalTurnos++;
             }
         }
         private void controlarCookieYSession()
@@ -156,11 +161,11 @@ namespace Vistas.Administrador
             //INFORMES
 
             //PORCENTAJE TURNOS AUSENTES
-            int porcentajeAusentes = (totalTurnos > 0) ? (int)Math.Round((turnosAusentes * 100.0) / totalTurnos) : 0;
+            float porcentajeAusentes = (totalTurnos > 0) ? (float)Math.Round((turnosAusentes * 100.0) / totalTurnos) : 0;
             lblAusentes.Text = porcentajeAusentes.ToString() + "%";
 
             //PORCENTAJE TURNOS PRESENTES
-            int porcentajePresentes = (totalTurnos > 0) ? (int)Math.Round((turnosPresentes * 100.0) / totalTurnos) : 0;
+            float porcentajePresentes = (totalTurnos > 0) ? (float)Math.Round((turnosPresentes * 100.0) / totalTurnos) : 0;
             lblPresentes.Text = porcentajePresentes.ToString() + "%";
 
             //PACIENTE CON MAS TURNOS DEL MES
@@ -181,19 +186,19 @@ namespace Vistas.Administrador
             lblEspecialidadSolicitada.Text = especialidadMasSolicitada;
 
             //PORCENTAJE PACIENTES MASCULINOS
-            int porcentajeMasculinos = (totalPacientes > 0) ? (int)Math.Round((pacientesMasculinos * 100.0) / totalPacientes) : 0;
+            float porcentajeMasculinos = (totalPacientes > 0) ? (float)Math.Round((pacientesMasculinos * 100.0) / totalPacientes) : 0;
             lblPacienteMasc.Text = porcentajeMasculinos.ToString() + "%";
 
             //PORCENTAJE PACIENTES FEMENIOS
-            int porcentajeFemeninos = (totalPacientes > 0) ? (int)Math.Round((pacientesFemeninos * 100.0) / totalPacientes) : 0;
+            float porcentajeFemeninos = (totalPacientes > 0) ? (float)Math.Round((pacientesFemeninos * 100.0) / totalPacientes) : 0;
             lblPacienteFem.Text = porcentajeFemeninos.ToString() + "%";
 
             //PROMEDIO DE EDAD PACIENTES
-            int promedioEdadPacientes = (totalPacientes > 0) ? sumaEdadesPacientes / totalPacientes : 0;
+            float promedioEdadPacientes = (totalPacientes > 0) ? sumaEdadesPacientes / totalPacientes : 0;
             lblPromPacientes.Text = promedioEdadPacientes.ToString() + " AÑOS";
 
             //PROMEDIO DE EDAD MEDICOS
-            int promedioEdadMedicos = (totalMedicos > 0) ? sumaEdadesMedicos / totalMedicos : 0;
+            float promedioEdadMedicos = (totalMedicos > 0) ? sumaEdadesMedicos / totalMedicos : 0;
             lblPromMedicos.Text = promedioEdadMedicos.ToString() + " AÑOS";
         }
 
