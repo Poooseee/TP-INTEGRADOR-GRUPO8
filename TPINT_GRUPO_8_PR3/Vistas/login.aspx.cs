@@ -16,14 +16,14 @@ namespace Vistas
         NegocioUsuarios negUs = new NegocioUsuarios();
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
             if (Request.Cookies["UsuarioInfo"] != null)
             {
                 //EL USUARIO ESTA LOGUEADO EN EL SISTEMA CON LA COOKIE
                 HttpCookie cookie = Request.Cookies["UsuarioInfo"];
                 string tipoUsuario = cookie["TipoUsuario"];
                 
-                if(tipoUsuario == "Medico")
+                if(tipoUsuario.ToLower() == "medico")
                 {
                     //MEDICO
                     Response.Redirect("/Medico/TurnosYPacientes.aspx");
@@ -34,6 +34,7 @@ namespace Vistas
                     Response.Redirect("/Administrador/menuAdministrador.aspx");
                 }
             }
+           
         }
 
         //CONTROLAR NOMBRE DE USUARIO

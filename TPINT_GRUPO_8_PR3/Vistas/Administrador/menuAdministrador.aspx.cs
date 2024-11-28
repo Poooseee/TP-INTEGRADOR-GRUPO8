@@ -16,7 +16,7 @@ namespace Vistas
                 //EL USUARIO ESTA LOGUEADO EN EL SISTEMA
                 HttpCookie cookie = Request.Cookies["UsuarioInfo"];
 
-                if (cookie["TipoUsuario"] == "Administrador")
+                if (cookie["TipoUsuario"].ToLower() == "administrador")
                 {
                     //EL USUARIO TIENE ACCESO
                     string usuario = cookie["Usuario"];

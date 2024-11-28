@@ -22,7 +22,7 @@ namespace Vistas
                 HttpCookie cookie = Request.Cookies["UsuarioInfo"];
 
                 //EL USUARIO ESTA LOGUEADO EN EL SISTEMA CON LA COOKIE
-                if (cookie["TipoUsuario"].ToString() == "Medico")
+                if (cookie["TipoUsuario"].ToString().ToLower() == "medico")
                 {
                     //EL USUARIO TIENE ACCESO
                     string usuario = cookie["Usuario"];
