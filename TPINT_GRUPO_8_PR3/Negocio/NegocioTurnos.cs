@@ -24,9 +24,10 @@ namespace Negocio
             NegocioMedicos negMed = new NegocioMedicos();
             if (negMed.existeMedico(legajo))
             {
-            return DaoTurnos.obtenerTurnosDeMedico(legajo);
+                return DaoTurnos.obtenerTurnosDeMedico(legajo);
 
             }
+
             return null;
         }
 

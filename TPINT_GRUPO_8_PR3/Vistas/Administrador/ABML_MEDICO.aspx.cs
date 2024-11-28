@@ -222,6 +222,7 @@ namespace Vistas.Administrador
             Medico medico = new Medico();
             medico.Legajo = int.Parse(((Label)fila.FindControl("lbl_it_legajo")).Text);
             medico.Especialidad = ((DropDownList)fila.FindControl("ddl_eit_Especialidad")).SelectedValue;
+            medico.Dni = int.Parse(((Label)fila.FindControl("lbl_it_Dni")).Text);
             medico.Nombre = (((TextBox)fila.FindControl("txt_Eit_Nombre")).Text);
             medico.Apellido = (((TextBox)fila.FindControl("txt_Eit_Apellido")).Text);
             medico.Sexo = ((DropDownList)fila.FindControl("ddl_eit_Sexo")).SelectedValue;
@@ -295,7 +296,9 @@ namespace Vistas.Administrador
                 ddlEitProvincia.DataBind();
                 ddlEitProvincia.SelectedValue = negMedicos.obtenerProvinciaAsignada(legajo);
 
-                dt = loc.obtenerTablaLocalidades(0);
+                ddlEitProvincia.SelectedIndexChanged += ddl_eit_Provincia_SelectedIndexChanged;
+
+                dt = loc.obtenerTablaLocalidades(Convert.ToInt32(ddlEitProvincia.SelectedValue));
                 ddlEitLocalidad.DataSource = dt;
                 ddlEitLocalidad.DataTextField = "nombreLocalidad_L";
                 ddlEitLocalidad.DataValueField = "IdLocalidad_L";
@@ -586,6 +589,30 @@ namespace Vistas.Administrador
         protected void hfConfirmar_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void ddl_eit_Provincia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //ACTIVADOR DEL EVENTO
+            DropDownList ddlProvincia = (DropDownList)sender;
+
+            //FILA ACTUAL DEL DDL
+            GridViewRow row = (GridViewRow)ddlProvincia.NamingContainer;
+
+            //DDL LOCALIDAD
+            DropDownList ddlLocalidad = (DropDownList)row.FindControl("ddl_eit_Localidad");
+
+
+            NegocioLocalidades loc = new NegocioLocalidades();
+            int IdProvincia = Convert.ToInt32(ddlProvincia.SelectedValue);
+
+            DataTable dt = new DataTable();
+            dt = loc.obtenerTablaLocalidades(IdProvincia);
+
+            ddlLocalidad.DataSource = dt;
+            ddlLocalidad.DataTextField = "nombreLocalidad_L";
+            ddlLocalidad.DataValueField = "IdLocalidad_L";
+            ddlLocalidad.DataBind();
         }
     }
 }

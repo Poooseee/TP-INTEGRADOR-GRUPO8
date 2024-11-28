@@ -67,7 +67,7 @@ namespace Vistas
         }
         public void cargarGrdTurnos(int legajoMedico)
         {
-                NegocioTurnos negocioTurnos = new NegocioTurnos();
+            NegocioTurnos negocioTurnos = new NegocioTurnos();
             if (txtPaciente.Text.Trim().Length > 0 || !string.IsNullOrEmpty(txtFecha.Text))
             {
                 grvTurnos.DataSource = negocioTurnos.filtrarTurnos( legajoMedico,txtPaciente.Text, txtFecha.Text);

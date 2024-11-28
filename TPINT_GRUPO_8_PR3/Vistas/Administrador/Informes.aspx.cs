@@ -57,6 +57,7 @@ namespace Vistas.Administrador
                 sumaEdadesMedicos += edad;
             }
         }
+
         // cuenta la cantidad de turnos presentes y cantidad de ausente y cuenta todos en general
         private void calcularDatosTurnos(ref int totalTurnos, ref int turnosPresentes, ref int turnosAusentes, ref DataTable dtTurnos )
         {
@@ -64,20 +65,22 @@ namespace Vistas.Administrador
             foreach (DataRow fila in dtTurnos.Rows)
             {
                 //AGARRAMOS EL ESTADO
-                string estadoTurno = fila["estadoPaciente_T"].ToString();
+                string estadoPaciente = fila["estadoPaciente_T"].ToString();
 
-                if (estadoTurno == "PRESENTE")
+                if (estadoPaciente == "PRESENTE")
                 {
                     turnosPresentes++;
-                    
+                    totalTurnos++;
+
                 }
-                else if (estadoTurno == "AUSENTE")
+                else if (estadoPaciente == "AUSENTE")
                 {
                     turnosAusentes++;
-                }
                     totalTurnos++;
+                }
             }
         }
+
         private void controlarCookieYSession()
         {
             if (Request.Cookies["UsuarioInfo"] != null)
