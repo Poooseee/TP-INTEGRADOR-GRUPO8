@@ -470,7 +470,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Provincia">
                     <EditItemTemplate>
-                        <asp:DropDownList ID="ddl_eit_Provincia" runat="server">
+                        <asp:DropDownList ID="ddl_eit_Provincia" runat="server" AutoPostBack="True">
                         </asp:DropDownList>
                     </EditItemTemplate>
                     <ItemTemplate>

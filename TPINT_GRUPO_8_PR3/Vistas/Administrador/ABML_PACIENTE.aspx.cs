@@ -19,7 +19,7 @@ namespace Vistas.Administrador
                 //EL USUARIO ESTA LOGUEADO EN EL SISTEMA
                 HttpCookie cookie = Request.Cookies["UsuarioInfo"];
 
-                if (cookie["TipoUsuario"] == "Administrador")
+                if (cookie["TipoUsuario"].ToLower() == "administrador")
                 {
                     //EL USUARIO TIENE ACCESO
                     string usuario = cookie["Usuario"];
@@ -31,7 +31,7 @@ namespace Vistas.Administrador
                         cargarProvinciasAlDDL();
                         ddlLocalidadesDefault();
                     }
-                    obtenerCookie();
+                  
                 }
                 else
                 {
@@ -42,7 +42,7 @@ namespace Vistas.Administrador
             else if (Session["TipoUsuario"] != null)
             {
                 //EL USUARIO ESTA LOGUEADO EN EL SISTEMA
-                if (Session["TipoUsuario"].ToString() == "Administrador")
+                if (Session["TipoUsuario"].ToString().ToLower() == "administrador")
                 {
                     //EL USUARIO TIENE ACCESO
                     string usuario = Session["Usuario"].ToString();
@@ -105,20 +105,24 @@ namespace Vistas.Administrador
             ddlLocalidad.DataBind();
             ddlLocalidad.Items.Insert(0, new ListItem("Seleccione una localidad", "0"));
         }
-        public void obtenerCookie()
+        protected void ddlProvincia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            HttpCookie cookie = this.Request.Cookies["UsuarioInfo"];
-            lblUsuario.Text = cookie["Usuario"];
+            cargarLocalidadesAlDDL();
         }
-        protected void grdPacientes_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        
+        protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            grdPacientes.EditIndex = -1;
-            tablaPacientes();
-        }
-        protected void grdPacientes_RowEditing(object sender, GridViewEditEventArgs e)
-        {
-            grdPacientes.EditIndex = e.NewEditIndex;
-            tablaPacientes();
+            Paciente paciente = llenarEntidadPaciente();
+            if (negPacientes.agregarPaciente(paciente))
+            {
+                lblAgregado.Text = "Se ha agregado correctamente el paciente";
+                limpiarAgregado();
+                tablaPacientes();
+            }
+            else
+            {
+                lblAgregado.Text = "Error al agregar el paciente. Verifique que el DNI sea correcto";
+            }
         }
         protected Paciente llenarEntidadPaciente()
         {
@@ -139,26 +143,89 @@ namespace Vistas.Administrador
 
             return paciente;
         }
-        protected void btnAgregar_Click(object sender, EventArgs e)
+        public void limpiarAgregado()
         {
-            Paciente paciente = llenarEntidadPaciente();
-            if (negPacientes.agregarPaciente(paciente))
-            {
-                lblAgregado.Text = "Se ha agregado correctamente el paciente";
-                limpiarAgregado();
-                cargarGrdPacientes();
-            }
-            else
-            {
-                lblAgregado.Text = "Error al agregar el paciente. Verifique que el DNI sea correcto";
-            }
+            txtDni.Text = "";
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            ddlSexo.SelectedIndex = 0;
+            txtFechaNacimiento.Text = "";
+            txtNacionalidad.Text = "";
+            ddlProvincia.SelectedIndex = 0;
+            ddlLocalidad.SelectedIndex = 0;
+            txtDireccion.Text = "";
+            txtTelefono.Text = "";
+            txtCorreo.Text = "";
         }
-
+        public void tablaPacientes()
+        {
+            Paciente pac = new Paciente();
+            pac.Dni = txtBusquedaDni.Text;
+            pac.Apellido = txtBusqApellido.Text;
+            pac.FechaNac = txtFechaNacPac.Text;
+            pac.Sexo = ddlBusqSexo.SelectedValue.ToString();
+            pac.Nacionalidad = txtBusqNacio.Text;
+            grdPacientes.DataSource = negPacientes.ObtenerTablaFiltrada(pac);
+            grdPacientes.DataBind();
+        }
+        protected void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            tablaPacientes();
+        }
+        protected void btnListarTodo_Click(object sender, EventArgs e)
+        {
+            txtBusqApellido.Text = string.Empty;
+            txtBusqNacio.Text = string.Empty;
+            txtBusquedaDni.Text = string.Empty;
+            txtFechaNacPac.Text = string.Empty;
+            ddlBusqSexo.SelectedIndex = 0;
+           tablaPacientes();
+        }
         protected void grdPacientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             grdPacientes.PageIndex = e.NewPageIndex;
             tablaPacientes();
         }
+        protected void grdPacientes_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            grdPacientes.EditIndex = e.NewEditIndex;
+            tablaPacientes();
+        }
+        protected void grdPacientes_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            grdPacientes.EditIndex = -1;
+            tablaPacientes();
+        }
+        protected void grdPacientes_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow && e.Row.RowState.HasFlag(DataControlRowState.Edit))
+            {
+                DropDownList ddlLocalidad = (DropDownList)e.Row.FindControl("ddl_eit_Localidad");
+                DropDownList ddlProvincia = (DropDownList)e.Row.FindControl("ddl_eit_Provincia");
+                NegocioLocalidades loc = new NegocioLocalidades();
+                NegocioProvincias prov = new NegocioProvincias();
+                DataTable dt = new DataTable();
+                NegocioPacientes negPac = new NegocioPacientes();
+                string dni = ((Label)e.Row.FindControl("lbl_Eit_Dni")).Text;
+
+                dt = prov.obtenerTablaProvincias();
+                ddlProvincia.DataSource = dt;
+                ddlProvincia.DataTextField = "nombreProvincia_PR";
+                ddlProvincia.DataValueField = "IdProvincia_PR";
+                ddlProvincia.DataBind();
+                ddlProvincia.SelectedValue = negPac.obtenerProvinciaAsignada(dni);
+                 
+
+               dt = loc.obtenerTablaLocalidades(0);
+                ddlLocalidad.DataSource = dt;
+                ddlLocalidad.DataTextField = "nombreLocalidad_L";
+                ddlLocalidad.DataValueField = "IdLocalidad_L";
+                ddlLocalidad.DataBind();
+                ddlLocalidad.SelectedValue = negPac.obtenerLocalidadAsignada(dni);
+
+            }
+        }
+
 
         protected void lnkbtnCerrarSesion_Click(object sender, EventArgs e)
         {
@@ -181,32 +248,11 @@ namespace Vistas.Administrador
             cookie.Expires = DateTime.Now.AddDays(-1);
             Response.Cookies.Add(cookie);
         }
-
         private void eliminarSessions()
         {
             Session.Remove("TipoUsuario");
             Session.Remove("Usuario");
             Session.Remove("Legajo");
-        }
-
-        protected void ddlProvincia_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cargarLocalidadesAlDDL();
-        }
-
-        public void limpiarAgregado()
-        {
-            txtDni.Text = "";
-            txtNombre.Text = "";
-            txtApellido.Text = "";
-            ddlSexo.SelectedIndex = 0;
-            txtFechaNacimiento.Text = "";
-            txtNacionalidad.Text = "";
-            ddlProvincia.SelectedIndex = 0;
-            ddlLocalidad.SelectedIndex = 0;
-            txtDireccion.Text = "";
-            txtTelefono.Text = "";
-            txtCorreo.Text = "";
         }
 
         protected void grdPacientes_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -218,32 +264,6 @@ namespace Vistas.Administrador
             string dni = ((Label)grdPacientes.Rows[e.RowIndex].Cells[0].FindControl("lbl_it_dni")).Text;
             Session["RowIndexDeletePaciente"] = dni;
         }
-
-        protected void btnFiltrar_Click(object sender, EventArgs e)
-        {
-            tablaPacientes();
-        }
-        public void tablaPacientes()
-        {
-            Paciente pac = new Paciente();
-            pac.Dni = txtBusquedaDni.Text;
-            pac.Apellido = txtBusqApellido.Text;
-            pac.FechaNac = txtFechaNacPac.Text;
-            pac.Sexo = ddlBusqSexo.SelectedValue.ToString();
-            pac.Nacionalidad = txtBusqNacio.Text;
-            grdPacientes.DataSource = negPacientes.ObtenerTablaFiltrada(pac);
-            grdPacientes.DataBind();
-        }
-        protected void btnListarTodo_Click(object sender, EventArgs e)
-        {
-            txtBusqApellido.Text = string.Empty;
-            txtBusqNacio.Text = string.Empty;
-            txtBusquedaDni.Text = string.Empty;
-            txtFechaNacPac.Text = string.Empty;
-            ddlBusqSexo.SelectedIndex = 0;
-            cargarGrdPacientes();
-        }
-
         protected void lbtnSI_Click(object sender, EventArgs e)
         {
             string Dni = (string)Session["RowIndexDeletePaciente"];
@@ -265,38 +285,6 @@ namespace Vistas.Administrador
             lblMensaje.Text = string.Empty;
             lbtnNo.Visible = false;
             lbtnSI.Visible = false;
-        }
-
-        protected void grdPacientes_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.DataRow && e.Row.RowState.HasFlag(DataControlRowState.Edit))
-            {
-                DropDownList ddlLocalidad = (DropDownList)e.Row.FindControl("ddl_eit_Localidad");
-                DropDownList ddlProvincia = (DropDownList)e.Row.FindControl("ddl_eit_Provincia");
-                TextBox txtFechaNacimiento = (TextBox)e.Row.FindControl("txt_Eit_FechaDeNacimiento");
-                NegocioLocalidades loc = new NegocioLocalidades();
-                NegocioProvincias prov = new NegocioProvincias();
-                DataTable dt = new DataTable();
-                NegocioPacientes negPac = new NegocioPacientes();
-                string dni = ((Label)e.Row.FindControl("lbl_Eit_Dni")).Text;
-
-                dt = prov.obtenerTablaProvincias();
-                ddlProvincia.DataSource = dt;
-                ddlProvincia.DataTextField = "nombreProvincia_PR";
-                ddlProvincia.DataValueField = "IdProvincia_PR";
-                ddlProvincia.DataBind();
-                ddlProvincia.SelectedValue = negPac.obtenerProvinciaAsignada(dni); 
-
-                dt = loc.obtenerTablaLocalidades(0);
-                ddlLocalidad.DataSource = dt;
-                ddlLocalidad.DataTextField = "nombreLocalidad_L";
-                ddlLocalidad.DataValueField = "IdLocalidad_L";
-                ddlLocalidad.DataBind();
-                ddlLocalidad.SelectedValue = negPac.obtenerLocalidadAsignada(dni);
-
-                txtFechaNacimiento.Text = negPac.obtenerFechaAsignada(dni);
-               
-            }
         }
 
         protected void grdPacientes_RowUpdating(object sender, GridViewUpdateEventArgs e)
