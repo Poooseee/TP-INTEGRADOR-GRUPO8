@@ -51,8 +51,12 @@ namespace Negocio
         {
             int filas = 0, filas2 = 0;
             DaoUsuarios daoUsuarios = new DaoUsuarios();
-            
-            if (DaoMedicos.existeMedico(medico.Legajo) == false && daoUsuarios.nombreUsuarioValido(usuario) == false)
+
+            bool existeMedico = DaoMedicos.existeMedico(medico.Legajo);
+            bool existeUsuario = daoUsuarios.nombreUsuarioValido(usuario);
+
+
+            if (existeMedico == false && existeUsuario == false)
             {
                 //si no existe, agregalo
                 filas2 = daoUsuarios.agregarUsuario(usuario);

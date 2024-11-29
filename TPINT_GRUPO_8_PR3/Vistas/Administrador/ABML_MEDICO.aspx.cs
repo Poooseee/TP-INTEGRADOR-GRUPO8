@@ -142,7 +142,7 @@ namespace Vistas.Administrador
         protected Medico llenarEntidadMedico()
         {
             Medico medico = new Medico();
-            medico.Legajo = obtenerLegajoMedico()+1;
+            medico.Legajo = Convert.ToInt32(obtenerLegajoMedico()) + 1;
             medico.Dni = int.Parse(txtDNI.Text.Trim());
             medico.Nombre = txtNombre.Text.Trim();
             medico.Apellido = txtApellido.Text.Trim();
@@ -179,8 +179,8 @@ namespace Vistas.Administrador
 
             if (negMedicos.agregarMedico(medico, usuario))
             {
-                 int legajo = getLegajoMedico();
-                 agregarHorarios(legajo);
+                 //int legajo = getLegajoMedico();
+                 agregarHorarios(medico.Legajo);
                  vaciarCampos();
                  lblAgregado.Text = "El medico se ha agregado correctamente.";
                  cargarGrdMedicos();
