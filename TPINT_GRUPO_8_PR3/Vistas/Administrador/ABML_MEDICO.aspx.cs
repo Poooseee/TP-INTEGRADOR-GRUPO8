@@ -131,18 +131,18 @@ namespace Vistas.Administrador
 
         }
 
-        //public void cargarGrdHorarios()
-        //{
-        //    NegocioHorarios NH = new NegocioHorarios();
-        //    grdHorarios.DataSource = NH.obtenerTablaHorarios();
-        //    grdHorarios.DataBind();
-        //}
+
 
 
         //ALTA MEDICO
+        private int obtenerLegajoMedico()
+        {
+            return negMedicos.obtenerLegajoMedico();
+        }
         protected Medico llenarEntidadMedico()
         {
             Medico medico = new Medico();
+            medico.Legajo = obtenerLegajoMedico()+1;
             medico.Dni = int.Parse(txtDNI.Text.Trim());
             medico.Nombre = txtNombre.Text.Trim();
             medico.Apellido = txtApellido.Text.Trim();

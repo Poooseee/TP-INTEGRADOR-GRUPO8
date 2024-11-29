@@ -16,7 +16,10 @@ namespace Negocio
         {
             return DaoMedicos.obtenerTablaMedicos();
         }
-
+        public int obtenerLegajoMedico()
+        {
+            return DaoMedicos.obtenerLegajoMedico();
+        }
         public bool BajaMedico(int legajo)
         {
             Medico medico = new Medico();
@@ -52,8 +55,8 @@ namespace Negocio
             if (DaoMedicos.existeMedico(medico.Legajo) == false && daoUsuarios.nombreUsuarioValido(usuario) == false)
             {
                 //si no existe, agregalo
-                filas = DaoMedicos.agregarMedico(medico);
                 filas2 = daoUsuarios.agregarUsuario(usuario);
+                filas = DaoMedicos.agregarMedico(medico);
             }
            
             //si se pudo agregar retorna true, sino false

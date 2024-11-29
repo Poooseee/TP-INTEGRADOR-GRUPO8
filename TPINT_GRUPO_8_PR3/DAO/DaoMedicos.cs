@@ -24,7 +24,11 @@ namespace DAO
 
             return ad.ObtenerTabla("Medicos", consulta);
         }
-
+        public int obtenerLegajoMedico()
+        {
+            string consulta = "SELECT MAX(legajoUsuario_U) FROM USUARIOS";
+            return ad.obtenerResultado(consulta);
+        }
         public bool existeMedico(int legajo)
         {
             return ad.existe("SELECT * FROM Medicos WHERE  baja_m = 0 AND Legajo_M = " + legajo);

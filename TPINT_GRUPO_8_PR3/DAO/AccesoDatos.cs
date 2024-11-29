@@ -146,5 +146,23 @@ namespace DAO
             conexion.Close();
             return filas;
         }
+        public int obtenerResultado(string consultaSQL)
+        {
+            SqlConnection conexion = ObtenerConexion();
+            SqlCommand cmd = new SqlCommand(consultaSQL, conexion);
+
+            object resultado = cmd.ExecuteScalar();
+            conexion.Close();
+
+            if (resultado == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return Convert.ToInt32(resultado);
+            }
+
+        }
     }
 }
