@@ -26,9 +26,9 @@ namespace DAO
             return ad.ObtenerTabla("Turnos", consulta);
         }
 
-        public bool buscarTurno(Turno turno)
+        public bool buscarTurno(Turno turno , string fecha)
         {
-            string consulta = "Select * from TURNOS where legajoMedico_T = "+ turno.LegajoMedico + " and horario_T = '"+turno.Hora+"' and fecha_T = '"+turno.Fecha+"'";
+            string consulta = "Select * from TURNOS where legajoMedico_T = "+ turno.LegajoMedico + " and horario_T = '"+turno.Hora+"' and fecha_T = '"+fecha+"'";
             return ad.existe(consulta);       
         }
 
@@ -55,7 +55,7 @@ namespace DAO
                     DniPaciente_T,
                     COUNT(DniPaciente_T) AS cantidad_turnos
                     FROM Turnos
-                    WHERE MONTH(fecha_T) = MONTH(GETDATE()) AND YEAR(fecha_T) = YEAR(GETDATE())
+                    WHERE MONTH(fecha_T) = MONTH(GETDATE()) + 1 AND YEAR(fecha_T) = YEAR(GETDATE()) AND estadoTurno_T != 'DADO DE BAJA'
                     GROUP BY DniPaciente_T
                     ORDER BY cantidad_turnos DESC";
 
@@ -69,7 +69,7 @@ namespace DAO
                     especialidad_T,
                     COUNT(especialidad_T) AS cantidad_turnos
                     FROM Turnos
-                    WHERE MONTH(fecha_T) = MONTH(GETDATE()) AND YEAR(fecha_T) = YEAR(GETDATE())
+                    WHERE MONTH(fecha_T) = MONTH(GETDATE()) + 1 AND YEAR(fecha_T) = YEAR(GETDATE()) AND estadoTurno_T != 'DADO DE BAJA'
                     GROUP BY especialidad_T
                     ORDER BY cantidad_turnos DESC";
 
@@ -83,18 +83,31 @@ namespace DAO
                     legajoMedico_T,
                     COUNT(legajoMedico_T) AS cantidad_turnos
                     FROM Turnos
-                    WHERE MONTH(fecha_T) = MONTH(GETDATE()) AND YEAR(fecha_T) = YEAR(GETDATE())
+                    WHERE MONTH(fecha_T) = MONTH(GETDATE()) + 1 AND YEAR(fecha_T) = YEAR(GETDATE()) AND estadoTurno_T != 'DADO DE BAJA'
                     GROUP BY legajoMedico_T
                     ORDER BY cantidad_turnos DESC";
 
             return ad.ObtenerTabla("Turnos", consulta);
         }
 
-        public DataTable filtrarTurnos( int legajoMedico,string paciente , string fecha)
+        public DataTable filtrarTurnos( int legajoMedico , int cantFiltros , string paciente , string fecha)
         {
-            string consulta = "SELECT NroTurno, DniPaciente_T, fecha_T, horario_T, estadoPaciente_T, estadoTurno_T, Observacion_T" +
-            " FROM TURNOS WHERE Legajo_M = "+ legajoMedico + " AND DniPaciente_T LIKE '" + paciente + "%' AND fecha_T LIKE '" + fecha + "%'";
-              return ad.ObtenerTabla("Turnos", consulta);
+            string consulta;
+
+            if(cantFiltros == 3)
+            {
+                consulta = "SELECT * FROM TURNOS WHERE legajoMedico_T = " + legajoMedico + " AND DniPaciente_T = '" + paciente + "' AND fecha_T = '" + fecha + "'";
+            }
+            else if(cantFiltros == 2)
+            {
+                consulta = "SELECT * FROM TURNOS WHERE legajoMedico_T = " + legajoMedico + " AND DniPaciente_T = '" + paciente + "'";
+            }
+            else
+            {
+                consulta = "SELECT * FROM TURNOS WHERE legajoMedico_T = " + legajoMedico + " AND fecha_T = '" + fecha + "'";
+            }
+
+            return ad.ObtenerTabla("Turnos", consulta);
            
         }
     }

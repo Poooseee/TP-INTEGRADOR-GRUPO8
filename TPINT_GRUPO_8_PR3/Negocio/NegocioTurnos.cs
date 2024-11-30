@@ -31,10 +31,10 @@ namespace Negocio
             return null;
         }
 
-        public bool verificarTurno(Turno turno)
+        public bool verificarTurno(Turno turno , string fecha)
         {
             bool existe = false;
-            if (DaoTurnos.buscarTurno(turno))
+            if (DaoTurnos.buscarTurno(turno , fecha))
             {
                 existe = true;
             }
@@ -62,33 +62,57 @@ namespace Negocio
         public string ObtenerPacientesConMasTurnos()
         {
             DataTable pacienteMasTurnos = DaoTurnos.obtenerPacienteConMasTurnos();
-            DataRow fila = pacienteMasTurnos.Rows[0];
 
-            string dniPaciente = fila["DniPaciente_T"].ToString();
-            return dniPaciente;
+            if(pacienteMasTurnos.Rows.Count > 0)
+            {
+                DataRow fila = pacienteMasTurnos.Rows[0];
+
+                string dniPaciente = fila["DniPaciente_T"].ToString();
+                return dniPaciente;
+            }
+            else
+            {
+                return "";
+            }
         }
 
         public string ObtenerEspecialidadMasSolicitada()
         {
             DataTable especialidadMasSolicitada = DaoTurnos.ObtenerEspecialidadMasSolicitada();
-            DataRow fila = especialidadMasSolicitada.Rows[0];
 
-            string especialidad = fila["especialidad_T"].ToString();
-            return especialidad;
+            if(especialidadMasSolicitada.Rows.Count > 0)
+            {
+                DataRow fila = especialidadMasSolicitada.Rows[0];
+
+                string especialidad = fila["especialidad_T"].ToString();
+                return especialidad;
+            }
+            else
+            {
+                return "";
+            }
         }
 
         public int ObtenerMedicoMasSolicitado()
         {
             DataTable medicoMasSolicitado = DaoTurnos.ObtenerMedicoMasSolicitado();
-            DataRow fila = medicoMasSolicitado.Rows[0];
+            int hola = medicoMasSolicitado.Rows.Count;
+            if(medicoMasSolicitado.Rows.Count > 0)
+            {
+                DataRow fila = medicoMasSolicitado.Rows[0];
 
-            int legajoMedico = Convert.ToInt32(fila["legajoMedico_T"]);
-            return legajoMedico;
+                int legajoMedico = Convert.ToInt32(fila["legajoMedico_T"]);
+                return legajoMedico;
+            }
+            else
+            {
+                return 0;
+            }
         }
 
-        public DataTable filtrarTurnos(int legajoMedico ,string paciente , string fecha)
+        public DataTable filtrarTurnos(int legajoMedico , int cantFiltros , string filtroPaciente , string filtroFecha)
         {
-            return DaoTurnos.filtrarTurnos( legajoMedico,paciente , fecha);
+            return DaoTurnos.filtrarTurnos(legajoMedico, cantFiltros, filtroPaciente, filtroFecha);
         }
     }
 }

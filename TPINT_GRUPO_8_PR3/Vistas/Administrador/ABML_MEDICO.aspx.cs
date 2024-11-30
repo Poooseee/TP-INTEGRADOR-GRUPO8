@@ -277,16 +277,28 @@ namespace Vistas.Administrador
         {
             if (e.Row.RowType == DataControlRowType.DataRow && e.Row.RowState.HasFlag(DataControlRowState.Edit))
             {
+                string legajo = ((Label)e.Row.FindControl("lbl_it_Legajo")).Text;
+                int intLegajo = Convert.ToInt32(legajo);
+
+                //FECHA NACIMIENTO
+                DataTable medico = negMedicos.FiltrarMedicosPorLegajo(intLegajo);
+                DateTime fechaNaciminetoDt = DateTime.Parse(medico.Rows[0]["FechaNacimiento"].ToString());
+                string fechaNacimiento = fechaNaciminetoDt.ToString("yyyy-MM-dd");
+                TextBox txtFechaNacimineto = (TextBox)e.Row.FindControl("txt_Eit_FechaDeNacimiento");
+                txtFechaNacimineto.Text = fechaNacimiento;
+
+                //DDL'S
                 DropDownList ddlEitSexo = (DropDownList)e.Row.FindControl("ddl_eit_Sexo");
                 DropDownList ddlEitProvincia = (DropDownList)e.Row.FindControl("ddl_eit_Provincia");
                 DropDownList ddlEitLocalidad = (DropDownList)e.Row.FindControl("ddl_eit_Localidad");
                 DropDownList ddlEitEspecialidad = (DropDownList)e.Row.FindControl("ddl_eit_Especialidad");
-                NegocioLocalidades loc = new NegocioLocalidades();
-                NegocioProvincias prov = new NegocioProvincias();
-                NegocioEspecialidades esp = new NegocioEspecialidades();
-                DataTable dt = new DataTable();
-                string legajo = ((Label)e.Row.FindControl("lbl_it_Legajo")).Text;
 
+                //NEGOCIOS
+                NegocioProvincias prov = new NegocioProvincias();
+                NegocioLocalidades loc = new NegocioLocalidades();
+                NegocioEspecialidades esp = new NegocioEspecialidades();
+
+                DataTable dt = new DataTable();
                 ddlEitSexo.SelectedValue = negMedicos.obtenerSexoAsignado(legajo);
 
                 dt = prov.obtenerTablaProvincias();

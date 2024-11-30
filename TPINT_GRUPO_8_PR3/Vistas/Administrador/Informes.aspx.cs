@@ -172,21 +172,42 @@ namespace Vistas.Administrador
             lblPresentes.Text = porcentajePresentes.ToString() + "%";
 
             //PACIENTE CON MAS TURNOS DEL MES
-            DataTable dtPacienteConMasTurnos = negPac.ObtenerPacientePorDni(dniPacienteMasTurnos);
-            DataRow drPacienteConMasTurnos = dtPacienteConMasTurnos.Rows[0];
+            if(dniPacienteMasTurnos == "")
+            {
+                lblPacienteTurnos.Text = "NO HAY TURNOS REGISTRADOS ESTE MES";
+            }
+            else
+            {
+                DataTable dtPacienteConMasTurnos = negPac.ObtenerPacientePorDni(dniPacienteMasTurnos);
+                DataRow drPacienteConMasTurnos = dtPacienteConMasTurnos.Rows[0];
 
-            string pacienteConMasTurnos = drPacienteConMasTurnos["nombre_P"] + " " + drPacienteConMasTurnos["apellido_P"];
-            lblPacienteTurnos.Text = pacienteConMasTurnos;
+                string pacienteConMasTurnos = drPacienteConMasTurnos["nombre_P"] + " " + drPacienteConMasTurnos["apellido_P"];
+                lblPacienteTurnos.Text = pacienteConMasTurnos;
+            }
 
             //MEDICO MAS SOLICITADO DEL MES
-            DataTable dtMedicoMasSolicitado = negMed.ObtenerMedicoPorLegajo(legajoMedicoMasSolicitado);
-            DataRow drMedicoMasSolicitado = dtMedicoMasSolicitado.Rows[0];
+            if(legajoMedicoMasSolicitado == 0)
+            {
+                lblMedicoSolicitado.Text = "NO HAY TURNOS REGISTRADOS ESTE MES";
+            }
+            else
+            {
+                DataTable dtMedicoMasSolicitado = negMed.ObtenerMedicoPorLegajo(legajoMedicoMasSolicitado);
+                DataRow drMedicoMasSolicitado = dtMedicoMasSolicitado.Rows[0];
 
-            string medicoMasSolicitado = drMedicoMasSolicitado["Nombre"] + " " + drMedicoMasSolicitado["Apellido"];
-            lblMedicoSolicitado.Text = medicoMasSolicitado;
+                string medicoMasSolicitado = drMedicoMasSolicitado["Nombre"] + " " + drMedicoMasSolicitado["Apellido"];
+                lblMedicoSolicitado.Text = medicoMasSolicitado;
+            }
 
             //ESPECIALIDAD MAS SOLICITADA DEL MES
-            lblEspecialidadSolicitada.Text = especialidadMasSolicitada;
+            if(especialidadMasSolicitada == "")
+            {
+                lblEspecialidadSolicitada.Text = "NO HAY TURNOS REGISTRADOS ESTE MES";
+            }
+            else
+            {
+                lblEspecialidadSolicitada.Text = especialidadMasSolicitada;
+            }
 
             //PORCENTAJE PACIENTES MASCULINOS
             float porcentajeMasculinos = (totalPacientes > 0) ? (float)Math.Round((pacientesMasculinos * 100.0) / totalPacientes) : 0;

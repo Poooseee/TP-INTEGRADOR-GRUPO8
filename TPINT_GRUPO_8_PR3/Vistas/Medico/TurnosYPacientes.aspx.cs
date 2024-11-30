@@ -68,18 +68,9 @@ namespace Vistas
         public void cargarGrdTurnos(int legajoMedico)
         {
             NegocioTurnos negocioTurnos = new NegocioTurnos();
-            if (txtPaciente.Text.Trim().Length > 0 || !string.IsNullOrEmpty(txtFecha.Text))
-            {
-                grvTurnos.DataSource = negocioTurnos.filtrarTurnos( legajoMedico,txtPaciente.Text, txtFecha.Text);
-                grvTurnos.DataBind();
-            }
-            else
-            {
-                grvTurnos.DataSource = negocioTurnos.obtenerTurnosDeMedico(legajoMedico);
-                grvTurnos.DataBind();
-                 
-            }
-            
+
+            grvTurnos.DataSource = negocioTurnos.obtenerTurnosDeMedico(legajoMedico);
+            grvTurnos.DataBind();
         }
         protected void grvTurnos_RowEditing(object sender, GridViewEditEventArgs e)
         {
@@ -178,7 +169,31 @@ namespace Vistas
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
+            NegocioTurnos negTur = new NegocioTurnos();
+            DataTable dt;
+
+            if (txtPaciente.Text.Trim().Length > 0 && txtFecha.Text.Trim().Length > 0)
+            {
+                dt = negTur.filtrarTurnos(legajoMedico , 3 , txtPaciente.Text , txtFecha.Text);
+                grvTurnos.DataSource = dt;
+                grvTurnos.DataBind();
+            }
+            else if(txtPaciente.Text.Trim().Length > 0)
+            {
+                dt = negTur.filtrarTurnos(legajoMedico, 2 , txtPaciente.Text , "");
+                grvTurnos.DataSource = dt;
+                grvTurnos.DataBind();
+            }
+            else if(txtFecha.Text.Trim().Length > 0)
+            {
+                dt = negTur.filtrarTurnos(legajoMedico, 1 , "" , txtFecha.Text);
+                grvTurnos.DataSource = dt;
+                grvTurnos.DataBind();
+            }
+            else
+            {
                 cargarGrdTurnos(legajoMedico);
+            }
         }
     }
 }

@@ -229,7 +229,7 @@ namespace Vistas
             string especialidad = ddlEspecialidad.SelectedItem.ToString();
             string medico = ddlMedicos.SelectedItem.ToString();
             DateTime fecha = DateTime.Parse(txtDia.Text);
-            string fechaTurno = fecha.ToString("dd/MM/yyyy");
+            string fechaTurno = fecha.ToString("yyyy-MM-dd");
 
             //obtener y convertir el horario
             string horarioSeleccionado = ddlHorarios.SelectedItem.Text.Trim();
@@ -244,7 +244,7 @@ namespace Vistas
             turno.Hora = horaComienzo;            
             NegocioTurnos negTurno = new NegocioTurnos();
             
-            if (negTurno.verificarTurno(turno))
+            if (negTurno.verificarTurno(turno , fechaTurno))
             {
                 lblExisteTurno.Text = "EL TURNO YA ESTA OCUPADO";
                 lblNoExisteTurno.Text = "";
