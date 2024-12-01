@@ -200,13 +200,25 @@ namespace Vistas.Administrador
         {
             if (e.Row.RowType == DataControlRowType.DataRow && e.Row.RowState.HasFlag(DataControlRowState.Edit))
             {
+                string dni = ((Label)e.Row.FindControl("lbl_Eit_Dni")).Text;
+
+                //FECHA DE NACIMIENTO
+                DataTable paciente = negPacientes.ObtenerPacientePorDni(dni);
+                DateTime fechaNaciminetoDt = DateTime.Parse(paciente.Rows[0]["fechaNac_P"].ToString());
+                string fechaNacimiento = fechaNaciminetoDt.ToString("yyyy-MM-dd");
+                TextBox txtFechaNacimineto = (TextBox)e.Row.FindControl("txt_Eit_FechaDeNacimiento");
+                txtFechaNacimineto.Text = fechaNacimiento;
+
+                //DDL'S
                 DropDownList ddlLocalidad = (DropDownList)e.Row.FindControl("ddl_eit_Localidad");
                 DropDownList ddlProvincia = (DropDownList)e.Row.FindControl("ddl_eit_Provincia");
+
+                //NEGOCIOS
                 NegocioLocalidades loc = new NegocioLocalidades();
                 NegocioProvincias prov = new NegocioProvincias();
-                DataTable dt = new DataTable();
                 NegocioPacientes negPac = new NegocioPacientes();
-                string dni = ((Label)e.Row.FindControl("lbl_Eit_Dni")).Text;
+
+                DataTable dt = new DataTable();
 
                 dt = prov.obtenerTablaProvincias();
                 ddlProvincia.DataSource = dt;
@@ -214,9 +226,11 @@ namespace Vistas.Administrador
                 ddlProvincia.DataValueField = "IdProvincia_PR";
                 ddlProvincia.DataBind();
                 ddlProvincia.SelectedValue = negPac.obtenerProvinciaAsignada(dni);
-                 
 
-               dt = loc.obtenerTablaLocalidades(0);
+                ddlProvincia.SelectedIndexChanged += ddl_eit_Provincia_SelectedIndexChanged;
+
+
+                dt = loc.obtenerTablaLocalidades(Convert.ToInt32(ddlProvincia.SelectedValue));
                 ddlLocalidad.DataSource = dt;
                 ddlLocalidad.DataTextField = "nombreLocalidad_L";
                 ddlLocalidad.DataValueField = "IdLocalidad_L";
@@ -348,6 +362,30 @@ namespace Vistas.Administrador
             lblMsjAlta.Text = string.Empty;
             lbtnAltaNO.Visible = false;
             lbtnAltaSI.Visible = false;
+        }
+
+        protected void ddl_eit_Provincia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //ACTIVADOR DEL EVENTO
+            DropDownList ddlProvincia = (DropDownList)sender;
+
+            //FILA ACTUAL DEL DDL
+            GridViewRow row = (GridViewRow)ddlProvincia.NamingContainer;
+
+            //DDL LOCALIDAD
+            DropDownList ddlLocalidad = (DropDownList)row.FindControl("ddl_eit_Localidad");
+
+
+            NegocioLocalidades loc = new NegocioLocalidades();
+            int IdProvincia = Convert.ToInt32(ddlProvincia.SelectedValue);
+
+            DataTable dt = new DataTable();
+            dt = loc.obtenerTablaLocalidades(IdProvincia);
+
+            ddlLocalidad.DataSource = dt;
+            ddlLocalidad.DataTextField = "nombreLocalidad_L";
+            ddlLocalidad.DataValueField = "IdLocalidad_L";
+            ddlLocalidad.DataBind();
         }
     }
    

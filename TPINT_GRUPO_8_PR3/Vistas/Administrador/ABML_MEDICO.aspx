@@ -804,7 +804,29 @@
                 </td>
             </tr>
         </table>
-    </form>
     <script src="../Scripts/JavaScript.js"></script>
-</body>
+        <table class="auto-style73">
+            <tr>
+                <td><strong>
+                    <asp:Label ID="lblAltaMedico" runat="server" Enabled="False" Text="DAR ALTA MEDICO"></asp:Label>
+                    </strong></td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="lblAltaLegajo" runat="server" Text="LEGAJO:"></asp:Label>
+                    &nbsp;
+                    <asp:TextBox ID="txtAltaLegajo" runat="server" CssClass="auto-style10" TextMode="Number" Width="224px"></asp:TextBox>
+                    &nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="btnDarAlta" runat="server" OnClick="btnDarAlta_Click" Text="Dar Alta" />
+                    &nbsp;&nbsp;
+                    <asp:Label ID="lblMsjAlta" runat="server"></asp:Label>
+                    &nbsp;&nbsp;
+                    <asp:LinkButton ID="lbtnAltaSi" runat="server" OnClick="lbtnAltaSI_Click" Visible="False">SI</asp:LinkButton>
+                    &nbsp;
+                    <asp:LinkButton ID="lbtnAltaNo" runat="server" OnClick="lbtnAltaNO_Click" Visible="False">NO</asp:LinkButton>
+                </td>
+            </tr>
+        </table>
+    </form>
+    </body>
 </html>

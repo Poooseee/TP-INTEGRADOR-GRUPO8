@@ -55,7 +55,7 @@ namespace DAO
                     DniPaciente_T,
                     COUNT(DniPaciente_T) AS cantidad_turnos
                     FROM Turnos
-                    WHERE MONTH(fecha_T) = MONTH(GETDATE()) + 1 AND YEAR(fecha_T) = YEAR(GETDATE()) AND estadoTurno_T != 'DADO DE BAJA'
+                    WHERE MONTH(fecha_T) = MONTH(GETDATE()) AND YEAR(fecha_T) = YEAR(GETDATE()) AND estadoPaciente_T = 'PRESENTE'
                     GROUP BY DniPaciente_T
                     ORDER BY cantidad_turnos DESC";
 
@@ -69,7 +69,7 @@ namespace DAO
                     especialidad_T,
                     COUNT(especialidad_T) AS cantidad_turnos
                     FROM Turnos
-                    WHERE MONTH(fecha_T) = MONTH(GETDATE()) + 1 AND YEAR(fecha_T) = YEAR(GETDATE()) AND estadoTurno_T != 'DADO DE BAJA'
+                    WHERE MONTH(fecha_T) = MONTH(GETDATE()) AND YEAR(fecha_T) = YEAR(GETDATE()) AND estadoPaciente_T = 'PRESENTE'
                     GROUP BY especialidad_T
                     ORDER BY cantidad_turnos DESC";
 
@@ -83,7 +83,7 @@ namespace DAO
                     legajoMedico_T,
                     COUNT(legajoMedico_T) AS cantidad_turnos
                     FROM Turnos
-                    WHERE MONTH(fecha_T) = MONTH(GETDATE()) + 1 AND YEAR(fecha_T) = YEAR(GETDATE()) AND estadoTurno_T != 'DADO DE BAJA'
+                    WHERE MONTH(fecha_T) = MONTH(GETDATE()) AND YEAR(fecha_T) = YEAR(GETDATE()) AND estadoPaciente_T = 'PRESENTE'
                     GROUP BY legajoMedico_T
                     ORDER BY cantidad_turnos DESC";
 

@@ -445,7 +445,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Fecha De Nacimiento">
                     <EditItemTemplate>
-                        <asp:TextBox ID="txt_Eit_FechaDeNacimiento" runat="server" Text='<%# Eval("FechaNacimiento", "{0:dd/MM/yyyy}") %>'></asp:TextBox>
+                        <asp:TextBox ID="txt_Eit_FechaDeNacimiento" runat="server" Text='<%# Bind("FechaNacimiento") %>' TextMode="Date"></asp:TextBox>
                     </EditItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="lbl_It_FechaNacimiento" runat="server" Text='<%# Eval("FechaNacimiento", "{0:dd/MM/yyyy}") %>'></asp:Label>
@@ -470,7 +470,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Provincia">
                     <EditItemTemplate>
-                        <asp:DropDownList ID="ddl_eit_Provincia" runat="server" AutoPostBack="True">
+                        <asp:DropDownList ID="ddl_eit_Provincia" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_eit_Provincia_SelectedIndexChanged">
                         </asp:DropDownList>
                     </EditItemTemplate>
                     <ItemTemplate>

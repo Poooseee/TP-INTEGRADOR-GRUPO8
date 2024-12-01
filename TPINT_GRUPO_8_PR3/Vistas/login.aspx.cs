@@ -34,6 +34,19 @@ namespace Vistas
                     Response.Redirect("/Administrador/menuAdministrador.aspx");
                 }
             }
+            else if(Session["TipoUsuario"] != null)
+            {
+                if(Session["TipoUsuario"].ToString() == "Medico")
+                {
+                    //MEDICO
+                    Response.Redirect("/Medico/TurnosYPacientes.aspx");
+                }
+                else
+                {
+                    //ADMINISTRADOR
+                    Response.Redirect("/Administrador/menuAdministrador.aspx");
+                }
+            }
            
         }
 

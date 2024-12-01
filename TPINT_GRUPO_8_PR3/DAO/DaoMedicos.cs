@@ -125,5 +125,17 @@ namespace DAO
             return ad.ObtenerTabla("sexoAsignado" , consulta);
         }
 
+        public bool existeMedicoEliminado(int legajo)
+        {
+            string consulta = "SELECT * FROM Medicos WHERE Legajo_M = " + legajo + " AND baja_M = 1";
+            return ad.existe(consulta);
+        }
+
+        public int darAltaMedico(int legajo)
+        {
+            string consulta = "UPDATE Medicos SET baja_M = 0 WHERE Legajo_M = " + legajo;
+            return ad.EjecutarConsulta(consulta);
+        }
+
     }
 }

@@ -623,5 +623,57 @@ namespace Vistas.Administrador
             ddlLocalidad.DataBind();
             ddlLocalidad.Items.Insert(0, new ListItem("Seleccione una localidad", "0"));
         }
+
+        protected void btnDarAlta_Click(object sender, EventArgs e)
+        {
+            lblMsjAlta.Text = "¿SEGURO QUIERE DAR DE ALTA A ESTE PACIENTE?";
+            lblMsjAlta.ForeColor = System.Drawing.Color.Green;
+            lbtnAltaSi.Visible = true;
+            lbtnAltaNo.Visible = true;
+        }
+
+        protected void lbtnAltaSI_Click(object sender, EventArgs e)
+        {
+            int legajo = Convert.ToInt32(txtAltaLegajo.Text);
+            if (negMedicos.existeMedicoEliminado(legajo))
+            {
+                if (negMedicos.darAltaMedico(legajo))
+                {
+                    lblMsjAlta.Text = "MEDICO DADO DE ALTA CORRECTAMENTE";
+                    lbtnAltaNo.Visible = false;
+                    lbtnAltaSi.Visible = false;
+                    txtAltaLegajo.Text = "";
+                    cargarGrdMedicos();
+                }
+                else
+                {
+                    lblMsjAlta.Text = "ERROR AL INTENTAR DAR DE ALTA EL MEDICO";
+                    lbtnAltaNo.Visible = false;
+                    lbtnAltaSi.Visible = false;
+                    txtAltaLegajo.Text = "";
+                }
+            }
+            else if (negMedicos.existeMedico(legajo))
+            {
+                lblMsjAlta.Text = "EL MEDICO CON EL LEGAJO INGRESADO YA SE ENCUENBTRA DADO DE ALTA";
+                lbtnAltaNo.Visible = false;
+                lbtnAltaSi.Visible = false;
+                txtAltaLegajo.Text = "";
+            }
+            else
+            {
+                lblMsjAlta.Text = "NO EXISTE UN MEDICO CON EL LEGAJO INGRESADO";
+                lbtnAltaNo.Visible = false;
+                lbtnAltaSi.Visible = false;
+                txtAltaLegajo.Text = "";
+            }
+        }
+
+        protected void lbtnAltaNO_Click(object sender, EventArgs e)
+        {
+            lblMsjAlta.Text = string.Empty;
+            lbtnAltaNo.Visible = false;
+            lbtnAltaSi.Visible = false;
+        }
     }
 }

@@ -23,7 +23,7 @@ namespace DAO
 
         public bool existePaciente(string dni)
         {
-            return ad.existe("SELECT * FROM Pacientes WHERE DNI_P = " + dni);
+            return ad.existe("SELECT * FROM Pacientes WHERE DNI_P = '" + dni + "'");
         }
 
         public int agregarPaciente(Paciente paciente)

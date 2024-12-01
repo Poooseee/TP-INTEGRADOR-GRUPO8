@@ -137,5 +137,31 @@ namespace Negocio
             return DaoMedicos.buscarMedicoPorLegajo(legajo);
         }
 
+        public bool existeMedicoEliminado(int legajo)
+        {
+            if (DaoMedicos.existeMedicoEliminado(legajo))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool darAltaMedico(int legajo)
+        {
+            int filas = DaoMedicos.darAltaMedico(legajo);
+
+            if (filas == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 }
