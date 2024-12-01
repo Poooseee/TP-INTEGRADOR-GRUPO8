@@ -36,6 +36,16 @@ namespace Negocio
            
         }
 
+        public bool existePaciente(string dni)
+        {
+            if (DaoPacientes.existePaciente(dni))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         public bool eliminarPaciente(string dni)
         {
            Paciente paciente = new Paciente();
