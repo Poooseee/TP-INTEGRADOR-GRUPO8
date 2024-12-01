@@ -508,8 +508,7 @@
                         <asp:CompareValidator ID="cvPass" runat="server" ControlToCompare="txtPass" ControlToValidate="txtPass2" ErrorMessage="Las contraseñas deben ser iguales." ForeColor="Red" ValidationGroup="Medico"></asp:CompareValidator>
                     </td>
                     <td class="auto-style89">
-                        <asp:HiddenField ID="hfConfirmar" runat="server" OnValueChanged="hfConfirmar_ValueChanged" />
-                    </td>
+                        &nbsp;</td>
                     <td class="auto-style70">&nbsp;</td>
                 </tr>
                 <tr>

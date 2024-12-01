@@ -114,6 +114,7 @@ namespace Vistas
                 //LIMPIAMOS LOS TEXT
                 txtUsuario.Text = "";
                 txtContraseña.Text = "";
+                lblCredencialesIncorrectas.Text = "Credenciales Incorrectas";
             }
            
         }

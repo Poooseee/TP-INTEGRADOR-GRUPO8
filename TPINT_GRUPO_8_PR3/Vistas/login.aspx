@@ -113,7 +113,9 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Button ID="btnIngresar" runat="server" Height="28px" OnClick="btnIngresar_Click" Text="Ingresar" ValidationGroup="logeo" Width="74px" />
                     </td>
-                    <td class="auto-style14"></td>
+                    <td class="auto-style14">
+                        <asp:Label ID="lblCredencialesIncorrectas" runat="server" ForeColor="Red"></asp:Label>
+                    </td>
                 </tr>
             </table>
         </div>
