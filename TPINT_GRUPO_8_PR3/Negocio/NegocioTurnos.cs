@@ -96,7 +96,6 @@ namespace Negocio
         public int ObtenerMedicoMasSolicitado()
         {
             DataTable medicoMasSolicitado = DaoTurnos.ObtenerMedicoMasSolicitado();
-            int hola = medicoMasSolicitado.Rows.Count;
             if(medicoMasSolicitado.Rows.Count > 0)
             {
                 DataRow fila = medicoMasSolicitado.Rows[0];
