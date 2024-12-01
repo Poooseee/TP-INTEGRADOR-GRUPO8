@@ -358,9 +358,9 @@ namespace Vistas.Administrador
             {
                 string legajo = ((Label)e.Row.FindControl("lbl_it_Legajo")).Text;
                 int intLegajo = Convert.ToInt32(legajo);
+                DataTable medico = negMedicos.FiltrarMedicosPorLegajo(intLegajo);
 
                 //FECHA NACIMIENTO
-                DataTable medico = negMedicos.FiltrarMedicosPorLegajo(intLegajo);
                 DateTime fechaNaciminetoDt = DateTime.Parse(medico.Rows[0]["FechaNacimiento"].ToString());
                 string fechaNacimiento = fechaNaciminetoDt.ToString("yyyy-MM-dd");
                 TextBox txtFechaNacimineto = (TextBox)e.Row.FindControl("txt_Eit_FechaDeNacimiento");
@@ -378,8 +378,11 @@ namespace Vistas.Administrador
                 NegocioEspecialidades esp = new NegocioEspecialidades();
 
                 DataTable dt = new DataTable();
-                ddlEitSexo.SelectedValue = negMedicos.obtenerSexoAsignado(legajo);
 
+                //SEXO
+                ddlEitSexo.SelectedValue = negMedicos.obtenerSexoAsignado(legajo);
+        
+                //PROVINCIAS
                 dt = prov.obtenerTablaProvincias();
                 ddlEitProvincia.DataSource = dt;
                 ddlEitProvincia.DataTextField = "nombreProvincia_PR";
@@ -389,6 +392,7 @@ namespace Vistas.Administrador
 
                 ddlEitProvincia.SelectedIndexChanged += ddl_eit_Provincia_SelectedIndexChanged;
 
+                //LOCALIDADES
                 dt = loc.obtenerTablaLocalidades(Convert.ToInt32(ddlEitProvincia.SelectedValue));
                 ddlEitLocalidad.DataSource = dt;
                 ddlEitLocalidad.DataTextField = "nombreLocalidad_L";
@@ -396,6 +400,7 @@ namespace Vistas.Administrador
                 ddlEitLocalidad.DataBind();
                 ddlEitLocalidad.SelectedValue = negMedicos.obtenerLocalidadAsignada(legajo);
 
+                //ESPECIALIDADES
                 dt = esp.obtenerTablaEspecialidades();
                 ddlEitEspecialidad.DataSource = dt;
                 ddlEitEspecialidad.DataTextField = "nombreEspecialidad_E";

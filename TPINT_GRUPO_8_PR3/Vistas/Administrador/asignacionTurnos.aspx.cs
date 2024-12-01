@@ -14,6 +14,7 @@ namespace Vistas
 {
     public partial class asignacionTurnos : System.Web.UI.Page
     {
+        string dia;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -72,18 +73,6 @@ namespace Vistas
             ddlEspecialidad.Items.Insert(0, new ListItem("-- Seleccione Especialidad --", "0"));
 
         }
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-        protected void grvTurnos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-        protected void grdPacientes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
         protected void lnkbtnCerrarSesion_Click(object sender, EventArgs e)
         {
             if (Request.Cookies["UsuarioInfo"] != null)
@@ -105,7 +94,6 @@ namespace Vistas
             cookie.Expires = DateTime.Now.AddDays(-1);
             Response.Cookies.Add(cookie);
         }
-
         private void eliminarSessions()
         {
             Session.Remove("TipoUsuario");
@@ -147,7 +135,7 @@ namespace Vistas
             ddlMedicos.Enabled = true;
             //obtengo el dia de la semana segun la fecha
             DateTime fecha = DateTime.Parse(txtDia.Text);
-            string dia = fecha.ToString("dddd", new CultureInfo("es-AR"));
+            dia = fecha.ToString("dddd", new CultureInfo("es-AR"));
             if (dia == "miércoles")
             {
                 dia = "Miercoles";
@@ -189,22 +177,10 @@ namespace Vistas
             ddlHorarios.Enabled = true;
 
             // agrego los horarios del dia seleccionado
-            DateTime fecha = DateTime.Parse(txtDia.Text);
-            string dia = fecha.ToString("dddd", new CultureInfo("es-AR"));
-            if (dia == "miércoles")
-            {
-                dia = "Miercoles";
-            }
-            if (dia == "sábado")
-            {
-                dia = "Sabado";
-            }
             NegocioHorarios negHorarios = new NegocioHorarios();
-
             DataRow dr = negHorarios.diaLaboralMedico(int.Parse(ddlMedicos.SelectedValue.ToString()),dia);
 
             // obtengo horario de entrada y de salida 
-
             TimeSpan horaEntrada = TimeSpan.Parse(dr["INGRESO"].ToString());
             TimeSpan horaSalida = TimeSpan.Parse(dr["EGRESO"].ToString());
 
@@ -268,7 +244,6 @@ namespace Vistas
             lblHorario.Text = "";
             txtDniPaciente.Text = "";
             txtNombrePaciente.Text = "";
-
         }
         protected void completarCampoAsignacionTurno(string especialidad, string medico, string fecha,string horario)
         {
@@ -302,11 +277,13 @@ namespace Vistas
             turno.LegajoMedico = int.Parse(ddlMedicos.SelectedValue.ToString());
             turno.DniPaciente1 = txtDniPaciente.Text.Trim();
             turno.Fecha = DateTime.Parse(txtDia.Text);
+
             string horarioSeleccionado = ddlHorarios.SelectedItem.Text;
             string[] partesHorario = horarioSeleccionado.Split('-');
             string horaInicioString = partesHorario[0].Trim();
             DateTime horaInicio = DateTime.ParseExact(horaInicioString, "HH:mm:ss", CultureInfo.InvariantCulture);
             string hora = horaInicio.ToString("HH:mm:ss");
+
             turno.Hora = hora;
 
             if (negocioTurnos.agregarTurno(turno))
