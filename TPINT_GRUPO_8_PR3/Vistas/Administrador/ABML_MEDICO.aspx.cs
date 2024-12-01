@@ -181,7 +181,7 @@ namespace Vistas.Administrador
 
             if (negMedicos.agregarMedico(medico, usuario))
             {
-                 //int legajo = getLegajoMedico();
+                limpiarMensajes();
                  agregarHorarios(medico.Legajo);
                  vaciarCampos();
                  lblAgregado.Text = "El medico se ha agregado correctamente.";
@@ -324,6 +324,7 @@ namespace Vistas.Administrador
         }
         protected void lbtnSi_Click(object sender, EventArgs e)
         {
+            limpiarMensajes();
             int legajo = (int)Session["RowIndexDeleteMedico"];
             if (negMedicos.BajaMedico(legajo))
             {
@@ -428,6 +429,7 @@ namespace Vistas.Administrador
         }
         protected void grdHorarios_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
+            limpiarMensajes();
             int RowIndex = e.RowIndex;
             GridViewRow fila = grdHorarios.Rows[RowIndex];
 
@@ -449,6 +451,7 @@ namespace Vistas.Administrador
         }
         protected void grdHorarios_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            limpiarMensajes();
             lblMensajeHorario.Text = "¿SEGURO QUE QUIERE ELIMINAR EL HORARIO DE ESTE MEDICO?";
             lblMensajeHorario.ForeColor = System.Drawing.Color.Red;
             lbtnNoHorario.Visible = true;
@@ -460,6 +463,7 @@ namespace Vistas.Administrador
         }
         protected void lbtnSiHorario_Click1(object sender, EventArgs e)
         {
+            limpiarMensajes();
             string dia = Session["RowIndexDeleteHorario_dia"].ToString();
             int legajo = (int)Session["RowIndexDeleteHorario_leg"];
             if (negHorarios.eliminarHorario(legajo, dia))
@@ -504,6 +508,7 @@ namespace Vistas.Administrador
 
         protected void btnAgregarDia_Click(object sender, EventArgs e)
         {
+            limpiarMensajes();
             if(negHorarios.agregarHorarios(int.Parse(txtLegajoHorario.Text), ddlAgregarDia.SelectedValue, txtHorarioInicio.Text, txtHorarioFin.Text))
             {
                 lblHorarioAgregado.Text = "SE AGREGÓ EL HORARIO CORRECTAMENTE";
@@ -593,6 +598,16 @@ namespace Vistas.Administrador
 
             txtUsuario.Text = "";
         }
+
+        protected void limpiarMensajes()
+        {
+            lblAgregado.Text = string.Empty;
+            lblMensaje.Text = string.Empty;
+            lblMensajeHorario.Text = string.Empty;
+            lblHorarioAgregado.Text = string.Empty;
+            lblMsjAlta.Text = string.Empty;
+        }
+
         protected void ddl_eit_Provincia_SelectedIndexChanged(object sender, EventArgs e)
         {
             //ACTIVADOR DEL EVENTO
@@ -631,7 +646,8 @@ namespace Vistas.Administrador
 
         protected void btnDarAlta_Click(object sender, EventArgs e)
         {
-            lblMsjAlta.Text = "¿SEGURO QUIERE DAR DE ALTA A ESTE PACIENTE?";
+            limpiarMensajes();
+            lblMsjAlta.Text = "¿SEGURO QUIERE DAR DE ALTA A ESTE MEDICO?";
             lblMsjAlta.ForeColor = System.Drawing.Color.Green;
             lbtnAltaSi.Visible = true;
             lbtnAltaNo.Visible = true;
