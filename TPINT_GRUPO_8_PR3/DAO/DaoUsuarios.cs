@@ -65,15 +65,7 @@ namespace DAO
         {
             string consulta = "INSERT INTO USUARIOS (nombreUsuario_U, contraseniaUsuario_U, tipoUsuario_U) VALUES ('" + usuario.NombreUsuario + "' , '" + usuario.Contrasenia + "' , '" 
                 + usuario.TipoUsuario + "')";
-            try
-            {
-
-                return ad.EjecutarConsulta(consulta);
-            }
-            catch (Exception ex)
-            {
-                return -1;
-            }
+            return ad.EjecutarConsulta(consulta);
         }
     }
 }
