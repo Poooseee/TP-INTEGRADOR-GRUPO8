@@ -128,7 +128,7 @@ namespace Vistas
         // 1) SELECCIONAR ESPECIALIDAD
         protected void ddlEspecialidad_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(ddlEspecialidad.SelectedIndex == 0)
+            if (ddlEspecialidad.SelectedIndex == 0)
             {
                 deshabilitarFiltros();
                 vaciarFiltros();
@@ -152,7 +152,7 @@ namespace Vistas
             {
                 dia = "Miercoles";
             }
-            if(dia == "sábado")
+            if (dia == "sábado")
             {
                 dia = "Sabado";
             }
@@ -163,7 +163,7 @@ namespace Vistas
             ListItem itemDefault = new ListItem("-- Seleccione Medico --", "0");
             ddlMedicos.Items.Add(itemDefault);
             NegocioMedicos neg = new NegocioMedicos();
-            DataTable dt = neg.obtenerMedicosDeEspecialidad(ddlEspecialidad.SelectedItem.Text,dia);
+            DataTable dt = neg.obtenerMedicosDeEspecialidad(ddlEspecialidad.SelectedItem.Text, dia);
             foreach (DataRow dr in dt.Rows)
             {
                 ListItem item = new ListItem();
@@ -175,7 +175,7 @@ namespace Vistas
         // 3) SELECCIONAR MEDICO
         protected void ddlMedicos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(ddlMedicos.SelectedIndex == 0)
+            if (ddlMedicos.SelectedIndex == 0)
             {
                 ddlHorarios.Items.Clear();
                 ddlHorarios.Items.Insert(0, new ListItem("-- Seleccione un Horario --"));
@@ -201,7 +201,7 @@ namespace Vistas
             }
             NegocioHorarios negHorarios = new NegocioHorarios();
 
-            DataRow dr = negHorarios.diaLaboralMedico(int.Parse(ddlMedicos.SelectedValue.ToString()),dia);
+            DataRow dr = negHorarios.diaLaboralMedico(int.Parse(ddlMedicos.SelectedValue.ToString()), dia);
 
             // obtengo horario de entrada y de salida 
 
@@ -218,9 +218,9 @@ namespace Vistas
                 // el i representa cada hora que le sumo una hora para mostrar la hora de finalizacion del turno
                 // conformando turnos de una hora desde que entra hasta que sale
 
-                 TimeSpan horaFinalizacion = i + unaHora;
-                 item.Text = i.ToString() + " - " + horaFinalizacion.ToString();
-                 ddlHorarios.Items.Add(item);
+                TimeSpan horaFinalizacion = i + unaHora;
+                item.Text = i.ToString() + " - " + horaFinalizacion.ToString();
+                ddlHorarios.Items.Add(item);
             }
         }
         // 4) VERIFICAR TURNO CON LOS HORARIOS
@@ -241,10 +241,10 @@ namespace Vistas
             Turno turno = new Turno();
             turno.Fecha = fecha;
             turno.LegajoMedico = int.Parse(ddlMedicos.SelectedValue.ToString());
-            turno.Hora = horaComienzo;            
+            turno.Hora = horaComienzo;
             NegocioTurnos negTurno = new NegocioTurnos();
-            
-            if (negTurno.verificarTurno(turno , fechaTurno))
+
+            if (negTurno.verificarTurno(turno, fechaTurno))
             {
                 lblExisteTurno.Text = "EL TURNO YA ESTA OCUPADO";
                 lblNoExisteTurno.Text = "";
@@ -270,7 +270,7 @@ namespace Vistas
             txtNombrePaciente.Text = "";
 
         }
-        protected void completarCampoAsignacionTurno(string especialidad, string medico, string fecha,string horario)
+        protected void completarCampoAsignacionTurno(string especialidad, string medico, string fecha, string horario)
         {
             lblEspecialidad.Text = especialidad;
             lblMedico.Text = medico;
@@ -296,6 +296,7 @@ namespace Vistas
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             //llenar la entidad de turno
+            NegocioPacientes negPac = new NegocioPacientes();
             NegocioTurnos negocioTurnos = new NegocioTurnos();
             Turno turno = new Turno();
             turno.Especialidad = ddlEspecialidad.SelectedItem.ToString();
@@ -307,7 +308,14 @@ namespace Vistas
             string horaInicioString = partesHorario[0].Trim();
             DateTime horaInicio = DateTime.ParseExact(horaInicioString, "HH:mm:ss", CultureInfo.InvariantCulture);
             string hora = horaInicio.ToString("HH:mm:ss");
+            string dni = txtDniPaciente.Text.Trim();
             turno.Hora = hora;
+
+            if (!negPac.existePaciente(dni))
+            {
+                lblError.Text = "NO EXISTE UN PACIENTE CON ESE DNI";
+                return;
+            }
 
             if (negocioTurnos.agregarTurno(turno))
             {

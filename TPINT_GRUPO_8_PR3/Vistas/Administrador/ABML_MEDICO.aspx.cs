@@ -181,7 +181,7 @@ namespace Vistas.Administrador
 
             if (negMedicos.agregarMedico(medico, usuario))
             {
-                 //int legajo = getLegajoMedico();
+                limpiarMensajes();
                  agregarHorarios(medico.Legajo);
                  vaciarCampos();
                  lblAgregado.Text = "El medico se ha agregado correctamente.";
@@ -324,6 +324,7 @@ namespace Vistas.Administrador
         }
         protected void lbtnSi_Click(object sender, EventArgs e)
         {
+            limpiarMensajes();
             int legajo = (int)Session["RowIndexDeleteMedico"];
             if (negMedicos.BajaMedico(legajo))
             {
@@ -358,9 +359,9 @@ namespace Vistas.Administrador
             {
                 string legajo = ((Label)e.Row.FindControl("lbl_it_Legajo")).Text;
                 int intLegajo = Convert.ToInt32(legajo);
+                DataTable medico = negMedicos.FiltrarMedicosPorLegajo(intLegajo);
 
                 //FECHA NACIMIENTO
-                DataTable medico = negMedicos.FiltrarMedicosPorLegajo(intLegajo);
                 DateTime fechaNaciminetoDt = DateTime.Parse(medico.Rows[0]["FechaNacimiento"].ToString());
                 string fechaNacimiento = fechaNaciminetoDt.ToString("yyyy-MM-dd");
                 TextBox txtFechaNacimineto = (TextBox)e.Row.FindControl("txt_Eit_FechaDeNacimiento");
@@ -378,8 +379,11 @@ namespace Vistas.Administrador
                 NegocioEspecialidades esp = new NegocioEspecialidades();
 
                 DataTable dt = new DataTable();
-                ddlEitSexo.SelectedValue = negMedicos.obtenerSexoAsignado(legajo);
 
+                //SEXO
+                ddlEitSexo.SelectedValue = negMedicos.obtenerSexoAsignado(legajo);
+        
+                //PROVINCIAS
                 dt = prov.obtenerTablaProvincias();
                 ddlEitProvincia.DataSource = dt;
                 ddlEitProvincia.DataTextField = "nombreProvincia_PR";
@@ -389,6 +393,7 @@ namespace Vistas.Administrador
 
                 ddlEitProvincia.SelectedIndexChanged += ddl_eit_Provincia_SelectedIndexChanged;
 
+                //LOCALIDADES
                 dt = loc.obtenerTablaLocalidades(Convert.ToInt32(ddlEitProvincia.SelectedValue));
                 ddlEitLocalidad.DataSource = dt;
                 ddlEitLocalidad.DataTextField = "nombreLocalidad_L";
@@ -396,6 +401,7 @@ namespace Vistas.Administrador
                 ddlEitLocalidad.DataBind();
                 ddlEitLocalidad.SelectedValue = negMedicos.obtenerLocalidadAsignada(legajo);
 
+                //ESPECIALIDADES
                 dt = esp.obtenerTablaEspecialidades();
                 ddlEitEspecialidad.DataSource = dt;
                 ddlEitEspecialidad.DataTextField = "nombreEspecialidad_E";
@@ -423,6 +429,7 @@ namespace Vistas.Administrador
         }
         protected void grdHorarios_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
+            limpiarMensajes();
             int RowIndex = e.RowIndex;
             GridViewRow fila = grdHorarios.Rows[RowIndex];
 
@@ -444,6 +451,7 @@ namespace Vistas.Administrador
         }
         protected void grdHorarios_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            limpiarMensajes();
             lblMensajeHorario.Text = "¿SEGURO QUE QUIERE ELIMINAR EL HORARIO DE ESTE MEDICO?";
             lblMensajeHorario.ForeColor = System.Drawing.Color.Red;
             lbtnNoHorario.Visible = true;
@@ -455,6 +463,7 @@ namespace Vistas.Administrador
         }
         protected void lbtnSiHorario_Click1(object sender, EventArgs e)
         {
+            limpiarMensajes();
             string dia = Session["RowIndexDeleteHorario_dia"].ToString();
             int legajo = (int)Session["RowIndexDeleteHorario_leg"];
             if (negHorarios.eliminarHorario(legajo, dia))
@@ -499,6 +508,7 @@ namespace Vistas.Administrador
 
         protected void btnAgregarDia_Click(object sender, EventArgs e)
         {
+            limpiarMensajes();
             if(negHorarios.agregarHorarios(int.Parse(txtLegajoHorario.Text), ddlAgregarDia.SelectedValue, txtHorarioInicio.Text, txtHorarioFin.Text))
             {
                 lblHorarioAgregado.Text = "SE AGREGÓ EL HORARIO CORRECTAMENTE";
@@ -588,6 +598,16 @@ namespace Vistas.Administrador
 
             txtUsuario.Text = "";
         }
+
+        protected void limpiarMensajes()
+        {
+            lblAgregado.Text = string.Empty;
+            lblMensaje.Text = string.Empty;
+            lblMensajeHorario.Text = string.Empty;
+            lblHorarioAgregado.Text = string.Empty;
+            lblMsjAlta.Text = string.Empty;
+        }
+
         protected void ddl_eit_Provincia_SelectedIndexChanged(object sender, EventArgs e)
         {
             //ACTIVADOR DEL EVENTO
@@ -626,7 +646,8 @@ namespace Vistas.Administrador
 
         protected void btnDarAlta_Click(object sender, EventArgs e)
         {
-            lblMsjAlta.Text = "¿SEGURO QUIERE DAR DE ALTA A ESTE PACIENTE?";
+            limpiarMensajes();
+            lblMsjAlta.Text = "¿SEGURO QUIERE DAR DE ALTA A ESTE MEDICO?";
             lblMsjAlta.ForeColor = System.Drawing.Color.Green;
             lbtnAltaSi.Visible = true;
             lbtnAltaNo.Visible = true;
