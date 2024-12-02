@@ -283,7 +283,7 @@
                     <td class="auto-style69">DNI:</td>
                     <td class="auto-style69">
             <strong>
-                        <asp:TextBox ID="txtDNI" runat="server" Width="135px" TextMode="Number"></asp:TextBox>
+                        <asp:TextBox ID="txtDNI" runat="server" Width="135px" TextMode="Number" MaxLength="8"></asp:TextBox>
                     </td>
                     <td class="auto-style69">
                         <asp:RequiredFieldValidator ID="rfvDNI" runat="server" ControlToValidate="txtDNI" ErrorMessage="*" ForeColor="Red" ValidationGroup="Medico"></asp:RequiredFieldValidator>

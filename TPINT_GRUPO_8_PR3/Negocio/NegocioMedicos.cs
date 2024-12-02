@@ -54,9 +54,9 @@ namespace Negocio
 
             bool existeMedico = DaoMedicos.existeMedico(medico.Legajo);
             bool existeUsuario = daoUsuarios.nombreUsuarioValido(usuario);
+            bool existeMedicoDNI = DaoMedicos.existeMedicoDNI(medico.Dni.ToString());
 
-
-            if (existeMedico == false && existeUsuario == false)
+            if (existeMedico == false && existeUsuario == false && existeMedicoDNI == false)
             {
                 //si no existe, agregalo
                 filas2 = daoUsuarios.agregarUsuario(usuario);

@@ -33,6 +33,10 @@ namespace DAO
         {
             return ad.existe("SELECT * FROM Medicos WHERE  baja_m = 0 AND Legajo_M = " + legajo);
         }
+        public bool existeMedicoDNI(string dni)
+        {
+            return ad.existe("SELECT * FROM Medicos WHERE  baja_m = 0 AND DNI_M = '" + dni + "'");
+        }
         public int actualizarMedico(Medico m)
         {
             string consulta = "UPDATE Medicos SET " +
